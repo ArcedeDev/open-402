@@ -215,9 +215,12 @@ function extractEntry(
   const networks: string[] = [];
   const assets: string[] = [];
 
+  // Known payment protocols — only extract these, ignore junk field names
+  const KNOWN_PROTOCOLS = new Set(["x402", "l402", "mpp"]);
+
   const payments = manifest.payments as Record<string, Record<string, unknown>> | undefined;
   if (payments && typeof payments === "object") {
-    protocols.push(...Object.keys(payments));
+    protocols.push(...Object.keys(payments).filter((k) => KNOWN_PROTOCOLS.has(k.toLowerCase())));
     for (const config of Object.values(payments)) {
       if (config && typeof config === "object" && Array.isArray((config as Record<string, unknown>).networks)) {
         for (const n of (config as Record<string, unknown>).networks as Record<string, unknown>[]) {

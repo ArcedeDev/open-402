@@ -299,7 +299,14 @@ The `agent.json` spec solves this with three tiers:
 | **Tier 2: Capable** | "Here's what I do" | + `intents[]` with endpoints and pricing | A menu with prices |
 | **Tier 3: Verified** | "I can prove I own this domain" | + `identity` with `did` + `public_key` | A notarized business license |
 
-To reach Tier 3, add an `identity` block to your agent.json with a DID (Decentralized Identifier) and a public key. The simplest method is `did:web`, which uses your existing domain as proof. If you own the domain, you control the identity.
+To reach Tier 3, generate a keypair and add an `identity` block to your agent.json:
+
+```bash
+# Generate your Ed25519 keypair
+npx @open-agent-trust/cli keygen --issuer-id yourdomain-com
+```
+
+Then add the public key to your agent.json:
 
 ```json
 {
@@ -309,6 +316,8 @@ To reach Tier 3, add an `identity` block to your agent.json with a DID (Decentra
   }
 }
 ```
+
+You also need to host a DID document at `/.well-known/did.json` on your domain. For the full step-by-step guide, see [Becoming Tier 3](https://agentinternetruntime.com/spec/agent-json#becoming-tier-3).
 
 This proves the API provider is who they claim to be. But there's a second, separate trust problem.
 
