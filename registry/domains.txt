@@ -1,7 +1,7 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 2163
-# Total endpoints: 15189
+# Total domains: 2208
+# Total endpoints: 15169
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
 x402scan.com | unclaimed | 402index | 2026-03-23
@@ -45,7 +45,7 @@ agents.allium.so | unclaimed | 402index | 2026-03-23
 x402-gateway-production.up.railway.app| verified |402index|2026-03-23
 pro-api.coingecko.com | unclaimed | 402index | 2026-03-23
 lightningfaucet.com | unclaimed | 402index | 2026-03-23
-b9c7a16b-b90f-4d3c-b73c-bb8d49f9a8fd-00-2zmwe913s9fbf.picard.replit.dev | unclaimed | 402index | 2026-03-23
+b9c7a16b-b90f-4d3c-b73c-bb8d49f9a8fd-00-2zmwe913s9fbf.picard.replit.dev| verified |402index|2026-03-23
 gateway.grapevine.fyi | unclaimed | 402index | 2026-03-23
 defi.hugen.tokyo | unclaimed | 402index | 2026-03-23
 stablestudio.dev | unclaimed | 402index | 2026-03-23
@@ -414,7 +414,7 @@ x402-cybercentry-wallet-verification.up.railway.app | unclaimed | 402index | 202
 app.opennode.com | unclaimed | 402index | 2026-03-23
 api.2captcha.com | unclaimed | 402index | 2026-03-23
 alittlebitofmoney.com | unclaimed | 402index | 2026-03-23
-aiprox.dev | unclaimed | 402index | 2026-03-23
+aiprox.dev| verified |402index|2026-03-23
 otaku.so | unclaimed | 402index | 2026-03-23
 research.heurist.ai | unclaimed | 402index | 2026-03-23
 agent-commerce.store | unclaimed | 402index | 2026-03-23
@@ -1030,7 +1030,7 @@ x402.gqgroup.xyz | unclaimed | onchain-x402 | 2026-03-23
 coinbase.fooga.fun | unclaimed | onchain-x402 | 2026-03-23
 its-kings-enable-mats.trycloudflare.com | unclaimed | onchain-x402 | 2026-03-23
 x402.theupsiderai.com | unclaimed | onchain-x402 | 2026-03-23
-oracle-402-agent.onrender.com | unclaimed | onchain-x402 | 2026-03-23
+oracle-402-agent.onrender.com| verified |onchain-x402|2026-03-23
 api.ethyai.app | unclaimed | onchain-x402 | 2026-03-23
 api.xn--4kq65rx59c.com | unclaimed | onchain-x402 | 2026-03-23
 raffle-app-avs2z.ondigitalocean.app | unclaimed | onchain-x402 | 2026-03-23
@@ -1815,7 +1815,7 @@ x402.ai.bio.xyz | unclaimed | onchain-x402 | 2026-03-23
 core-web-vitals.apimesh.xyz | unclaimed | onchain-x402 | 2026-03-23
 security-headers.apimesh.xyz | unclaimed | onchain-x402 | 2026-03-23
 phones-beginner-univ-split.trycloudflare.com | unclaimed | onchain-x402 | 2026-03-23
-agentforge-taupe.vercel.app | unclaimed | onchain-x402 | 2026-03-23
+agentforge-taupe.vercel.app| verified |onchain-x402|2026-03-23
 archtools.dev | verified | onchain-x402 | 2026-03-23
 enrichx402.com | unclaimed | onchain-x402 | 2026-03-23
 solwall.xyz | unclaimed | onchain-x402 | 2026-03-23
@@ -2166,3 +2166,48 @@ www.l402apps.com | unclaimed | onchain-l402 | 2026-03-23
 www.ganamos.earth | unclaimed | onchain-l402 | 2026-03-23
 api.search1api.com | unclaimed | onchain-mpp | 2026-03-23
 arcede.com | verified | submit | 2026-03-23
+
+ponzi402.com | unclaimed | onchain-x402 | 2026-03-23
+minimyths.xyz | unclaimed | onchain-x402 | 2026-03-23
+internetobserver.fun | unclaimed | onchain-x402 | 2026-03-23
+x402dev.com | unclaimed | onchain-x402 | 2026-03-23
+pingsol.dev | unclaimed | onchain-x402 | 2026-03-23
+peng.observer | unclaimed | onchain-x402 | 2026-03-23
+goodz.charity | unclaimed | onchain-x402 | 2026-03-23
+x402flowers.wtf | unclaimed | onchain-x402 | 2026-03-23
+zorro.team | unclaimed | onchain-x402 | 2026-03-23
+x402monkey.com | unclaimed | onchain-x402 | 2026-03-23
+donotkill.me | unclaimed | onchain-x402 | 2026-03-23
+x501ana.com | unclaimed | onchain-x402 | 2026-03-23
+x402bots.xyz | unclaimed | onchain-x402 | 2026-03-23
+xyfun.org | unclaimed | onchain-x402 | 2026-03-23
+dingdotfun.com | unclaimed | onchain-x402 | 2026-03-23
+402tip.com | unclaimed | onchain-x402 | 2026-03-23
+x402doge.wtf | unclaimed | onchain-x402 | 2026-03-23
+shitx402.wtf | unclaimed | onchain-x402 | 2026-03-23
+cultx402.xyz | unclaimed | onchain-x402 | 2026-03-23
+claw402.com | unclaimed | onchain-x402 | 2026-03-23
+claw402.win | unclaimed | onchain-x402 | 2026-03-23
+slotx402.fun | unclaimed | onchain-x402 | 2026-03-23
+800402.tech | unclaimed | onchain-x402 | 2026-03-23
+bingx402.com | unclaimed | onchain-x402 | 2026-03-23
+payperlink.xyz | verified | onchain-x402 | 2026-03-23
+avav.online | unclaimed | onchain-x402 | 2026-03-23
+x402punks.wtf | unclaimed | onchain-x402 | 2026-03-23
+x402nexus.xyz | unclaimed | onchain-x402 | 2026-03-23
+app.suedeai.xyz | unclaimed | onchain-x402 | 2026-03-23
+x402launch.app | unclaimed | onchain-x402 | 2026-03-23
+x402life.com | unclaimed | onchain-x402 | 2026-03-23
+penny.tech | unclaimed | onchain-x402 | 2026-03-23
+x402angrypes.fun | unclaimed | onchain-x402 | 2026-03-23
+basehub.fun | unclaimed | onchain-x402 | 2026-03-23
+x402rs.fun | unclaimed | onchain-x402 | 2026-03-23
+stripfeed.dev | unclaimed | onchain-x402 | 2026-03-23
+aiport.wiki | unclaimed | onchain-x402 | 2026-03-23
+simplefi.tech | unclaimed | onchain-x402 | 2026-03-23
+hpvideo.ai | unclaimed | onchain-x402 | 2026-03-23
+tip.md | unclaimed | onchain-x402 | 2026-03-23
+api.reqcast.com | unclaimed | onchain-x402 | 2026-03-23
+grid.ptsolutions.io | unclaimed | onchain-l402 | 2026-03-23
+x402-gw-v2-production.up.railway.app | unclaimed | onchain-mpp | 2026-03-23
+clawmerchants.com | unclaimed | onchain-mpp | 2026-03-23
