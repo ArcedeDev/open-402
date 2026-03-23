@@ -1,19 +1,19 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
 # Total domains: 708
-# Total endpoints: 15773
+# Total endpoints: 10
 
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
 x402scan.com | unclaimed | 402index | 2026-03-23
-bridge.eruditepay.com | unclaimed | 402index | 2026-03-23
+bridge.eruditepay.com| verified |402index|2026-03-23
 api-dev.intra-tls2.dctx.link | unclaimed | 402index | 2026-03-23
 api.questflow.ai | unclaimed | 402index | 2026-03-23
 api.myceliasignal.com | unclaimed | 402index | 2026-03-23
 databr-production.up.railway.app | unclaimed | 402index | 2026-03-23
 databr.api.br | unclaimed | 402index | 2026-03-23
 x402.robtex.com | unclaimed | 402index | 2026-03-23
-emc2ai.io | unclaimed | 402index | 2026-03-23
+emc2ai.io| verified |402index|2026-03-23
 defi-shield-hazel.vercel.app | unclaimed | 402index | 2026-03-23
 stabletravel.dev | unclaimed | 402index | 2026-03-23
 llm402.ai | unclaimed | 402index | 2026-03-23
@@ -23,7 +23,7 @@ maximumsats.com | unclaimed | 402index | 2026-03-23
 wot.klabo.world | unclaimed | 402index | 2026-03-23
 x402.twit.sh | unclaimed | 402index | 2026-03-23
 api.paysponge.com | unclaimed | 402index | 2026-03-23
-padelmaps.org | unclaimed | 402index | 2026-03-23
+padelmaps.org| verified |402index|2026-03-23
 sats4ai.com | unclaimed | 402index | 2026-03-23
 api.lightningenable.com | unclaimed | 402index | 2026-03-23
 mesh.heurist.xyz | unclaimed | 402index | 2026-03-23
@@ -31,7 +31,7 @@ x402.api.agentmail.to | unclaimed | 402index | 2026-03-23
 httpay.xyz | unclaimed | 402index | 2026-03-23
 maps.googleapis.com | unclaimed | 402index | 2026-03-23
 stablesocial.dev | unclaimed | 402index | 2026-03-23
-convrgent.ai | unclaimed | 402index | 2026-03-23
+convrgent.ai| verified |402index|2026-03-23
 blockrun.ai | unclaimed | 402index | 2026-03-23
 api.delx.ai | unclaimed | 402index | 2026-03-23
 api.carbon-cashmere.de | unclaimed | 402index | 2026-03-23
@@ -43,7 +43,7 @@ stableenrich.dev | unclaimed | 402index | 2026-03-23
 api.kicks.dev | unclaimed | 402index | 2026-03-23
 x402.silverbackdefi.app | unclaimed | 402index | 2026-03-23
 agents.allium.so | unclaimed | 402index | 2026-03-23
-x402-gateway-production.up.railway.app | unclaimed | 402index | 2026-03-23
+x402-gateway-production.up.railway.app| verified |402index|2026-03-23
 pro-api.coingecko.com | unclaimed | 402index | 2026-03-23
 lightningfaucet.com | unclaimed | 402index | 2026-03-23
 b9c7a16b-b90f-4d3c-b73c-bb8d49f9a8fd-00-2zmwe913s9fbf.picard.replit.dev | unclaimed | 402index | 2026-03-23
@@ -77,7 +77,7 @@ twitter.surf.cascade.fyi | unclaimed | 402index | 2026-03-23
 api.grapevine.markets | unclaimed | 402index | 2026-03-23
 laso.finance | unclaimed | 402index | 2026-03-23
 stableemail.dev | unclaimed | 402index | 2026-03-23
-gateway-production-2cc2.up.railway.app | unclaimed | 402index | 2026-03-23
+gateway-production-2cc2.up.railway.app| verified |402index|2026-03-23
 minifetch.com | unclaimed | 402index | 2026-03-23
 polynews.news | unclaimed | 402index | 2026-03-23
 pubmed.sekgen.xyz | unclaimed | 402index | 2026-03-23
@@ -93,7 +93,7 @@ crypto.402box.io | unclaimed | 402index | 2026-03-23
 legal.402box.io | unclaimed | 402index | 2026-03-23
 crypto.apitoai.xyz | unclaimed | 402index | 2026-03-23
 legal.apitoai.xyz | unclaimed | 402index | 2026-03-23
-governance.taskhawktech.com | unclaimed | 402index | 2026-03-23
+governance.taskhawktech.com| verified |402index|2026-03-23
 wurkapi.fun | unclaimed | 402index | 2026-03-23
 x402scan-j55w7ornb-merit-systems.vercel.app | unclaimed | 402index | 2026-03-23
 expansion.402box.io | unclaimed | 402index | 2026-03-23
@@ -117,7 +117,7 @@ mapbox.mpp.paywithlocus.com | unclaimed | 402index | 2026-03-23
 marketing.apitoai.xyz | unclaimed | 402index | 2026-03-23
 domain.hugen.tokyo | unclaimed | 402index | 2026-03-23
 epsteinisland.club | unclaimed | 402index | 2026-03-23
-x402.eruditepay.com | unclaimed | 402index | 2026-03-23
+x402.eruditepay.com| verified |402index|2026-03-23
 l402apps.com | unclaimed | 402index | 2026-03-23
 x402factory.ai | unclaimed | 402index | 2026-03-23
 brandontan.app | unclaimed | 402index | 2026-03-23
@@ -138,7 +138,7 @@ api.grapevine.fyi | unclaimed | 402index | 2026-03-23
 staging.toolkit.dev | unclaimed | 402index | 2026-03-23
 gifu-server.onrender.com | unclaimed | 402index | 2026-03-23
 blocksearch.dev | unclaimed | 402index | 2026-03-23
-x402.hodle.com.br | unclaimed | 402index | 2026-03-23
+x402.hodle.com.br| verified |402index|2026-03-23
 api.ordiscan.com | unclaimed | 402index | 2026-03-23
 rng.sociologic.ai | unclaimed | 402index | 2026-03-23
 api.firecrawl.dev | unclaimed | 402index | 2026-03-23
@@ -161,7 +161,7 @@ x402-secure-api.t54.ai | unclaimed | 402index | 2026-03-23
 genbase.fun | unclaimed | 402index | 2026-03-23
 api.neynar.com | unclaimed | 402index | 2026-03-23
 api.strale.io | unclaimed | 402index | 2026-03-23
-agoragentic.com | unclaimed | 402index | 2026-03-23
+agoragentic.com| verified |402index|2026-03-23
 certvera.com | unclaimed | 402index | 2026-03-23
 boss-grossly-redbird.ngrok-free.app | unclaimed | 402index | 2026-03-23
 agents.402box.io | unclaimed | 402index | 2026-03-23
@@ -175,11 +175,11 @@ x402.naiko.io | unclaimed | 402index | 2026-03-23
 do-and-coffee.com | unclaimed | 402index | 2026-03-23
 getcabal.com | unclaimed | 402index | 2026-03-23
 api.canza.app | unclaimed | 402index | 2026-03-23
-x402.valoria.net | unclaimed | 402index | 2026-03-23
+x402.valoria.net| verified |402index|2026-03-23
 api.barvis.io | unclaimed | 402index | 2026-03-23
 api.slamai.dev | unclaimed | 402index | 2026-03-23
 basepost.vercel.app | unclaimed | 402index | 2026-03-23
-cryptorugmunch.app | unclaimed | 402index | 2026-03-23
+cryptorugmunch.app| verified |402index|2026-03-23
 x402.browserbase.com | unclaimed | 402index | 2026-03-23
 mpp.browserbase.com | unclaimed | 402index | 2026-03-23
 pro-api.coinmarketcap.com | unclaimed | 402index | 2026-03-23
@@ -207,7 +207,7 @@ api.bloomfilter.xyz | unclaimed | 402index | 2026-03-23
 cryptobuddy-96zq.onrender.com | unclaimed | 402index | 2026-03-23
 missionarygamer.com | unclaimed | 402index | 2026-03-23
 cryptorugmunch.ngrok.app | unclaimed | 402index | 2026-03-23
-docs.agentutil.net | unclaimed | 402index | 2026-03-23
+docs.agentutil.net| verified |402index|2026-03-23
 pilonidal-corinne-nonelliptical.ngrok-free.dev | unclaimed | 402index | 2026-03-23
 selun.sagitta.systems | unclaimed | 402index | 2026-03-23
 wavacoin.xyz | unclaimed | 402index | 2026-03-23
@@ -238,7 +238,7 @@ remixme.xyz | unclaimed | 402index | 2026-03-23
 proof-of-intelligence-mint-web.vercel.app | unclaimed | 402index | 2026-03-23
 witness.bnbot.ai | unclaimed | 402index | 2026-03-23
 gateway.offchain.wtf | unclaimed | 402index | 2026-03-23
-coinrailz.com | unclaimed | 402index | 2026-03-23
+coinrailz.com| verified |402index|2026-03-23
 api.x402layer.cc | unclaimed | 402index | 2026-03-23
 x402.storyverselab.ai | unclaimed | 402index | 2026-03-23
 x402-prompt-store.vercel.app | unclaimed | 402index | 2026-03-23
@@ -261,8 +261,8 @@ api2ls.com | unclaimed | 402index | 2026-03-23
 api.prixe.io | unclaimed | 402index | 2026-03-23
 api.run402.com | unclaimed | 402index | 2026-03-23
 b5e06fe1-e22a-486c-9d67-fdeae8e749e5-00-3g66k5y0vk40e.riker.replit.dev | unclaimed | 402index | 2026-03-23
-context.agentutil.net | unclaimed | 402index | 2026-03-23
-think.agentutil.net | unclaimed | 402index | 2026-03-23
+context.agentutil.net| verified |402index|2026-03-23
+think.agentutil.net| verified |402index|2026-03-23
 aibeats.fun | unclaimed | 402index | 2026-03-23
 evplus-funding-server.onrender.com | unclaimed | 402index | 2026-03-23
 api.x402labs.fun | unclaimed | 402index | 2026-03-23
@@ -277,9 +277,9 @@ defaultverifier.com | unclaimed | 402index | 2026-03-23
 sorenlux.ai | unclaimed | 402index | 2026-03-23
 stableupload.dev | unclaimed | 402index | 2026-03-23
 true-cast-agent.vercel.app | unclaimed | 402index | 2026-03-23
-img402.dev | unclaimed | 402index | 2026-03-23
+img402.dev| verified |402index|2026-03-23
 xonin-x402.vercel.app | unclaimed | 402index | 2026-03-23
-x402engine.app | unclaimed | 402index | 2026-03-23
+x402engine.app| verified |402index|2026-03-23
 eth-mainnet.g.alchemy.com | unclaimed | 402index | 2026-03-23
 agents.alchemy.com | unclaimed | 402index | 2026-03-23
 api.anthropic.com | unclaimed | 402index | 2026-03-23
@@ -334,7 +334,7 @@ qr.camelai.io | unclaimed | 402index | 2026-03-23
 twit-api-production-de12.up.railway.app | unclaimed | 402index | 2026-03-23
 visual.hugen.tokyo | unclaimed | 402index | 2026-03-23
 weather.hugen.tokyo | unclaimed | 402index | 2026-03-23
-web3-signals-api-production.up.railway.app | unclaimed | 402index | 2026-03-23
+web3-signals-api-production.up.railway.app| verified |402index|2026-03-23
 agentgram.site | unclaimed | 402index | 2026-03-23
 capminal.ai | unclaimed | 402index | 2026-03-23
 x402-trading.useotto.xyz | unclaimed | 402index | 2026-03-23
@@ -355,16 +355,16 @@ pay.x402monopoly.com | unclaimed | 402index | 2026-03-23
 turbidimetrically-pillared-viviana.ngrok-free.dev | unclaimed | 402index | 2026-03-23
 xgated.vercel.app | unclaimed | 402index | 2026-03-23
 askclaude.shop | unclaimed | 402index | 2026-03-23
-color.agentutil.net | unclaimed | 402index | 2026-03-23
-cron.agentutil.net | unclaimed | 402index | 2026-03-23
-game-theory-agent-production.up.railway.app | unclaimed | 402index | 2026-03-23
+color.agentutil.net| verified |402index|2026-03-23
+cron.agentutil.net| verified |402index|2026-03-23
+game-theory-agent-production.up.railway.app| verified |402index|2026-03-23
 nacian-x402.vercel.app | unclaimed | 402index | 2026-03-23
-norm.agentutil.net | unclaimed | 402index | 2026-03-23
-random.agentutil.net | unclaimed | 402index | 2026-03-23
+norm.agentutil.net| verified |402index|2026-03-23
+random.agentutil.net| verified |402index|2026-03-23
 re-oracle-production.up.railway.app | unclaimed | 402index | 2026-03-23
 trader.rigoblock.com | unclaimed | 402index | 2026-03-23
-undo.agentutil.net | unclaimed | 402index | 2026-03-23
-useragent.agentutil.net | unclaimed | 402index | 2026-03-23
+undo.agentutil.net| verified |402index|2026-03-23
+useragent.agentutil.net| verified |402index|2026-03-23
 x402-arvos.vercel.app | unclaimed | 402index | 2026-03-23
 agent.paywall402.com | unclaimed | 402index | 2026-03-23
 pay.boo402.xyz | unclaimed | 402index | 2026-03-23
@@ -544,7 +544,7 @@ api.iconiqnerds.com | unclaimed | 402index | 2026-03-23
 api.punkpredictor.xyz | unclaimed | 402index | 2026-03-23
 data-selling-api-53234eff36dc.herokuapp.com | unclaimed | 402index | 2026-03-23
 files.camelai.io | unclaimed | 402index | 2026-03-23
-legaleasy.tools | unclaimed | 402index | 2026-03-23
+legaleasy.tools| verified |402index|2026-03-23
 obagents.vercel.app | unclaimed | 402index | 2026-03-23
 peach.mypinata.cloud | unclaimed | 402index | 2026-03-23
 search.reversesandbox.com | unclaimed | 402index | 2026-03-23
@@ -553,7 +553,7 @@ sportsarbitrageapi-production.up.railway.app | unclaimed | 402index | 2026-03-23
 testgateway.mattober.com | unclaimed | 402index | 2026-03-23
 thebestagency.dev-mypinata.cloud | unclaimed | 402index | 2026-03-23
 tokenaru.vercel.app | unclaimed | 402index | 2026-03-23
-verify.agentutil.net | unclaimed | 402index | 2026-03-23
+verify.agentutil.net| verified |402index|2026-03-23
 x402repo.vercel.app | unclaimed | 402index | 2026-03-23
 x402scan-e11utvi3p-merit-systems.vercel.app | unclaimed | 402index | 2026-03-23
 x402scan-hnqp3auxm-merit-systems.vercel.app | unclaimed | 402index | 2026-03-23
@@ -594,7 +594,7 @@ nanobrain-alpha.vercel.app | unclaimed | 402index | 2026-03-23
 link-sign-402.turboservercap.workers.dev | unclaimed | 402index | 2026-03-23
 beta.vaultlayer.xyz | unclaimed | 402index | 2026-03-23
 snapshot-api.zeebot.xyz | unclaimed | 402index | 2026-03-23
-x402.onchainexpat.com | unclaimed | 402index | 2026-03-23
+x402.onchainexpat.com| verified |402index|2026-03-23
 priceagent-production.up.railway.app | unclaimed | 402index | 2026-03-23
 scoutpay-production.up.railway.app | unclaimed | 402index | 2026-03-23
 intentflow.melis.ai | unclaimed | 402index | 2026-03-23
@@ -619,8 +619,8 @@ scrapepay.melis.ai | unclaimed | 402index | 2026-03-23
 x402-hello-agent-production.up.railway.app | unclaimed | 402index | 2026-03-23
 mercurio.agentscantina.com | unclaimed | 402index | 2026-03-23
 myagenticoverlord.com | unclaimed | 402index | 2026-03-23
-agentutil.net | unclaimed | 402index | 2026-03-23
-api.actiongate.xyz | unclaimed | 402index | 2026-03-23
+agentutil.net| verified |402index|2026-03-23
+api.actiongate.xyz| verified |402index|2026-03-23
 api.agentcamo.xyz | unclaimed | 402index | 2026-03-23
 api.arvos.xyz | unclaimed | 402index | 2026-03-23
 api.gazette.bot | unclaimed | 402index | 2026-03-23
@@ -629,22 +629,22 @@ browser.camelai.io | unclaimed | 402index | 2026-03-23
 claim-verify.agentutil.net | unclaimed | 402index | 2026-03-23
 clawmail.xyz | unclaimed | 402index | 2026-03-23
 clawmegle-production.up.railway.app | unclaimed | 402index | 2026-03-23
-convert.agentutil.net | unclaimed | 402index | 2026-03-23
+convert.agentutil.net| verified |402index|2026-03-23
 convert.kasandell.workers.dev | unclaimed | 402index | 2026-03-23
 daa254c34060.ngrok-free.app | unclaimed | 402index | 2026-03-23
 data-ground-truth.agentutil.net | unclaimed | 402index | 2026-03-23
 dev-toolkit.agentutil.net | unclaimed | 402index | 2026-03-23
-dns.agentutil.net | unclaimed | 402index | 2026-03-23
+dns.agentutil.net| verified |402index|2026-03-23
 dns.camelai.io | unclaimed | 402index | 2026-03-23
 docs-lookup.agentutil.net | unclaimed | 402index | 2026-03-23
 evaluator.openmid.xyz | unclaimed | 402index | 2026-03-23
 flip-coin-eta.vercel.app | unclaimed | 402index | 2026-03-23
 geo.camelai.io | unclaimed | 402index | 2026-03-23
-geocode.agentutil.net | unclaimed | 402index | 2026-03-23
-hash.agentutil.net | unclaimed | 402index | 2026-03-23
+geocode.agentutil.net| verified |402index|2026-03-23
+hash.agentutil.net| verified |402index|2026-03-23
 inbox.camelai.io | unclaimed | 402index | 2026-03-23
 link.camelai.io | unclaimed | 402index | 2026-03-23
-math.agentutil.net | unclaimed | 402index | 2026-03-23
+math.agentutil.net| verified |402index|2026-03-23
 merc-growth.vercel.app | unclaimed | 402index | 2026-03-23
 mobile-independance.vercel.app | unclaimed | 402index | 2026-03-23
 pdf.camelai.io | unclaimed | 402index | 2026-03-23
@@ -653,11 +653,11 @@ resize.camelai.io | unclaimed | 402index | 2026-03-23
 safe-action.agentutil.net | unclaimed | 402index | 2026-03-23
 scraper.camelai.io | unclaimed | 402index | 2026-03-23
 screenshot.camelai.io | unclaimed | 402index | 2026-03-23
-text.agentutil.net | unclaimed | 402index | 2026-03-23
-time.agentutil.net | unclaimed | 402index | 2026-03-23
-validate.agentutil.net | unclaimed | 402index | 2026-03-23
+text.agentutil.net| verified |402index|2026-03-23
+time.agentutil.net| verified |402index|2026-03-23
+validate.agentutil.net| verified |402index|2026-03-23
 verify.camelai.io | unclaimed | 402index | 2026-03-23
-weather.agentutil.net | unclaimed | 402index | 2026-03-23
+weather.agentutil.net| verified |402index|2026-03-23
 jesuschrist.sh | unclaimed | 402index | 2026-03-23
 x402.jinn.network | unclaimed | 402index | 2026-03-23
 x402.purch.xyz | unclaimed | 402index | 2026-03-23
