@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 2208
+# Total domains: 2209
 # Total endpoints: 15169
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -2211,3 +2211,4 @@ api.reqcast.com | unclaimed | onchain-x402 | 2026-03-23
 grid.ptsolutions.io | unclaimed | onchain-l402 | 2026-03-23
 x402-gw-v2-production.up.railway.app | unclaimed | onchain-mpp | 2026-03-23
 clawmerchants.com | unclaimed | onchain-mpp | 2026-03-23
+api.ruliad.xyz | unclaimed | onchain-x402 | 2026-03-23
