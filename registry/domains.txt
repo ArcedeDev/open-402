@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 2209
+# Total domains: 2210
 # Total endpoints: 15169
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -1964,7 +1964,7 @@ www.basehub.fun | unclaimed | onchain-x402 | 2026-03-23
 socialintel.dev | verified | onchain-x402 | 2026-03-23
 x402-ai-gateway.onrender.com | unclaimed | onchain-x402 | 2026-03-23
 transaction-simulator-production.up.railway.app | unclaimed | onchain-x402 | 2026-03-23
-api.prereason.com | unclaimed | onchain-x402 | 2026-03-23
+api.prereason.com| verified |onchain-x402|2026-03-23
 price-oracle-production-9e7c.up.railway.app | unclaimed | onchain-x402 | 2026-03-23
 battleship.nanupanda.com | unclaimed | onchain-x402 | 2026-03-23
 api.syraa.fun | unclaimed | onchain-x402 | 2026-03-23
@@ -2212,3 +2212,4 @@ grid.ptsolutions.io | unclaimed | onchain-l402 | 2026-03-23
 x402-gw-v2-production.up.railway.app | unclaimed | onchain-mpp | 2026-03-23
 clawmerchants.com | unclaimed | onchain-mpp | 2026-03-23
 api.ruliad.xyz | unclaimed | onchain-x402 | 2026-03-23
+x402.fullstack.cash | unclaimed | onchain-x402 | 2026-03-23
