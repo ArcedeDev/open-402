@@ -224,16 +224,19 @@ async function crawlAll(
 
           if (existing.status === "verified" && failures >= DEMOTE_THRESHOLD) {
             log(`  DEMOTE ${entry.domain} (${failures} consecutive failures)`);
-            return { ...existing, status: "unclaimed" as const, last_crawled: new Date().toISOString(), consecutive_failures: failures, intents: [], intent_count: 0 };
+            // Preserve metadata (intents, protocols, etc.) even on demotion
+            return { ...existing, status: "unclaimed" as const, last_crawled: new Date().toISOString(), consecutive_failures: failures };
           }
 
           if (existing.status === "verified" && failures >= STALE_THRESHOLD) {
             log(`  STALE ${entry.domain} (${failures} consecutive failures)`);
           }
 
+          // Preserve ALL existing metadata — only update crawl timestamp and failure count
           return { ...existing, last_crawled: new Date().toISOString(), consecutive_failures: failures };
         }
 
+        // Truly new domain with no prior data — create minimal entry
         return {
           domain: entry.domain, status: "unclaimed" as const, display_name: entry.domain,
           description: null, version: null, payout_address: null, intent_count: 0,
@@ -260,13 +263,25 @@ async function crawlAll(
 /* ── GitHub API ── */
 
 async function githubGet(path: string): Promise<{ content: string; sha: string } | null> {
-  const res = await fetch(`${API_BASE}/contents/${path}`, {
+  // Get SHA from Contents API (works for any file size)
+  const metaRes = await fetch(`${API_BASE}/contents/${path}`, {
     headers: { Authorization: `Bearer ${GITHUB_TOKEN}`, Accept: "application/vnd.github.v3+json" },
     signal: AbortSignal.timeout(30_000),
   });
-  if (!res.ok) return null;
-  const data = await res.json();
-  return { content: Buffer.from(data.content, "base64").toString("utf-8"), sha: data.sha };
+  if (!metaRes.ok) return null;
+  const meta = await metaRes.json();
+  const sha = meta.sha;
+
+  // For small files, content is inline as base64
+  if (meta.content && meta.encoding === "base64") {
+    return { content: Buffer.from(meta.content, "base64").toString("utf-8"), sha };
+  }
+
+  // For large files (>1MB), GitHub omits content. Fetch via raw CDN instead.
+  const rawUrl = `https://raw.githubusercontent.com/${GITHUB_REPO}/main/${path}`;
+  const rawRes = await fetch(rawUrl, { signal: AbortSignal.timeout(30_000) });
+  if (!rawRes.ok) return null;
+  return { content: await rawRes.text(), sha };
 }
 
 async function githubPut(path: string, content: string, sha: string | null, message: string): Promise<boolean> {
