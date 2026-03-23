@@ -1,0 +1,87 @@
+name: Add a domain
+description: Request to add a new domain to the Open 402 Directory
+title: "Add: "
+labels: ["domain-add"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for contributing to the Open 402 Directory! Fill out the fields below and we'll review your submission.
+
+        **Prefer self-service?** You can also submit your domain instantly at [open402.directory](https://open402.directory) or open a PR adding a line to `registry/domains.txt`.
+
+  - type: input
+    id: domain
+    attributes:
+      label: Domain
+      description: The API domain to add (e.g., `api.example.com`)
+      placeholder: api.example.com
+    validations:
+      required: true
+
+  - type: dropdown
+    id: status
+    attributes:
+      label: Status
+      description: Does the domain host an `agent.json` file at `/.well-known/agent.json`?
+      options:
+        - "verified — Yes, it hosts agent.json"
+        - "unclaimed — No, but it accepts 402 payments"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: protocol
+    attributes:
+      label: Payment protocol(s)
+      description: Which 402 protocol(s) does this API support?
+      multiple: true
+      options:
+        - x402 (Base/Ethereum, USDC)
+        - L402 (Lightning Network)
+        - MPP (Fiat/Stripe)
+        - Other / Unknown
+    validations:
+      required: true
+
+  - type: dropdown
+    id: source
+    attributes:
+      label: How did you discover this API?
+      options:
+        - I own / built it (source = self)
+        - Found it online (source = submit)
+        - Observed on-chain activity (source = onchain-x402)
+    validations:
+      required: true
+
+  - type: dropdown
+    id: relationship
+    attributes:
+      label: Your relationship to this domain
+      options:
+        - I own / operate this API
+        - I'm a user of this API
+        - I discovered it independently
+    validations:
+      required: true
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Additional context
+      description: Anything else we should know — description of the API, link to docs, etc.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: This domain is not already in the registry
+          required: true
+        - label: This domain serves a real, publicly accessible API
+          required: true
+        - label: I am not submitting this to impersonate another service
+          required: true

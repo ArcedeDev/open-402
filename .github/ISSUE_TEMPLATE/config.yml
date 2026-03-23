@@ -1,0 +1,11 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Submit via the directory
+    url: https://open402.directory
+    about: Submit your domain instantly — no GitHub account needed
+  - name: Create your agent.json
+    url: https://agentinternetruntime.com/spec/agent-json/generator
+    about: Use the interactive generator to create a valid agent.json file
+  - name: Security vulnerability
+    url: mailto:security@arcede.com
+    about: Report security issues via email (do not open a public issue)
