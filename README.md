@@ -15,8 +15,8 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2FFransDevelopment%2Fopen-402-directory%2Fmain%2Fregistry%2Fsnapshot.json&query=%24.total&label=domains&color=blue" alt="Domains indexed" />
-  <img src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2FFransDevelopment%2Fopen-402-directory%2Fmain%2Fregistry%2Fsnapshot.json&query=%24.verified&label=verified&color=green" alt="Verified" />
+  <img src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2FArcedeDev%2Fopen-402%2Fmain%2Fregistry%2Fsnapshot.json&query=%24.total&label=domains&color=blue" alt="Domains indexed" />
+  <img src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2FArcedeDev%2Fopen-402%2Fmain%2Fregistry%2Fsnapshot.json&query=%24.verified&label=verified&color=green" alt="Verified" />
   <img src="https://img.shields.io/badge/protocols-x402%20%C2%B7%20L402%20%C2%B7%20MPP-orange" alt="Protocols" />
   <img src="https://img.shields.io/badge/license-MIT-lightgrey" alt="License" />
 </p>
@@ -197,8 +197,8 @@ The registry is MIT-licensed. You can fork it and build anything:
 # 1. Fork this repo on GitHub
 
 # 2. Clone your fork
-git clone https://github.com/YOUR_USERNAME/open-402-directory.git
-cd open-402-directory
+git clone https://github.com/YOUR_USERNAME/open-402.git
+cd open-402
 
 # 3. Read the data
 cat registry/domains.txt          # All known domains
@@ -223,7 +223,7 @@ Some ideas:
 
 ```bash
 # Add the upstream remote (one time)
-git remote add upstream https://github.com/FransDevelopment/open-402-directory.git
+git remote add upstream https://github.com/ArcedeDev/open-402.git
 
 # Pull latest registry data
 git fetch upstream
@@ -281,11 +281,70 @@ See **[CONTRIBUTING.md](CONTRIBUTING.md)** for detailed guidelines, what we acce
 
 ---
 
+## Trust and identity
+
+When AI agents start paying for APIs on their own, everyone needs to know who they're dealing with. The API needs to know the agent is real. The agent needs to know the API is real. It's the same reason you check for a padlock icon before entering your credit card on a website. That padlock exists because the internet built a trust layer (Certificate Authorities) on top of the connectivity layer (TCP/IP). The agent economy needs the same thing: a trust layer on top of the payment layer. That's what this section describes.
+
+Two trust problems, two systems:
+
+### Problem 1: "Is this API real?" (API provider identity)
+
+When an agent finds your API in this directory, how does it know you're legitimate and not an impersonator?
+
+The `agent.json` spec solves this with three tiers:
+
+| Tier | What it means | What you add | Analogy |
+|------|--------------|--------------|---------|
+| **Tier 1: Listed** | "I exist" | `version` + `origin` + `payout_address` | A business card |
+| **Tier 2: Capable** | "Here's what I do" | + `intents[]` with endpoints and pricing | A menu with prices |
+| **Tier 3: Verified** | "I can prove I own this domain" | + `identity` with `did` + `public_key` | A notarized business license |
+
+To reach Tier 3, add an `identity` block to your agent.json with a DID (Decentralized Identifier) and a public key. The simplest method is `did:web`, which uses your existing domain as proof. If you own the domain, you control the identity.
+
+```json
+{
+  "identity": {
+    "did": "did:web:yourdomain.com",
+    "public_key": "your-base64url-encoded-ed25519-public-key"
+  }
+}
+```
+
+This proves the API provider is who they claim to be. But there's a second, separate trust problem.
+
+### Problem 2: "Is this agent authorized?" (Agent runtime trust)
+
+When an AI agent shows up at your API and says "I'm acting on behalf of a user," how do you know the agent is legitimate? Anyone can write a bot that claims to represent someone.
+
+This is what the **[Open Agent Trust Registry](https://github.com/FransDevelopment/open-agent-trust-registry)** solves. It works like the Certificate Authority system that powers the padlock in your browser:
+
+1. **Agent runtimes** (platforms like Agent Internet Runtime that execute agents) register their public keys in the registry
+2. When a runtime sends an agent to call your API, the agent carries a signed **attestation** (a digital ID badge stamped with the runtime's private key)
+3. Your API checks the attestation against the Trust Registry: "Is this runtime on the approved list? Does the signature match?"
+4. If yes, you know the agent is authorized by a legitimate platform
+
+The registry is secured by threshold cryptography (3 of 5 keys required to make changes) and can be mirrored by anyone without compromising security. If someone tampers with a mirror, the cryptographic signature breaks and the SDK rejects it automatically.
+
+### How they work together
+
+```
+Open 402 Directory           →  "What paid APIs exist?"
+agent.json (Tiers 1-3)      →  "What can this API do?" + "Can it prove it owns this domain?"
+Open Agent Trust Registry    →  "Is the agent calling me authorized by a legitimate platform?"
+On-chain verification        →  "Has real money actually flowed through this API?"
+```
+
+Each layer answers a different trust question. Together they form a complete trust infrastructure with no central authority, where every layer is independently verifiable.
+
+Learn more: **[agent.json Spec](https://agentinternetruntime.com/spec/agent-json#integration-tiers)** | **[Open Agent Trust Registry](https://github.com/FransDevelopment/open-agent-trust-registry)**
+
+---
+
 ## Related projects
 
 | Project | What it does |
 |---------|-------------|
-| **[Open Agent Trust Registry](https://github.com/FransDevelopment/open-agent-trust-registry)** | Federated root-of-trust for agent identity. The 402 Directory tells you *what* paid APIs exist — the Trust Registry tells you *whether to trust them*. Complementary infrastructure layer. |
+| **[Open Agent Trust Registry](https://github.com/FransDevelopment/open-agent-trust-registry)** | The Certificate Authority for the agent internet. Verifies that agent runtimes are legitimate so APIs can trust the agents calling them. |
 | **[agent.json Spec](https://agentinternetruntime.com/spec/agent-json)** | The open capability manifest standard that verified listings are built on. |
 | **[Agent Internet Runtime](https://agentinternetruntime.com)** | The platform that powers this directory — collective intelligence for AI agents to discover, trust, and interact with the web. |
 

@@ -1,0 +1,31 @@
+name: Nightly Directory Crawl
+
+on:
+  schedule:
+    # Run at 2:17 AM UTC daily (off-minute to avoid GitHub Actions congestion)
+    - cron: '17 2 * * *'
+  workflow_dispatch: {} # Manual trigger from Actions tab
+
+jobs:
+  crawl:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install tsx
+        run: npm install -g tsx
+
+      - name: Run crawler
+        env:
+          GITHUB_TOKEN: ${{ secrets.DIRECTORY_GITHUB_TOKEN }}
+          GITHUB_REPO: ArcedeDev/open-402
+          CONCURRENCY: '15'
+        run: npx tsx scripts/crawl.ts
