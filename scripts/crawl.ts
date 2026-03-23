@@ -518,9 +518,14 @@ async function main(): Promise<void> {
   try {
     const { verifyPayoutAddresses } = await import("./watchers/onchain-verifier");
 
-    // Collect all verified domains with payout addresses
+    // Collect all verified domains with real payout addresses (skip zero/burn)
+    const SKIP_ADDRESSES = new Set([
+      "0x0000000000000000000000000000000000000000",
+      "0x000000000000000000000000000000000000dead",
+    ]);
     const toVerify = entries
-      .filter((e) => e.status === "verified" && e.payout_address)
+      .filter((e) => e.status === "verified" && e.payout_address
+        && !SKIP_ADDRESSES.has(e.payout_address.toLowerCase()))
       .map((e) => ({ domain: e.domain, payoutAddress: e.payout_address! }));
 
     if (toVerify.length > 0) {

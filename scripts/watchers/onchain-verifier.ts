@@ -127,11 +127,23 @@ async function getUsdcTransfersTo(
  * Queries USDC Transfer events where `to` = payoutAddress.
  * Returns transaction count, volume, and timestamps.
  */
+// Addresses that should never be treated as real payout addresses
+const BLOCKED_ADDRESSES = new Set([
+  "0x0000000000000000000000000000000000000000", // zero/burn address
+  "0x000000000000000000000000000000000000dead", // common burn address
+  USDC_CONTRACT.toLowerCase(),                   // USDC contract itself
+]);
+
 export async function verifyPayoutAddress(
   payoutAddress: string,
   lookbackBlocks: number = DEFAULT_LOOKBACK_BLOCKS
 ): Promise<OnChainVerification> {
-  if (!payoutAddress || !payoutAddress.startsWith("0x") || payoutAddress.length !== 42) {
+  const invalid = !payoutAddress
+    || !payoutAddress.startsWith("0x")
+    || payoutAddress.length !== 42
+    || BLOCKED_ADDRESSES.has(payoutAddress.toLowerCase());
+
+  if (invalid) {
     return {
       payoutAddress,
       verified: false,
