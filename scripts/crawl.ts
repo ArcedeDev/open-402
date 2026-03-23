@@ -82,6 +82,14 @@ interface EcosystemStats {
   };
 }
 
+interface DailyHistoryPoint {
+  date: string;        // YYYY-MM-DD
+  transactions: number;
+  volume_usdc: number;
+  buyers: number;
+  sellers: number;
+}
+
 interface Snapshot {
   generated_at: string;
   total: number;
@@ -89,6 +97,7 @@ interface Snapshot {
   unclaimed: number;
   entries: SnapshotEntry[];
   ecosystem_stats?: EcosystemStats;
+  daily_history?: DailyHistoryPoint[];
 }
 
 /* ── Helpers ── */
@@ -632,6 +641,35 @@ async function main(): Promise<void> {
     }
   }
 
+  // 6b. Build daily history — append today's 24h stats for sparkline trends
+  let dailyHistory: DailyHistoryPoint[] = [];
+  if (snapshotFile) {
+    try {
+      const prevSnap: Snapshot = JSON.parse(snapshotFile.content);
+      dailyHistory = prevSnap.daily_history || [];
+    } catch { /* ignore */ }
+  }
+  if (ecosystemStats?.totals) {
+    const today = new Date().toISOString().split("T")[0];
+    // Replace today's entry if crawl runs twice in one day, otherwise append
+    const existingIdx = dailyHistory.findIndex((p) => p.date === today);
+    const point: DailyHistoryPoint = {
+      date: today,
+      transactions: ecosystemStats.totals.transactions_24h,
+      volume_usdc: ecosystemStats.totals.volume_usdc_24h,
+      buyers: ecosystemStats.totals.buyers_24h,
+      sellers: ecosystemStats.totals.sellers_24h,
+    };
+    if (existingIdx !== -1) {
+      dailyHistory[existingIdx] = point;
+    } else {
+      dailyHistory.push(point);
+    }
+    // Keep last 30 days
+    dailyHistory = dailyHistory.slice(-30);
+    log(`Daily history: ${dailyHistory.length} data point(s) stored.`);
+  }
+
   // 7. Build new snapshot
   const snapshot: Snapshot = {
     generated_at: new Date().toISOString(),
@@ -640,6 +678,7 @@ async function main(): Promise<void> {
     unclaimed,
     entries,
     ecosystem_stats: ecosystemStats,
+    daily_history: dailyHistory.length > 0 ? dailyHistory : undefined,
   };
 
   const snapshotJson = JSON.stringify(snapshot, null, 2);
