@@ -2,7 +2,6 @@
 # Format: domain | status | source | added_date
 # Total domains: 2163
 # Total endpoints: 15189
-
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
 x402scan.com | unclaimed | 402index | 2026-03-23
@@ -711,7 +710,6 @@ x402.dessistant.xyz | unclaimed | 402index | 2026-03-23
 x402new.987659876.xyz | unclaimed | 402index | 2026-03-23
 x402newn.987659876.xyz | unclaimed | 402index | 2026-03-23
 x402-echo-service.fly.dev | unclaimed | 402index | 2026-03-23
-
 api402-production.up.railway.app | unclaimed | onchain-x402 | 2026-03-23
 x721.up.railway.app | unclaimed | onchain-x402 | 2026-03-23
 agent-three-woad.vercel.app | unclaimed | onchain-x402 | 2026-03-23
@@ -2167,3 +2165,4 @@ www.plush.fun | unclaimed | onchain-x402 | 2026-03-23
 www.l402apps.com | unclaimed | onchain-l402 | 2026-03-23
 www.ganamos.earth | unclaimed | onchain-l402 | 2026-03-23
 api.search1api.com | unclaimed | onchain-mpp | 2026-03-23
+arcede.com | verified | submit | 2026-03-23
