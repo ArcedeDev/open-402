@@ -759,6 +759,40 @@ async function main(): Promise<void> {
     log("ERROR: Failed to commit snapshot.json.");
     process.exit(1);
   }
+
+  // 10. Notify web app to sync snapshot → Supabase (fire-and-forget)
+  const webhookSecret = process.env.SYNC_WEBHOOK_SECRET;
+  const webhookUrl =
+    process.env.SYNC_WEBHOOK_URL ||
+    "https://agentinternetruntime.com/api/directory/sync";
+  if (webhookSecret) {
+    try {
+      const syncRes = await fetch(webhookUrl, {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${webhookSecret}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          triggered_by: "nightly-crawl",
+          timestamp: new Date().toISOString(),
+        }),
+        signal: AbortSignal.timeout(30_000),
+      });
+      const syncData = (await syncRes.json().catch(() => ({}))) as Record<string, unknown>;
+      if (syncRes.ok) {
+        log(
+          `[sync] OK: ${syncData.synced ?? 0} synced, ${syncData.skipped ?? 0} skipped, ${syncData.errors ?? 0} errors`
+        );
+      } else {
+        log(
+          `[sync] FAILED (${syncRes.status}): ${syncData.error ?? "unknown error"}`
+        );
+      }
+    } catch (e) {
+      log(`[sync] Webhook failed (non-fatal): ${e}`);
+    }
+  }
 }
 
 main().catch((e) => {
