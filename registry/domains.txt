@@ -1,7 +1,7 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 2210
-# Total endpoints: 15169
+# Total domains: 2214
+# Total endpoints: 15161
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
 x402scan.com | unclaimed | 402index | 2026-03-23
@@ -107,7 +107,7 @@ x402-server-sandy.vercel.app | unclaimed | 402index | 2026-03-23
 api.tanantor.com | unclaimed | 402index | 2026-03-23
 api.deepbluebase.xyz | unclaimed | 402index | 2026-03-23
 polymarketeer.vercel.app | unclaimed | 402index | 2026-03-23
-x402.asterpay.io | unclaimed | 402index | 2026-03-23
+x402.asterpay.io| verified |402index|2026-03-23
 x402.911fund.io | unclaimed | 402index | 2026-03-23
 clado.mpp.paywithlocus.com | unclaimed | 402index | 2026-03-23
 marketing.402box.io | unclaimed | 402index | 2026-03-23
@@ -2213,3 +2213,7 @@ x402-gw-v2-production.up.railway.app | unclaimed | onchain-mpp | 2026-03-23
 clawmerchants.com | unclaimed | onchain-mpp | 2026-03-23
 api.ruliad.xyz | unclaimed | onchain-x402 | 2026-03-23
 x402.fullstack.cash | unclaimed | onchain-x402 | 2026-03-23
+sentineltrust.xyz | unclaimed | onchain-x402 | 2026-03-24
+api.utilshed.com | unclaimed | onchain-x402 | 2026-03-24
+jeetscreener.io | verified | onchain-x402 | 2026-03-24
+discovery.hugen.tokyo | unclaimed | onchain-x402 | 2026-03-24
