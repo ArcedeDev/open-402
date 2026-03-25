@@ -6,6 +6,22 @@ import {
   parseDomainsTxt,
   type DomainEntry,
 } from "./lib/registry-utils.ts";
+import {
+  addressKey,
+  buildLegacyClaimsFromEntry,
+  buildManifestClaims,
+  buildVerificationStats,
+  buildWatcherClaims,
+  isValidEvmAddress,
+  isVerifierSupported,
+  materializeEntryVerification,
+  mergeClaims,
+  seedAddressVerifications,
+  type AddressVerificationRecord,
+  type Claim,
+  type VerificationStats,
+  type VerificationSummary,
+} from "./lib/verification-model.ts";
 /**
  * Nightly Crawler for the Open 402 Directory
  *
@@ -33,6 +49,8 @@ const GITHUB_COMMIT_RETRIES = parseInt(process.env.GITHUB_COMMIT_RETRIES || "3",
 const CONCURRENCY = parseInt(process.env.CONCURRENCY || "15", 10) || 15;
 const STALE_DAYS = parseInt(process.env.STALE_DAYS || "7", 10) || 7;
 const DEMOTE_DAYS = parseInt(process.env.DEMOTE_DAYS || "30", 10) || 30;
+const ONCHAIN_CONCURRENCY = parseInt(process.env.ONCHAIN_CONCURRENCY || "3", 10) || 3;
+const MAX_ONCHAIN_ADDRESSES_PER_RUN = parseInt(process.env.MAX_ONCHAIN_ADDRESSES_PER_RUN || "0", 10) || 0;
 
 const API_BASE = `https://api.github.com/repos/${GITHUB_REPO}`;
 
@@ -44,7 +62,6 @@ interface SnapshotEntry {
   display_name: string;
   description: string | null;
   version: string | null;
-  payout_address: string | null;
   intent_count: number;
   intents: Intent[];
   protocols: string[];
@@ -54,15 +71,18 @@ interface SnapshotEntry {
   first_seen: string;
   last_crawled: string;
   consecutive_failures?: number;
-  // On-chain verification (root source of truth)
+  claims: Claim[];
+  verification: VerificationSummary;
+  // Legacy fields accepted when reading old snapshots.
+  payout_address?: string | null;
   onchain?: {
-    verified: boolean;          // has real on-chain USDC transfers
+    verified: boolean;
     total_transactions: number;
     total_volume_usdc: number;
-    first_tx: string | null;    // ISO timestamp of earliest transfer
-    last_tx: string | null;     // ISO timestamp of most recent transfer
+    first_tx: string | null;
+    last_tx: string | null;
     last_tx_hash: string | null;
-    verified_at: string;        // when we last checked
+    verified_at: string;
   };
 }
 
@@ -98,6 +118,8 @@ interface Snapshot {
   verified: number;
   unclaimed: number;
   entries: SnapshotEntry[];
+  address_verifications?: AddressVerificationRecord[];
+  verification_stats?: VerificationStats;
   ecosystem_stats?: EcosystemStats;
   daily_history?: DailyHistoryPoint[];
 }
@@ -120,6 +142,88 @@ function log(msg: string): void {
 
 function sleep(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+function defaultVerification(): VerificationSummary {
+  return {
+    domain_state: "no_claim",
+    canonical_claim_index: null,
+    shared_domain_count: 0,
+  };
+}
+
+function uniqueStrings(values: string[]): string[] {
+  return [...new Set(values.filter((value) => value && value !== "unknown" && value !== "UNKNOWN"))];
+}
+
+function mergeClaimMetadata(
+  entry: Pick<SnapshotEntry, "protocols" | "networks" | "assets">,
+  claims: Claim[]
+): Pick<SnapshotEntry, "protocols" | "networks" | "assets"> {
+  return {
+    protocols: uniqueStrings([...entry.protocols, ...claims.map((claim) => claim.protocol)]),
+    networks: uniqueStrings([...entry.networks, ...claims.map((claim) => claim.network)]),
+    assets: uniqueStrings([...entry.assets, ...claims.map((claim) => claim.asset)]),
+  };
+}
+
+function normalizeSnapshotEntry(raw: SnapshotEntry): SnapshotEntry {
+  const claims = Array.isArray(raw.claims)
+    ? raw.claims
+    : buildLegacyClaimsFromEntry(raw);
+  const seededAddressVerifications = seedAddressVerifications(claims, new Map());
+  const sharedDomainCounts = new Map<string, number>();
+  for (const claim of claims) {
+    if (claim.address) sharedDomainCounts.set(addressKey(claim), 1);
+  }
+  const materialized = raw.verification
+    ? { claims, verification: raw.verification }
+    : materializeEntryVerification(claims, seededAddressVerifications, sharedDomainCounts);
+  const metadata = mergeClaimMetadata({
+    protocols: Array.isArray(raw.protocols) ? raw.protocols : [],
+    networks: Array.isArray(raw.networks) ? raw.networks : [],
+    assets: Array.isArray(raw.assets) ? raw.assets : [],
+  }, materialized.claims);
+
+  return {
+    domain: raw.domain,
+    status: raw.status === "verified" ? "verified" : "unclaimed",
+    display_name: raw.display_name || raw.domain,
+    description: raw.description ?? null,
+    version: raw.version ?? null,
+    intent_count: Number(raw.intent_count) || 0,
+    intents: Array.isArray(raw.intents) ? raw.intents : [],
+    protocols: metadata.protocols,
+    networks: metadata.networks,
+    assets: metadata.assets,
+    source: typeof raw.source === "string" ? raw.source : "legacy_snapshot",
+    first_seen: typeof raw.first_seen === "string" ? raw.first_seen : new Date().toISOString().split("T")[0],
+    last_crawled: typeof raw.last_crawled === "string" ? raw.last_crawled : new Date().toISOString(),
+    consecutive_failures: Number(raw.consecutive_failures) || 0,
+    claims: materialized.claims,
+    verification: materialized.verification,
+  };
+}
+
+function sanitizeSnapshotEntry(entry: SnapshotEntry): SnapshotEntry {
+  return {
+    domain: entry.domain,
+    status: entry.status,
+    display_name: entry.display_name,
+    description: entry.description,
+    version: entry.version,
+    intent_count: entry.intent_count,
+    intents: entry.intents,
+    protocols: entry.protocols,
+    networks: entry.networks,
+    assets: entry.assets,
+    source: entry.source,
+    first_seen: entry.first_seen,
+    last_crawled: entry.last_crawled,
+    consecutive_failures: entry.consecutive_failures,
+    claims: entry.claims,
+    verification: entry.verification,
+  };
 }
 
 /* ── Crawl a single domain ── */
@@ -207,6 +311,8 @@ function extractEntry(
   existing: SnapshotEntry | undefined,
   source: string
 ): SnapshotEntry {
+  const firstSeen = existing?.first_seen || new Date().toISOString().split("T")[0];
+  const lastCrawled = new Date().toISOString();
   // Protocol extraction (same logic as web/app/directory/crawler.ts)
   const protocols: string[] = [];
   const networks: string[] = [];
@@ -256,24 +362,26 @@ function extractEntry(
         : null,
   }));
 
+  const claims = mergeClaims(existing?.claims || [], buildManifestClaims(manifest, firstSeen, lastCrawled));
+  const claimMetadata = mergeClaimMetadata({ protocols, networks, assets }, claims);
+
   return {
     domain,
     status: "verified",
     display_name: sanitize(manifest.display_name, 100) || domain,
     description: sanitize(manifest.description, 500) || null,
     version: typeof manifest.version === "string" ? manifest.version : String(manifest.version),
-    payout_address: typeof manifest.payout_address === "string" ? manifest.payout_address : null,
     intent_count: intents.length,
     intents,
-    protocols: [...new Set(protocols)],
-    networks: [...new Set(networks)],
-    assets: [...new Set(assets)],
+    protocols: claimMetadata.protocols,
+    networks: claimMetadata.networks,
+    assets: claimMetadata.assets,
     source,
-    first_seen: existing?.first_seen || new Date().toISOString().split("T")[0],
-    last_crawled: new Date().toISOString(),
+    first_seen: firstSeen,
+    last_crawled: lastCrawled,
     consecutive_failures: 0,
-    // Carry forward on-chain verification data until next verification run
-    onchain: existing?.onchain,
+    claims,
+    verification: existing?.verification || defaultVerification(),
   };
 }
 
@@ -336,7 +444,6 @@ async function crawlAll(
           display_name: entry.domain,
           description: null,
           version: null,
-          payout_address: null,
           intent_count: 0,
           intents: [],
           protocols: [],
@@ -346,6 +453,8 @@ async function crawlAll(
           first_seen: entry.added_date,
           last_crawled: new Date().toISOString(),
           consecutive_failures: 0,
+          claims: [],
+          verification: defaultVerification(),
         };
       })
     );
@@ -629,13 +738,25 @@ export async function main(): Promise<void> {
   log("Fetching existing snapshot.json...");
   const snapshotFile = await githubGet("registry/snapshot.json", initialHeadSha);
   const existingSnapshot = new Map<string, SnapshotEntry>();
+  let previousSnapshot: Snapshot | null = null;
+  let existingAddressVerifications = new Map<string, AddressVerificationRecord>();
 
   if (snapshotFile) {
     try {
       const snap: Snapshot = JSON.parse(snapshotFile.content);
-      for (const entry of snap.entries) {
-        existingSnapshot.set(entry.domain, entry);
+      previousSnapshot = snap;
+      for (const entry of snap.entries || []) {
+        existingSnapshot.set(entry.domain, normalizeSnapshotEntry(entry));
       }
+      if (Array.isArray(snap.address_verifications)) {
+        existingAddressVerifications = new Map(
+          snap.address_verifications.map((record) => [addressKey(record), { ...record }])
+        );
+      }
+      existingAddressVerifications = seedAddressVerifications(
+        Array.from(existingSnapshot.values()).flatMap((entry) => entry.claims),
+        existingAddressVerifications
+      );
       log(`Loaded ${existingSnapshot.size} existing entries from snapshot.`);
     } catch {
       log("WARNING: Could not parse existing snapshot. Starting fresh.");
@@ -644,10 +765,12 @@ export async function main(): Promise<void> {
 
   // 3. Run on-chain watchers (Phase 2) — discover new domains from payment events
   let onchainDiscoveries = 0;
+  let watcherEvents: import("./watchers/types.ts").PaymentEvent[] = [];
   try {
     const { runWatchers } = await import("./watchers/index");
     log("Running on-chain watchers...");
     const watcherResult = await runWatchers();
+    watcherEvents = watcherResult.events;
 
     // Add newly discovered domains to the crawl list
     const existingDomainSet = new Set(domains.map((d) => d.domain));
@@ -699,66 +822,194 @@ export async function main(): Promise<void> {
   }
   if (upgrades > 0) log(`${upgrades} domain(s) upgraded to verified.`);
 
-  // 5b. On-chain verification — validate payout addresses against Base
-  // This is the ROOT SOURCE OF TRUTH. Aggregator data (x402scan, 402index)
-  // tells us what domains CLAIM to accept payments. On-chain data PROVES it.
+  // 5b. Normalize manifest + watcher claims, then verify unique addresses incrementally.
   try {
-    const { verifyPayoutAddresses } = await import("./watchers/onchain-verifier");
+    const normalizedAt = new Date().toISOString();
+    for (const entry of entries) {
+      const watcherClaims = buildWatcherClaims(
+        entry.domain,
+        watcherEvents,
+        entry.first_seen,
+        normalizedAt
+      );
+      entry.claims = mergeClaims(entry.claims, watcherClaims);
+      const metadata = mergeClaimMetadata(entry, entry.claims);
+      entry.protocols = metadata.protocols;
+      entry.networks = metadata.networks;
+      entry.assets = metadata.assets;
+    }
 
-    // Collect all verified domains with real payout addresses (skip zero/burn)
-    const SKIP_ADDRESSES = new Set([
-      "0x0000000000000000000000000000000000000000",
-      "0x000000000000000000000000000000000000dead",
-    ]);
-    const toVerify = entries
-      .filter((e) => e.status === "verified" && e.payout_address
-        && !SKIP_ADDRESSES.has(e.payout_address.toLowerCase()))
-      .map((e) => ({ domain: e.domain, payoutAddress: e.payout_address! }));
+    const allClaims = entries.flatMap((entry) => entry.claims);
+    const addressVerifications = seedAddressVerifications(allClaims, existingAddressVerifications);
+    const addressDomainMap = new Map<string, Set<string>>();
+    const addressClaimSourceMap = new Map<string, { manifest: boolean; watcher: boolean }>();
 
-    if (toVerify.length > 0) {
-      log(`Verifying ${toVerify.length} payout addresses against Base on-chain data...`);
-      const verifications = await verifyPayoutAddresses(toVerify, 3);
-      let incompleteScans = 0;
+    for (const entry of entries) {
+      for (const claim of entry.claims) {
+        if (!claim.address) continue;
+        const key = addressKey(claim);
+        const domainsForAddress = addressDomainMap.get(key) || new Set<string>();
+        domainsForAddress.add(entry.domain);
+        addressDomainMap.set(key, domainsForAddress);
 
-      // Enrich entries with on-chain verification
-      for (const entry of entries) {
-        const v = verifications.get(entry.domain);
-        if (v) {
-          if (!v.scanComplete) {
-            incompleteScans++;
-            const existing = existingSnapshot.get(entry.domain);
-            if (existing?.onchain) entry.onchain = existing.onchain;
-            continue;
-          }
-
-          entry.onchain = {
-            verified: v.verified,
-            total_transactions: v.totalTransactions,
-            total_volume_usdc: v.totalVolumeUsdc,
-            first_tx: v.firstTxTimestamp,
-            last_tx: v.lastTxTimestamp,
-            last_tx_hash: v.lastTxHash,
-            verified_at: new Date().toISOString(),
-          };
-        } else if (entry.onchain) {
-          // Preserve previous on-chain data if verification didn't run for this domain
-        }
+        const existingSources = addressClaimSourceMap.get(key) || { manifest: false, watcher: false };
+        if (claim.claim_source === "manifest") existingSources.manifest = true;
+        if (claim.claim_source === "watcher") existingSources.watcher = true;
+        addressClaimSourceMap.set(key, existingSources);
       }
+    }
 
-      const onchainVerified = entries.filter((e) => e.onchain?.verified).length;
+    const verifierCandidates = Array.from(addressVerifications.values())
+      .filter((record) =>
+        isVerifierSupported(record.protocol, record.network, record.asset)
+        && isValidEvmAddress(record.address)
+      )
+      .sort((a, b) => {
+        const aSources = addressClaimSourceMap.get(addressKey(a)) || { manifest: false, watcher: false };
+        const bSources = addressClaimSourceMap.get(addressKey(b)) || { manifest: false, watcher: false };
+        const aRank = aSources.manifest ? 0 : a.last_scanned_block != null ? 1 : 2;
+        const bRank = bSources.manifest ? 0 : b.last_scanned_block != null ? 1 : 2;
+        return aRank - bRank || a.address.localeCompare(b.address);
+      });
+
+    const verifierQueued = MAX_ONCHAIN_ADDRESSES_PER_RUN > 0
+      ? verifierCandidates.slice(0, MAX_ONCHAIN_ADDRESSES_PER_RUN)
+      : verifierCandidates;
+    const queueTarget = verifierQueued.length;
+    const deferredCount = verifierCandidates.length - queueTarget;
+
+    log(
+      `Address verification queue: ${queueTarget}/${verifierCandidates.length} supported unique addresses`
+        + (deferredCount > 0 ? ` (${deferredCount} deferred by MAX_ONCHAIN_ADDRESSES_PER_RUN)` : "")
+    );
+
+    if (verifierQueued.length > 0) {
+      const { verifyAddressesIncremental } = await import("./watchers/onchain-verifier");
+      const results = await verifyAddressesIncremental(
+        verifierQueued.map((record) => ({
+          address: record.address,
+          lastScannedBlock: record.last_scanned_block,
+          priorTotals: {
+            totalTransactions: record.tx_count,
+            totalVolumeUsdc: record.volume_usd,
+            firstTxTimestamp: record.first_tx,
+            lastTxTimestamp: record.last_tx,
+            lastTxHash: record.last_tx_hash,
+            firstVerifiedAt: record.first_verified_at,
+            lastVerifiedAt: record.last_verified_at,
+          },
+        })),
+        ONCHAIN_CONCURRENCY
+      );
+
+      for (const record of verifierQueued) {
+        const result = results.get(record.address.toLowerCase());
+        if (!result) continue;
+
+        addressVerifications.set(addressKey(record), {
+          ...record,
+          verification_state: result.verificationState,
+          verification_method: result.verificationState === "invalid" ? null : "base_usdc_transfer_scan",
+          tx_count: result.totalTransactions,
+          volume_usd: result.totalVolumeUsdc,
+          first_tx: result.firstTxTimestamp,
+          last_tx: result.lastTxTimestamp,
+          last_tx_hash: result.lastTxHash,
+          first_verified_at: result.firstVerifiedAt,
+          last_verified_at: result.lastVerifiedAt,
+          last_scanned_block: result.lastScannedBlock,
+        });
+      }
+    }
+
+    const sharedDomainCounts = new Map<string, number>();
+    for (const [key, domainsForAddress] of addressDomainMap.entries()) {
+      sharedDomainCounts.set(key, domainsForAddress.size);
+    }
+
+    const materializedEntries = entries
+      .map((entry) => {
+        const materialized = materializeEntryVerification(entry.claims, addressVerifications, sharedDomainCounts);
+        const metadata = mergeClaimMetadata(entry, materialized.claims);
+        return sanitizeSnapshotEntry({
+          ...entry,
+          protocols: metadata.protocols,
+          networks: metadata.networks,
+          assets: metadata.assets,
+          claims: materialized.claims,
+          verification: materialized.verification,
+        });
+      })
+      .sort((a, b) => a.domain.localeCompare(b.domain));
+
+    const verificationStats = buildVerificationStats(materializedEntries, addressVerifications);
+    const verifiedDomainsMissingClaims = materializedEntries.filter(
+      (entry) => entry.status === "verified" && !entry.claims.some((claim) => claim.claim_source === "manifest")
+    ).length;
+    const verifiedDomainsWithInvalidClaims = materializedEntries.filter(
+      (entry) => entry.status === "verified" && entry.claims.some((claim) => claim.verification_state === "invalid")
+    ).length;
+    const sharedAddressClusters = Array.from(sharedDomainCounts.values()).filter((count) => count > 1);
+    const observedOnlyByProtocol = new Map<string, number>();
+    for (const entry of materializedEntries) {
+      if (entry.verification.domain_state !== "observed_only") continue;
+      const protocols = uniqueStrings(entry.claims.map((claim) => claim.protocol));
+      for (const protocol of protocols) {
+        observedOnlyByProtocol.set(protocol, (observedOnlyByProtocol.get(protocol) || 0) + 1);
+      }
+    }
+
+    log(`Verification stats: ${verificationStats.verified_addresses}/${verificationStats.unique_addresses} unique addresses verified`);
+    log(`Operator summary: ${verifiedDomainsMissingClaims} verified domains missing manifest claims, ${verifiedDomainsWithInvalidClaims} with invalid claims`);
+    log(
+      `Shared-address clusters: ${sharedAddressClusters.length}`
+        + (sharedAddressClusters.length > 0 ? ` (largest cluster ${Math.max(...sharedAddressClusters)} domains)` : "")
+    );
+    if (observedOnlyByProtocol.size > 0) {
       log(
-        `On-chain verification: ${onchainVerified}/${toVerify.length} domains have real transactions`
-          + (incompleteScans > 0 ? ` (${incompleteScans} incomplete scan(s) preserved)` : "")
+        `Observed-only domains by protocol: ${Array.from(observedOnlyByProtocol.entries()).map(([protocol, count]) => `${protocol}:${count}`).join(", ")}`
       );
     }
+
+    entries.length = 0;
+    entries.push(...materializedEntries);
+    existingAddressVerifications = addressVerifications;
+    previousSnapshot = {
+      ...(previousSnapshot || {
+        generated_at: normalizedAt,
+        total: 0,
+        verified: 0,
+        unclaimed: 0,
+        entries: [],
+      }),
+      entries: materializedEntries,
+      address_verifications: Array.from(addressVerifications.values()),
+      verification_stats: verificationStats,
+    };
   } catch (e) {
-    log(`WARNING: On-chain verification failed (non-fatal): ${e}`);
-    // Preserve existing onchain data from previous snapshot
-    for (const entry of entries) {
-      const existing = existingSnapshot.get(entry.domain);
-      if (existing?.onchain && !entry.onchain) {
-        entry.onchain = existing.onchain;
-      }
+    log(`WARNING: Address-centric verification failed (non-fatal): ${e}`);
+    for (let index = 0; index < entries.length; index++) {
+      const entry = entries[index];
+      const watcherClaims = buildWatcherClaims(entry.domain, watcherEvents, entry.first_seen, new Date().toISOString());
+      const mergedClaims = mergeClaims(entry.claims, watcherClaims);
+      const metadata = mergeClaimMetadata(entry, mergedClaims);
+      const materialized = materializeEntryVerification(
+        mergedClaims,
+        existingAddressVerifications,
+        new Map(
+          mergedClaims
+            .filter((claim) => claim.address)
+            .map((claim) => [addressKey(claim), 1])
+        )
+      );
+      entries[index] = sanitizeSnapshotEntry({
+        ...entry,
+        protocols: metadata.protocols,
+        networks: metadata.networks,
+        assets: metadata.assets,
+        claims: materialized.claims,
+        verification: materialized.verification,
+      });
     }
   }
 
@@ -821,23 +1072,14 @@ export async function main(): Promise<void> {
   } catch (e) {
     log(`WARNING: Ecosystem stats fetch failed (non-fatal): ${e}`);
     // Preserve previous ecosystem stats from existing snapshot
-    if (snapshotFile) {
-      try {
-        const prevSnap: Snapshot = JSON.parse(snapshotFile.content);
-        ecosystemStats = prevSnap.ecosystem_stats;
-        if (ecosystemStats) log("Preserved previous ecosystem stats from snapshot.");
-      } catch { /* ignore */ }
+    if (previousSnapshot?.ecosystem_stats) {
+      ecosystemStats = previousSnapshot.ecosystem_stats;
+      log("Preserved previous ecosystem stats from snapshot.");
     }
   }
 
   // 6b. Build daily history — append today's 24h stats for sparkline trends
-  let dailyHistory: DailyHistoryPoint[] = [];
-  if (snapshotFile) {
-    try {
-      const prevSnap: Snapshot = JSON.parse(snapshotFile.content);
-      dailyHistory = prevSnap.daily_history || [];
-    } catch { /* ignore */ }
-  }
+  let dailyHistory: DailyHistoryPoint[] = previousSnapshot?.daily_history || [];
   if (ecosystemStats?.totals) {
     const today = new Date().toISOString().split("T")[0];
     // Replace today's entry if crawl runs twice in one day, otherwise append
@@ -860,12 +1102,20 @@ export async function main(): Promise<void> {
   }
 
   // 7. Build new snapshot
+  const finalEntries = entries.map((entry) => sanitizeSnapshotEntry(entry));
+  const verifiedNow = finalEntries.filter((entry) => entry.status === "verified").length;
+  const unclaimedNow = finalEntries.filter((entry) => entry.status === "unclaimed").length;
+  const addressVerificationList = Array.from(existingAddressVerifications.values())
+    .sort((a, b) => addressKey(a).localeCompare(addressKey(b)));
+  const verificationStats = buildVerificationStats(finalEntries, existingAddressVerifications);
   const snapshot: Snapshot = {
     generated_at: new Date().toISOString(),
-    total: entries.length,
-    verified,
-    unclaimed,
-    entries,
+    total: finalEntries.length,
+    verified: verifiedNow,
+    unclaimed: unclaimedNow,
+    entries: finalEntries,
+    address_verifications: addressVerificationList,
+    verification_stats: verificationStats,
     ecosystem_stats: ecosystemStats,
     daily_history: dailyHistory.length > 0 ? dailyHistory : undefined,
   };
@@ -874,7 +1124,7 @@ export async function main(): Promise<void> {
 
   // 8. Plan domains.txt updates against the crawl-start snapshot for logging,
   // then rebuild against the latest branch head right before the atomic publish.
-  const plannedDomains = buildUpdatedDomainsTxt(domainsFile.content, entries, {
+  const plannedDomains = buildUpdatedDomainsTxt(domainsFile.content, finalEntries, {
     logStatusChanges: (message) => log(`  ${message}`),
   });
 
@@ -882,7 +1132,7 @@ export async function main(): Promise<void> {
   log("Publishing registry update atomically...");
   const publishOk = await githubCommitFilesAtomically(
     ["registry/snapshot.json", "registry/domains.txt"],
-    `chore: nightly crawl — ${verified} verified, ${unclaimed} unclaimed`,
+    `chore: nightly crawl — ${verifiedNow} verified, ${unclaimedNow} unclaimed`,
     (remoteFiles) => {
       const remoteDomains = remoteFiles.get("registry/domains.txt");
       if (!remoteDomains) {
@@ -892,7 +1142,7 @@ export async function main(): Promise<void> {
       const files: GitHubFileUpdate[] = [
         { path: "registry/snapshot.json", content: snapshotJson },
       ];
-      const mergedDomains = buildUpdatedDomainsTxt(remoteDomains.content, entries);
+      const mergedDomains = buildUpdatedDomainsTxt(remoteDomains.content, finalEntries);
 
       if (plannedDomains.changed || mergedDomains.changed) {
         files.push({ path: "registry/domains.txt", content: mergedDomains.content });

@@ -14,6 +14,7 @@
 
 import type { PaymentEvent, PaymentRailWatcher } from "./types";
 import { extractDomain } from "./utils";
+import { getNextOffset, parsePaginatedServicesResponse } from "./pagination.ts";
 
 function log(msg: string): void {
   console.log(`[402index] ${msg}`);
@@ -71,30 +72,32 @@ export class Index402Watcher implements PaymentRailWatcher {
         }
 
         const data = await res.json();
-        const services = Array.isArray(data) ? data : data.services || data.data || [];
+        const page = parsePaginatedServicesResponse<Record<string, unknown>>(data, offset);
+        const services = page.items;
 
         if (services.length === 0) break; // No more results
 
         for (const svc of services) {
           const svcUrl = svc.url || svc.endpoint || svc.baseUrl || "";
-          const domain = extractDomain(svcUrl);
+          const domain = extractDomain(String(svcUrl));
           if (!domain) continue;
 
           events.push({
-            protocol: (svc.protocol || protocol).toLowerCase(),
-            resourceUrl: svcUrl,
+            protocol: String(svc.protocol || protocol).toLowerCase(),
+            resourceUrl: String(svcUrl),
             domain,
-            sellerAddress: svc.payTo || svc.seller || svc.paymentAddress || "",
+            sellerAddress: String(svc.payTo || svc.seller || svc.paymentAddress || ""),
             amount: String(svc.price || svc.minPrice || "0"),
-            asset: svc.asset || svc.paymentAsset || (protocol === "L402" ? "BTC" : "USD"),
-            network: svc.network || svc.chain || (protocol === "L402" ? "lightning" : "stripe"),
+            asset: String(svc.asset || svc.paymentAsset || (protocol === "L402" ? "BTC" : "USD")),
+            network: String(svc.network || svc.chain || (protocol === "L402" ? "lightning" : "stripe")),
             txHash: undefined,
-            timestamp: svc.lastSeen || svc.updatedAt || svc.createdAt || new Date().toISOString(),
+            timestamp: String(svc.lastSeen || svc.updatedAt || svc.createdAt || new Date().toISOString()),
           });
         }
 
-        offset += pageSize;
-        if (services.length < pageSize) break; // Last page
+        const nextOffset = getNextOffset(page);
+        if (nextOffset == null) break;
+        offset = nextOffset;
       }
     } catch (e) {
       log(`${protocol} fetch failed: ${e instanceof Error ? e.message : e}`);

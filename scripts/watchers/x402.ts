@@ -18,6 +18,7 @@
 
 import type { PaymentEvent, PaymentRailWatcher } from "./types";
 import { extractDomain } from "./utils";
+import { getNextOffset, parsePaginatedServicesResponse } from "./pagination.ts";
 
 function log(msg: string): void {
   console.log(`[x402] ${msg}`);
@@ -126,53 +127,41 @@ export class X402Watcher implements PaymentRailWatcher {
     const events: PaymentEvent[] = [];
 
     try {
-      // Fetch x402 services (paginated — fetch first 500)
-      const url = "https://402index.io/api/v1/services?protocol=x402&limit=500";
+      let offset = 0;
+      const requestedPageSize = 500;
+      const maxTotal = 20_000;
+      let announcedTotal: number | null = null;
 
-      const res = await fetch(url, {
-        headers: {
-          Accept: "application/json",
-          "User-Agent": "Open402DirectoryWatcher/1.0",
-        },
-        signal: AbortSignal.timeout(15_000),
-      });
+      while (offset < maxTotal) {
+        const page = await this.fetch402IndexPage(offset, requestedPageSize);
+        if (!page) break;
 
-      if (!res.ok) {
-        log(`402index.io responded ${res.status}`);
-        return events;
-      }
-
-      const data = await res.json();
-      const services = Array.isArray(data) ? data : data.services || data.data || [];
-
-      for (const svc of services) {
-        const svcUrl = svc.url || svc.endpoint || svc.baseUrl || "";
-        const domain = extractDomain(svcUrl);
-        if (!domain) continue;
-
-        events.push({
-          protocol: svc.protocol || "x402",
-          resourceUrl: svcUrl,
-          domain,
-          sellerAddress: svc.payTo || svc.seller || svc.paymentAddress || "",
-          amount: String(svc.price || svc.minPrice || "0"),
-          asset: svc.asset || svc.paymentAsset || "USDC",
-          network: svc.network || svc.chain || "base",
-          txHash: undefined,
-          timestamp: svc.lastSeen || svc.updatedAt || svc.createdAt || new Date().toISOString(),
-        });
-      }
-
-      // Paginate through remaining results (capped at 20,000 to prevent runaway requests)
-      const total = data.total || data.totalCount || 0;
-      const maxTotal = Math.min(total, 20_000);
-      if (maxTotal > 500) {
-        log(`402index.io has ${total} total x402 services, paginating (capped at ${maxTotal})...`);
-        for (let offset = 500; offset < maxTotal; offset += 500) {
-          const page = await this.fetch402IndexPage(offset);
-          events.push(...page);
-          if (page.length === 0) break; // No more results
+        if (announcedTotal == null && page.total != null) {
+          announcedTotal = page.total;
+          log(`402index.io has ${page.total} total x402 services, paginating (capped at ${Math.min(page.total, maxTotal)})...`);
         }
+
+        for (const svc of page.items) {
+          const svcUrl = svc.url || svc.endpoint || svc.baseUrl || "";
+          const domain = extractDomain(String(svcUrl));
+          if (!domain) continue;
+
+          events.push({
+            protocol: String(svc.protocol || "x402"),
+            resourceUrl: String(svcUrl),
+            domain,
+            sellerAddress: String(svc.payTo || svc.seller || svc.paymentAddress || ""),
+            amount: String(svc.price || svc.minPrice || "0"),
+            asset: String(svc.asset || svc.paymentAsset || "USDC"),
+            network: String(svc.network || svc.chain || "base"),
+            txHash: undefined,
+            timestamp: String(svc.lastSeen || svc.updatedAt || svc.createdAt || new Date().toISOString()),
+          });
+        }
+
+        const nextOffset = getNextOffset(page);
+        if (nextOffset == null || nextOffset <= offset) break;
+        offset = nextOffset;
       }
     } catch (e) {
       log(`402index.io fetch failed: ${e instanceof Error ? e.message : e}`);
@@ -181,39 +170,23 @@ export class X402Watcher implements PaymentRailWatcher {
     return events;
   }
 
-  private async fetch402IndexPage(offset: number): Promise<PaymentEvent[]> {
-    const events: PaymentEvent[] = [];
+  private async fetch402IndexPage(
+    offset: number,
+    requestedPageSize: number
+  ): Promise<ReturnType<typeof parsePaginatedServicesResponse<Record<string, unknown>>> | null> {
     try {
-      const url = `https://402index.io/api/v1/services?protocol=x402&limit=500&offset=${offset}`;
+      const url = `https://402index.io/api/v1/services?protocol=x402&limit=${requestedPageSize}&offset=${offset}`;
       const res = await fetch(url, {
         headers: { Accept: "application/json", "User-Agent": "Open402DirectoryWatcher/1.0" },
         signal: AbortSignal.timeout(15_000),
       });
-      if (!res.ok) return events;
+      if (!res.ok) return null;
 
       const data = await res.json();
-      const services = Array.isArray(data) ? data : data.services || data.data || [];
-
-      for (const svc of services) {
-        const svcUrl = svc.url || svc.endpoint || svc.baseUrl || "";
-        const domain = extractDomain(svcUrl);
-        if (!domain) continue;
-
-        events.push({
-          protocol: svc.protocol || "x402",
-          resourceUrl: svcUrl,
-          domain,
-          sellerAddress: svc.payTo || svc.seller || svc.paymentAddress || "",
-          amount: String(svc.price || svc.minPrice || "0"),
-          asset: svc.asset || svc.paymentAsset || "USDC",
-          network: svc.network || svc.chain || "base",
-          txHash: undefined,
-          timestamp: svc.lastSeen || svc.updatedAt || svc.createdAt || new Date().toISOString(),
-        });
-      }
+      return parsePaginatedServicesResponse<Record<string, unknown>>(data, offset);
     } catch (e) {
       log(`402index.io page fetch failed: ${e instanceof Error ? e.message : e}`);
     }
-    return events;
+    return null;
   }
 }

@@ -30,9 +30,25 @@ const DEFAULT_LOOKBACK_BLOCKS = 1_300_000;
 
 // Max blocks per eth_getLogs request (some RPCs limit to 10k)
 const BLOCKS_PER_QUERY = 10_000;
-const RPC_RETRIES = parseInt(process.env.BASE_RPC_RETRIES || "5", 10) || 5;
-const RPC_BACKOFF_MS = parseInt(process.env.BASE_RPC_BACKOFF_MS || "1000", 10) || 1000;
-const LOG_QUERY_DELAY_MS = parseInt(process.env.BASE_LOG_QUERY_DELAY_MS || "150", 10) || 150;
+
+function readNonNegativeIntEnv(name: string, defaultValue: number): number {
+  const raw = process.env[name];
+  if (raw == null || raw === "") return defaultValue;
+  const parsed = parseInt(raw, 10);
+  return Number.isFinite(parsed) && parsed >= 0 ? parsed : defaultValue;
+}
+
+function getRpcRetries(): number {
+  return readNonNegativeIntEnv("BASE_RPC_RETRIES", 5);
+}
+
+function getRpcBackoffMs(): number {
+  return readNonNegativeIntEnv("BASE_RPC_BACKOFF_MS", 1000);
+}
+
+function getLogQueryDelayMs(): number {
+  return readNonNegativeIntEnv("BASE_LOG_QUERY_DELAY_MS", 150);
+}
 
 /** Verified on-chain payment activity for a single payout address */
 export interface OnChainVerification {
@@ -48,6 +64,34 @@ export interface OnChainVerification {
     from: number;
     to: number;
   };
+}
+
+export interface IncrementalVerificationInput {
+  address: string;
+  lastScannedBlock: number | null;
+  priorTotals?: {
+    totalTransactions: number;
+    totalVolumeUsdc: number;
+    firstTxTimestamp: string | null;
+    lastTxTimestamp: string | null;
+    lastTxHash: string | null;
+    firstVerifiedAt: string | null;
+    lastVerifiedAt: string | null;
+  };
+}
+
+export interface IncrementalVerificationResult {
+  address: string;
+  verificationState: "verified" | "pending" | "unverified" | "invalid" | "incomplete";
+  scanComplete: boolean;
+  totalTransactions: number;
+  totalVolumeUsdc: number;
+  firstTxTimestamp: string | null;
+  lastTxTimestamp: string | null;
+  lastTxHash: string | null;
+  firstVerifiedAt: string | null;
+  lastVerifiedAt: string | null;
+  lastScannedBlock: number | null;
 }
 
 function log(msg: string): void {
@@ -69,12 +113,12 @@ function getBackoffMs(attempt: number, retryAfterHeader: string | null = null): 
   }
 
   const jitterMs = Math.floor(Math.random() * 250);
-  return Math.min(15_000, RPC_BACKOFF_MS * (2 ** attempt)) + jitterMs;
+  return Math.min(15_000, getRpcBackoffMs() * (2 ** attempt)) + jitterMs;
 }
 
 /* ── RPC Helpers ── */
 
-async function rpcCall(method: string, params: unknown[], retries = RPC_RETRIES): Promise<unknown> {
+async function rpcCall(method: string, params: unknown[], retries = getRpcRetries()): Promise<unknown> {
   for (let attempt = 0; attempt <= retries; attempt++) {
     try {
       const res = await fetch(BASE_RPC_URL, {
@@ -130,6 +174,13 @@ interface TransferLog {
   transactionHash: string;
 }
 
+interface RangeScanResult {
+  logs: TransferLog[];
+  scanComplete: boolean;
+  fromBlock: number;
+  toBlock: number;
+}
+
 async function getUsdcTransfersTo(
   toAddress: string,
   fromBlock: number,
@@ -151,6 +202,99 @@ async function getUsdcTransfersTo(
   ])) as TransferLog[];
 
   return result || [];
+}
+
+async function scanAddressRange(
+  payoutAddress: string,
+  fromBlock: number,
+  latestBlock: number
+): Promise<RangeScanResult> {
+  let allLogs: TransferLog[] = [];
+  let failedChunks = 0;
+
+  if (fromBlock > latestBlock) {
+    return {
+      logs: [],
+      scanComplete: true,
+      fromBlock,
+      toBlock: latestBlock,
+    };
+  }
+
+  for (let start = fromBlock; start <= latestBlock; start += BLOCKS_PER_QUERY) {
+    const end = Math.min(start + BLOCKS_PER_QUERY - 1, latestBlock);
+    try {
+      const logs = await getUsdcTransfersTo(payoutAddress, start, end);
+      allLogs.push(...logs);
+    } catch (e) {
+      failedChunks++;
+      log(`  Chunk ${start}-${end} failed: ${e instanceof Error ? e.message : e}`);
+    }
+
+    const queryDelayMs = getLogQueryDelayMs();
+    if (end < latestBlock && queryDelayMs > 0) {
+      await sleep(queryDelayMs);
+    }
+  }
+
+  return {
+    logs: allLogs,
+    scanComplete: failedChunks === 0,
+    fromBlock,
+    toBlock: latestBlock,
+  };
+}
+
+function aggregateLogs(logs: TransferLog[]): {
+  totalTransactions: number;
+  totalVolumeUsdc: number;
+  lastTxHash: string | null;
+  firstLog: TransferLog | null;
+  lastLog: TransferLog | null;
+} {
+  if (logs.length === 0) {
+    return {
+      totalTransactions: 0,
+      totalVolumeUsdc: 0,
+      lastTxHash: null,
+      firstLog: null,
+      lastLog: null,
+    };
+  }
+
+  const sortedLogs = [...logs].sort((a, b) => parseInt(a.blockNumber, 16) - parseInt(b.blockNumber, 16));
+  let totalVolumeRaw = BigInt(0);
+  for (const txLog of sortedLogs) {
+    try {
+      totalVolumeRaw += BigInt(txLog.data || "0x0");
+    } catch {
+      // Skip malformed log data
+    }
+  }
+
+  const wholeDollars = totalVolumeRaw / BigInt(1_000_000);
+  const remainder = totalVolumeRaw % BigInt(1_000_000);
+  const totalVolumeUsdc = Number(wholeDollars) + Number(remainder) / 1_000_000;
+
+  return {
+    totalTransactions: sortedLogs.length,
+    totalVolumeUsdc,
+    lastTxHash: sortedLogs[sortedLogs.length - 1]?.transactionHash || null,
+    firstLog: sortedLogs[0] || null,
+    lastLog: sortedLogs[sortedLogs.length - 1] || null,
+  };
+}
+
+function chooseEarlier(a: string | null, b: string | null): string | null {
+  if (!a) return b;
+  if (!b) return a;
+  return a <= b ? a : b;
+}
+
+function chooseLater(a: string | null, b: string | null): string | null {
+  if (!a) return b;
+  if (!b) return a;
+  return a >= b ? a : b;
 }
 
 /* ── Core Verification ── */
@@ -193,27 +337,9 @@ export async function verifyPayoutAddress(
 
   const latestBlock = await getLatestBlock();
   const fromBlock = Math.max(0, latestBlock - lookbackBlocks);
-
-  let allLogs: TransferLog[] = [];
-  let failedChunks = 0;
-
-  // Scan in chunks to avoid RPC limits
-  for (let start = fromBlock; start <= latestBlock; start += BLOCKS_PER_QUERY) {
-    const end = Math.min(start + BLOCKS_PER_QUERY - 1, latestBlock);
-    try {
-      const logs = await getUsdcTransfersTo(payoutAddress, start, end);
-      allLogs.push(...logs);
-    } catch (e) {
-      failedChunks++;
-      log(`  Chunk ${start}-${end} failed: ${e instanceof Error ? e.message : e}`);
-    }
-
-    if (end < latestBlock && LOG_QUERY_DELAY_MS > 0) {
-      await sleep(LOG_QUERY_DELAY_MS);
-    }
-  }
-
-  const scanComplete = failedChunks === 0;
+  const rangeScan = await scanAddressRange(payoutAddress, fromBlock, latestBlock);
+  const allLogs = rangeScan.logs;
+  const scanComplete = rangeScan.scanComplete;
 
   if (allLogs.length === 0) {
     return {
@@ -228,36 +354,18 @@ export async function verifyPayoutAddress(
       blockRangeScanned: { from: fromBlock, to: latestBlock },
     };
   }
-
-  // Sort by block number ascending
-  allLogs.sort((a, b) => parseInt(a.blockNumber, 16) - parseInt(b.blockNumber, 16));
-
-  // Calculate total volume using BigInt arithmetic to avoid precision loss
-  let totalVolumeRaw = BigInt(0);
-  for (const txLog of allLogs) {
-    try {
-      totalVolumeRaw += BigInt(txLog.data || "0x0");
-    } catch {
-      // Skip malformed log data
-    }
-  }
-  // Divide in BigInt space first, then convert the smaller number to Number
-  const wholeDollars = totalVolumeRaw / BigInt(1_000_000);
-  const remainder = totalVolumeRaw % BigInt(1_000_000);
-  const totalVolumeUsdc = Number(wholeDollars) + Number(remainder) / 1_000_000;
-
-  // Get timestamps for first and last transactions
-  const firstLog = allLogs[0];
-  const lastLog = allLogs[allLogs.length - 1];
+  const aggregated = aggregateLogs(allLogs);
+  const firstLog = aggregated.firstLog;
+  const lastLog = aggregated.lastLog;
 
   let firstTxTimestamp: string | null = null;
   let lastTxTimestamp: string | null = null;
 
   try {
-    firstTxTimestamp = await getBlockTimestamp(firstLog.blockNumber);
+    if (firstLog) firstTxTimestamp = await getBlockTimestamp(firstLog.blockNumber);
     lastTxTimestamp = firstLog === lastLog
       ? firstTxTimestamp
-      : await getBlockTimestamp(lastLog.blockNumber);
+      : lastLog ? await getBlockTimestamp(lastLog.blockNumber) : null;
   } catch {
     // Timestamp resolution is best-effort
   }
@@ -266,13 +374,144 @@ export async function verifyPayoutAddress(
     payoutAddress,
     verified: true,
     scanComplete,
-    totalTransactions: allLogs.length,
-    totalVolumeUsdc,
+    totalTransactions: aggregated.totalTransactions,
+    totalVolumeUsdc: aggregated.totalVolumeUsdc,
     firstTxTimestamp,
     lastTxTimestamp,
-    lastTxHash: lastLog.transactionHash,
+    lastTxHash: aggregated.lastTxHash,
     blockRangeScanned: { from: fromBlock, to: latestBlock },
   };
+}
+
+export async function verifyAddressesIncremental(
+  addresses: IncrementalVerificationInput[],
+  concurrency: number = 3,
+  lookbackBlocks: number = DEFAULT_LOOKBACK_BLOCKS
+): Promise<Map<string, IncrementalVerificationResult>> {
+  const results = new Map<string, IncrementalVerificationResult>();
+  const latestBlock = await getLatestBlock();
+  const now = new Date().toISOString();
+
+  log(`Verifying ${addresses.length} unique payout addresses incrementally...`);
+
+  for (let i = 0; i < addresses.length; i += concurrency) {
+    const batch = addresses.slice(i, i + concurrency);
+    await Promise.allSettled(batch.map(async (input) => {
+      const normalized = input.address.toLowerCase();
+      const prior = input.priorTotals;
+      const invalid = !input.address
+        || !input.address.startsWith("0x")
+        || input.address.length !== 42
+        || BLOCKED_ADDRESSES.has(normalized);
+
+      if (invalid) {
+        results.set(normalized, {
+          address: input.address,
+          verificationState: "invalid",
+          scanComplete: true,
+          totalTransactions: prior?.totalTransactions || 0,
+          totalVolumeUsdc: prior?.totalVolumeUsdc || 0,
+          firstTxTimestamp: prior?.firstTxTimestamp || null,
+          lastTxTimestamp: prior?.lastTxTimestamp || null,
+          lastTxHash: prior?.lastTxHash || null,
+          firstVerifiedAt: prior?.firstVerifiedAt || null,
+          lastVerifiedAt: prior?.lastVerifiedAt || null,
+          lastScannedBlock: input.lastScannedBlock,
+        });
+        return;
+      }
+
+      const fromBlock = input.lastScannedBlock != null
+        ? Math.min(input.lastScannedBlock + 1, latestBlock + 1)
+        : Math.max(0, latestBlock - lookbackBlocks);
+
+      if (fromBlock > latestBlock) {
+        results.set(normalized, {
+          address: input.address,
+          verificationState: (prior?.totalTransactions || 0) > 0 ? "verified" : "unverified",
+          scanComplete: true,
+          totalTransactions: prior?.totalTransactions || 0,
+          totalVolumeUsdc: prior?.totalVolumeUsdc || 0,
+          firstTxTimestamp: prior?.firstTxTimestamp || null,
+          lastTxTimestamp: prior?.lastTxTimestamp || null,
+          lastTxHash: prior?.lastTxHash || null,
+          firstVerifiedAt: prior?.firstVerifiedAt || null,
+          lastVerifiedAt: prior?.lastVerifiedAt || null,
+          lastScannedBlock: input.lastScannedBlock,
+        });
+        return;
+      }
+
+      const rangeScan = await scanAddressRange(input.address, fromBlock, latestBlock);
+      if (!rangeScan.scanComplete) {
+        results.set(normalized, {
+          address: input.address,
+          verificationState: prior ? ((prior.totalTransactions || 0) > 0 ? "verified" : "incomplete") : "incomplete",
+          scanComplete: false,
+          totalTransactions: prior?.totalTransactions || 0,
+          totalVolumeUsdc: prior?.totalVolumeUsdc || 0,
+          firstTxTimestamp: prior?.firstTxTimestamp || null,
+          lastTxTimestamp: prior?.lastTxTimestamp || null,
+          lastTxHash: prior?.lastTxHash || null,
+          firstVerifiedAt: prior?.firstVerifiedAt || null,
+          lastVerifiedAt: prior?.lastVerifiedAt || null,
+          lastScannedBlock: input.lastScannedBlock,
+        });
+        return;
+      }
+
+      const aggregated = aggregateLogs(rangeScan.logs);
+      let firstTxTimestamp = prior?.firstTxTimestamp || null;
+      let lastTxTimestamp = prior?.lastTxTimestamp || null;
+
+      try {
+        const scannedFirst = aggregated.firstLog ? await getBlockTimestamp(aggregated.firstLog.blockNumber) : null;
+        const scannedLast = aggregated.lastLog
+          ? aggregated.firstLog === aggregated.lastLog
+            ? scannedFirst
+            : await getBlockTimestamp(aggregated.lastLog.blockNumber)
+          : null;
+        firstTxTimestamp = chooseEarlier(firstTxTimestamp, scannedFirst);
+        lastTxTimestamp = chooseLater(lastTxTimestamp, scannedLast);
+      } catch {
+        // Timestamp resolution is best-effort
+      }
+
+      const totalTransactions = (prior?.totalTransactions || 0) + aggregated.totalTransactions;
+      const totalVolumeUsdc = (prior?.totalVolumeUsdc || 0) + aggregated.totalVolumeUsdc;
+      const verified = totalTransactions > 0;
+
+      results.set(normalized, {
+        address: input.address,
+        verificationState: verified ? "verified" : "unverified",
+        scanComplete: true,
+        totalTransactions,
+        totalVolumeUsdc,
+        firstTxTimestamp,
+        lastTxTimestamp,
+        lastTxHash: aggregated.lastTxHash || prior?.lastTxHash || null,
+        firstVerifiedAt: verified ? (prior?.firstVerifiedAt || now) : null,
+        lastVerifiedAt: verified
+          ? (aggregated.totalTransactions > 0 ? now : prior?.lastVerifiedAt || prior?.firstVerifiedAt || now)
+          : null,
+        lastScannedBlock: latestBlock,
+      });
+    }));
+
+    const done = Math.min(i + concurrency, addresses.length);
+    if (done % 10 === 0 || done === addresses.length) {
+      log(`  Progress: ${done}/${addresses.length} addresses verified`);
+    }
+  }
+
+  const verifiedCount = Array.from(results.values()).filter((result) => result.verificationState === "verified").length;
+  const incompleteCount = Array.from(results.values()).filter((result) => !result.scanComplete).length;
+  log(
+    `Incremental verification complete: ${verifiedCount}/${results.size} addresses verified`
+      + (incompleteCount > 0 ? ` (${incompleteCount} incomplete scan(s))` : "")
+  );
+
+  return results;
 }
 
 /**
