@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 2225
+# Total domains: 2259
 # Total endpoints: 15163
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -2228,3 +2228,37 @@ defi-api.agenticfi.wtf | unclaimed | onchain-x402 | 2026-03-25
 x402.1xu.app | unclaimed | onchain-x402 | 2026-03-25
 x402.aurelianflo.com | unclaimed | onchain-x402 | 2026-03-25
 api.ppq.ai | unclaimed | onchain-mpp | 2026-03-25
+abstractapi.com | unclaimed | onchain-mpp | 2026-03-25
+alphavantage.co | unclaimed | onchain-mpp | 2026-03-25
+api.thoughtproof.ai | unclaimed | onchain-x402 | 2026-03-25
+apollo.io | unclaimed | onchain-mpp | 2026-03-25
+brave.com | unclaimed | onchain-mpp | 2026-03-25
+builtwith.com | unclaimed | onchain-mpp | 2026-03-25
+clado.ai | unclaimed | onchain-mpp | 2026-03-25
+coingecko.com | unclaimed | onchain-mpp | 2026-03-25
+deepgram.com | unclaimed | onchain-mpp | 2026-03-25
+deepl.com | unclaimed | onchain-mpp | 2026-03-25
+deepseek.com | unclaimed | onchain-mpp | 2026-03-25
+diffbot.com | unclaimed | onchain-mpp | 2026-03-25
+efts.sec.gov | unclaimed | onchain-mpp | 2026-03-25
+groq.com | unclaimed | onchain-mpp | 2026-03-25
+hunter.io | unclaimed | onchain-mpp | 2026-03-25
+ipinfo.io | unclaimed | onchain-mpp | 2026-03-25
+judge0.com | unclaimed | onchain-mpp | 2026-03-25
+mapbox.com | unclaimed | onchain-mpp | 2026-03-25
+mathpix.com | unclaimed | onchain-mpp | 2026-03-25
+mistral.ai | unclaimed | onchain-mpp | 2026-03-25
+openweathermap.org | unclaimed | onchain-mpp | 2026-03-25
+perplexity.ai | unclaimed | onchain-mpp | 2026-03-25
+quicknode.com | verified | onchain-mpp | 2026-03-25
+rentcast.io | unclaimed | onchain-mpp | 2026-03-25
+replicate.com | unclaimed | onchain-mpp | 2026-03-25
+satwork.ai | unclaimed | onchain-l402 | 2026-03-25
+screenshotone.com | unclaimed | onchain-mpp | 2026-03-25
+sec.gov | unclaimed | onchain-mpp | 2026-03-25
+stability.ai | unclaimed | onchain-mpp | 2026-03-25
+sunoapi.org | unclaimed | onchain-mpp | 2026-03-25
+tavily.com | verified | onchain-mpp | 2026-03-25
+wolframalpha.com | unclaimed | onchain-mpp | 2026-03-25
+x.ai | unclaimed | onchain-mpp | 2026-03-25
+x.com | unclaimed | onchain-mpp | 2026-03-25
