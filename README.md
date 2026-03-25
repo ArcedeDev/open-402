@@ -3,7 +3,7 @@
   <p align="center">
     The open registry of paid APIs using HTTP 402 payment protocols.
     <br />
-    <a href="https://open402.directory"><strong>Browse the directory &rarr;</strong></a>
+    <a href="https://agentinternetruntime.com/directory"><strong>Browse the directory &rarr;</strong></a>
     <br />
     <br />
     <a href="#add-your-api">Add your API</a>
@@ -27,7 +27,9 @@
 
 This is the **canonical, open-source registry** of domains that accept payments via HTTP 402. Think of it as a phone book for the paid API economy.
 
-The data here powers the [Open 402 Directory](https://open402.directory) at `open402.directory`, but anyone can fork this registry and build their own directory, search engine, monitoring tool, or agent discovery service on top of it.
+The live registry counts are exposed by the badges above and in [`registry/snapshot.json`](registry/snapshot.json). The dataset is rebuilt nightly and currently spans thousands of domains and endpoints across verified and auto-indexed listings.
+
+The data here powers the [Open 402 Directory](https://agentinternetruntime.com/directory), but anyone can fork this registry and build their own directory, search engine, monitoring tool, or agent discovery service on top of it.
 
 **Decentralized design principles:**
 
@@ -56,7 +58,7 @@ domain | status | source | added_date
 |-------|--------|-------------|
 | `domain` | `api.example.com` | The API's domain |
 | `status` | `verified` · `unclaimed` | Whether the domain hosts an `agent.json` |
-| `source` | `self` · `submit` · `402index` · `onchain-x402` | How the domain was discovered |
+| `source` | `self` · `submit` · `402index` · `onchain-*` | How the domain was discovered |
 | `added_date` | `2026-03-23` | When it was first added to the registry |
 
 **Verified** means the domain hosts `/.well-known/agent.json` — a machine-readable manifest declaring the API's capabilities, pricing, and payment protocols.
@@ -65,9 +67,21 @@ domain | status | source | added_date
 
 ### `snapshot.json`
 
-A nightly-rebuilt cache of metadata for every domain. Contains display names, descriptions, endpoint counts, pricing, and protocol info. Parsed from each domain's live `agent.json`.
+A nightly-rebuilt cache of metadata for every indexed domain. Contains display names, descriptions, endpoint counts, pricing, protocol info, and on-chain transaction data. Parsed from each domain's live `agent.json` when present and enriched with watcher/on-chain verification data.
 
 You can read this file directly for structured data without crawling individual domains yourself.
+
+### Nightly crawl pipeline
+
+The registry is refreshed nightly in private infrastructure:
+
+1. **Domain discovery** from x402scan.com and 402index.io watchers
+2. **Crawl** every domain for `/.well-known/agent.json` (15 concurrent)
+3. **On-chain verification** of payout addresses against Base USDC transfers
+4. **Ecosystem stats** from x402scan (transactions, volume, buyers, sellers)
+5. **Publish** updated `snapshot.json` and `domains.txt` together in one atomic Git commit
+
+New domains are discovered automatically. Domains that go offline for 30+ consecutive days are demoted to unclaimed.
 
 ---
 
@@ -149,7 +163,7 @@ Most web frameworks make this straightforward:
 
 **Option A: Submit via the directory** (instant)
 
-Go to [open402.directory](https://open402.directory), enter your domain, and hit submit. We crawl it immediately.
+Go to the [directory](https://agentinternetruntime.com/directory), enter your domain, and hit submit.
 
 **Option B: Open a pull request**
 
@@ -165,7 +179,7 @@ Our nightly crawler checks all known domains. If you're already processing 402 p
 
 ### Verify your listing
 
-After submitting, visit the [directory](https://open402.directory) and search for your domain. Your card should show:
+After submitting, visit the [directory](https://agentinternetruntime.com/directory) and search for your domain. Your card should show:
 - Your display name and description (from `agent.json`)
 - Protocol badges (x402, L402, MPP)
 - Endpoint count
@@ -205,7 +219,7 @@ cat registry/domains.txt          # All known domains
 cat registry/snapshot.json        # Structured metadata (JSON)
 ```
 
-The `snapshot.json` file contains everything you need to build a UI: display names, descriptions, endpoint lists, pricing, protocol info, and health status for every verified domain.
+The `snapshot.json` file contains everything you need to build a UI: display names, descriptions, endpoint lists, pricing, protocol info, and verification metadata for every indexed domain.
 
 ### Build on the data
 
@@ -237,7 +251,7 @@ The registry is append-only for new domains. Merges are clean.
 If you don't want to maintain a fork, query the live directory API:
 
 ```bash
-# List all domains
+# List all domains (paginated, 30 per page)
 curl https://agentinternetruntime.com/api/directory
 
 # Search
@@ -248,7 +262,52 @@ curl "https://agentinternetruntime.com/api/directory?protocol=x402"
 
 # Filter by status
 curl "https://agentinternetruntime.com/api/directory?status=verified"
+
+# Pagination
+curl "https://agentinternetruntime.com/api/directory?page=2&limit=50"
+
+# Sort options: recent (default), alpha, endpoints
+curl "https://agentinternetruntime.com/api/directory?sort=endpoints"
 ```
+
+### Manifest API
+
+Get a valid `agent.json` for any domain in the directory, whether they host one or not:
+
+```bash
+# Returns the live manifest for verified domains
+curl https://agentinternetruntime.com/api/manifest/agentinternetruntime.com
+# X-Manifest-Source: self-hosted
+
+# Returns an auto-generated manifest for unclaimed domains
+curl https://agentinternetruntime.com/api/manifest/lowpaymentfee.com
+# X-Manifest-Source: auto-generated
+
+# 404 for domains not in the directory
+curl https://agentinternetruntime.com/api/manifest/unknown.com
+```
+
+**Proxy hosting.** Domain owners can point `/.well-known/agent.json` to this API instead of self-hosting:
+
+```nginx
+# Nginx
+location /.well-known/agent.json {
+    proxy_pass https://agentinternetruntime.com/api/manifest/yourdomain.com;
+}
+```
+
+```javascript
+// Next.js middleware.ts
+export function middleware(request) {
+  if (request.nextUrl.pathname === '/.well-known/agent.json') {
+    return NextResponse.rewrite(
+      new URL('https://agentinternetruntime.com/api/manifest/yourdomain.com')
+    );
+  }
+}
+```
+
+The Manifest API is public. Check the deployment's current response headers and documentation for rate-limit and caching behavior.
 
 ---
 
@@ -281,23 +340,28 @@ See **[CONTRIBUTING.md](CONTRIBUTING.md)** for detailed guidelines, what we acce
 
 ---
 
-## Trust and identity
+## Trust tiers
 
-When AI agents start paying for APIs on their own, everyone needs to know who they're dealing with. The API needs to know the agent is real. The agent needs to know the API is real. It's the same reason you check for a padlock icon before entering your credit card on a website. That padlock exists because the internet built a trust layer (Certificate Authorities) on top of the connectivity layer (TCP/IP). The agent economy needs the same thing: a trust layer on top of the payment layer. That's what this section describes.
+Every listing in the directory has a trust tier. Higher tiers signal more completeness and verifiability to agents and consumers.
+
+| Tier | Badge | What it means | What the domain provides |
+|------|-------|--------------|--------------------------|
+| **0** | Auto-Indexed (gray) | Known to accept 402 payments | Nothing. Discovered from on-chain data. |
+| **1** | Self-Hosted (green) | Published a manifest | `version` + `origin` + `payout_address` at `/.well-known/agent.json` |
+| **2** | Structured (blue) | Manifest with endpoints | + `intents[]` with names, descriptions, endpoints, pricing |
+| **3** | Verified Identity (gold) | Cryptographic proof of domain ownership | + `identity` with `did` + `public_key` |
+
+Each tier unlocks more trust. Tier 0 listings are auto-generated from on-chain data. Tier 1+ listings are self-hosted and authoritative. Tier 3 is the highest level of trust, where the domain proves ownership via a DID document.
+
+---
+
+## Trust and identity
 
 Two trust problems, two systems:
 
 ### Problem 1: "Is this API real?" (API provider identity)
 
 When an agent finds your API in this directory, how does it know you're legitimate and not an impersonator?
-
-The `agent.json` spec solves this with three tiers:
-
-| Tier | What it means | What you add | Analogy |
-|------|--------------|--------------|---------|
-| **Tier 1: Listed** | "I exist" | `version` + `origin` + `payout_address` | A business card |
-| **Tier 2: Capable** | "Here's what I do" | + `intents[]` with endpoints and pricing | A menu with prices |
-| **Tier 3: Verified** | "I can prove I own this domain" | + `identity` with `did` + `public_key` | A notarized business license |
 
 To reach Tier 3, generate a keypair and add an `identity` block to your agent.json:
 
@@ -353,9 +417,12 @@ Learn more: **[agent.json Spec](https://agentinternetruntime.com/spec/agent-json
 
 | Project | What it does |
 |---------|-------------|
-| **[Open Agent Trust Registry](https://github.com/FransDevelopment/open-agent-trust-registry)** | The Certificate Authority for the agent internet. Verifies that agent runtimes are legitimate so APIs can trust the agents calling them. |
+| **[Manifest API](https://agentinternetruntime.com/api/manifest/)** | `GET /api/manifest/{domain}` returns a valid agent.json for any domain in the directory. Free, public, cached at the edge. |
+| **[agent.json Generator](https://agentinternetruntime.com/spec/agent-json/generator)** | Interactive tool to create a valid agent.json manifest. |
+| **[agent.json Validator](https://agentinternetruntime.com/spec/agent-json/validator)** | Validate your manifest against the spec before deploying. |
 | **[agent.json Spec](https://agentinternetruntime.com/spec/agent-json)** | The open capability manifest standard that verified listings are built on. |
-| **[Agent Internet Runtime](https://agentinternetruntime.com)** | The platform that powers this directory — collective intelligence for AI agents to discover, trust, and interact with the web. |
+| **[Open Agent Trust Registry](https://github.com/FransDevelopment/open-agent-trust-registry)** | The Certificate Authority for the agent internet. Verifies that agent runtimes are legitimate so APIs can trust the agents calling them. |
+| **[Agent Internet Runtime](https://agentinternetruntime.com)** | The platform that powers this directory. Collective intelligence for AI agents to discover, trust, and interact with the web. |
 
 ---
 

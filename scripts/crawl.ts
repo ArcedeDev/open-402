@@ -1,4 +1,11 @@
 #!/usr/bin/env npx tsx
+import { pathToFileURL } from "node:url";
+
+import {
+  buildUpdatedDomainsTxt,
+  parseDomainsTxt,
+  type DomainEntry,
+} from "./lib/registry-utils.ts";
 /**
  * Nightly Crawler for the Open 402 Directory
  *
@@ -20,7 +27,9 @@
  */
 
 const GITHUB_REPO = process.env.GITHUB_REPO || "ArcedeDev/open-402";
+const GITHUB_BRANCH = process.env.GITHUB_BRANCH || "main";
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN || "";
+const GITHUB_COMMIT_RETRIES = parseInt(process.env.GITHUB_COMMIT_RETRIES || "3", 10) || 3;
 const CONCURRENCY = parseInt(process.env.CONCURRENCY || "15", 10) || 15;
 const STALE_DAYS = parseInt(process.env.STALE_DAYS || "7", 10) || 7;
 const DEMOTE_DAYS = parseInt(process.env.DEMOTE_DAYS || "30", 10) || 30;
@@ -28,13 +37,6 @@ const DEMOTE_DAYS = parseInt(process.env.DEMOTE_DAYS || "30", 10) || 30;
 const API_BASE = `https://api.github.com/repos/${GITHUB_REPO}`;
 
 /* ── Types ── */
-
-interface DomainEntry {
-  domain: string;
-  status: "verified" | "unclaimed";
-  source: string;
-  added_date: string;
-}
 
 interface SnapshotEntry {
   domain: string;
@@ -116,22 +118,8 @@ function log(msg: string): void {
   console.log(`[${ts}] ${msg}`);
 }
 
-/* ── Parse domains.txt ── */
-
-function parseDomainsTxt(content: string): DomainEntry[] {
-  return content
-    .split("\n")
-    .filter((line) => line.trim() && !line.startsWith("#"))
-    .map((line) => {
-      const parts = line.split("|").map((p) => p.trim());
-      return {
-        domain: parts[0] || "",
-        status: (parts[1] === "verified" ? "verified" : "unclaimed") as "verified" | "unclaimed",
-        source: parts[2] || "unknown",
-        added_date: parts[3] || new Date().toISOString().split("T")[0],
-      };
-    })
-    .filter((e) => e.domain);
+function sleep(ms: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
 /* ── Crawl a single domain ── */
@@ -379,16 +367,41 @@ async function crawlAll(
 
 /* ── GitHub API helpers ── */
 
-async function githubGet(path: string): Promise<{ content: string; sha: string } | null> {
+interface GitHubFile {
+  content: string;
+  sha: string;
+}
+
+interface GitHubApiResult {
+  ok: boolean;
+  status: number;
+}
+
+interface GitHubTreeItem {
+  path: string;
+  mode: "100644";
+  type: "blob";
+  sha: string;
+}
+
+interface GitHubFileUpdate {
+  path: string;
+  content: string;
+}
+
+async function githubGet(path: string, ref: string = GITHUB_BRANCH): Promise<GitHubFile | null> {
   // Get SHA from Contents API
-  const metaRes = await fetch(`${API_BASE}/contents/${path}`, {
+  const metaRes = await fetch(`${API_BASE}/contents/${path}?ref=${encodeURIComponent(ref)}`, {
     headers: {
       Authorization: `Bearer ${GITHUB_TOKEN}`,
       Accept: "application/vnd.github.v3+json",
     },
     signal: AbortSignal.timeout(30_000),
   });
-  if (!metaRes.ok) return null;
+  if (metaRes.status === 404) return null;
+  if (!metaRes.ok) {
+    throw new Error(`GitHub GET failed for ${path}: HTTP ${metaRes.status} ${metaRes.statusText}`);
+  }
   const meta = await metaRes.json();
   const sha = meta.sha;
 
@@ -397,16 +410,112 @@ async function githubGet(path: string): Promise<{ content: string; sha: string }
     return { content: Buffer.from(meta.content, "base64").toString("utf-8"), sha };
   }
 
-  // Large files (>1MB): GitHub omits content. Fetch via raw CDN.
-  const rawUrl = `https://raw.githubusercontent.com/${GITHUB_REPO}/main/${path}`;
-  const rawRes = await fetch(rawUrl, { signal: AbortSignal.timeout(30_000) });
-  if (!rawRes.ok) return null;
-  return { content: await rawRes.text(), sha };
+  // Large files (>1MB): fetch the exact blob by SHA to avoid ref drift.
+  const blobRes = await fetch(`${API_BASE}/git/blobs/${sha}`, {
+    headers: {
+      Authorization: `Bearer ${GITHUB_TOKEN}`,
+      Accept: "application/vnd.github.v3+json",
+    },
+    signal: AbortSignal.timeout(30_000),
+  });
+  if (!blobRes.ok) {
+    throw new Error(`GitHub blob GET failed for ${path}: HTTP ${blobRes.status} ${blobRes.statusText}`);
+  }
+  const blob = await blobRes.json() as { content?: string; encoding?: string };
+  if (!blob.content || blob.encoding !== "base64") {
+    throw new Error(`GitHub blob GET returned no content for ${path}`);
+  }
+  return { content: Buffer.from(blob.content, "base64").toString("utf-8"), sha };
 }
 
-async function githubPut(path: string, content: string, sha: string | null, message: string): Promise<boolean> {
-  const res = await fetch(`${API_BASE}/contents/${path}`, {
-    method: "PUT",
+async function githubGetBranchHead(): Promise<string> {
+  const ref = encodeURIComponent(`heads/${GITHUB_BRANCH}`);
+  const res = await fetch(`${API_BASE}/git/ref/${ref}`, {
+    headers: {
+      Authorization: `Bearer ${GITHUB_TOKEN}`,
+      Accept: "application/vnd.github.v3+json",
+    },
+    signal: AbortSignal.timeout(30_000),
+  });
+  if (!res.ok) {
+    throw new Error(`GitHub ref GET failed: HTTP ${res.status} ${res.statusText}`);
+  }
+  const data = await res.json() as { object?: { sha?: string } };
+  const sha = data.object?.sha;
+  if (!sha) throw new Error("GitHub ref GET returned no commit SHA");
+  return sha;
+}
+
+async function githubGetCommitTree(commitSha: string): Promise<string> {
+  const res = await fetch(`${API_BASE}/git/commits/${commitSha}`, {
+    headers: {
+      Authorization: `Bearer ${GITHUB_TOKEN}`,
+      Accept: "application/vnd.github.v3+json",
+    },
+    signal: AbortSignal.timeout(30_000),
+  });
+  if (!res.ok) {
+    throw new Error(`GitHub commit GET failed: HTTP ${res.status} ${res.statusText}`);
+  }
+  const data = await res.json() as { tree?: { sha?: string } };
+  const treeSha = data.tree?.sha;
+  if (!treeSha) throw new Error("GitHub commit GET returned no tree SHA");
+  return treeSha;
+}
+
+async function githubCreateBlob(content: string): Promise<string> {
+  const res = await fetch(`${API_BASE}/git/blobs`, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${GITHUB_TOKEN}`,
+      "Content-Type": "application/json",
+      Accept: "application/vnd.github.v3+json",
+    },
+    body: JSON.stringify({
+      content,
+      encoding: "utf-8",
+    }),
+    signal: AbortSignal.timeout(30_000),
+  });
+  if (!res.ok) {
+    const err = await res.text();
+    throw new Error(`GitHub blob POST failed: ${err}`);
+  }
+  const data = await res.json() as { sha?: string };
+  if (!data.sha) throw new Error("GitHub blob POST returned no SHA");
+  return data.sha;
+}
+
+async function githubCreateTree(baseTree: string, tree: GitHubTreeItem[]): Promise<string> {
+  const res = await fetch(`${API_BASE}/git/trees`, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${GITHUB_TOKEN}`,
+      "Content-Type": "application/json",
+      Accept: "application/vnd.github.v3+json",
+    },
+    body: JSON.stringify({
+      base_tree: baseTree,
+      tree,
+    }),
+    signal: AbortSignal.timeout(30_000),
+  });
+  if (!res.ok) {
+    const err = await res.text();
+    throw new Error(`GitHub tree POST failed: ${err}`);
+  }
+  const data = await res.json() as { sha?: string };
+  if (!data.sha) throw new Error("GitHub tree POST returned no SHA");
+  return data.sha;
+}
+
+async function githubCreateCommit(
+  message: string,
+  parentCommitSha: string,
+  treeSha: string
+): Promise<string> {
+  const res = await fetch(`${API_BASE}/git/commits`, {
+    method: "POST",
     headers: {
       Authorization: `Bearer ${GITHUB_TOKEN}`,
       "Content-Type": "application/json",
@@ -414,21 +523,89 @@ async function githubPut(path: string, content: string, sha: string | null, mess
     },
     body: JSON.stringify({
       message,
-      content: Buffer.from(content).toString("base64"),
-      ...(sha ? { sha } : {}),
+      tree: treeSha,
+      parents: [parentCommitSha],
     }),
     signal: AbortSignal.timeout(30_000),
   });
   if (!res.ok) {
     const err = await res.text();
-    log(`GitHub PUT failed for ${path}: ${err}`);
+    throw new Error(`GitHub commit POST failed: ${err}`);
   }
-  return res.ok;
+  const data = await res.json() as { sha?: string };
+  if (!data.sha) throw new Error("GitHub commit POST returned no SHA");
+  return data.sha;
+}
+
+async function githubUpdateBranchHead(commitSha: string): Promise<GitHubApiResult> {
+  const ref = encodeURIComponent(`heads/${GITHUB_BRANCH}`);
+  const res = await fetch(`${API_BASE}/git/refs/${ref}`, {
+    method: "PATCH",
+    headers: {
+      Authorization: `Bearer ${GITHUB_TOKEN}`,
+      "Content-Type": "application/json",
+      Accept: "application/vnd.github.v3+json",
+    },
+    body: JSON.stringify({
+      sha: commitSha,
+      force: false,
+    }),
+    signal: AbortSignal.timeout(30_000),
+  });
+  if (!res.ok) {
+    const err = await res.text();
+    log(`GitHub ref update failed: ${err}`);
+  }
+  return { ok: res.ok, status: res.status };
+}
+
+async function githubCommitFilesAtomically(
+  paths: string[],
+  message: string,
+  buildFiles: (remoteFiles: Map<string, GitHubFile | null>) => Promise<GitHubFileUpdate[]> | GitHubFileUpdate[],
+  maxAttempts: number = GITHUB_COMMIT_RETRIES
+): Promise<boolean> {
+  for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+    const headSha = await githubGetBranchHead();
+    const remoteFiles = new Map<string, GitHubFile | null>();
+    const fetchedFiles = await Promise.all(paths.map(async (path) => [path, await githubGet(path, headSha)] as const));
+    for (const [path, file] of fetchedFiles) {
+      remoteFiles.set(path, file);
+    }
+
+    const desiredFiles = await buildFiles(remoteFiles);
+    const changedFiles = desiredFiles.filter((file) => remoteFiles.get(file.path)?.content !== file.content);
+
+    if (changedFiles.length === 0) {
+      log("Skipping registry publish; already up to date.");
+      return true;
+    }
+
+    const baseTree = await githubGetCommitTree(headSha);
+    const tree = await Promise.all(
+      changedFiles.map(async (file) => ({
+        path: file.path,
+        mode: "100644" as const,
+        type: "blob" as const,
+        sha: await githubCreateBlob(file.content),
+      }))
+    );
+    const treeSha = await githubCreateTree(baseTree, tree);
+    const commitSha = await githubCreateCommit(message, headSha, treeSha);
+    const result = await githubUpdateBranchHead(commitSha);
+    if (result.ok) return true;
+    if ((result.status !== 409 && result.status !== 422) || attempt === maxAttempts) return false;
+
+    log(`Retrying atomic registry publish after remote update (${attempt}/${maxAttempts - 1})...`);
+    await sleep(500 * attempt);
+  }
+
+  return false;
 }
 
 /* ── Main ── */
 
-async function main(): Promise<void> {
+export async function main(): Promise<void> {
   log("=== Open 402 Directory — Nightly Crawl ===");
 
   if (!GITHUB_TOKEN) {
@@ -438,7 +615,8 @@ async function main(): Promise<void> {
 
   // 1. Read domains.txt from the public repo
   log("Fetching domains.txt...");
-  const domainsFile = await githubGet("registry/domains.txt");
+  const initialHeadSha = await githubGetBranchHead();
+  const domainsFile = await githubGet("registry/domains.txt", initialHeadSha);
   if (!domainsFile) {
     log("ERROR: Could not read domains.txt from repo.");
     process.exit(1);
@@ -449,7 +627,7 @@ async function main(): Promise<void> {
 
   // 2. Read existing snapshot.json for preserving first_seen and failure counts
   log("Fetching existing snapshot.json...");
-  const snapshotFile = await githubGet("registry/snapshot.json");
+  const snapshotFile = await githubGet("registry/snapshot.json", initialHeadSha);
   const existingSnapshot = new Map<string, SnapshotEntry>();
 
   if (snapshotFile) {
@@ -540,11 +718,19 @@ async function main(): Promise<void> {
     if (toVerify.length > 0) {
       log(`Verifying ${toVerify.length} payout addresses against Base on-chain data...`);
       const verifications = await verifyPayoutAddresses(toVerify, 3);
+      let incompleteScans = 0;
 
       // Enrich entries with on-chain verification
       for (const entry of entries) {
         const v = verifications.get(entry.domain);
         if (v) {
+          if (!v.scanComplete) {
+            incompleteScans++;
+            const existing = existingSnapshot.get(entry.domain);
+            if (existing?.onchain) entry.onchain = existing.onchain;
+            continue;
+          }
+
           entry.onchain = {
             verified: v.verified,
             total_transactions: v.totalTransactions,
@@ -560,7 +746,10 @@ async function main(): Promise<void> {
       }
 
       const onchainVerified = entries.filter((e) => e.onchain?.verified).length;
-      log(`On-chain verification: ${onchainVerified}/${toVerify.length} domains have real transactions`);
+      log(
+        `On-chain verification: ${onchainVerified}/${toVerify.length} domains have real transactions`
+          + (incompleteScans > 0 ? ` (${incompleteScans} incomplete scan(s) preserved)` : "")
+      );
     }
   } catch (e) {
     log(`WARNING: On-chain verification failed (non-fatal): ${e}`);
@@ -683,80 +872,40 @@ async function main(): Promise<void> {
 
   const snapshotJson = JSON.stringify(snapshot, null, 2);
 
-  // 8. Update domains.txt if any statuses changed (+ append on-chain discoveries)
-  let domainsChanged = false;
-  const domainStatusMap = new Map(entries.map((e) => [e.domain, e.status]));
-  const updatedLines: string[] = [];
-
-  for (const line of domainsFile.content.split("\n")) {
-    if (line.startsWith("#") || !line.trim()) {
-      // Preserve comments, but update the counts
-      if (line.startsWith("# Total domains:")) {
-        updatedLines.push(`# Total domains: ${entries.length}`);
-        domainsChanged = true;
-      } else if (line.startsWith("# Total endpoints:")) {
-        const totalEndpoints = entries.reduce((sum, e) => sum + e.intent_count, 0);
-        updatedLines.push(`# Total endpoints: ${totalEndpoints}`);
-        domainsChanged = true;
-      } else {
-        updatedLines.push(line);
-      }
-      continue;
-    }
-
-    const parts = line.split("|").map((p) => p.trim());
-    const domain = parts[0];
-    const currentStatus = parts[1];
-    const newStatus = domainStatusMap.get(domain);
-
-    if (newStatus && newStatus !== currentStatus) {
-      // Status changed — update the line
-      parts[1] = ` ${newStatus} `;
-      updatedLines.push(parts.join("|"));
-      domainsChanged = true;
-      log(`  STATUS ${domain}: ${currentStatus} → ${newStatus}`);
-    } else {
-      updatedLines.push(line);
-    }
-  }
-
-  // Append on-chain discovered domains to domains.txt
-  if (onchainDiscoveries > 0) {
-    // Build exact domain set from parsed entries to avoid substring false matches
-    const existingDomains = new Set(parseDomainsTxt(domainsFile.content).map((d) => d.domain));
-    const date = new Date().toISOString().split("T")[0];
-    for (const entry of entries) {
-      if (entry.source.startsWith("onchain-") && !existingDomains.has(entry.domain)) {
-        updatedLines.push(`${entry.domain} | ${entry.status} | ${entry.source} | ${date}`);
-        domainsChanged = true;
-      }
-    }
-  }
+  // 8. Plan domains.txt updates against the crawl-start snapshot for logging,
+  // then rebuild against the latest branch head right before the atomic publish.
+  const plannedDomains = buildUpdatedDomainsTxt(domainsFile.content, entries, {
+    logStatusChanges: (message) => log(`  ${message}`),
+  });
 
   // 9. Commit to the public repo
-  log("Committing snapshot.json...");
-  const snapshotOk = await githubPut(
-    "registry/snapshot.json",
-    snapshotJson,
-    snapshotFile?.sha || null,
-    `chore: nightly crawl — ${verified} verified, ${unclaimed} unclaimed`
+  log("Publishing registry update atomically...");
+  const publishOk = await githubCommitFilesAtomically(
+    ["registry/snapshot.json", "registry/domains.txt"],
+    `chore: nightly crawl — ${verified} verified, ${unclaimed} unclaimed`,
+    (remoteFiles) => {
+      const remoteDomains = remoteFiles.get("registry/domains.txt");
+      if (!remoteDomains) {
+        throw new Error("Could not read domains.txt from repo during publish.");
+      }
+
+      const files: GitHubFileUpdate[] = [
+        { path: "registry/snapshot.json", content: snapshotJson },
+      ];
+      const mergedDomains = buildUpdatedDomainsTxt(remoteDomains.content, entries);
+
+      if (plannedDomains.changed || mergedDomains.changed) {
+        files.push({ path: "registry/domains.txt", content: mergedDomains.content });
+      }
+
+      return files;
+    }
   );
 
-  if (domainsChanged) {
-    log("Committing domains.txt (status changes detected)...");
-    const domainsOk = await githubPut(
-      "registry/domains.txt",
-      updatedLines.join("\n"),
-      domainsFile.sha,
-      `chore: update domain statuses (${upgrades} upgrades)`
-    );
-    if (!domainsOk) log("WARNING: Failed to commit domains.txt");
-  }
-
-  if (snapshotOk) {
-    log("Done. Snapshot committed successfully.");
+  if (publishOk) {
+    log("Done. Registry committed successfully.");
   } else {
-    log("ERROR: Failed to commit snapshot.json.");
+    log("ERROR: Failed to publish registry update.");
     process.exit(1);
   }
 
@@ -795,7 +944,9 @@ async function main(): Promise<void> {
   }
 }
 
-main().catch((e) => {
-  log(`FATAL: ${e}`);
-  process.exit(1);
-});
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+  main().catch((e) => {
+    log(`FATAL: ${e}`);
+    process.exit(1);
+  });
+}

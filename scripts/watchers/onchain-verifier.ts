@@ -30,11 +30,15 @@ const DEFAULT_LOOKBACK_BLOCKS = 1_300_000;
 
 // Max blocks per eth_getLogs request (some RPCs limit to 10k)
 const BLOCKS_PER_QUERY = 10_000;
+const RPC_RETRIES = parseInt(process.env.BASE_RPC_RETRIES || "5", 10) || 5;
+const RPC_BACKOFF_MS = parseInt(process.env.BASE_RPC_BACKOFF_MS || "1000", 10) || 1000;
+const LOG_QUERY_DELAY_MS = parseInt(process.env.BASE_LOG_QUERY_DELAY_MS || "150", 10) || 150;
 
 /** Verified on-chain payment activity for a single payout address */
 export interface OnChainVerification {
   payoutAddress: string;
   verified: boolean;          // true if at least 1 inbound USDC transfer exists
+  scanComplete: boolean;      // false if one or more log chunks could not be read
   totalTransactions: number;  // count of inbound USDC transfers
   totalVolumeUsdc: number;    // sum of all inbound USDC (human-readable)
   firstTxTimestamp: string | null;  // ISO — earliest known transfer
@@ -50,9 +54,27 @@ function log(msg: string): void {
   console.log(`[onchain] ${msg}`);
 }
 
+function sleep(ms: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+function isRetryableRpcMessage(message: string): boolean {
+  return /429|rate limit|too many requests|timeout|temporar|header not found|busy|unavailable|gateway/i.test(message);
+}
+
+function getBackoffMs(attempt: number, retryAfterHeader: string | null = null): number {
+  const retryAfterSeconds = Number(retryAfterHeader);
+  if (Number.isFinite(retryAfterSeconds) && retryAfterSeconds > 0) {
+    return retryAfterSeconds * 1000;
+  }
+
+  const jitterMs = Math.floor(Math.random() * 250);
+  return Math.min(15_000, RPC_BACKOFF_MS * (2 ** attempt)) + jitterMs;
+}
+
 /* ── RPC Helpers ── */
 
-async function rpcCall(method: string, params: unknown[], retries = 2): Promise<unknown> {
+async function rpcCall(method: string, params: unknown[], retries = RPC_RETRIES): Promise<unknown> {
   for (let attempt = 0; attempt <= retries; attempt++) {
     try {
       const res = await fetch(BASE_RPC_URL, {
@@ -62,15 +84,27 @@ async function rpcCall(method: string, params: unknown[], retries = 2): Promise<
         signal: AbortSignal.timeout(15_000),
       });
       if (!res.ok) {
-        throw new Error(`RPC HTTP ${res.status}: ${res.statusText}`);
+        const error = new Error(`RPC HTTP ${res.status}: ${res.statusText}`) as Error & {
+          retryAfterHeader?: string | null;
+        };
+        error.retryAfterHeader = res.headers.get("retry-after");
+        throw error;
       }
       const data = await res.json() as { result?: unknown; error?: { message: string } };
       if (data.error) throw new Error(`RPC error: ${data.error.message}`);
       return data.result;
     } catch (e) {
-      if (attempt === retries) throw e;
-      // Exponential backoff: 500ms, 1500ms
-      await new Promise((r) => setTimeout(r, 500 * (attempt + 1)));
+      const message = e instanceof Error ? e.message : String(e);
+      const retryAfterHeader =
+        typeof e === "object" && e !== null && "retryAfterHeader" in e
+          ? String((e as { retryAfterHeader?: string | null }).retryAfterHeader ?? "")
+          : null;
+      const retryable =
+        isRetryableRpcMessage(message)
+        || !(message.startsWith("RPC HTTP 4") && !message.startsWith("RPC HTTP 429"));
+
+      if (attempt === retries || !retryable) throw e;
+      await sleep(getBackoffMs(attempt, retryAfterHeader));
     }
   }
   throw new Error("unreachable");
@@ -147,6 +181,7 @@ export async function verifyPayoutAddress(
     return {
       payoutAddress,
       verified: false,
+      scanComplete: true,
       totalTransactions: 0,
       totalVolumeUsdc: 0,
       firstTxTimestamp: null,
@@ -160,6 +195,7 @@ export async function verifyPayoutAddress(
   const fromBlock = Math.max(0, latestBlock - lookbackBlocks);
 
   let allLogs: TransferLog[] = [];
+  let failedChunks = 0;
 
   // Scan in chunks to avoid RPC limits
   for (let start = fromBlock; start <= latestBlock; start += BLOCKS_PER_QUERY) {
@@ -168,15 +204,22 @@ export async function verifyPayoutAddress(
       const logs = await getUsdcTransfersTo(payoutAddress, start, end);
       allLogs.push(...logs);
     } catch (e) {
-      // Some RPCs reject large ranges — continue with what we have
+      failedChunks++;
       log(`  Chunk ${start}-${end} failed: ${e instanceof Error ? e.message : e}`);
     }
+
+    if (end < latestBlock && LOG_QUERY_DELAY_MS > 0) {
+      await sleep(LOG_QUERY_DELAY_MS);
+    }
   }
+
+  const scanComplete = failedChunks === 0;
 
   if (allLogs.length === 0) {
     return {
       payoutAddress,
       verified: false,
+      scanComplete,
       totalTransactions: 0,
       totalVolumeUsdc: 0,
       firstTxTimestamp: null,
@@ -222,6 +265,7 @@ export async function verifyPayoutAddress(
   return {
     payoutAddress,
     verified: true,
+    scanComplete,
     totalTransactions: allLogs.length,
     totalVolumeUsdc,
     firstTxTimestamp,
@@ -267,7 +311,9 @@ export async function verifyPayoutAddresses(
           results.set(domain, verification);
         }
 
-        if (verification.verified) {
+        if (!verification.scanComplete) {
+          log(`  ${domains[0]}: partial on-chain scan, preserving prior data`);
+        } else if (verification.verified) {
           log(`  ${domains[0]}: ${verification.totalTransactions} txs, $${verification.totalVolumeUsdc.toFixed(2)} USDC`);
         }
 
@@ -283,7 +329,11 @@ export async function verifyPayoutAddresses(
   }
 
   const verifiedCount = Array.from(results.values()).filter((v) => v.verified).length;
-  log(`Verification complete: ${verifiedCount}/${results.size} domains have on-chain activity`);
+  const incompleteCount = Array.from(results.values()).filter((v) => !v.scanComplete).length;
+  log(
+    `Verification complete: ${verifiedCount}/${results.size} domains have on-chain activity`
+      + (incompleteCount > 0 ? ` (${incompleteCount} incomplete scan(s))` : "")
+  );
 
   return results;
 }
