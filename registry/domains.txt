@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 2223
+# Total domains: 2225
 # Total endpoints: 15163
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -2226,3 +2226,5 @@ willimake-it.dylan-caponi.workers.dev | unclaimed | onchain-x402 | 2026-03-25
 api.leoclaw.cc | unclaimed | onchain-x402 | 2026-03-25
 defi-api.agenticfi.wtf | unclaimed | onchain-x402 | 2026-03-25
 x402.1xu.app | unclaimed | onchain-x402 | 2026-03-25
+x402.aurelianflo.com | unclaimed | onchain-x402 | 2026-03-25
+api.ppq.ai | unclaimed | onchain-mpp | 2026-03-25
