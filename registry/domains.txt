@@ -1,7 +1,7 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 2214
-# Total endpoints: 15161
+# Total domains: 2223
+# Total endpoints: 15163
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
 x402scan.com | unclaimed | 402index | 2026-03-23
@@ -465,7 +465,7 @@ x402-next.netlify.app | unclaimed | 402index | 2026-03-23
 x402-ai-starter-ruby.vercel.app | unclaimed | 402index | 2026-03-23
 final-project-bitcoin-three.vercel.app | unclaimed | 402index | 2026-03-23
 market.lnpay.ai | unclaimed | 402index | 2026-03-23
-api.060504.shop | unclaimed | 402index | 2026-03-23
+api.060504.shop| verified |402index|2026-03-23
 x402whois.com | unclaimed | 402index | 2026-03-23
 dog.x420.dev | unclaimed | 402index | 2026-03-23
 dream.x420.dev | unclaimed | 402index | 2026-03-23
@@ -2217,3 +2217,12 @@ sentineltrust.xyz | unclaimed | onchain-x402 | 2026-03-24
 api.utilshed.com | unclaimed | onchain-x402 | 2026-03-24
 jeetscreener.io | verified | onchain-x402 | 2026-03-24
 discovery.hugen.tokyo | unclaimed | onchain-x402 | 2026-03-24
+api.hyper-growth.xyz | unclaimed | onchain-x402 | 2026-03-25
+anthropic.cn2.ai | unclaimed | onchain-x402 | 2026-03-25
+openai.cn2.ai | unclaimed | onchain-x402 | 2026-03-25
+testing.cn2.ai | unclaimed | onchain-x402 | 2026-03-25
+prowldata.dev | unclaimed | onchain-x402 | 2026-03-25
+willimake-it.dylan-caponi.workers.dev | unclaimed | onchain-x402 | 2026-03-25
+api.leoclaw.cc | unclaimed | onchain-x402 | 2026-03-25
+defi-api.agenticfi.wtf | unclaimed | onchain-x402 | 2026-03-25
+x402.1xu.app | unclaimed | onchain-x402 | 2026-03-25
