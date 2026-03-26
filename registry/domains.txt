@@ -1828,7 +1828,7 @@ crypto-enrich.up.railway.app | unclaimed | onchain-x402 | 2026-03-23
 pii-scrubber.fly.dev | unclaimed | onchain-x402 | 2026-03-23
 isolated-gzip-wilson-yesterday.trycloudflare.com | unclaimed | onchain-x402 | 2026-03-23
 format-converter.fly.dev | unclaimed | onchain-x402 | 2026-03-23
-gasroute-oracle-production.up.railway.app | unclaimed | onchain-x402 | 2026-03-23
+gasroute-oracle-production.up.railway.app | verified | onchain-x402 | 2026-03-23
 paynet.network | unclaimed | onchain-x402 | 2026-03-23
 x402pineapple-production.up.railway.app | unclaimed | onchain-x402 | 2026-03-23
 1rpc.ai | unclaimed | onchain-x402 | 2026-03-23
