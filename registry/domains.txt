@@ -1,7 +1,7 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 2259
-# Total endpoints: 15163
+# Total domains: 2268
+# Total endpoints: 15162
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
 x402scan.com | unclaimed | 402index | 2026-03-23
@@ -2262,3 +2262,12 @@ tavily.com | verified | onchain-mpp | 2026-03-25
 wolframalpha.com | unclaimed | onchain-mpp | 2026-03-25
 x.ai | unclaimed | onchain-mpp | 2026-03-25
 x.com | unclaimed | onchain-mpp | 2026-03-25
+api.agentsconsultants.com | verified | onchain-x402 | 2026-03-26
+app.maiat.io | unclaimed | onchain-x402 | 2026-03-26
+pay.bnbot.ai | unclaimed | onchain-x402 | 2026-03-26
+pay.clawmoney.ai | unclaimed | onchain-x402 | 2026-03-26
+pragma.trading | verified | onchain-x402 | 2026-03-26
+roast.monapi.dev | unclaimed | onchain-x402 | 2026-03-26
+semagram.io | unclaimed | onchain-x402 | 2026-03-26
+surf.cascade.fyi | unclaimed | onchain-x402 | 2026-03-26
+tokensafe-production.up.railway.app | unclaimed | onchain-x402 | 2026-03-26
