@@ -1,7 +1,7 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 2268
-# Total endpoints: 15162
+# Total domains: 2275
+# Total endpoints: 15163
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
 x402scan.com | unclaimed | 402index | 2026-03-23
@@ -2271,3 +2271,10 @@ roast.monapi.dev | unclaimed | onchain-x402 | 2026-03-26
 semagram.io | unclaimed | onchain-x402 | 2026-03-26
 surf.cascade.fyi | unclaimed | onchain-x402 | 2026-03-26
 tokensafe-production.up.railway.app | unclaimed | onchain-x402 | 2026-03-26
+aeo.convrgent.ai | verified | onchain-x402 | 2026-03-27
+api.web3identity.com | unclaimed | onchain-x402 | 2026-03-27
+deepbluebase.xyz | verified | onchain-x402 | 2026-03-27
+headlessoracle.com | verified | onchain-x402 | 2026-03-27
+hyperdope.com | unclaimed | onchain-l402 | 2026-03-27
+q-api.quotient.social | unclaimed | onchain-x402 | 2026-03-27
+unhuman.shopping | unclaimed | onchain-l402 | 2026-03-27
