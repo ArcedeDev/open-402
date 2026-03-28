@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 2275
+# Total domains: 2278
 # Total endpoints: 15163
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -2278,3 +2278,6 @@ headlessoracle.com | verified | onchain-x402 | 2026-03-27
 hyperdope.com | unclaimed | onchain-l402 | 2026-03-27
 q-api.quotient.social | unclaimed | onchain-x402 | 2026-03-27
 unhuman.shopping | unclaimed | onchain-l402 | 2026-03-27
+ovz5i27at6cjnfz2mhenkhsxqgwjh4rpkyju5ctr6xgju2hdklsfbpqd.onion | unclaimed | onchain-l402 | 2026-03-28
+x402.clashofcoins.com | verified | onchain-x402 | 2026-03-28
+x402ai.vercel.app | unclaimed | onchain-x402 | 2026-03-28
