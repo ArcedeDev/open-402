@@ -823,12 +823,22 @@ export async function main(): Promise<void> {
   if (upgrades > 0) log(`${upgrades} domain(s) upgraded to verified.`);
 
   // 5b. Normalize manifest + watcher claims, then verify unique addresses incrementally.
+  // Pre-index watcher events by domain to avoid O(entries × events) iteration.
+  let computedVerificationStats: VerificationStats | null = null;
+  const eventsByDomain = new Map<string, import("./watchers/types.ts").PaymentEvent[]>();
+  for (const event of watcherEvents) {
+    if (!event.domain) continue;
+    const list = eventsByDomain.get(event.domain);
+    if (list) list.push(event);
+    else eventsByDomain.set(event.domain, [event]);
+  }
+
   try {
     const normalizedAt = new Date().toISOString();
     for (const entry of entries) {
       const watcherClaims = buildWatcherClaims(
         entry.domain,
-        watcherEvents,
+        eventsByDomain.get(entry.domain) || [],
         entry.first_seen,
         normalizedAt
       );
@@ -942,7 +952,7 @@ export async function main(): Promise<void> {
       })
       .sort((a, b) => a.domain.localeCompare(b.domain));
 
-    const verificationStats = buildVerificationStats(materializedEntries, addressVerifications);
+    computedVerificationStats = buildVerificationStats(materializedEntries, addressVerifications);
     const verifiedDomainsMissingClaims = materializedEntries.filter(
       (entry) => entry.status === "verified" && !entry.claims.some((claim) => claim.claim_source === "manifest")
     ).length;
@@ -959,7 +969,7 @@ export async function main(): Promise<void> {
       }
     }
 
-    log(`Verification stats: ${verificationStats.verified_addresses}/${verificationStats.unique_addresses} unique addresses verified`);
+    log(`Verification stats: ${computedVerificationStats.verified_addresses}/${computedVerificationStats.unique_addresses} unique addresses verified`);
     log(`Operator summary: ${verifiedDomainsMissingClaims} verified domains missing manifest claims, ${verifiedDomainsWithInvalidClaims} with invalid claims`);
     log(
       `Shared-address clusters: ${sharedAddressClusters.length}`
@@ -984,13 +994,13 @@ export async function main(): Promise<void> {
       }),
       entries: materializedEntries,
       address_verifications: Array.from(addressVerifications.values()),
-      verification_stats: verificationStats,
+      verification_stats: computedVerificationStats,
     };
   } catch (e) {
     log(`WARNING: Address-centric verification failed (non-fatal): ${e}`);
     for (let index = 0; index < entries.length; index++) {
       const entry = entries[index];
-      const watcherClaims = buildWatcherClaims(entry.domain, watcherEvents, entry.first_seen, new Date().toISOString());
+      const watcherClaims = buildWatcherClaims(entry.domain, eventsByDomain.get(entry.domain) || [], entry.first_seen, new Date().toISOString());
       const mergedClaims = mergeClaims(entry.claims, watcherClaims);
       const metadata = mergeClaimMetadata(entry, mergedClaims);
       const materialized = materializeEntryVerification(
@@ -1102,12 +1112,15 @@ export async function main(): Promise<void> {
   }
 
   // 7. Build new snapshot
-  const finalEntries = entries.map((entry) => sanitizeSnapshotEntry(entry));
+  // In the normal path, entries are already sanitized from step 5b. The error
+  // recovery path also sanitizes. Either way a second pass is redundant.
+  const finalEntries = entries;
   const verifiedNow = finalEntries.filter((entry) => entry.status === "verified").length;
   const unclaimedNow = finalEntries.filter((entry) => entry.status === "unclaimed").length;
   const addressVerificationList = Array.from(existingAddressVerifications.values())
     .sort((a, b) => addressKey(a).localeCompare(addressKey(b)));
-  const verificationStats = buildVerificationStats(finalEntries, existingAddressVerifications);
+  // Reuse stats from step 5b when available; only recompute on error recovery path.
+  const verificationStats = computedVerificationStats || buildVerificationStats(finalEntries, existingAddressVerifications);
   const snapshot: Snapshot = {
     generated_at: new Date().toISOString(),
     total: finalEntries.length,

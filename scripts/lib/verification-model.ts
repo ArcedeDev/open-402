@@ -336,6 +336,8 @@ export function buildWatcherClaims(
   const claims = new Map<string, Claim>();
 
   for (const event of events) {
+    // Callers may pass pre-filtered events for this domain, or the full list.
+    // Skip events that don't match either way.
     if (event.domain !== domain) continue;
     const address = normalizeAddress(event.sellerAddress);
     if (!address) continue;
