@@ -204,6 +204,12 @@ async function getUsdcTransfersTo(
   return result || [];
 }
 
+// Number of log query chunks to run concurrently within a single address scan.
+// Kept low for public RPCs; increase for dedicated endpoints.
+function getChunkConcurrency(): number {
+  return readNonNegativeIntEnv("BASE_CHUNK_CONCURRENCY", 3);
+}
+
 async function scanAddressRange(
   payoutAddress: string,
   fromBlock: number,
@@ -221,18 +227,39 @@ async function scanAddressRange(
     };
   }
 
+  // Build the list of chunk ranges up front.
+  const chunks: { start: number; end: number }[] = [];
   for (let start = fromBlock; start <= latestBlock; start += BLOCKS_PER_QUERY) {
-    const end = Math.min(start + BLOCKS_PER_QUERY - 1, latestBlock);
-    try {
-      const logs = await getUsdcTransfersTo(payoutAddress, start, end);
-      allLogs.push(...logs);
-    } catch (e) {
-      failedChunks++;
-      log(`  Chunk ${start}-${end} failed: ${e instanceof Error ? e.message : e}`);
+    chunks.push({ start, end: Math.min(start + BLOCKS_PER_QUERY - 1, latestBlock) });
+  }
+
+  const chunkConcurrency = getChunkConcurrency();
+  const queryDelayMs = getLogQueryDelayMs();
+
+  // Process chunks in batches of chunkConcurrency.
+  for (let i = 0; i < chunks.length; i += chunkConcurrency) {
+    const batch = chunks.slice(i, i + chunkConcurrency);
+
+    const results = await Promise.allSettled(
+      batch.map(({ start, end }) =>
+        getUsdcTransfersTo(payoutAddress, start, end)
+      )
+    );
+
+    for (let j = 0; j < results.length; j++) {
+      const result = results[j];
+      if (result.status === "fulfilled") {
+        allLogs.push(...result.value);
+      } else {
+        failedChunks++;
+        const { start, end } = batch[j];
+        log(`  Chunk ${start}-${end} failed: ${result.reason instanceof Error ? result.reason.message : result.reason}`);
+      }
     }
 
-    const queryDelayMs = getLogQueryDelayMs();
-    if (end < latestBlock && queryDelayMs > 0) {
+    // Delay between batches (not between individual chunks) to respect rate limits.
+    const isLastBatch = i + chunkConcurrency >= chunks.length;
+    if (!isLastBatch && queryDelayMs > 0) {
       await sleep(queryDelayMs);
     }
   }
@@ -245,7 +272,7 @@ async function scanAddressRange(
   };
 }
 
-function aggregateLogs(logs: TransferLog[]): {
+function aggregateLogs(logs: TransferLog[], presorted = false): {
   totalTransactions: number;
   totalVolumeUsdc: number;
   lastTxHash: string | null;
@@ -262,7 +289,12 @@ function aggregateLogs(logs: TransferLog[]): {
     };
   }
 
-  const sortedLogs = [...logs].sort((a, b) => parseInt(a.blockNumber, 16) - parseInt(b.blockNumber, 16));
+  // Logs from scanAddressRange arrive in block order (sequential chunks,
+  // RPC returns logs in order within each range). Skip the copy+sort when
+  // the caller guarantees order.
+  const sortedLogs = presorted
+    ? logs
+    : [...logs].sort((a, b) => parseInt(a.blockNumber, 16) - parseInt(b.blockNumber, 16));
   let totalVolumeRaw = BigInt(0);
   for (const txLog of sortedLogs) {
     try {
@@ -314,7 +346,8 @@ const BLOCKED_ADDRESSES = new Set([
 
 export async function verifyPayoutAddress(
   payoutAddress: string,
-  lookbackBlocks: number = DEFAULT_LOOKBACK_BLOCKS
+  lookbackBlocks: number = DEFAULT_LOOKBACK_BLOCKS,
+  cachedLatestBlock?: number
 ): Promise<OnChainVerification> {
   const invalid = !payoutAddress
     || !payoutAddress.startsWith("0x")
@@ -335,7 +368,7 @@ export async function verifyPayoutAddress(
     };
   }
 
-  const latestBlock = await getLatestBlock();
+  const latestBlock = cachedLatestBlock ?? await getLatestBlock();
   const fromBlock = Math.max(0, latestBlock - lookbackBlocks);
   const rangeScan = await scanAddressRange(payoutAddress, fromBlock, latestBlock);
   const allLogs = rangeScan.logs;
@@ -354,7 +387,7 @@ export async function verifyPayoutAddress(
       blockRangeScanned: { from: fromBlock, to: latestBlock },
     };
   }
-  const aggregated = aggregateLogs(allLogs);
+  const aggregated = aggregateLogs(allLogs, true);
   const firstLog = aggregated.firstLog;
   const lastLog = aggregated.lastLog;
 
@@ -460,7 +493,7 @@ export async function verifyAddressesIncremental(
         return;
       }
 
-      const aggregated = aggregateLogs(rangeScan.logs);
+      const aggregated = aggregateLogs(rangeScan.logs, true);
       let firstTxTimestamp = prior?.firstTxTimestamp || null;
       let lastTxTimestamp = prior?.lastTxTimestamp || null;
 
@@ -536,6 +569,8 @@ export async function verifyPayoutAddresses(
 
   log(`Verifying ${uniqueAddresses.size} unique payout addresses across ${addresses.length} domains...`);
 
+  // Fetch latest block once for the entire batch instead of per-address.
+  const latestBlock = await getLatestBlock();
   const entries = Array.from(uniqueAddresses.entries());
 
   for (let i = 0; i < entries.length; i += concurrency) {
@@ -543,7 +578,7 @@ export async function verifyPayoutAddresses(
 
     const batchResults = await Promise.allSettled(
       batch.map(async ([address, domains]) => {
-        const verification = await verifyPayoutAddress(address);
+        const verification = await verifyPayoutAddress(address, DEFAULT_LOOKBACK_BLOCKS, latestBlock);
 
         // Map result to all domains sharing this address
         for (const domain of domains) {
