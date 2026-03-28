@@ -38,25 +38,41 @@ export async function runWatchers(checkpoints?: Map<string, WatcherCheckpoint>):
   const allEvents: PaymentEvent[] = [];
   const updatedCheckpoints = new Map<string, WatcherCheckpoint>();
 
-  for (const watcher of WATCHERS) {
+  // Run all watchers in parallel — they hit independent API endpoints
+  // and share no mutable state.
+  const watcherJobs = WATCHERS.map((watcher) => {
     const checkpoint = checkpoints?.get(watcher.protocol) || {
       ...DEFAULT_CHECKPOINT,
       protocol: watcher.protocol,
     };
-
     console.log(`[watcher] Running ${watcher.protocol} watcher (since ${checkpoint.lastTimestamp})...`);
+    return { watcher, checkpoint };
+  });
 
-    try {
-      const events = await watcher.fetchEvents(checkpoint.lastTimestamp);
+  const results = await Promise.allSettled(
+    watcherJobs.map(({ watcher, checkpoint }) =>
+      watcher.fetchEvents(checkpoint.lastTimestamp).then((events) => ({
+        watcher,
+        checkpoint,
+        events,
+      }))
+    )
+  );
+
+  for (let i = 0; i < results.length; i++) {
+    const result = results[i];
+    const { watcher, checkpoint } = watcherJobs[i];
+
+    if (result.status === "fulfilled") {
+      const { events } = result.value;
       console.log(`[watcher] ${watcher.protocol}: ${events.length} events found`);
       allEvents.push(...events);
-
       updatedCheckpoints.set(watcher.protocol, {
         protocol: watcher.protocol,
         lastTimestamp: new Date().toISOString(),
       });
-    } catch (e) {
-      console.error(`[watcher] ${watcher.protocol} failed:`, e);
+    } else {
+      console.error(`[watcher] ${watcher.protocol} failed:`, result.reason);
       // Keep old checkpoint on failure
       updatedCheckpoints.set(watcher.protocol, checkpoint);
     }

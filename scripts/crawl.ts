@@ -712,6 +712,69 @@ async function githubCommitFilesAtomically(
   return false;
 }
 
+/* ── Ecosystem stats (runs concurrently with domain crawl) ── */
+
+async function fetchEcosystemStats(): Promise<EcosystemStats | null> {
+  try {
+    log("Fetching ecosystem-wide stats from x402scan for fallback cache...");
+
+    async function fetchX402Period(period: number) {
+      const input = encodeURIComponent(
+        JSON.stringify({ "0": { json: { pagination: { page: 0, pageSize: 50 }, timeframe: { period } } } }),
+      );
+      const res = await fetch(
+        `https://www.x402scan.com/api/trpc/public.facilitators.list?batch=1&input=${input}`,
+        { headers: { Accept: "application/json", "User-Agent": "Open402DirectoryCrawler/1.0" }, signal: AbortSignal.timeout(15_000) },
+      );
+      if (!res.ok) return [];
+      const data = await res.json();
+      return data?.[0]?.result?.data?.json?.items || [];
+    }
+
+    function agg(items: Array<{ tx_count: number; total_amount: number; unique_buyers: number; unique_sellers: number }>) {
+      return {
+        transactions: items.reduce((s, i) => s + i.tx_count, 0),
+        volume_usdc: Math.round(items.reduce((s, i) => s + i.total_amount, 0) / 1_000_000 * 100) / 100,
+        buyers: items.reduce((s, i) => s + i.unique_buyers, 0),
+        sellers: items.reduce((s, i) => s + i.unique_sellers, 0),
+      };
+    }
+
+    const [items1d, items7d, items30d] = await Promise.all([
+      fetchX402Period(1),
+      fetchX402Period(7),
+      fetchX402Period(30),
+    ]);
+
+    const s1d = agg(items1d);
+    const s7d = agg(items7d);
+    const s30d = agg(items30d);
+
+    const facilitators = (items30d.length > 0 ? items30d : items7d).map((item: Record<string, unknown>) => ({
+      name: (item.facilitator as Record<string, unknown>)?.name as string || item.facilitator_id as string,
+      base_addresses: ((item.facilitator as Record<string, unknown>)?.addresses as Record<string, string[]>)?.base || [],
+      transactions: item.tx_count as number,
+      volume_usdc: Math.round((item.total_amount as number) / 1_000_000 * 100) / 100,
+    }));
+
+    const stats: EcosystemStats = {
+      verified_at: new Date().toISOString(),
+      facilitators,
+      totals: {
+        transactions_24h: s1d.transactions, volume_usdc_24h: s1d.volume_usdc, buyers_24h: s1d.buyers, sellers_24h: s1d.sellers,
+        transactions_7d: s7d.transactions, volume_usdc_7d: s7d.volume_usdc, buyers_7d: s7d.buyers, sellers_7d: s7d.sellers,
+        transactions_30d: s30d.transactions, volume_usdc_30d: s30d.volume_usdc, buyers_30d: s30d.buyers, sellers_30d: s30d.sellers,
+      },
+    };
+
+    log(`Ecosystem stats: ${s30d.transactions} txs (30d), $${s30d.volume_usdc} vol, ${facilitators.length} facilitators`);
+    return stats;
+  } catch (e) {
+    log(`WARNING: Ecosystem stats fetch failed (non-fatal): ${e}`);
+    return null;
+  }
+}
+
 /* ── Main ── */
 
 export async function main(): Promise<void> {
@@ -801,6 +864,9 @@ export async function main(): Promise<void> {
   }
 
   // 4. Crawl all domains (including any newly discovered ones)
+  //    Kick off ecosystem stats fetch concurrently — it hits x402scan.com
+  //    which is independent of the domain crawl.
+  const ecosystemStatsPromise = fetchEcosystemStats();
   log(`Crawling ${domains.length} domains (concurrency: ${CONCURRENCY})...`);
   const startTime = Date.now();
   const entries = await crawlAll(domains, existingSnapshot);
@@ -1023,69 +1089,11 @@ export async function main(): Promise<void> {
     }
   }
 
-  // 6. Fetch ecosystem-wide stats from x402scan (cached fallback for the UI)
-  let ecosystemStats: EcosystemStats | undefined;
-  try {
-    log("Fetching ecosystem-wide stats from x402scan for fallback cache...");
-
-    async function fetchX402Period(period: number) {
-      const input = encodeURIComponent(
-        JSON.stringify({ "0": { json: { pagination: { page: 0, pageSize: 50 }, timeframe: { period } } } }),
-      );
-      const res = await fetch(
-        `https://www.x402scan.com/api/trpc/public.facilitators.list?batch=1&input=${input}`,
-        { headers: { Accept: "application/json", "User-Agent": "Open402DirectoryCrawler/1.0" }, signal: AbortSignal.timeout(15_000) },
-      );
-      if (!res.ok) return [];
-      const data = await res.json();
-      return data?.[0]?.result?.data?.json?.items || [];
-    }
-
-    function agg(items: Array<{ tx_count: number; total_amount: number; unique_buyers: number; unique_sellers: number }>) {
-      return {
-        transactions: items.reduce((s, i) => s + i.tx_count, 0),
-        volume_usdc: Math.round(items.reduce((s, i) => s + i.total_amount, 0) / 1_000_000 * 100) / 100,
-        buyers: items.reduce((s, i) => s + i.unique_buyers, 0),
-        sellers: items.reduce((s, i) => s + i.unique_sellers, 0),
-      };
-    }
-
-    const [items1d, items7d, items30d] = await Promise.all([
-      fetchX402Period(1),
-      fetchX402Period(7),
-      fetchX402Period(30),
-    ]);
-
-    const s1d = agg(items1d);
-    const s7d = agg(items7d);
-    const s30d = agg(items30d);
-
-    // Extract facilitator addresses for future RPC verification
-    const facilitators = (items30d.length > 0 ? items30d : items7d).map((item: Record<string, unknown>) => ({
-      name: (item.facilitator as Record<string, unknown>)?.name as string || item.facilitator_id as string,
-      base_addresses: ((item.facilitator as Record<string, unknown>)?.addresses as Record<string, string[]>)?.base || [],
-      transactions: item.tx_count as number,
-      volume_usdc: Math.round((item.total_amount as number) / 1_000_000 * 100) / 100,
-    }));
-
-    ecosystemStats = {
-      verified_at: new Date().toISOString(),
-      facilitators,
-      totals: {
-        transactions_24h: s1d.transactions, volume_usdc_24h: s1d.volume_usdc, buyers_24h: s1d.buyers, sellers_24h: s1d.sellers,
-        transactions_7d: s7d.transactions, volume_usdc_7d: s7d.volume_usdc, buyers_7d: s7d.buyers, sellers_7d: s7d.sellers,
-        transactions_30d: s30d.transactions, volume_usdc_30d: s30d.volume_usdc, buyers_30d: s30d.buyers, sellers_30d: s30d.sellers,
-      },
-    };
-
-    log(`Ecosystem stats: ${s30d.transactions} txs (30d), $${s30d.volume_usdc} vol, ${facilitators.length} facilitators`);
-  } catch (e) {
-    log(`WARNING: Ecosystem stats fetch failed (non-fatal): ${e}`);
-    // Preserve previous ecosystem stats from existing snapshot
-    if (previousSnapshot?.ecosystem_stats) {
-      ecosystemStats = previousSnapshot.ecosystem_stats;
-      log("Preserved previous ecosystem stats from snapshot.");
-    }
+  // 6. Await ecosystem stats (kicked off concurrently with crawl in step 4)
+  let ecosystemStats: EcosystemStats | undefined = (await ecosystemStatsPromise) || undefined;
+  if (!ecosystemStats && previousSnapshot?.ecosystem_stats) {
+    ecosystemStats = previousSnapshot.ecosystem_stats;
+    log("Preserved previous ecosystem stats from snapshot.");
   }
 
   // 6b. Build daily history — append today's 24h stats for sparkline trends
