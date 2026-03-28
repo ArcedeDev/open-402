@@ -1120,9 +1120,9 @@ export async function main(): Promise<void> {
   }
 
   // 7. Build new snapshot
-  // In the normal path, entries are already sanitized from step 5b. The error
-  // recovery path also sanitizes. Either way a second pass is redundant.
-  const finalEntries = entries;
+  // Both the normal path (step 5b) and error recovery path sanitize entries.
+  // The normal path also sorts by domain; ensure consistency on the error path.
+  const finalEntries = computedVerificationStats ? entries : entries.sort((a, b) => a.domain.localeCompare(b.domain));
   const verifiedNow = finalEntries.filter((entry) => entry.status === "verified").length;
   const unclaimedNow = finalEntries.filter((entry) => entry.status === "unclaimed").length;
   const addressVerificationList = Array.from(existingAddressVerifications.values())

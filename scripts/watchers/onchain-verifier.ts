@@ -207,7 +207,7 @@ async function getUsdcTransfersTo(
 // Number of log query chunks to run concurrently within a single address scan.
 // Kept low for public RPCs; increase for dedicated endpoints.
 function getChunkConcurrency(): number {
-  return readNonNegativeIntEnv("BASE_CHUNK_CONCURRENCY", 3);
+  return Math.max(1, readNonNegativeIntEnv("BASE_CHUNK_CONCURRENCY", 3));
 }
 
 async function scanAddressRange(
