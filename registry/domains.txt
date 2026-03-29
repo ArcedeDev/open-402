@@ -1,14 +1,14 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 2278
-# Total endpoints: 15163
+# Total domains: 2285
+# Total endpoints: 14991
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
 x402scan.com | unclaimed | 402index | 2026-03-23
 bridge.eruditepay.com| verified |402index|2026-03-23
 api-dev.intra-tls2.dctx.link | unclaimed | 402index | 2026-03-23
 api.questflow.ai | unclaimed | 402index | 2026-03-23
-api.myceliasignal.com | unclaimed | 402index | 2026-03-23
+api.myceliasignal.com | verified | 402index | 2026-03-23
 databr-production.up.railway.app | unclaimed | 402index | 2026-03-23
 databr.api.br | unclaimed | 402index | 2026-03-23
 x402.robtex.com | unclaimed | 402index | 2026-03-23
@@ -2281,3 +2281,10 @@ unhuman.shopping | unclaimed | onchain-l402 | 2026-03-27
 ovz5i27at6cjnfz2mhenkhsxqgwjh4rpkyju5ctr6xgju2hdklsfbpqd.onion | unclaimed | onchain-l402 | 2026-03-28
 x402.clashofcoins.com | verified | onchain-x402 | 2026-03-28
 x402ai.vercel.app | unclaimed | onchain-x402 | 2026-03-28
+ca3b1476dc28f4.lhr.life | unclaimed | onchain-l402 | 2026-03-29
+d7c48175b848df.lhr.life | unclaimed | onchain-l402 | 2026-03-29
+e67f2b513f5224.lhr.life | unclaimed | onchain-l402 | 2026-03-29
+sentinel-awms.onrender.com | unclaimed | onchain-x402 | 2026-03-29
+services.eruditepay.com | verified | onchain-x402 | 2026-03-29
+stablemesh.dev | unclaimed | onchain-x402 | 2026-03-29
+useahoy.app | unclaimed | onchain-x402 | 2026-03-29
