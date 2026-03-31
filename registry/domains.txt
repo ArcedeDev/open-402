@@ -1,7 +1,7 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 2288
-# Total endpoints: 14993
+# Total domains: 2295
+# Total endpoints: 15010
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
 x402scan.com | unclaimed | 402index | 2026-03-23
@@ -371,7 +371,7 @@ mirror-colon-arrives-verse.trycloudflare.com | unclaimed | 402index | 2026-03-23
 ports-greatly-population-installing.trycloudflare.com | unclaimed | 402index | 2026-03-23
 api.evplus.ai | unclaimed | 402index | 2026-03-23
 faucet.mutinynet.com | unclaimed | 402index | 2026-03-23
-agenttax.io | unclaimed | 402index | 2026-03-23
+agenttax.io | verified | 402index | 2026-03-23
 api.agentsboard.ai | unclaimed | 402index | 2026-03-23
 clawdmint-api.vercel.app | unclaimed | 402index | 2026-03-23
 l402-fortune-cookie.yf-ae7.workers.dev | unclaimed | 402index | 2026-03-23
@@ -2155,7 +2155,7 @@ api.example.com | unclaimed | onchain-x402 | 2026-03-23
 www.x420.dev | unclaimed | onchain-x402 | 2026-03-23
 api.ai402.fun | unclaimed | onchain-x402 | 2026-03-23
 hardx402.vercel.app | unclaimed | onchain-x402 | 2026-03-23
-www.agenttax.io | unclaimed | onchain-x402 | 2026-03-23
+www.agenttax.io | verified | onchain-x402 | 2026-03-23
 coc-shop.fawesome-hypercasual.workers.dev | unclaimed | onchain-x402 | 2026-03-23
 api.contextsignal.ai | unclaimed | onchain-x402 | 2026-03-23
 www.minifetch.com | unclaimed | onchain-x402 | 2026-03-23
@@ -2291,3 +2291,10 @@ useahoy.app | unclaimed | onchain-x402 | 2026-03-29
 api.shoal.xyz | unclaimed | onchain-x402 | 2026-03-30
 l402.lndyn.com | unclaimed | onchain-l402 | 2026-03-30
 lorem.steer.fun | unclaimed | onchain-x402 | 2026-03-30
+mpp.buildwithlocus.com | unclaimed | onchain-mpp | 2026-03-31
+pelletfi.com | unclaimed | onchain-x402 | 2026-03-31
+tako.com | unclaimed | onchain-mpp | 2026-03-31
+tako.so | unclaimed | onchain-mpp | 2026-03-31
+web-unlocker.200ok.xyz | unclaimed | onchain-x402 | 2026-03-31
+x402-ai-starter-woad.vercel.app | unclaimed | onchain-x402 | 2026-03-31
+xactions.app | unclaimed | onchain-x402 | 2026-03-31
