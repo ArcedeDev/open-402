@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 2295
+# Total domains: 2304
 # Total endpoints: 15010
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -2298,3 +2298,12 @@ tako.so | unclaimed | onchain-mpp | 2026-03-31
 web-unlocker.200ok.xyz | unclaimed | onchain-x402 | 2026-03-31
 x402-ai-starter-woad.vercel.app | unclaimed | onchain-x402 | 2026-03-31
 xactions.app | unclaimed | onchain-x402 | 2026-03-31
+agentcash.minerva.io | unclaimed | onchain-x402 | 2026-04-01
+auto.exchange | unclaimed | onchain-mpp | 2026-04-01
+donate.0000402.xyz | unclaimed | onchain-x402 | 2026-04-01
+fetchdelta.com | unclaimed | onchain-x402 | 2026-04-01
+leaderboard.0000402.xyz | unclaimed | onchain-x402 | 2026-04-01
+pinata.cloud | unclaimed | onchain-mpp | 2026-04-01
+sentimentalpha.ai | unclaimed | onchain-x402 | 2026-04-01
+x402-token-report.dylan-caponi.workers.dev | unclaimed | onchain-x402 | 2026-04-01
+x402.fatihai.app | unclaimed | onchain-x402 | 2026-04-01
