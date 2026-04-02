@@ -1,7 +1,7 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 2304
-# Total endpoints: 15010
+# Total domains: 2311
+# Total endpoints: 15001
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
 x402scan.com | unclaimed | 402index | 2026-03-23
@@ -102,7 +102,7 @@ entropy.rip | unclaimed | 402index | 2026-03-23
 nonvisceral-eloisa-mousily.ngrok-free.dev | unclaimed | 402index | 2026-03-23
 l402.services | unclaimed | 402index | 2026-03-23
 api.spyfu.com | unclaimed | 402index | 2026-03-23
-brack-hive.tail4f568d.ts.net | unclaimed | 402index | 2026-03-23
+brack-hive.tail4f568d.ts.net | verified | 402index | 2026-03-23
 x402-server-sandy.vercel.app | unclaimed | 402index | 2026-03-23
 api.tanantor.com | unclaimed | 402index | 2026-03-23
 api.deepbluebase.xyz | unclaimed | 402index | 2026-03-23
@@ -1944,7 +1944,7 @@ api.hyperclaw.app | unclaimed | onchain-x402 | 2026-03-23
 vu.velvetdao.xyz | unclaimed | onchain-x402 | 2026-03-23
 minting-dream.vercel.app | unclaimed | onchain-x402 | 2026-03-23
 compute.aurracloud.com | unclaimed | onchain-x402 | 2026-03-23
-apolloai.team | unclaimed | onchain-x402 | 2026-03-23
+apolloai.team | verified | onchain-x402 | 2026-03-23
 test9999.x420.dev | unclaimed | onchain-x402 | 2026-03-23
 api.obol.sh | verified | onchain-x402 | 2026-03-23
 x402.api.netmind.ai | unclaimed | onchain-x402 | 2026-03-23
@@ -2307,3 +2307,10 @@ pinata.cloud | unclaimed | onchain-mpp | 2026-04-01
 sentimentalpha.ai | unclaimed | onchain-x402 | 2026-04-01
 x402-token-report.dylan-caponi.workers.dev | unclaimed | onchain-x402 | 2026-04-01
 x402.fatihai.app | unclaimed | onchain-x402 | 2026-04-01
+a2aflow.space | unclaimed | onchain-l402 | 2026-04-02
+geonimo.com | unclaimed | onchain-x402 | 2026-04-02
+govlaws.ai | unclaimed | onchain-mpp | 2026-04-02
+littlefinger-x402.loca.lt | verified | onchain-x402 | 2026-04-02
+littlefinger-xai.loca.lt | unclaimed | onchain-x402 | 2026-04-02
+plebtv.com | unclaimed | onchain-l402 | 2026-04-02
+x402-wallet-analyzer.dylan-caponi.workers.dev | unclaimed | onchain-x402 | 2026-04-02
