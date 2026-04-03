@@ -1,7 +1,7 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 2311
-# Total endpoints: 15001
+# Total domains: 2323
+# Total endpoints: 14985
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
 x402scan.com | unclaimed | 402index | 2026-03-23
@@ -62,7 +62,7 @@ basic-utils-agent.up.railway.app | unclaimed | 402index | 2026-03-23
 cdp-test-resource-server.cbhq.net | unclaimed | 402index | 2026-03-23
 public.zapper.xyz | unclaimed | 402index | 2026-03-23
 slamai.dev | unclaimed | 402index | 2026-03-23
-satring.com | unclaimed | 402index | 2026-03-23
+satring.com | verified | 402index | 2026-03-23
 fal.run | unclaimed | 402index | 2026-03-23
 x402.ottoai.services | unclaimed | 402index | 2026-03-23
 silverback-x402.onrender.com | unclaimed | 402index | 2026-03-23
@@ -2314,3 +2314,15 @@ littlefinger-x402.loca.lt | verified | onchain-x402 | 2026-04-02
 littlefinger-xai.loca.lt | unclaimed | onchain-x402 | 2026-04-02
 plebtv.com | unclaimed | onchain-l402 | 2026-04-02
 x402-wallet-analyzer.dylan-caponi.workers.dev | unclaimed | onchain-x402 | 2026-04-02
+au-data-x402-production.up.railway.app | unclaimed | onchain-x402 | 2026-04-03
+data.eruditepay.com | verified | onchain-x402 | 2026-04-03
+doma.xyz | unclaimed | onchain-mpp | 2026-04-03
+l402.directory | unclaimed | onchain-l402 | 2026-04-03
+mechamanda.com | unclaimed | onchain-x402 | 2026-04-03
+papercut.lol | unclaimed | onchain-mpp | 2026-04-03
+renderkit.live | unclaimed | onchain-x402 | 2026-04-03
+signals-sensitive-minds-measures.trycloudflare.com | unclaimed | onchain-x402 | 2026-04-03
+token-unlocks-x402.token-unlocks-x402.workers.dev | unclaimed | onchain-x402 | 2026-04-03
+tooth-therapeutic-bias-exclude.trycloudflare.com | unclaimed | onchain-l402 | 2026-04-03
+weather-x402-api.token-unlocks-x402.workers.dev | unclaimed | onchain-x402 | 2026-04-03
+web-production-d087d.up.railway.app | unclaimed | onchain-x402 | 2026-04-03
