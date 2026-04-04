@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 2323
+# Total domains: 2333
 # Total endpoints: 14985
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -2326,3 +2326,13 @@ token-unlocks-x402.token-unlocks-x402.workers.dev | unclaimed | onchain-x402 | 2
 tooth-therapeutic-bias-exclude.trycloudflare.com | unclaimed | onchain-l402 | 2026-04-03
 weather-x402-api.token-unlocks-x402.workers.dev | unclaimed | onchain-x402 | 2026-04-03
 web-production-d087d.up.railway.app | unclaimed | onchain-x402 | 2026-04-03
+18-220-76-66.nip.io | unclaimed | onchain-x402 | 2026-04-04
+api-staging.imgzen.dev | unclaimed | onchain-x402 | 2026-04-04
+api.bitcoinbenji.com | unclaimed | onchain-l402 | 2026-04-04
+api.imgzen.dev | unclaimed | onchain-x402 | 2026-04-04
+image-gen-x402-api.token-unlocks-x402.workers.dev | unclaimed | onchain-x402 | 2026-04-04
+lightningprox.com | unclaimed | onchain-l402 | 2026-04-04
+mail.cusethejuice.com | unclaimed | onchain-x402 | 2026-04-04
+mpp.hyreagent.fun | unclaimed | onchain-x402 | 2026-04-04
+scan.convrgent.ai | unclaimed | onchain-x402 | 2026-04-04
+socialx402.com | unclaimed | onchain-x402 | 2026-04-04
