@@ -1,7 +1,7 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 2333
-# Total endpoints: 14985
+# Total domains: 2343
+# Total endpoints: 14941
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
 x402scan.com | unclaimed | 402index | 2026-03-23
@@ -23,7 +23,7 @@ wot.klabo.world | unclaimed | 402index | 2026-03-23
 x402.twit.sh | unclaimed | 402index | 2026-03-23
 api.paysponge.com | unclaimed | 402index | 2026-03-23
 padelmaps.org| verified |402index|2026-03-23
-sats4ai.com | unclaimed | 402index | 2026-03-23
+sats4ai.com | verified | 402index | 2026-03-23
 api.lightningenable.com | unclaimed | 402index | 2026-03-23
 mesh.heurist.xyz | unclaimed | 402index | 2026-03-23
 x402.api.agentmail.to | unclaimed | 402index | 2026-03-23
@@ -2336,3 +2336,13 @@ mail.cusethejuice.com | unclaimed | onchain-x402 | 2026-04-04
 mpp.hyreagent.fun | unclaimed | onchain-x402 | 2026-04-04
 scan.convrgent.ai | unclaimed | onchain-x402 | 2026-04-04
 socialx402.com | unclaimed | onchain-x402 | 2026-04-04
+agentfetch-x402.stewwilli.workers.dev | unclaimed | onchain-x402 | 2026-04-05
+agentndx-production.up.railway.app | unclaimed | onchain-x402 | 2026-04-05
+api.aitrencher.xyz | unclaimed | onchain-x402 | 2026-04-05
+api.bitfence.ai | unclaimed | onchain-x402 | 2026-04-05
+api.signalfuse.co | unclaimed | onchain-x402 | 2026-04-05
+api.smartflowproai.com | unclaimed | onchain-x402 | 2026-04-05
+merx.exchange | verified | onchain-x402 | 2026-04-05
+orni-models-api.onrender.com | unclaimed | onchain-x402 | 2026-04-05
+pqs.onchainintel.net | verified | onchain-x402 | 2026-04-05
+test.x402labs.sh | unclaimed | onchain-x402 | 2026-04-05
