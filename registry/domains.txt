@@ -1,7 +1,7 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 2343
-# Total endpoints: 14941
+# Total domains: 2351
+# Total endpoints: 14937
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
 x402scan.com | unclaimed | 402index | 2026-03-23
@@ -197,7 +197,7 @@ x402v2.vercel.app | unclaimed | 402index | 2026-03-23
 xluihnzwcmxybtygewvy.supabase.co | unclaimed | 402index | 2026-03-23
 x402.xseer.fun | unclaimed | 402index | 2026-03-23
 ritmex.one | unclaimed | 402index | 2026-03-23
-pawr.link | unclaimed | 402index | 2026-03-23
+pawr.link | verified | 402index | 2026-03-23
 api.deepnets.ai | unclaimed | 402index | 2026-03-23
 intel.hugen.tokyo | unclaimed | 402index | 2026-03-23
 x402-api.aubr.ai | unclaimed | 402index | 2026-03-23
@@ -2160,7 +2160,7 @@ coc-shop.fawesome-hypercasual.workers.dev | unclaimed | onchain-x402 | 2026-03-2
 api.contextsignal.ai | unclaimed | onchain-x402 | 2026-03-23
 www.minifetch.com | unclaimed | onchain-x402 | 2026-03-23
 www.garrett-berg.com | unclaimed | onchain-x402 | 2026-03-23
-www.pawr.link | unclaimed | onchain-x402 | 2026-03-23
+www.pawr.link | verified | onchain-x402 | 2026-03-23
 www.plush.fun | unclaimed | onchain-x402 | 2026-03-23
 www.l402apps.com | unclaimed | onchain-l402 | 2026-03-23
 www.ganamos.earth | unclaimed | onchain-l402 | 2026-03-23
@@ -2346,3 +2346,11 @@ merx.exchange | verified | onchain-x402 | 2026-04-05
 orni-models-api.onrender.com | unclaimed | onchain-x402 | 2026-04-05
 pqs.onchainintel.net | verified | onchain-x402 | 2026-04-05
 test.x402labs.sh | unclaimed | onchain-x402 | 2026-04-05
+agentic-reservations.vercel.app | unclaimed | onchain-x402 | 2026-04-06
+api.arsweep.fun | unclaimed | onchain-x402 | 2026-04-06
+api.sys84.org | verified | onchain-x402 | 2026-04-06
+paylog.dev | unclaimed | onchain-x402 | 2026-04-06
+satrank.dev | unclaimed | onchain-l402 | 2026-04-06
+talent-becomes-motel-counting.trycloudflare.com | unclaimed | onchain-x402 | 2026-04-06
+utilsforagents.com | unclaimed | onchain-x402 | 2026-04-06
+x402helper.xyz | verified | onchain-x402 | 2026-04-06
