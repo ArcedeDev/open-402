@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 2351
+# Total domains: 2360
 # Total endpoints: 14937
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -2314,7 +2314,7 @@ littlefinger-x402.loca.lt | verified | onchain-x402 | 2026-04-02
 littlefinger-xai.loca.lt | unclaimed | onchain-x402 | 2026-04-02
 plebtv.com | unclaimed | onchain-l402 | 2026-04-02
 x402-wallet-analyzer.dylan-caponi.workers.dev | unclaimed | onchain-x402 | 2026-04-02
-au-data-x402-production.up.railway.app | unclaimed | onchain-x402 | 2026-04-03
+au-data-x402-production.up.railway.app | verified | onchain-x402 | 2026-04-03
 data.eruditepay.com | verified | onchain-x402 | 2026-04-03
 doma.xyz | unclaimed | onchain-mpp | 2026-04-03
 l402.directory | unclaimed | onchain-l402 | 2026-04-03
@@ -2354,3 +2354,12 @@ satrank.dev | unclaimed | onchain-l402 | 2026-04-06
 talent-becomes-motel-counting.trycloudflare.com | unclaimed | onchain-x402 | 2026-04-06
 utilsforagents.com | unclaimed | onchain-x402 | 2026-04-06
 x402helper.xyz | verified | onchain-x402 | 2026-04-06
+agentres.dev | unclaimed | onchain-x402 | 2026-04-07
+api.dappdojo.com | unclaimed | onchain-x402 | 2026-04-07
+api.saidprotocol.com | unclaimed | onchain-x402 | 2026-04-07
+baseguard.scoopflashman.tech | unclaimed | onchain-x402 | 2026-04-07
+bazaar-gateway.vercel.app | unclaimed | onchain-x402 | 2026-04-07
+bitcoinsapi.com | unclaimed | onchain-x402 | 2026-04-07
+dermi-znuq.onrender.com | unclaimed | onchain-x402 | 2026-04-07
+steven-reflection-copying-livecam.trycloudflare.com | unclaimed | onchain-x402 | 2026-04-07
+wallet-intel-api-production-3ec7.up.railway.app | unclaimed | onchain-x402 | 2026-04-07
