@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 2360
+# Total domains: 2371
 # Total endpoints: 14937
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -2363,3 +2363,14 @@ bitcoinsapi.com | unclaimed | onchain-x402 | 2026-04-07
 dermi-znuq.onrender.com | unclaimed | onchain-x402 | 2026-04-07
 steven-reflection-copying-livecam.trycloudflare.com | unclaimed | onchain-x402 | 2026-04-07
 wallet-intel-api-production-3ec7.up.railway.app | unclaimed | onchain-x402 | 2026-04-07
+agent.news | unclaimed | onchain-x402 | 2026-04-08
+alderpost.co | unclaimed | onchain-x402 | 2026-04-08
+api.ibanforge.com | unclaimed | onchain-x402 | 2026-04-08
+aurelianflo.com | unclaimed | onchain-x402 | 2026-04-08
+chainray.online | unclaimed | onchain-x402 | 2026-04-08
+global-chat.io | unclaimed | onchain-x402 | 2026-04-08
+nothingeverhappens.world | unclaimed | onchain-x402 | 2026-04-08
+pett-ai-plushie.vercel.app | unclaimed | onchain-x402 | 2026-04-08
+shop.pett.ai | unclaimed | onchain-x402 | 2026-04-08
+x402.moltie.co | unclaimed | onchain-x402 | 2026-04-08
+x402geo.com | unclaimed | onchain-x402 | 2026-04-08
