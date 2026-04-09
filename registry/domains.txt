@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 2371
+# Total domains: 2375
 # Total endpoints: 14937
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -2374,3 +2374,7 @@ pett-ai-plushie.vercel.app | unclaimed | onchain-x402 | 2026-04-08
 shop.pett.ai | unclaimed | onchain-x402 | 2026-04-08
 x402.moltie.co | unclaimed | onchain-x402 | 2026-04-08
 x402geo.com | unclaimed | onchain-x402 | 2026-04-08
+api.octodamus.com | unclaimed | onchain-x402 | 2026-04-09
+express-legacy-production.up.railway.app | unclaimed | onchain-x402 | 2026-04-09
+pamir-x402-api.vercel.app | unclaimed | onchain-x402 | 2026-04-09
+parsebit-lnd.fly.dev | unclaimed | onchain-l402 | 2026-04-09
