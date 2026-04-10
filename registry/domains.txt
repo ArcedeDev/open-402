@@ -1,7 +1,7 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 2375
-# Total endpoints: 14937
+# Total domains: 2385
+# Total endpoints: 14938
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
 x402scan.com | unclaimed | 402index | 2026-03-23
@@ -2378,3 +2378,13 @@ api.octodamus.com | unclaimed | onchain-x402 | 2026-04-09
 express-legacy-production.up.railway.app | unclaimed | onchain-x402 | 2026-04-09
 pamir-x402-api.vercel.app | unclaimed | onchain-x402 | 2026-04-09
 parsebit-lnd.fly.dev | unclaimed | onchain-l402 | 2026-04-09
+achillesalpha.onrender.com | unclaimed | onchain-x402 | 2026-04-10
+api.fetch-sentry.online | unclaimed | onchain-x402 | 2026-04-10
+berghain.ravers.workers.dev | unclaimed | onchain-x402 | 2026-04-10
+graph-advocate-production.up.railway.app | verified | onchain-x402 | 2026-04-10
+nexwave.so | unclaimed | onchain-x402 | 2026-04-10
+origin-exchange.fly.dev | unclaimed | onchain-x402 | 2026-04-10
+outcryai.com | verified | onchain-x402 | 2026-04-10
+risk.fetch-sentry.online | unclaimed | onchain-x402 | 2026-04-10
+x402.albylabs.com | unclaimed | onchain-x402 | 2026-04-10
+x402.dellbot.win | unclaimed | onchain-x402 | 2026-04-10
