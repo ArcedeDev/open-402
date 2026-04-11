@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 2385
+# Total domains: 2417
 # Total endpoints: 14938
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -2378,7 +2378,7 @@ api.octodamus.com | unclaimed | onchain-x402 | 2026-04-09
 express-legacy-production.up.railway.app | unclaimed | onchain-x402 | 2026-04-09
 pamir-x402-api.vercel.app | unclaimed | onchain-x402 | 2026-04-09
 parsebit-lnd.fly.dev | unclaimed | onchain-l402 | 2026-04-09
-achillesalpha.onrender.com | unclaimed | onchain-x402 | 2026-04-10
+achillesalpha.onrender.com | verified | onchain-x402 | 2026-04-10
 api.fetch-sentry.online | unclaimed | onchain-x402 | 2026-04-10
 berghain.ravers.workers.dev | unclaimed | onchain-x402 | 2026-04-10
 graph-advocate-production.up.railway.app | verified | onchain-x402 | 2026-04-10
@@ -2388,3 +2388,35 @@ outcryai.com | verified | onchain-x402 | 2026-04-10
 risk.fetch-sentry.online | unclaimed | onchain-x402 | 2026-04-10
 x402.albylabs.com | unclaimed | onchain-x402 | 2026-04-10
 x402.dellbot.win | unclaimed | onchain-x402 | 2026-04-10
+address.x4api.com | unclaimed | onchain-x402 | 2026-04-11
+api.hyperwasp.com | unclaimed | onchain-x402 | 2026-04-11
+api.venice.ai | unclaimed | onchain-x402 | 2026-04-11
+commitments.x4api.com | unclaimed | onchain-x402 | 2026-04-11
+cron.x4api.com | unclaimed | onchain-x402 | 2026-04-11
+currency.x4api.com | unclaimed | onchain-x402 | 2026-04-11
+email.x4api.com | unclaimed | onchain-x402 | 2026-04-11
+enrich.x4api.com | unclaimed | onchain-x402 | 2026-04-11
+fake.x4api.com | unclaimed | onchain-x402 | 2026-04-11
+geo.x4api.com | unclaimed | onchain-x402 | 2026-04-11
+invoice.x4api.com | unclaimed | onchain-x402 | 2026-04-11
+kg.dyor.network | unclaimed | onchain-x402 | 2026-04-11
+language.x4api.com | unclaimed | onchain-x402 | 2026-04-11
+law-mcp.toulaw.workers.dev | unclaimed | onchain-x402 | 2026-04-11
+legal.x4api.com | unclaimed | onchain-x402 | 2026-04-11
+masterclaw.dev | verified | onchain-x402 | 2026-04-11
+pdf.x4api.com | unclaimed | onchain-x402 | 2026-04-11
+records.x4api.com | unclaimed | onchain-x402 | 2026-04-11
+redact.x4api.com | unclaimed | onchain-x402 | 2026-04-11
+safety.x4api.com | unclaimed | onchain-x402 | 2026-04-11
+sanctions.x4api.com | unclaimed | onchain-x402 | 2026-04-11
+schema.x4api.com | unclaimed | onchain-x402 | 2026-04-11
+score.x4api.com | unclaimed | onchain-x402 | 2026-04-11
+text-to-json.x4api.com | unclaimed | onchain-x402 | 2026-04-11
+thesilentbrief.co.nz | unclaimed | onchain-x402 | 2026-04-11
+time.x4api.com | unclaimed | onchain-x402 | 2026-04-11
+tribal-producing-materials-vice.trycloudflare.com | unclaimed | onchain-x402 | 2026-04-11
+verify.polylogicai.com | unclaimed | onchain-x402 | 2026-04-11
+verify.x4api.com | unclaimed | onchain-x402 | 2026-04-11
+x402-biz-intel.fly.dev | unclaimed | onchain-x402 | 2026-04-11
+x402-domain-check.fly.dev | unclaimed | onchain-x402 | 2026-04-11
+x402-router.fly.dev | unclaimed | onchain-x402 | 2026-04-11
