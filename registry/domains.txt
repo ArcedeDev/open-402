@@ -1,7 +1,7 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 2417
-# Total endpoints: 14938
+# Total domains: 2422
+# Total endpoints: 14929
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
 x402scan.com | unclaimed | 402index | 2026-03-23
@@ -83,7 +83,7 @@ pubmed.sekgen.xyz | unclaimed | 402index | 2026-03-23
 builtwith.mpp.paywithlocus.com | unclaimed | 402index | 2026-03-23
 diffbot.mpp.paywithlocus.com | unclaimed | 402index | 2026-03-23
 x402-mvp.secondstate.io | unclaimed | 402index | 2026-03-23
-agenthealthmonitor.xyz | unclaimed | 402index | 2026-03-23
+agenthealthmonitor.xyz | verified | 402index | 2026-03-23
 api.aviationstack.com | unclaimed | 402index | 2026-03-23
 goal402-x402.percha.workers.dev | unclaimed | 402index | 2026-03-23
 api.auor.io | unclaimed | 402index | 2026-03-23
@@ -1730,7 +1730,7 @@ diamondclaws.io | unclaimed | onchain-x402 | 2026-03-23
 microservice-health-check.apimesh.xyz | unclaimed | onchain-x402 | 2026-03-23
 x402-sushi.up.railway.app | unclaimed | onchain-x402 | 2026-03-23
 yaml-validator.apimesh.xyz | unclaimed | onchain-x402 | 2026-03-23
-web-production-a512e.up.railway.app | unclaimed | onchain-x402 | 2026-03-23
+web-production-a512e.up.railway.app | verified | onchain-x402 | 2026-03-23
 x402.fiasignals.com | unclaimed | onchain-x402 | 2026-03-23
 apiv2.laevitas.ch | unclaimed | onchain-x402 | 2026-03-23
 dev-api2.slinkylayer.ai | unclaimed | onchain-x402 | 2026-03-23
@@ -2420,3 +2420,8 @@ verify.x4api.com | unclaimed | onchain-x402 | 2026-04-11
 x402-biz-intel.fly.dev | unclaimed | onchain-x402 | 2026-04-11
 x402-domain-check.fly.dev | unclaimed | onchain-x402 | 2026-04-11
 x402-router.fly.dev | unclaimed | onchain-x402 | 2026-04-11
+agentdata-api.com | unclaimed | onchain-x402 | 2026-04-12
+alphastream.deleonanalytics.com | unclaimed | onchain-x402 | 2026-04-12
+walletguard.scoopflashman.tech | unclaimed | onchain-x402 | 2026-04-12
+x402-openrouter.serveousercontent.com | unclaimed | onchain-x402 | 2026-04-12
+x402.tunedfor.ai | unclaimed | onchain-x402 | 2026-04-12
