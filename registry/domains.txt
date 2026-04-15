@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 2563
+# Total domains: 2571
 # Total endpoints: 14929
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -2331,7 +2331,7 @@ api-staging.imgzen.dev | unclaimed | onchain-x402 | 2026-04-04
 api.bitcoinbenji.com | unclaimed | onchain-l402 | 2026-04-04
 api.imgzen.dev | unclaimed | onchain-x402 | 2026-04-04
 image-gen-x402-api.token-unlocks-x402.workers.dev | unclaimed | onchain-x402 | 2026-04-04
-lightningprox.com | unclaimed | onchain-l402 | 2026-04-04
+lightningprox.com | verified | onchain-l402 | 2026-04-04
 mail.cusethejuice.com | unclaimed | onchain-x402 | 2026-04-04
 mpp.hyreagent.fun | unclaimed | onchain-x402 | 2026-04-04
 scan.convrgent.ai | unclaimed | onchain-x402 | 2026-04-04
@@ -2566,3 +2566,11 @@ x402-readability.fly.dev | unclaimed | onchain-x402 | 2026-04-14
 x402-ssl-check.fly.dev | unclaimed | onchain-x402 | 2026-04-14
 x402-tech-stack.fly.dev | unclaimed | onchain-x402 | 2026-04-14
 x402-web-audit.fly.dev | unclaimed | onchain-x402 | 2026-04-14
+api.crushrewards.dev | unclaimed | onchain-x402 | 2026-04-15
+api.project-2505.com | unclaimed | onchain-x402 | 2026-04-15
+dripstack.xyz | unclaimed | onchain-x402 | 2026-04-15
+global-econ-x402-staging.up.railway.app | verified | onchain-x402 | 2026-04-15
+hub.atxp.ai | unclaimed | onchain-x402 | 2026-04-15
+mpp.myntagent.fun | unclaimed | onchain-x402 | 2026-04-15
+saju-from-seoul-production-767d.up.railway.app | verified | onchain-x402 | 2026-04-15
+satsback.com | unclaimed | onchain-l402 | 2026-04-15
