@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 2576
+# Total domains: 2593
 # Total endpoints: 14929
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -2579,3 +2579,20 @@ api.quantoracle.dev | unclaimed | onchain-x402 | 2026-04-16
 api.xgen.world | unclaimed | onchain-x402 | 2026-04-16
 gateway.agonx402.com | unclaimed | onchain-x402 | 2026-04-16
 orbisapi.com | verified | onchain-x402 | 2026-04-16
+api.rungate.ai | unclaimed | onchain-x402 | 2026-04-17
+barcode-generator-x402-production.up.railway.app | unclaimed | onchain-x402 | 2026-04-17
+base64-codec-x402-production.up.railway.app | unclaimed | onchain-x402 | 2026-04-17
+cdp.bitcoinsapi.com | unclaimed | onchain-x402 | 2026-04-17
+console.sanfoundation.com | unclaimed | onchain-x402 | 2026-04-17
+findmea-nyc.vercel.app | unclaimed | onchain-x402 | 2026-04-17
+markdown-to-html-x402-production.up.railway.app | unclaimed | onchain-x402 | 2026-04-17
+scrape-agent.vercel.app | unclaimed | onchain-x402 | 2026-04-17
+stableflare.dev | unclaimed | onchain-x402 | 2026-04-17
+stablegiftcards.dev | unclaimed | onchain-x402 | 2026-04-17
+stock-price-x402-production.up.railway.app | unclaimed | onchain-x402 | 2026-04-17
+text-to-speech-x402-production.up.railway.app | unclaimed | onchain-x402 | 2026-04-17
+timezone-converter-x402-production.up.railway.app | unclaimed | onchain-x402 | 2026-04-17
+token-ohlcv-production.up.railway.app | unclaimed | onchain-x402 | 2026-04-17
+token-price-x402-production.up.railway.app | unclaimed | onchain-x402 | 2026-04-17
+weather-api-x402-production.up.railway.app | unclaimed | onchain-x402 | 2026-04-17
+x402.agoragentic.com | verified | onchain-x402 | 2026-04-17
