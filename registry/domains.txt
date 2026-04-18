@@ -1,7 +1,7 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 2593
-# Total endpoints: 14929
+# Total domains: 2597
+# Total endpoints: 14914
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
 x402scan.com | unclaimed | 402index | 2026-03-23
@@ -67,7 +67,7 @@ fal.run | unclaimed | 402index | 2026-03-23
 x402.ottoai.services | unclaimed | 402index | 2026-03-23
 silverback-x402.onrender.com | unclaimed | 402index | 2026-03-23
 agent1-gateway.aurracloud.com | unclaimed | 402index | 2026-03-23
-gateway.spraay.app | unclaimed | 402index | 2026-03-23
+gateway.spraay.app | verified | 402index | 2026-03-23
 x402.alchemy.com | unclaimed | 402index | 2026-03-23
 goflightlabs.com | unclaimed | 402index | 2026-03-23
 app.cusethejuice.com | unclaimed | 402index | 2026-03-23
@@ -2596,3 +2596,7 @@ token-ohlcv-production.up.railway.app | unclaimed | onchain-x402 | 2026-04-17
 token-price-x402-production.up.railway.app | unclaimed | onchain-x402 | 2026-04-17
 weather-api-x402-production.up.railway.app | unclaimed | onchain-x402 | 2026-04-17
 x402.agoragentic.com | verified | onchain-x402 | 2026-04-17
+nanoapi.org | unclaimed | onchain-x402 | 2026-04-18
+pokerstudy.ai | unclaimed | onchain-x402 | 2026-04-18
+signal-engine-production-d88d.up.railway.app | unclaimed | onchain-x402 | 2026-04-18
+transit402.dev | unclaimed | onchain-x402 | 2026-04-18
