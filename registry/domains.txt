@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 2601
+# Total domains: 2609
 # Total endpoints: 14914
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -2604,3 +2604,11 @@ api.devdrops.run | unclaimed | onchain-x402 | 2026-04-19
 bundle-maker.vercel.app | unclaimed | onchain-x402 | 2026-04-19
 hirescrape.com | unclaimed | onchain-x402 | 2026-04-19
 oracle.the-undesirables.com | verified | onchain-x402 | 2026-04-19
+biz-calendar-data-api.kasanegi123.workers.dev | unclaimed | onchain-x402 | 2026-04-20
+bzxmejzssxjazswgwqqs.supabase.co | unclaimed | onchain-x402 | 2026-04-20
+company-data-api.kasanegi123.workers.dev | unclaimed | onchain-x402 | 2026-04-20
+egov-laws-data-api.kasanegi123.workers.dev | unclaimed | onchain-x402 | 2026-04-20
+micro-data-api-factory.kasanegi123.workers.dev | unclaimed | onchain-x402 | 2026-04-20
+signalsfeed.com | unclaimed | onchain-x402 | 2026-04-20
+sippar.network | unclaimed | onchain-x402 | 2026-04-20
+weather-data-api.kasanegi123.workers.dev | unclaimed | onchain-x402 | 2026-04-20
