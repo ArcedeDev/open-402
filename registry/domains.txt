@@ -1,11 +1,11 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 2609
+# Total domains: 2628
 # Total endpoints: 14914
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
 x402scan.com | unclaimed | 402index | 2026-03-23
-bridge.eruditepay.com| verified |402index|2026-03-23
+bridge.eruditepay.com | unclaimed | 402index | 2026-03-23
 api-dev.intra-tls2.dctx.link | unclaimed | 402index | 2026-03-23
 api.questflow.ai | unclaimed | 402index | 2026-03-23
 api.myceliasignal.com | verified | 402index | 2026-03-23
@@ -45,7 +45,7 @@ agents.allium.so | unclaimed | 402index | 2026-03-23
 x402-gateway-production.up.railway.app| verified |402index|2026-03-23
 pro-api.coingecko.com | unclaimed | 402index | 2026-03-23
 lightningfaucet.com | unclaimed | 402index | 2026-03-23
-b9c7a16b-b90f-4d3c-b73c-bb8d49f9a8fd-00-2zmwe913s9fbf.picard.replit.dev| verified |402index|2026-03-23
+b9c7a16b-b90f-4d3c-b73c-bb8d49f9a8fd-00-2zmwe913s9fbf.picard.replit.dev | unclaimed | 402index | 2026-03-23
 gateway.grapevine.fyi | unclaimed | 402index | 2026-03-23
 defi.hugen.tokyo | unclaimed | 402index | 2026-03-23
 stablestudio.dev | unclaimed | 402index | 2026-03-23
@@ -2612,3 +2612,22 @@ micro-data-api-factory.kasanegi123.workers.dev | unclaimed | onchain-x402 | 2026
 signalsfeed.com | unclaimed | onchain-x402 | 2026-04-20
 sippar.network | unclaimed | onchain-x402 | 2026-04-20
 weather-data-api.kasanegi123.workers.dev | unclaimed | onchain-x402 | 2026-04-20
+3000-c905553a9700f51123f091260a9b8400.life.conway.tech | unclaimed | onchain-x402 | 2026-04-21
+agent-research-brief-api-production.up.railway.app | unclaimed | onchain-x402 | 2026-04-21
+agentapis.top | unclaimed | onchain-x402 | 2026-04-21
+api.molty.cash | unclaimed | onchain-x402 | 2026-04-21
+edgar-x402.vercel.app | unclaimed | onchain-x402 | 2026-04-21
+fred-x402.vercel.app | unclaimed | onchain-x402 | 2026-04-21
+gamemaxxing.baes.so | unclaimed | onchain-x402 | 2026-04-21
+hackernews-x402.vercel.app | unclaimed | onchain-x402 | 2026-04-21
+kenoodl.com | verified | onchain-x402 | 2026-04-21
+nasa-x402.vercel.app | unclaimed | onchain-x402 | 2026-04-21
+openweather-coral.vercel.app | unclaimed | onchain-x402 | 2026-04-21
+serp-x402.vercel.app | unclaimed | onchain-x402 | 2026-04-21
+stablemedia.dev | unclaimed | onchain-x402 | 2026-04-21
+staging.deepnets.ai | unclaimed | onchain-x402 | 2026-04-21
+theloopbreaker.com | unclaimed | onchain-x402 | 2026-04-21
+v0-x402-payments-demo.vercel.app | unclaimed | onchain-x402 | 2026-04-21
+wayback-x402.vercel.app | unclaimed | onchain-x402 | 2026-04-21
+worldbank-x402.vercel.app | unclaimed | onchain-x402 | 2026-04-21
+x402audit.dev | unclaimed | onchain-x402 | 2026-04-21
