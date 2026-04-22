@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 2628
+# Total domains: 2653
 # Total endpoints: 14914
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -1917,7 +1917,7 @@ api-x402bit.vercel.app | unclaimed | onchain-x402 | 2026-03-23
 facilitator.mayaworld.ai | unclaimed | onchain-x402 | 2026-03-23
 facilitator.x4a.app | unclaimed | onchain-x402 | 2026-03-23
 mint.memebox.cc | unclaimed | onchain-x402 | 2026-03-23
-crypto-enrichment-api-production.up.railway.app | verified | onchain-x402 | 2026-03-23
+crypto-enrichment-api-production.up.railway.app | unclaimed | onchain-x402 | 2026-03-23
 mint.pishit.xyz | unclaimed | onchain-x402 | 2026-03-23
 us-central1-hyperpaylabs.cloudfunctions.net | unclaimed | onchain-x402 | 2026-03-23
 agent-services-platform.jimmyfuknjames.workers.dev | unclaimed | onchain-x402 | 2026-03-23
@@ -2626,8 +2626,33 @@ openweather-coral.vercel.app | unclaimed | onchain-x402 | 2026-04-21
 serp-x402.vercel.app | unclaimed | onchain-x402 | 2026-04-21
 stablemedia.dev | unclaimed | onchain-x402 | 2026-04-21
 staging.deepnets.ai | unclaimed | onchain-x402 | 2026-04-21
-theloopbreaker.com | unclaimed | onchain-x402 | 2026-04-21
+theloopbreaker.com | verified | onchain-x402 | 2026-04-21
 v0-x402-payments-demo.vercel.app | unclaimed | onchain-x402 | 2026-04-21
 wayback-x402.vercel.app | unclaimed | onchain-x402 | 2026-04-21
 worldbank-x402.vercel.app | unclaimed | onchain-x402 | 2026-04-21
 x402audit.dev | unclaimed | onchain-x402 | 2026-04-21
+aimorgan.net | unclaimed | onchain-x402 | 2026-04-22
+aimorgan.vercel.app | unclaimed | onchain-x402 | 2026-04-22
+alpha.palmvox.com | unclaimed | onchain-x402 | 2026-04-22
+api.agentprint.art | unclaimed | onchain-x402 | 2026-04-22
+api.anchorregistry.ai | unclaimed | onchain-x402 | 2026-04-22
+api.loyalspark.online | unclaimed | onchain-x402 | 2026-04-22
+api.meckercapital.com | unclaimed | onchain-x402 | 2026-04-22
+api.tcgapi.dev | unclaimed | onchain-x402 | 2026-04-22
+blocknotify-intelligence-itj3s.ondigitalocean.app | unclaimed | onchain-x402 | 2026-04-22
+boundary-guard-x402.onrender.com | unclaimed | onchain-x402 | 2026-04-22
+dlf-gateway.agentlabel.workers.dev | unclaimed | onchain-x402 | 2026-04-22
+flylabs.fun | unclaimed | onchain-x402 | 2026-04-22
+horizon-pulse.vercel.app | unclaimed | onchain-x402 | 2026-04-22
+kaleiai.com | unclaimed | onchain-x402 | 2026-04-22
+martinestate.com | unclaimed | onchain-mpp | 2026-04-22
+parliament.kaleiai.com | unclaimed | onchain-x402 | 2026-04-22
+proof.cryptowerk.com | unclaimed | onchain-x402 | 2026-04-22
+shoppi-backend.onrender.com | unclaimed | onchain-x402 | 2026-04-22
+surge-sand.basalthq.com | unclaimed | onchain-x402 | 2026-04-22
+test.987659876.xyz | unclaimed | onchain-x402 | 2026-04-22
+testpp.987659876.xyz | unclaimed | onchain-x402 | 2026-04-22
+trustscore.dev | unclaimed | onchain-x402 | 2026-04-22
+x402-agent-pay.com | verified | onchain-x402 | 2026-04-22
+x402.blocknotify.com | unclaimed | onchain-x402 | 2026-04-22
+x402.lightbrush.art | unclaimed | onchain-x402 | 2026-04-22
