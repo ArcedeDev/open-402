@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 2653
+# Total domains: 2666
 # Total endpoints: 14914
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -2022,7 +2022,7 @@ x402-sms.reddio.com | unclaimed | onchain-x402 | 2026-03-23
 x402-xapi.onrender.com | unclaimed | onchain-x402 | 2026-03-23
 yield-pool-watcher.vercel.app | verified | onchain-x402 | 2026-03-23
 contract-helper-production.up.railway.app | unclaimed | onchain-x402 | 2026-03-23
-picoads.xyz | unclaimed | onchain-x402 | 2026-03-23
+picoads.xyz | verified | onchain-x402 | 2026-03-23
 tacox-omega.vercel.app | unclaimed | onchain-x402 | 2026-03-23
 server.r1xlabs.com | unclaimed | onchain-x402 | 2026-03-23
 babydoge.x420.dev | unclaimed | onchain-x402 | 2026-03-23
@@ -2656,3 +2656,16 @@ trustscore.dev | unclaimed | onchain-x402 | 2026-04-22
 x402-agent-pay.com | verified | onchain-x402 | 2026-04-22
 x402.blocknotify.com | unclaimed | onchain-x402 | 2026-04-22
 x402.lightbrush.art | unclaimed | onchain-x402 | 2026-04-22
+agent-all-the-smoke.vercel.app | unclaimed | onchain-x402 | 2026-04-23
+ai.azursafe.com | unclaimed | onchain-x402 | 2026-04-23
+api.node4all.com | unclaimed | onchain-x402 | 2026-04-23
+api.reloadpi.com | unclaimed | onchain-x402 | 2026-04-23
+ar3stotle-x402-gateway.fly.dev | unclaimed | onchain-x402 | 2026-04-23
+fdn-node-production.up.railway.app | verified | onchain-x402 | 2026-04-23
+megapot.x402.paysponge.com | unclaimed | onchain-x402 | 2026-04-23
+polymind-production-c405.up.railway.app | unclaimed | onchain-x402 | 2026-04-23
+screenshotx402.com | unclaimed | onchain-x402 | 2026-04-23
+stablebase.dev | unclaimed | onchain-x402 | 2026-04-23
+stableface.dev | unclaimed | onchain-x402 | 2026-04-23
+tiny.cv | unclaimed | onchain-x402 | 2026-04-23
+x402.coinstats.app | unclaimed | onchain-x402 | 2026-04-23
