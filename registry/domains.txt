@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 2666
+# Total domains: 2727
 # Total endpoints: 14914
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -1906,7 +1906,7 @@ liquidation-sentinel.up.railway.app | unclaimed | onchain-x402 | 2026-03-23
 auto-mint-delta.vercel.app | unclaimed | onchain-x402 | 2026-03-23
 usd-conversions-agent-production.up.railway.app | unclaimed | onchain-x402 | 2026-03-23
 dual-gorgeous-brochure-xml.trycloudflare.com | unclaimed | onchain-x402 | 2026-03-23
-finance-data-api-production.up.railway.app | verified | onchain-x402 | 2026-03-23
+finance-data-api-production.up.railway.app | unclaimed | onchain-x402 | 2026-03-23
 orionkr.xyz | unclaimed | onchain-x402 | 2026-03-23
 x402.kodaoracle.com | unclaimed | onchain-x402 | 2026-03-23
 www.x402angrypes.fun | unclaimed | onchain-x402 | 2026-03-23
@@ -2669,3 +2669,64 @@ stablebase.dev | unclaimed | onchain-x402 | 2026-04-23
 stableface.dev | unclaimed | onchain-x402 | 2026-04-23
 tiny.cv | unclaimed | onchain-x402 | 2026-04-23
 x402.coinstats.app | unclaimed | onchain-x402 | 2026-04-23
+abstract-company-enrichment.mpp.paywithlocus.com | unclaimed | onchain-mpp | 2026-04-24
+abstract-email-reputation.mpp.paywithlocus.com | unclaimed | onchain-mpp | 2026-04-24
+abstract-exchange-rates.mpp.paywithlocus.com | unclaimed | onchain-mpp | 2026-04-24
+abstract-holidays.mpp.paywithlocus.com | unclaimed | onchain-mpp | 2026-04-24
+abstract-iban-validation.mpp.paywithlocus.com | unclaimed | onchain-mpp | 2026-04-24
+abstract-ip-intelligence.mpp.paywithlocus.com | unclaimed | onchain-mpp | 2026-04-24
+abstract-phone-intelligence.mpp.paywithlocus.com | unclaimed | onchain-mpp | 2026-04-24
+abstract-timezone.mpp.paywithlocus.com | unclaimed | onchain-mpp | 2026-04-24
+abstract-vat.mpp.paywithlocus.com | unclaimed | onchain-mpp | 2026-04-24
+abstract-web-scraping.mpp.paywithlocus.com | unclaimed | onchain-mpp | 2026-04-24
+agentkit0.com | unclaimed | onchain-x402 | 2026-04-24
+agents.martinestate.com | unclaimed | onchain-mpp | 2026-04-24
+alphavantage.mpp.paywithlocus.com | unclaimed | onchain-mpp | 2026-04-24
+anthropic.mpp.tempo.xyz | unclaimed | onchain-mpp | 2026-04-24
+api.auto.exchange | unclaimed | onchain-mpp | 2026-04-24
+api.dune.com | unclaimed | onchain-mpp | 2026-04-24
+apollo.mpp.paywithlocus.com | unclaimed | onchain-mpp | 2026-04-24
+aviationstack.mpp.tempo.xyz | unclaimed | onchain-mpp | 2026-04-24
+billboard.mpp.paywithlocus.com | unclaimed | onchain-mpp | 2026-04-24
+brave.mpp.paywithlocus.com | unclaimed | onchain-mpp | 2026-04-24
+codestorage.mpp.tempo.xyz | unclaimed | onchain-mpp | 2026-04-24
+coingecko.mpp.paywithlocus.com | unclaimed | onchain-mpp | 2026-04-24
+deepgram.mpp.paywithlocus.com | unclaimed | onchain-mpp | 2026-04-24
+deepl.mpp.paywithlocus.com | unclaimed | onchain-mpp | 2026-04-24
+deepseek.mpp.paywithlocus.com | unclaimed | onchain-mpp | 2026-04-24
+diffbot-kg.mpp.paywithlocus.com | unclaimed | onchain-mpp | 2026-04-24
+diffbot-nl.mpp.paywithlocus.com | unclaimed | onchain-mpp | 2026-04-24
+ecosystem-intelligence.onrender.com | unclaimed | onchain-x402 | 2026-04-24
+exa.mpp.tempo.xyz | unclaimed | onchain-mpp | 2026-04-24
+fal.mpp.tempo.xyz | unclaimed | onchain-mpp | 2026-04-24
+firecrawl.mpp.tempo.xyz | unclaimed | onchain-mpp | 2026-04-24
+flightapi.mpp.tempo.xyz | unclaimed | onchain-mpp | 2026-04-24
+gemini.mpp.tempo.xyz | unclaimed | onchain-mpp | 2026-04-24
+globalapi.dev | verified | onchain-x402 | 2026-04-24
+goflightlabs.mpp.tempo.xyz | unclaimed | onchain-mpp | 2026-04-24
+googlemaps.mpp.tempo.xyz | unclaimed | onchain-mpp | 2026-04-24
+grok.mpp.paywithlocus.com | unclaimed | onchain-mpp | 2026-04-24
+groq.mpp.paywithlocus.com | unclaimed | onchain-mpp | 2026-04-24
+ipinfo.mpp.paywithlocus.com | unclaimed | onchain-mpp | 2026-04-24
+jp-local-pack-api.kasanegi123.workers.dev | unclaimed | onchain-x402 | 2026-04-24
+kicksdb.mpp.tempo.xyz | unclaimed | onchain-mpp | 2026-04-24
+mistral.mpp.paywithlocus.com | unclaimed | onchain-mpp | 2026-04-24
+modal.mpp.tempo.xyz | unclaimed | onchain-mpp | 2026-04-24
+mpp.alchemy.com | unclaimed | onchain-mpp | 2026-04-24
+mpp.doma.xyz | unclaimed | onchain-mpp | 2026-04-24
+mpp.pinata.cloud | unclaimed | onchain-mpp | 2026-04-24
+mpp.quicknode.com | unclaimed | onchain-mpp | 2026-04-24
+openai.mpp.tempo.xyz | unclaimed | onchain-mpp | 2026-04-24
+openrouter.mpp.tempo.xyz | unclaimed | onchain-mpp | 2026-04-24
+openweather.mpp.paywithlocus.com | unclaimed | onchain-mpp | 2026-04-24
+oxylabs.mpp.tempo.xyz | unclaimed | onchain-mpp | 2026-04-24
+rpc.mpp.tempo.xyz | unclaimed | onchain-mpp | 2026-04-24
+screenshotone.mpp.paywithlocus.com | unclaimed | onchain-mpp | 2026-04-24
+serpapi.mpp.tempo.xyz | unclaimed | onchain-mpp | 2026-04-24
+skills.onesource.io | unclaimed | onchain-x402 | 2026-04-24
+spyfu.mpp.tempo.xyz | unclaimed | onchain-mpp | 2026-04-24
+stability-ai.mpp.paywithlocus.com | unclaimed | onchain-mpp | 2026-04-24
+storage.mpp.tempo.xyz | unclaimed | onchain-mpp | 2026-04-24
+tavily.mpp.paywithlocus.com | unclaimed | onchain-mpp | 2026-04-24
+twocaptcha.mpp.tempo.xyz | unclaimed | onchain-mpp | 2026-04-24
+wolframalpha.mpp.paywithlocus.com | unclaimed | onchain-mpp | 2026-04-24
