@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 2727
+# Total domains: 2734
 # Total endpoints: 14914
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -1828,7 +1828,7 @@ crypto-enrich.up.railway.app | unclaimed | onchain-x402 | 2026-03-23
 pii-scrubber.fly.dev | unclaimed | onchain-x402 | 2026-03-23
 isolated-gzip-wilson-yesterday.trycloudflare.com | unclaimed | onchain-x402 | 2026-03-23
 format-converter.fly.dev | unclaimed | onchain-x402 | 2026-03-23
-gasroute-oracle-production.up.railway.app | verified | onchain-x402 | 2026-03-23
+gasroute-oracle-production.up.railway.app | unclaimed | onchain-x402 | 2026-03-23
 paynet.network | unclaimed | onchain-x402 | 2026-03-23
 x402pineapple-production.up.railway.app | unclaimed | onchain-x402 | 2026-03-23
 1rpc.ai | unclaimed | onchain-x402 | 2026-03-23
@@ -2730,3 +2730,10 @@ storage.mpp.tempo.xyz | unclaimed | onchain-mpp | 2026-04-24
 tavily.mpp.paywithlocus.com | unclaimed | onchain-mpp | 2026-04-24
 twocaptcha.mpp.tempo.xyz | unclaimed | onchain-mpp | 2026-04-24
 wolframalpha.mpp.paywithlocus.com | unclaimed | onchain-mpp | 2026-04-24
+api.oatp.cc | unclaimed | onchain-x402 | 2026-04-25
+api.safebrowz.com | unclaimed | onchain-x402 | 2026-04-25
+jp-grants-data-api.kasanegi123.workers.dev | unclaimed | onchain-x402 | 2026-04-25
+jp-regulatory-data-api.kasanegi123.workers.dev | unclaimed | onchain-x402 | 2026-04-25
+rehqwsypjnjirhuiapqh.supabase.co | unclaimed | onchain-x402 | 2026-04-25
+stablebrowser.dev | unclaimed | onchain-x402 | 2026-04-25
+stablememes.dev | unclaimed | onchain-x402 | 2026-04-25
