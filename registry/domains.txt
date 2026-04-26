@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 2734
+# Total domains: 2739
 # Total endpoints: 14914
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -2575,7 +2575,7 @@ mpp.myntagent.fun | unclaimed | onchain-x402 | 2026-04-15
 saju-from-seoul-production-767d.up.railway.app | verified | onchain-x402 | 2026-04-15
 satsback.com | unclaimed | onchain-l402 | 2026-04-15
 api.agentlux.ai | unclaimed | onchain-x402 | 2026-04-16
-api.quantoracle.dev | unclaimed | onchain-x402 | 2026-04-16
+api.quantoracle.dev | verified | onchain-x402 | 2026-04-16
 api.xgen.world | unclaimed | onchain-x402 | 2026-04-16
 gateway.agonx402.com | unclaimed | onchain-x402 | 2026-04-16
 orbisapi.com | verified | onchain-x402 | 2026-04-16
@@ -2737,3 +2737,8 @@ jp-regulatory-data-api.kasanegi123.workers.dev | unclaimed | onchain-x402 | 2026
 rehqwsypjnjirhuiapqh.supabase.co | unclaimed | onchain-x402 | 2026-04-25
 stablebrowser.dev | unclaimed | onchain-x402 | 2026-04-25
 stablememes.dev | unclaimed | onchain-x402 | 2026-04-25
+api.phoneagent.xyz | unclaimed | onchain-x402 | 2026-04-26
+ayniw.com | unclaimed | onchain-l402 | 2026-04-26
+mcp.cryptoiz.org | verified | onchain-x402 | 2026-04-26
+mcp.swissdeals.app | unclaimed | onchain-x402 | 2026-04-26
+x402joke.vercel.app | unclaimed | onchain-x402 | 2026-04-26
