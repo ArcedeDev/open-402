@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 2739
+# Total domains: 2745
 # Total endpoints: 14914
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -2742,3 +2742,9 @@ ayniw.com | unclaimed | onchain-l402 | 2026-04-26
 mcp.cryptoiz.org | verified | onchain-x402 | 2026-04-26
 mcp.swissdeals.app | unclaimed | onchain-x402 | 2026-04-26
 x402joke.vercel.app | unclaimed | onchain-x402 | 2026-04-26
+aiagentoracle.ai | unclaimed | onchain-x402 | 2026-04-27
+api.aitoollab.top | unclaimed | onchain-x402 | 2026-04-27
+api.jintel.ai | unclaimed | onchain-x402 | 2026-04-27
+audits.archonics.ai | unclaimed | onchain-x402 | 2026-04-27
+fiona-125b95be.base44.app | unclaimed | onchain-x402 | 2026-04-27
+visionaire.live | unclaimed | onchain-x402 | 2026-04-27
