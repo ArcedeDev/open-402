@@ -1,7 +1,7 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 2745
-# Total endpoints: 14914
+# Total domains: 2753
+# Total endpoints: 14906
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
 x402scan.com | unclaimed | 402index | 2026-03-23
@@ -105,7 +105,7 @@ api.spyfu.com | unclaimed | 402index | 2026-03-23
 brack-hive.tail4f568d.ts.net | verified | 402index | 2026-03-23
 x402-server-sandy.vercel.app | unclaimed | 402index | 2026-03-23
 api.tanantor.com | unclaimed | 402index | 2026-03-23
-api.deepbluebase.xyz | unclaimed | 402index | 2026-03-23
+api.deepbluebase.xyz | verified | 402index | 2026-03-23
 polymarketeer.vercel.app | unclaimed | 402index | 2026-03-23
 x402.asterpay.io| verified |402index|2026-03-23
 x402.911fund.io | unclaimed | 402index | 2026-03-23
@@ -1699,23 +1699,23 @@ api.thetrustlayer.xyz | verified | onchain-x402 | 2026-03-23
 api.agentinternetruntime.com | unclaimed | onchain-x402 | 2026-03-23
 x-research.suzi.trade | unclaimed | onchain-x402 | 2026-03-23
 mcp.fortclaw.com | unclaimed | onchain-x402 | 2026-03-23
-check.apimesh.xyz | unclaimed | onchain-x402 | 2026-03-23
-robots-txt-parser.apimesh.xyz | unclaimed | onchain-x402 | 2026-03-23
-swagger-docs-creator.apimesh.xyz | unclaimed | onchain-x402 | 2026-03-23
+check.apimesh.xyz | verified | onchain-x402 | 2026-03-23
+robots-txt-parser.apimesh.xyz | verified | onchain-x402 | 2026-03-23
+swagger-docs-creator.apimesh.xyz | verified | onchain-x402 | 2026-03-23
 token-ob55ohko7-spx402s-projects.vercel.app | unclaimed | onchain-x402 | 2026-03-23
 x402mfers-delta.vercel.app | unclaimed | onchain-x402 | 2026-03-23
 wwziwc-ip-202-56-166-134.tunnelmole.net | unclaimed | onchain-x402 | 2026-03-23
 x402-solana-test.vercel.app | unclaimed | onchain-x402 | 2026-03-23
 onchain-reputation-agent.arumam.engineer | unclaimed | onchain-x402 | 2026-03-23
-http-status-checker.apimesh.xyz | unclaimed | onchain-x402 | 2026-03-23
-mock-jwt-generator.apimesh.xyz | unclaimed | onchain-x402 | 2026-03-23
+http-status-checker.apimesh.xyz | verified | onchain-x402 | 2026-03-23
+mock-jwt-generator.apimesh.xyz | verified | onchain-x402 | 2026-03-23
 valoria.net | verified | onchain-x402 | 2026-03-23
 a2a.opspawn.com | unclaimed | onchain-x402 | 2026-03-23
 api.cortex402.xyz | unclaimed | onchain-x402 | 2026-03-23
 x402.latchmcp.app | unclaimed | onchain-x402 | 2026-03-23
 402snake.vercel.app | unclaimed | onchain-x402 | 2026-03-23
 agents.krumpybot.com | verified | onchain-x402 | 2026-03-23
-favicon-checker.apimesh.xyz | unclaimed | onchain-x402 | 2026-03-23
+favicon-checker.apimesh.xyz | verified | onchain-x402 | 2026-03-23
 agentcash.dev | unclaimed | onchain-x402 | 2026-03-23
 api.messari.io | unclaimed | onchain-x402 | 2026-03-23
 x402-casino-production.up.railway.app | unclaimed | onchain-x402 | 2026-03-23
@@ -1727,22 +1727,22 @@ api.paybrain.observer | unclaimed | onchain-x402 | 2026-03-23
 daram402.me | unclaimed | onchain-x402 | 2026-03-23
 play402.fun | unclaimed | onchain-x402 | 2026-03-23
 diamondclaws.io | unclaimed | onchain-x402 | 2026-03-23
-microservice-health-check.apimesh.xyz | unclaimed | onchain-x402 | 2026-03-23
+microservice-health-check.apimesh.xyz | verified | onchain-x402 | 2026-03-23
 x402-sushi.up.railway.app | unclaimed | onchain-x402 | 2026-03-23
-yaml-validator.apimesh.xyz | unclaimed | onchain-x402 | 2026-03-23
+yaml-validator.apimesh.xyz | verified | onchain-x402 | 2026-03-23
 web-production-a512e.up.railway.app | verified | onchain-x402 | 2026-03-23
 x402.fiasignals.com | unclaimed | onchain-x402 | 2026-03-23
 apiv2.laevitas.ch | unclaimed | onchain-x402 | 2026-03-23
 dev-api2.slinkylayer.ai | unclaimed | onchain-x402 | 2026-03-23
 www.x402punks.wtf | unclaimed | onchain-x402 | 2026-03-23
 x402-discovery-api.onrender.com | unclaimed | onchain-x402 | 2026-03-23
-status-code-checker.apimesh.xyz | unclaimed | onchain-x402 | 2026-03-23
+status-code-checker.apimesh.xyz | verified | onchain-x402 | 2026-03-23
 app.tiktokr.app | unclaimed | onchain-x402 | 2026-03-23
 api.clawbounty.ai | unclaimed | onchain-x402 | 2026-03-23
 coc-shop-prod.fawesome-hypercasual.workers.dev | unclaimed | onchain-x402 | 2026-03-23
 api.fxn.world | unclaimed | onchain-x402 | 2026-03-23
-regex-builder.apimesh.xyz | unclaimed | onchain-x402 | 2026-03-23
-user-agent-analyzer.apimesh.xyz | unclaimed | onchain-x402 | 2026-03-23
+regex-builder.apimesh.xyz | verified | onchain-x402 | 2026-03-23
+user-agent-analyzer.apimesh.xyz | verified | onchain-x402 | 2026-03-23
 api.speakeasyrelay.com | unclaimed | onchain-x402 | 2026-03-23
 moltbrain-x402-server-production-6c25.up.railway.app | unclaimed | onchain-x402 | 2026-03-23
 www.capminal.ai | unclaimed | onchain-x402 | 2026-03-23
@@ -1812,8 +1812,8 @@ perps-funding-agent-production.up.railway.app | unclaimed | onchain-x402 | 2026-
 ekubo-market-watcher-production.up.railway.app | unclaimed | onchain-x402 | 2026-03-23
 pastebin.0000402.xyz | unclaimed | onchain-x402 | 2026-03-23
 x402.ai.bio.xyz | unclaimed | onchain-x402 | 2026-03-23
-core-web-vitals.apimesh.xyz | unclaimed | onchain-x402 | 2026-03-23
-security-headers.apimesh.xyz | unclaimed | onchain-x402 | 2026-03-23
+core-web-vitals.apimesh.xyz | verified | onchain-x402 | 2026-03-23
+security-headers.apimesh.xyz | verified | onchain-x402 | 2026-03-23
 phones-beginner-univ-split.trycloudflare.com | unclaimed | onchain-x402 | 2026-03-23
 agentforge-taupe.vercel.app| verified |onchain-x402|2026-03-23
 archtools.dev | verified | onchain-x402 | 2026-03-23
@@ -1821,7 +1821,7 @@ enrichx402.com | unclaimed | onchain-x402 | 2026-03-23
 solwall.xyz | unclaimed | onchain-x402 | 2026-03-23
 clawdio.vail.report | unclaimed | onchain-x402 | 2026-03-23
 proxy.0000402.xyz | unclaimed | onchain-x402 | 2026-03-23
-redirect-chain.apimesh.xyz | unclaimed | onchain-x402 | 2026-03-23
+redirect-chain.apimesh.xyz | verified | onchain-x402 | 2026-03-23
 feresearch.val.run | unclaimed | onchain-x402 | 2026-03-23
 parade-squad-responding-mixture.trycloudflare.com | unclaimed | onchain-x402 | 2026-03-23
 crypto-enrich.up.railway.app | unclaimed | onchain-x402 | 2026-03-23
@@ -1833,7 +1833,7 @@ paynet.network | unclaimed | onchain-x402 | 2026-03-23
 x402pineapple-production.up.railway.app | unclaimed | onchain-x402 | 2026-03-23
 1rpc.ai | unclaimed | onchain-x402 | 2026-03-23
 agent-tools-production-1a21.up.railway.app | unclaimed | onchain-x402 | 2026-03-23
-email-security.apimesh.xyz | unclaimed | onchain-x402 | 2026-03-23
+email-security.apimesh.xyz | verified | onchain-x402 | 2026-03-23
 loop-gate.fly.dev | unclaimed | onchain-x402 | 2026-03-23
 card-registry.fly.dev | unclaimed | onchain-x402 | 2026-03-23
 mercury402.uk | unclaimed | onchain-x402 | 2026-03-23
@@ -1848,14 +1848,14 @@ api.reconlab.io | unclaimed | onchain-x402 | 2026-03-23
 x402angryapesx.vercel.app | unclaimed | onchain-x402 | 2026-03-23
 api.viktorious.dev | unclaimed | onchain-x402 | 2026-03-23
 api.darwinprotocol.org | unclaimed | onchain-x402 | 2026-03-23
-seo-audit.apimesh.xyz | unclaimed | onchain-x402 | 2026-03-23
+seo-audit.apimesh.xyz | verified | onchain-x402 | 2026-03-23
 permission-guard.fly.dev | unclaimed | onchain-x402 | 2026-03-23
 agent-cost-meter.fly.dev | unclaimed | onchain-x402 | 2026-03-23
 tropir.xyz | unclaimed | onchain-x402 | 2026-03-23
 x402-summariser-production.up.railway.app | verified | onchain-x402 | 2026-03-23
 x4dev-api.h3ywei.com | unclaimed | onchain-x402 | 2026-03-23
 scrape.viktorious.dev | unclaimed | onchain-x402 | 2026-03-23
-indexability.apimesh.xyz | unclaimed | onchain-x402 | 2026-03-23
+indexability.apimesh.xyz | verified | onchain-x402 | 2026-03-23
 x402-casino-production-9a1f.up.railway.app | unclaimed | onchain-x402 | 2026-03-23
 omniaudit.fly.dev | unclaimed | onchain-x402 | 2026-03-23
 data-sentinel.fly.dev | unclaimed | onchain-x402 | 2026-03-23
@@ -1872,7 +1872,7 @@ guard.viktorious.dev | unclaimed | onchain-x402 | 2026-03-23
 api.agentapihub.com | unclaimed | onchain-x402 | 2026-03-23
 stableclaude.dev | unclaimed | onchain-x402 | 2026-03-23
 api.nacian.app | unclaimed | onchain-x402 | 2026-03-23
-brand-assets.apimesh.xyz | unclaimed | onchain-x402 | 2026-03-23
+brand-assets.apimesh.xyz | verified | onchain-x402 | 2026-03-23
 www.penny.tech | unclaimed | onchain-x402 | 2026-03-23
 api.cope.capital | unclaimed | onchain-x402 | 2026-03-23
 api.atlas402.com | unclaimed | onchain-x402 | 2026-03-23
@@ -2748,3 +2748,11 @@ api.jintel.ai | unclaimed | onchain-x402 | 2026-04-27
 audits.archonics.ai | unclaimed | onchain-x402 | 2026-04-27
 fiona-125b95be.base44.app | unclaimed | onchain-x402 | 2026-04-27
 visionaire.live | unclaimed | onchain-x402 | 2026-04-27
+afraid-celtic-copy.ngrok-free.dev | unclaimed | onchain-l402 | 2026-04-28
+app.daedalmap.com | unclaimed | onchain-x402 | 2026-04-28
+channel3-x402.onrender.com | unclaimed | onchain-x402 | 2026-04-28
+rugguard.redfleet.fr | unclaimed | onchain-x402 | 2026-04-28
+stablekey.dev | unclaimed | onchain-x402 | 2026-04-28
+stablevoice.dev | unclaimed | onchain-x402 | 2026-04-28
+svm402.com | unclaimed | onchain-x402 | 2026-04-28
+usemur.dev | unclaimed | onchain-x402 | 2026-04-28
