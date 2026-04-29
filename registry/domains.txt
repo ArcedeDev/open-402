@@ -1,7 +1,7 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 2753
-# Total endpoints: 14906
+# Total domains: 2759
+# Total endpoints: 14871
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
 x402scan.com | unclaimed | 402index | 2026-03-23
@@ -32,7 +32,7 @@ maps.googleapis.com | unclaimed | 402index | 2026-03-23
 stablesocial.dev | unclaimed | 402index | 2026-03-23
 convrgent.ai| verified |402index|2026-03-23
 blockrun.ai | unclaimed | 402index | 2026-03-23
-api.delx.ai | unclaimed | 402index | 2026-03-23
+api.delx.ai | verified | 402index | 2026-03-23
 api.carbon-cashmere.de | unclaimed | 402index | 2026-03-23
 api.nansen.ai | unclaimed | 402index | 2026-03-23
 solopreneur.402box.io | unclaimed | 402index | 2026-03-23
@@ -2359,7 +2359,7 @@ api.dappdojo.com | unclaimed | onchain-x402 | 2026-04-07
 api.saidprotocol.com | unclaimed | onchain-x402 | 2026-04-07
 baseguard.scoopflashman.tech | unclaimed | onchain-x402 | 2026-04-07
 bazaar-gateway.vercel.app | unclaimed | onchain-x402 | 2026-04-07
-bitcoinsapi.com | unclaimed | onchain-x402 | 2026-04-07
+bitcoinsapi.com | verified | onchain-x402 | 2026-04-07
 dermi-znuq.onrender.com | unclaimed | onchain-x402 | 2026-04-07
 steven-reflection-copying-livecam.trycloudflare.com | unclaimed | onchain-x402 | 2026-04-07
 wallet-intel-api-production-3ec7.up.railway.app | unclaimed | onchain-x402 | 2026-04-07
@@ -2582,7 +2582,7 @@ orbisapi.com | verified | onchain-x402 | 2026-04-16
 api.rungate.ai | unclaimed | onchain-x402 | 2026-04-17
 barcode-generator-x402-production.up.railway.app | unclaimed | onchain-x402 | 2026-04-17
 base64-codec-x402-production.up.railway.app | unclaimed | onchain-x402 | 2026-04-17
-cdp.bitcoinsapi.com | unclaimed | onchain-x402 | 2026-04-17
+cdp.bitcoinsapi.com | verified | onchain-x402 | 2026-04-17
 console.sanfoundation.com | unclaimed | onchain-x402 | 2026-04-17
 findmea-nyc.vercel.app | unclaimed | onchain-x402 | 2026-04-17
 markdown-to-html-x402-production.up.railway.app | unclaimed | onchain-x402 | 2026-04-17
@@ -2756,3 +2756,9 @@ stablekey.dev | unclaimed | onchain-x402 | 2026-04-28
 stablevoice.dev | unclaimed | onchain-x402 | 2026-04-28
 svm402.com | unclaimed | onchain-x402 | 2026-04-28
 usemur.dev | unclaimed | onchain-x402 | 2026-04-28
+anthropic.yeetful.com | unclaimed | onchain-x402 | 2026-04-29
+api.rtkmotion.io | verified | onchain-x402 | 2026-04-29
+chain-analyzer.com | unclaimed | onchain-x402 | 2026-04-29
+cryptowerk.com | unclaimed | onchain-x402 | 2026-04-29
+mcp.blocksize.info | unclaimed | onchain-x402 | 2026-04-29
+x402payswap.vercel.app | unclaimed | onchain-x402 | 2026-04-29
