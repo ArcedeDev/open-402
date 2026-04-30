@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 2759
+# Total domains: 2766
 # Total endpoints: 14871
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -2762,3 +2762,10 @@ chain-analyzer.com | unclaimed | onchain-x402 | 2026-04-29
 cryptowerk.com | unclaimed | onchain-x402 | 2026-04-29
 mcp.blocksize.info | unclaimed | onchain-x402 | 2026-04-29
 x402payswap.vercel.app | unclaimed | onchain-x402 | 2026-04-29
+api.autonomagic.org | unclaimed | onchain-x402 | 2026-04-30
+api.creatorfinder.dev | unclaimed | onchain-x402 | 2026-04-30
+apitoken.clawwallet.cc | unclaimed | onchain-x402 | 2026-04-30
+locally-merit-nest-specific.trycloudflare.com | unclaimed | onchain-x402 | 2026-04-30
+tack.inferenceroom.ai | verified | onchain-x402 | 2026-04-30
+three.ws | unclaimed | onchain-x402 | 2026-04-30
+x402.rye.com | unclaimed | onchain-x402 | 2026-04-30
