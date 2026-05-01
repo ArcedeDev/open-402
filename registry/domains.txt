@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 2766
+# Total domains: 2779
 # Total endpoints: 14871
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -2769,3 +2769,16 @@ locally-merit-nest-specific.trycloudflare.com | unclaimed | onchain-x402 | 2026-
 tack.inferenceroom.ai | verified | onchain-x402 | 2026-04-30
 three.ws | unclaimed | onchain-x402 | 2026-04-30
 x402.rye.com | unclaimed | onchain-x402 | 2026-04-30
+content-dx.hugen.tokyo | unclaimed | onchain-x402 | 2026-05-01
+cot.hugen.tokyo | unclaimed | onchain-x402 | 2026-05-01
+defi-dx.hugen.tokyo | unclaimed | onchain-x402 | 2026-05-01
+domain-dx.hugen.tokyo | unclaimed | onchain-x402 | 2026-05-01
+intel-dx.hugen.tokyo | unclaimed | onchain-x402 | 2026-05-01
+mailcheck-dx.hugen.tokyo | unclaimed | onchain-x402 | 2026-05-01
+pickr.market | unclaimed | onchain-x402 | 2026-05-01
+relaynetwork.ai | verified | onchain-x402 | 2026-05-01
+scout-dx.hugen.tokyo | unclaimed | onchain-x402 | 2026-05-01
+visual-dx.hugen.tokyo | unclaimed | onchain-x402 | 2026-05-01
+weather-dx.hugen.tokyo | unclaimed | onchain-x402 | 2026-05-01
+whale.hugen.tokyo | unclaimed | onchain-x402 | 2026-05-01
+x402-geocoder-production.up.railway.app | unclaimed | onchain-x402 | 2026-05-01
