@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 2779
+# Total domains: 2785
 # Total endpoints: 14871
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -1828,7 +1828,7 @@ crypto-enrich.up.railway.app | unclaimed | onchain-x402 | 2026-03-23
 pii-scrubber.fly.dev | unclaimed | onchain-x402 | 2026-03-23
 isolated-gzip-wilson-yesterday.trycloudflare.com | unclaimed | onchain-x402 | 2026-03-23
 format-converter.fly.dev | unclaimed | onchain-x402 | 2026-03-23
-gasroute-oracle-production.up.railway.app | unclaimed | onchain-x402 | 2026-03-23
+gasroute-oracle-production.up.railway.app | verified | onchain-x402 | 2026-03-23
 paynet.network | unclaimed | onchain-x402 | 2026-03-23
 x402pineapple-production.up.railway.app | unclaimed | onchain-x402 | 2026-03-23
 1rpc.ai | unclaimed | onchain-x402 | 2026-03-23
@@ -2613,7 +2613,7 @@ signalsfeed.com | unclaimed | onchain-x402 | 2026-04-20
 sippar.network | unclaimed | onchain-x402 | 2026-04-20
 weather-data-api.kasanegi123.workers.dev | unclaimed | onchain-x402 | 2026-04-20
 3000-c905553a9700f51123f091260a9b8400.life.conway.tech | unclaimed | onchain-x402 | 2026-04-21
-agent-research-brief-api-production.up.railway.app | unclaimed | onchain-x402 | 2026-04-21
+agent-research-brief-api-production.up.railway.app | verified | onchain-x402 | 2026-04-21
 agentapis.top | unclaimed | onchain-x402 | 2026-04-21
 api.molty.cash | unclaimed | onchain-x402 | 2026-04-21
 edgar-x402.vercel.app | unclaimed | onchain-x402 | 2026-04-21
@@ -2782,3 +2782,9 @@ visual-dx.hugen.tokyo | unclaimed | onchain-x402 | 2026-05-01
 weather-dx.hugen.tokyo | unclaimed | onchain-x402 | 2026-05-01
 whale.hugen.tokyo | unclaimed | onchain-x402 | 2026-05-01
 x402-geocoder-production.up.railway.app | unclaimed | onchain-x402 | 2026-05-01
+achillesalpha.com | verified | onchain-x402 | 2026-05-02
+base.quirkngo.com | unclaimed | onchain-x402 | 2026-05-02
+convert.boring-api.com | unclaimed | onchain-x402 | 2026-05-02
+crypto.fast402.online | unclaimed | onchain-x402 | 2026-05-02
+geo.boring-api.com | unclaimed | onchain-x402 | 2026-05-02
+megapot.mpp.paysponge.com | unclaimed | onchain-mpp | 2026-05-02
