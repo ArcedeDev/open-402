@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 2785
+# Total domains: 2790
 # Total endpoints: 14871
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -2009,7 +2009,7 @@ ponzi-casino-x402-production.up.railway.app | unclaimed | onchain-x402 | 2026-03
 x402demo.bacoor-test001.xyz | unclaimed | onchain-x402 | 2026-03-23
 test.a402.space | unclaimed | onchain-x402 | 2026-03-23
 echo.router.merit.systems | unclaimed | onchain-x402 | 2026-03-23
-daydreams-agent-kit-production.up.railway.app | verified | onchain-x402 | 2026-03-23
+daydreams-agent-kit-production.up.railway.app | unclaimed | onchain-x402 | 2026-03-23
 biznews.x402.bot | unclaimed | onchain-x402 | 2026-03-23
 x402.autoamm.link | unclaimed | onchain-x402 | 2026-03-23
 bpank.vercel.app | unclaimed | onchain-x402 | 2026-03-23
@@ -2271,7 +2271,7 @@ roast.monapi.dev | unclaimed | onchain-x402 | 2026-03-26
 semagram.io | unclaimed | onchain-x402 | 2026-03-26
 surf.cascade.fyi | unclaimed | onchain-x402 | 2026-03-26
 tokensafe-production.up.railway.app | unclaimed | onchain-x402 | 2026-03-26
-aeo.convrgent.ai | verified | onchain-x402 | 2026-03-27
+aeo.convrgent.ai | unclaimed | onchain-x402 | 2026-03-27
 api.web3identity.com | unclaimed | onchain-x402 | 2026-03-27
 deepbluebase.xyz | verified | onchain-x402 | 2026-03-27
 headlessoracle.com | verified | onchain-x402 | 2026-03-27
@@ -2788,3 +2788,8 @@ convert.boring-api.com | unclaimed | onchain-x402 | 2026-05-02
 crypto.fast402.online | unclaimed | onchain-x402 | 2026-05-02
 geo.boring-api.com | unclaimed | onchain-x402 | 2026-05-02
 megapot.mpp.paysponge.com | unclaimed | onchain-mpp | 2026-05-02
+api.luxe-oracle.com | unclaimed | onchain-x402 | 2026-05-03
+api.voidly.ai | unclaimed | onchain-x402 | 2026-05-03
+hekaswap.com | unclaimed | onchain-x402 | 2026-05-03
+remit-compare.up.railway.app | unclaimed | onchain-x402 | 2026-05-03
+x402casinos.com | unclaimed | onchain-x402 | 2026-05-03
