@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 2799
+# Total domains: 2804
 # Total endpoints: 14871
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -2802,3 +2802,8 @@ formo.x402.paysponge.com | unclaimed | onchain-x402 | 2026-05-04
 jintel.ai | unclaimed | onchain-x402 | 2026-05-04
 test-orpin-phi-32.vercel.app | unclaimed | onchain-x402 | 2026-05-04
 zckj.duckdns.org | unclaimed | onchain-x402 | 2026-05-04
+agent.deskrune.com | unclaimed | onchain-x402 | 2026-05-05
+api.mnemospark.ai | unclaimed | onchain-x402 | 2026-05-05
+api.wls-ms.com | unclaimed | onchain-x402 | 2026-05-05
+fov.brij.fi | unclaimed | onchain-x402 | 2026-05-05
+x402-server.bunetic-proxy.workers.dev | unclaimed | onchain-x402 | 2026-05-05
