@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 2804
+# Total domains: 2813
 # Total endpoints: 14871
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -2807,3 +2807,12 @@ api.mnemospark.ai | unclaimed | onchain-x402 | 2026-05-05
 api.wls-ms.com | unclaimed | onchain-x402 | 2026-05-05
 fov.brij.fi | unclaimed | onchain-x402 | 2026-05-05
 x402-server.bunetic-proxy.workers.dev | unclaimed | onchain-x402 | 2026-05-05
+agentcash.honcho.dev | unclaimed | onchain-x402 | 2026-05-06
+agntos.dev | unclaimed | onchain-x402 | 2026-05-06
+gdelt-x402-api.planbdj.workers.dev | unclaimed | onchain-x402 | 2026-05-06
+jp-data-enrich.kasanegi123.workers.dev | unclaimed | onchain-x402 | 2026-05-06
+lfgbot2-182081908276.us-east1.run.app | unclaimed | onchain-x402 | 2026-05-06
+model-api.xyz | unclaimed | onchain-x402 | 2026-05-06
+nexus-agent-xa12.onrender.com | verified | onchain-x402 | 2026-05-06
+scrapeagent.xyz | unclaimed | onchain-x402 | 2026-05-06
+tripadvisor.x402.paysponge.com | unclaimed | onchain-x402 | 2026-05-06
