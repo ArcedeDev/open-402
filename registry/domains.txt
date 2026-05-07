@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 2813
+# Total domains: 2824
 # Total endpoints: 14871
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -2816,3 +2816,14 @@ model-api.xyz | unclaimed | onchain-x402 | 2026-05-06
 nexus-agent-xa12.onrender.com | verified | onchain-x402 | 2026-05-06
 scrapeagent.xyz | unclaimed | onchain-x402 | 2026-05-06
 tripadvisor.x402.paysponge.com | unclaimed | onchain-x402 | 2026-05-06
+agentapi.rozo.ai | unclaimed | onchain-x402 | 2026-05-07
+ai.verifik.co | unclaimed | onchain-x402 | 2026-05-07
+api.kasanegi.com | unclaimed | onchain-x402 | 2026-05-07
+api.viralorb.com | unclaimed | onchain-x402 | 2026-05-07
+clawdmint.xyz | unclaimed | onchain-x402 | 2026-05-07
+lfgbot.humbledigital.net | unclaimed | onchain-x402 | 2026-05-07
+lookup.bustercall.workers.dev | unclaimed | onchain-x402 | 2026-05-07
+stableestate.dev | unclaimed | onchain-x402 | 2026-05-07
+top-gun-mcp-server.vercel.app | unclaimed | onchain-x402 | 2026-05-07
+trace.sociologic.ai | unclaimed | onchain-x402 | 2026-05-07
+ttc.box | verified | onchain-x402 | 2026-05-07
