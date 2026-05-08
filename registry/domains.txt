@@ -1,7 +1,7 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 2824
-# Total endpoints: 14871
+# Total domains: 2831
+# Total endpoints: 14885
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
 x402scan.com | unclaimed | 402index | 2026-03-23
@@ -2315,7 +2315,7 @@ littlefinger-xai.loca.lt | unclaimed | onchain-x402 | 2026-04-02
 plebtv.com | unclaimed | onchain-l402 | 2026-04-02
 x402-wallet-analyzer.dylan-caponi.workers.dev | unclaimed | onchain-x402 | 2026-04-02
 au-data-x402-production.up.railway.app | verified | onchain-x402 | 2026-04-03
-data.eruditepay.com | verified | onchain-x402 | 2026-04-03
+data.eruditepay.com | unclaimed | onchain-x402 | 2026-04-03
 doma.xyz | unclaimed | onchain-mpp | 2026-04-03
 l402.directory | unclaimed | onchain-l402 | 2026-04-03
 mechamanda.com | unclaimed | onchain-x402 | 2026-04-03
@@ -2827,3 +2827,10 @@ stableestate.dev | unclaimed | onchain-x402 | 2026-05-07
 top-gun-mcp-server.vercel.app | unclaimed | onchain-x402 | 2026-05-07
 trace.sociologic.ai | unclaimed | onchain-x402 | 2026-05-07
 ttc.box | verified | onchain-x402 | 2026-05-07
+api.interzoid.com | unclaimed | onchain-x402 | 2026-05-08
+api.tugba.uk | unclaimed | onchain-x402 | 2026-05-08
+fleet-x402-audit.fly.dev | unclaimed | onchain-x402 | 2026-05-08
+kasanegi.com | unclaimed | onchain-x402 | 2026-05-08
+mako.pollinateresearch.com | unclaimed | onchain-x402 | 2026-05-08
+stabledesign.vercel.app | unclaimed | onchain-x402 | 2026-05-08
+stablepeopledata.dev | unclaimed | onchain-x402 | 2026-05-08
