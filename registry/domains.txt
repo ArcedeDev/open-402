@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 2831
+# Total domains: 2839
 # Total endpoints: 14885
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -2834,3 +2834,11 @@ kasanegi.com | unclaimed | onchain-x402 | 2026-05-08
 mako.pollinateresearch.com | unclaimed | onchain-x402 | 2026-05-08
 stabledesign.vercel.app | unclaimed | onchain-x402 | 2026-05-08
 stablepeopledata.dev | unclaimed | onchain-x402 | 2026-05-08
+api.402pixels.com | unclaimed | onchain-x402 | 2026-05-09
+api.crinkl.xyz | unclaimed | onchain-x402 | 2026-05-09
+api.sms4sats.com | unclaimed | onchain-l402 | 2026-05-09
+api.solreplay.io | unclaimed | onchain-x402 | 2026-05-09
+clearance.nauti-labs.com | verified | onchain-x402 | 2026-05-09
+dripstack.com | unclaimed | onchain-x402 | 2026-05-09
+outreach-arrangement-lifetime-spot.trycloudflare.com | unclaimed | onchain-x402 | 2026-05-09
+url-extractor.x402.paysponge.com | unclaimed | onchain-x402 | 2026-05-09
