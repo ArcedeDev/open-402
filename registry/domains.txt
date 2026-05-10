@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 2839
+# Total domains: 2844
 # Total endpoints: 14885
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -2842,3 +2842,8 @@ clearance.nauti-labs.com | verified | onchain-x402 | 2026-05-09
 dripstack.com | unclaimed | onchain-x402 | 2026-05-09
 outreach-arrangement-lifetime-spot.trycloudflare.com | unclaimed | onchain-x402 | 2026-05-09
 url-extractor.x402.paysponge.com | unclaimed | onchain-x402 | 2026-05-09
+api.agentwonderland.com | unclaimed | onchain-x402 | 2026-05-10
+api.solprobe.xyz | verified | onchain-x402 | 2026-05-10
+cobroclaro.netlify.app | verified | onchain-x402 | 2026-05-10
+optout.cash | unclaimed | onchain-x402 | 2026-05-10
+torify.dev | verified | onchain-x402 | 2026-05-10
