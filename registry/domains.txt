@@ -1,7 +1,7 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 2844
-# Total endpoints: 14885
+# Total domains: 2847
+# Total endpoints: 14891
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
 x402scan.com | unclaimed | 402index | 2026-03-23
@@ -356,7 +356,7 @@ xgated.vercel.app | unclaimed | 402index | 2026-03-23
 askclaude.shop | unclaimed | 402index | 2026-03-23
 color.agentutil.net| verified |402index|2026-03-23
 cron.agentutil.net| verified |402index|2026-03-23
-game-theory-agent-production.up.railway.app| verified |402index|2026-03-23
+game-theory-agent-production.up.railway.app | unclaimed | 402index | 2026-03-23
 nacian-x402.vercel.app | unclaimed | 402index | 2026-03-23
 norm.agentutil.net| verified |402index|2026-03-23
 random.agentutil.net| verified |402index|2026-03-23
@@ -1528,7 +1528,7 @@ x402.adprompt.io | unclaimed | onchain-x402 | 2026-03-23
 foresight.portals.fi | unclaimed | onchain-x402 | 2026-03-23
 402.fpanda.fun | unclaimed | onchain-x402 | 2026-03-23
 lavish-vision-production-bf85.up.railway.app | verified | onchain-x402 | 2026-03-23
-api.claw-net.org | verified | onchain-x402 | 2026-03-23
+api.claw-net.org | unclaimed | onchain-x402 | 2026-03-23
 renderself.com | unclaimed | onchain-x402 | 2026-03-23
 agentmerch.xyz | unclaimed | onchain-x402 | 2026-03-23
 x402.minara.ai | unclaimed | onchain-x402 | 2026-03-23
@@ -2609,7 +2609,7 @@ bzxmejzssxjazswgwqqs.supabase.co | unclaimed | onchain-x402 | 2026-04-20
 company-data-api.kasanegi123.workers.dev | unclaimed | onchain-x402 | 2026-04-20
 egov-laws-data-api.kasanegi123.workers.dev | unclaimed | onchain-x402 | 2026-04-20
 micro-data-api-factory.kasanegi123.workers.dev | unclaimed | onchain-x402 | 2026-04-20
-signalsfeed.com | unclaimed | onchain-x402 | 2026-04-20
+signalsfeed.com | verified | onchain-x402 | 2026-04-20
 sippar.network | unclaimed | onchain-x402 | 2026-04-20
 weather-data-api.kasanegi123.workers.dev | unclaimed | onchain-x402 | 2026-04-20
 3000-c905553a9700f51123f091260a9b8400.life.conway.tech | unclaimed | onchain-x402 | 2026-04-21
@@ -2847,3 +2847,6 @@ api.solprobe.xyz | verified | onchain-x402 | 2026-05-10
 cobroclaro.netlify.app | verified | onchain-x402 | 2026-05-10
 optout.cash | unclaimed | onchain-x402 | 2026-05-10
 torify.dev | verified | onchain-x402 | 2026-05-10
+agentspec-one.vercel.app | unclaimed | onchain-x402 | 2026-05-11
+api.planktonomous.dev | unclaimed | onchain-x402 | 2026-05-11
+unhusked-fumier-astrid.ngrok-free.dev | unclaimed | onchain-x402 | 2026-05-11
