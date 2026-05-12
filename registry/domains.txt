@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 2847
+# Total domains: 2858
 # Total endpoints: 14891
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -1543,7 +1543,7 @@ www.bingx402.com | unclaimed | onchain-x402 | 2026-03-23
 x4a.app | unclaimed | onchain-x402 | 2026-03-23
 dad-jokes-agent-production.up.railway.app | unclaimed | onchain-x402 | 2026-03-23
 api.cobalt402.tools | unclaimed | onchain-x402 | 2026-03-23
-xbirdapi.up.railway.app | verified | onchain-x402 | 2026-03-23
+xbirdapi.up.railway.app | unclaimed | onchain-x402 | 2026-03-23
 aurabots.fun | unclaimed | onchain-x402 | 2026-03-23
 pay.orbofi.com | unclaimed | onchain-x402 | 2026-03-23
 api.x402.jobs | unclaimed | onchain-x402 | 2026-03-23
@@ -2850,3 +2850,14 @@ torify.dev | verified | onchain-x402 | 2026-05-10
 agentspec-one.vercel.app | unclaimed | onchain-x402 | 2026-05-11
 api.planktonomous.dev | unclaimed | onchain-x402 | 2026-05-11
 unhusked-fumier-astrid.ngrok-free.dev | unclaimed | onchain-x402 | 2026-05-11
+agentoracle.co | unclaimed | onchain-x402 | 2026-05-12
+fuse402.vercel.app | unclaimed | onchain-x402 | 2026-05-12
+ip.coggler.com | unclaimed | onchain-x402 | 2026-05-12
+matches-caught-stat-administration.trycloudflare.com | verified | onchain-x402 | 2026-05-12
+mondello.dev | unclaimed | onchain-x402 | 2026-05-12
+probe.onchainintel.net | unclaimed | onchain-x402 | 2026-05-12
+rektwatch.dev | unclaimed | onchain-x402 | 2026-05-12
+stablemusic.dev | unclaimed | onchain-x402 | 2026-05-12
+stableproduct.dev | unclaimed | onchain-x402 | 2026-05-12
+x402-ai-starter-beige.vercel.app | unclaimed | onchain-x402 | 2026-05-12
+x402trading.duckdns.org | unclaimed | onchain-x402 | 2026-05-12
