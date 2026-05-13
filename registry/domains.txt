@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 2858
+# Total domains: 2862
 # Total endpoints: 14891
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -2861,3 +2861,7 @@ stablemusic.dev | unclaimed | onchain-x402 | 2026-05-12
 stableproduct.dev | unclaimed | onchain-x402 | 2026-05-12
 x402-ai-starter-beige.vercel.app | unclaimed | onchain-x402 | 2026-05-12
 x402trading.duckdns.org | unclaimed | onchain-x402 | 2026-05-12
+api.callbsman.com | unclaimed | onchain-x402 | 2026-05-13
+api.linkedpanda.com | unclaimed | onchain-x402 | 2026-05-13
+api.metalend.tech | unclaimed | onchain-x402 | 2026-05-13
+require-healing-tyler-prayers.trycloudflare.com | unclaimed | onchain-x402 | 2026-05-13
