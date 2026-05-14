@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 2862
+# Total domains: 2873
 # Total endpoints: 14891
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -2865,3 +2865,14 @@ api.callbsman.com | unclaimed | onchain-x402 | 2026-05-13
 api.linkedpanda.com | unclaimed | onchain-x402 | 2026-05-13
 api.metalend.tech | unclaimed | onchain-x402 | 2026-05-13
 require-healing-tyler-prayers.trycloudflare.com | unclaimed | onchain-x402 | 2026-05-13
+agent-budget-guard.onrender.com | unclaimed | onchain-x402 | 2026-05-14
+agent-memory-api-bix5.onrender.com | unclaimed | onchain-x402 | 2026-05-14
+agent-security-gateway.onrender.com | unclaimed | onchain-x402 | 2026-05-14
+ai.fuse.io | unclaimed | onchain-x402 | 2026-05-14
+api.satspipe.com | unclaimed | onchain-l402 | 2026-05-14
+depscout.vercel.app | unclaimed | onchain-x402 | 2026-05-14
+dns-lookup.x402.paysponge.com | unclaimed | onchain-x402 | 2026-05-14
+patchline-l402.bonto.run | unclaimed | onchain-l402 | 2026-05-14
+stablegift.dev | unclaimed | onchain-x402 | 2026-05-14
+verifik.x402.paysponge.com | unclaimed | onchain-x402 | 2026-05-14
+wapi.creoxlab.com | unclaimed | onchain-x402 | 2026-05-14
