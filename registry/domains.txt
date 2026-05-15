@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 2873
+# Total domains: 2887
 # Total endpoints: 14891
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -1685,7 +1685,7 @@ iou.atxp.ai | unclaimed | onchain-x402 | 2026-03-23
 clone-x402-production.up.railway.app | unclaimed | onchain-x402 | 2026-03-23
 api.moonfeed.xyz | unclaimed | onchain-x402 | 2026-03-23
 ai.x402.botpay.network | unclaimed | onchain-x402 | 2026-03-23
-tv-show-recommender-production.up.railway.app | verified | onchain-x402 | 2026-03-23
+tv-show-recommender-production.up.railway.app | unclaimed | onchain-x402 | 2026-03-23
 angry.x420.dev | unclaimed | onchain-x402 | 2026-03-23
 trust.convrgent.ai | unclaimed | onchain-x402 | 2026-03-23
 test.x420.dev | unclaimed | onchain-x402 | 2026-03-23
@@ -1954,7 +1954,7 @@ monolithx402.com | unclaimed | onchain-x402 | 2026-03-23
 connect.loomlay.com | unclaimed | onchain-x402 | 2026-03-23
 business-utils-agent.up.railway.app | unclaimed | onchain-x402 | 2026-03-23
 chewdoge.x420.dev | unclaimed | onchain-x402 | 2026-03-23
-api.socialintel.dev | verified | onchain-x402 | 2026-03-23
+api.socialintel.dev | unclaimed | onchain-x402 | 2026-03-23
 x402.asalvocreative.com | unclaimed | onchain-x402 | 2026-03-23
 api-coo.vercel.app | unclaimed | onchain-x402 | 2026-03-23
 token-safety-oracle-production.up.railway.app | unclaimed | onchain-x402 | 2026-03-23
@@ -2876,3 +2876,17 @@ patchline-l402.bonto.run | unclaimed | onchain-l402 | 2026-05-14
 stablegift.dev | unclaimed | onchain-x402 | 2026-05-14
 verifik.x402.paysponge.com | unclaimed | onchain-x402 | 2026-05-14
 wapi.creoxlab.com | unclaimed | onchain-x402 | 2026-05-14
+344e1e247587d6.lhr.life | unclaimed | onchain-x402 | 2026-05-15
+364c8644306949.lhr.life | unclaimed | onchain-x402 | 2026-05-15
+3661541609e713.lhr.life | unclaimed | onchain-x402 | 2026-05-15
+agnelnieves.com | unclaimed | onchain-x402 | 2026-05-15
+api.algovoi.co.uk | verified | onchain-x402 | 2026-05-15
+api.syndicatelinks.co | unclaimed | onchain-x402 | 2026-05-15
+apijapan.vercel.app | unclaimed | onchain-x402 | 2026-05-15
+bodyguard.finance | verified | onchain-x402 | 2026-05-15
+evm-tx-toolkit.mtree.workers.dev | unclaimed | onchain-x402 | 2026-05-15
+flipr-x402.fly.dev | verified | onchain-x402 | 2026-05-15
+gateway.wayforth.io | unclaimed | onchain-x402 | 2026-05-15
+tensorfeed.ai | unclaimed | onchain-x402 | 2026-05-15
+war-tracker.com | unclaimed | onchain-x402 | 2026-05-15
+web-production-18a32.up.railway.app | unclaimed | onchain-x402 | 2026-05-15
