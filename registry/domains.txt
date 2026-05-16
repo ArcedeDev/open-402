@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 2887
+# Total domains: 2907
 # Total endpoints: 14891
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -1923,7 +1923,7 @@ us-central1-hyperpaylabs.cloudfunctions.net | unclaimed | onchain-x402 | 2026-03
 agent-services-platform.jimmyfuknjames.workers.dev | unclaimed | onchain-x402 | 2026-03-23
 api.memoclaw.com | unclaimed | onchain-x402 | 2026-03-23
 one-1-x402-production.up.railway.app | unclaimed | onchain-x402 | 2026-03-23
-x402search.xyz | verified | onchain-x402 | 2026-03-23
+x402search.xyz | unclaimed | onchain-x402 | 2026-03-23
 relayzero.ai | unclaimed | onchain-x402 | 2026-03-23
 api.dexter.cash | verified | onchain-x402 | 2026-03-23
 app-dzvsnixq.fly.dev | unclaimed | onchain-x402 | 2026-03-23
@@ -2890,3 +2890,23 @@ gateway.wayforth.io | unclaimed | onchain-x402 | 2026-05-15
 tensorfeed.ai | unclaimed | onchain-x402 | 2026-05-15
 war-tracker.com | unclaimed | onchain-x402 | 2026-05-15
 web-production-18a32.up.railway.app | unclaimed | onchain-x402 | 2026-05-15
+api.anchor-x402.com | unclaimed | onchain-x402 | 2026-05-16
+api.clusterprotocol.ai | unclaimed | onchain-x402 | 2026-05-16
+api.netbrainis.co.za | unclaimed | onchain-x402 | 2026-05-16
+chess402.vercel.app | unclaimed | onchain-x402 | 2026-05-16
+edgar-mcp.mtree.workers.dev | unclaimed | onchain-x402 | 2026-05-16
+embedpay.melis.ai | unclaimed | onchain-x402 | 2026-05-16
+fpds-mcp.mtree.workers.dev | unclaimed | onchain-x402 | 2026-05-16
+image.pollinations.ai | unclaimed | onchain-x402 | 2026-05-16
+imageguard.melis.ai | unclaimed | onchain-x402 | 2026-05-16
+jtifhcvbgxqwlywugvjv.supabase.co | unclaimed | onchain-x402 | 2026-05-16
+linkrisk.melis.ai | unclaimed | onchain-x402 | 2026-05-16
+memoryserve.melis.ai | unclaimed | onchain-x402 | 2026-05-16
+memscrub.melis.ai | unclaimed | onchain-x402 | 2026-05-16
+polymarket-liquidity-api.tatsu77.workers.dev | unclaimed | onchain-x402 | 2026-05-16
+polymarket-scan-api.tatsu77.workers.dev | unclaimed | onchain-x402 | 2026-05-16
+token-intel-api.tatsu77.workers.dev | unclaimed | onchain-x402 | 2026-05-16
+travel.brij.fi | unclaimed | onchain-x402 | 2026-05-16
+vercel-deploy-alpha-puce.vercel.app | unclaimed | onchain-x402 | 2026-05-16
+wellknown-audit-corpus.mtree.workers.dev | unclaimed | onchain-x402 | 2026-05-16
+x402station.io | verified | onchain-x402 | 2026-05-16
