@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 2907
+# Total domains: 2916
 # Total endpoints: 14891
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -2910,3 +2910,12 @@ travel.brij.fi | unclaimed | onchain-x402 | 2026-05-16
 vercel-deploy-alpha-puce.vercel.app | unclaimed | onchain-x402 | 2026-05-16
 wellknown-audit-corpus.mtree.workers.dev | unclaimed | onchain-x402 | 2026-05-16
 x402station.io | verified | onchain-x402 | 2026-05-16
+amalgix.io | unclaimed | onchain-x402 | 2026-05-17
+api.affinebox.today | unclaimed | onchain-x402 | 2026-05-17
+api.agentphone.ai | unclaimed | onchain-x402 | 2026-05-17
+api.tarsx402.network | unclaimed | onchain-x402 | 2026-05-17
+bronze-invention-warner-monkey.trycloudflare.com | unclaimed | onchain-x402 | 2026-05-17
+pierre-ace-bunny-once.trycloudflare.com | unclaimed | onchain-x402 | 2026-05-17
+polyodds.bet | unclaimed | onchain-x402 | 2026-05-17
+smartmoneyscreener.vercel.app | unclaimed | onchain-x402 | 2026-05-17
+x402.fuchss.app | unclaimed | onchain-x402 | 2026-05-17
