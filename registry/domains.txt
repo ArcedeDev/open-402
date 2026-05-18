@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 2916
+# Total domains: 2922
 # Total endpoints: 14891
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -1501,7 +1501,7 @@ terminal-api-stag.aixbet.ai | unclaimed | onchain-x402 | 2026-03-23
 dexes-mech.ngrok-free.dev | unclaimed | onchain-x402 | 2026-03-23
 purch-backend-741433844771.us-east1.run.app | unclaimed | onchain-x402 | 2026-03-23
 x402wai.wtf | unclaimed | onchain-x402 | 2026-03-23
-agent-bounties-yield-pool.up.railway.app | verified | onchain-x402 | 2026-03-23
+agent-bounties-yield-pool.up.railway.app | unclaimed | onchain-x402 | 2026-03-23
 0x-argus.vercel.app | unclaimed | onchain-x402 | 2026-03-23
 api.evmrpc.com | unclaimed | onchain-x402 | 2026-03-23
 api.bhooverse.xyz | unclaimed | onchain-x402 | 2026-03-23
@@ -1878,7 +1878,7 @@ api.cope.capital | unclaimed | onchain-x402 | 2026-03-23
 api.atlas402.com | unclaimed | onchain-x402 | 2026-03-23
 likelihoods.io | unclaimed | onchain-x402 | 2026-03-23
 x402bpunk-base.vercel.app | unclaimed | onchain-x402 | 2026-03-23
-twitter-servers.up.railway.app | verified | onchain-x402 | 2026-03-23
+twitter-servers.up.railway.app | unclaimed | onchain-x402 | 2026-03-23
 api.panevin.net | unclaimed | onchain-x402 | 2026-03-23
 ewkkrzmcqquplckwzocn.supabase.co | unclaimed | onchain-x402 | 2026-03-23
 hash-jack-x402.onrender.com | unclaimed | onchain-x402 | 2026-03-23
@@ -2919,3 +2919,9 @@ pierre-ace-bunny-once.trycloudflare.com | unclaimed | onchain-x402 | 2026-05-17
 polyodds.bet | unclaimed | onchain-x402 | 2026-05-17
 smartmoneyscreener.vercel.app | unclaimed | onchain-x402 | 2026-05-17
 x402.fuchss.app | unclaimed | onchain-x402 | 2026-05-17
+api.beezshield.com | unclaimed | onchain-x402 | 2026-05-18
+api.cryptoetfsentinel.com | unclaimed | onchain-x402 | 2026-05-18
+ezpath.myezverse.xyz | unclaimed | onchain-x402 | 2026-05-18
+news-x402.com | unclaimed | onchain-x402 | 2026-05-18
+presented-readers-dec-dna.trycloudflare.com | unclaimed | onchain-x402 | 2026-05-18
+proof402.vercel.app | unclaimed | onchain-x402 | 2026-05-18
