@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 2922
+# Total domains: 2943
 # Total endpoints: 14891
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -2502,7 +2502,7 @@ x402-finance-api.vercel.app | unclaimed | onchain-x402 | 2026-04-13
 x402-sentinel.fly.dev | unclaimed | onchain-x402 | 2026-04-13
 another-superb-scuba-separation.trycloudflare.com | unclaimed | onchain-x402 | 2026-04-14
 api.printmoneylab.com | unclaimed | onchain-x402 | 2026-04-14
-app.keeperhub.com | unclaimed | onchain-x402 | 2026-04-14
+app.keeperhub.com | verified | onchain-x402 | 2026-04-14
 barcode-generator-production-3545.up.railway.app | unclaimed | onchain-x402 | 2026-04-14
 base64-codec-production-1047.up.railway.app | unclaimed | onchain-x402 | 2026-04-14
 checkpoint402.itaeui12.workers.dev | unclaimed | onchain-x402 | 2026-04-14
@@ -2925,3 +2925,24 @@ ezpath.myezverse.xyz | unclaimed | onchain-x402 | 2026-05-18
 news-x402.com | unclaimed | onchain-x402 | 2026-05-18
 presented-readers-dec-dna.trycloudflare.com | unclaimed | onchain-x402 | 2026-05-18
 proof402.vercel.app | unclaimed | onchain-x402 | 2026-05-18
+2captcha.x402.paysponge.com | unclaimed | onchain-x402 | 2026-05-19
+api.aitrailblazer.net | unclaimed | onchain-x402 | 2026-05-19
+api.justaname.id | unclaimed | onchain-x402 | 2026-05-19
+api.x402gle.com | unclaimed | onchain-x402 | 2026-05-19
+cheaptokens.ai | unclaimed | onchain-x402 | 2026-05-19
+data.crestsystems.ai | unclaimed | onchain-x402 | 2026-05-19
+facecheck.id | unclaimed | onchain-x402 | 2026-05-19
+gblin.digital | unclaimed | onchain-x402 | 2026-05-19
+hmo.payapi.market | unclaimed | onchain-x402 | 2026-05-19
+mru-oracle.com | unclaimed | onchain-x402 | 2026-05-19
+promptqualityscore.com | verified | onchain-x402 | 2026-05-19
+property-risk-passport-api.lifebite-app.workers.dev | unclaimed | onchain-x402 | 2026-05-19
+stablecoin-policy.vercel.app | unclaimed | onchain-x402 | 2026-05-19
+stablefeedback.dev | unclaimed | onchain-x402 | 2026-05-19
+stableinfluencer.dev | unclaimed | onchain-x402 | 2026-05-19
+stech-api.sheradogilang.workers.dev | unclaimed | onchain-x402 | 2026-05-19
+surplusintelligence.ai | unclaimed | onchain-x402 | 2026-05-19
+the402.tateprograms.com | unclaimed | onchain-x402 | 2026-05-19
+wolframalpha.x402.paysponge.com | unclaimed | onchain-x402 | 2026-05-19
+x402smct.vercel.app | unclaimed | onchain-x402 | 2026-05-19
+x402wid.vercel.app | unclaimed | onchain-x402 | 2026-05-19
