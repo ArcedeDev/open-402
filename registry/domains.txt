@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 2955
+# Total domains: 2966
 # Total endpoints: 14891
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -2958,3 +2958,14 @@ sources-x402-worker.dmpay.workers.dev | unclaimed | onchain-x402 | 2026-05-20
 transit.agentic-jp.com | unclaimed | onchain-x402 | 2026-05-20
 weather.agentic-jp.com | unclaimed | onchain-x402 | 2026-05-20
 x402amp.vercel.app | unclaimed | onchain-x402 | 2026-05-20
+15.204.116.192.nip.io | unclaimed | onchain-x402 | 2026-05-21
+api-onchain.optimai.network | unclaimed | onchain-x402 | 2026-05-21
+api.x402node.dev | unclaimed | onchain-x402 | 2026-05-21
+graphadvocate.com | verified | onchain-x402 | 2026-05-21
+l402kit.com | verified | onchain-l402 | 2026-05-21
+mcp.vishwalab.com | unclaimed | onchain-x402 | 2026-05-21
+payments.wiselyenterprisesllc.com | unclaimed | onchain-x402 | 2026-05-21
+scan.madhousewallet.com | unclaimed | onchain-x402 | 2026-05-21
+trust402.aztecbeacon.uk | unclaimed | onchain-x402 | 2026-05-21
+x402-resource-scanner.vercel.app | unclaimed | onchain-x402 | 2026-05-21
+x402joker.com | unclaimed | onchain-x402 | 2026-05-21
