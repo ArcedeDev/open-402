@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 2982
+# Total domains: 2988
 # Total endpoints: 14891
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -2353,7 +2353,7 @@ paylog.dev | unclaimed | onchain-x402 | 2026-04-06
 satrank.dev | unclaimed | onchain-l402 | 2026-04-06
 talent-becomes-motel-counting.trycloudflare.com | unclaimed | onchain-x402 | 2026-04-06
 utilsforagents.com | unclaimed | onchain-x402 | 2026-04-06
-x402helper.xyz | verified | onchain-x402 | 2026-04-06
+x402helper.xyz | unclaimed | onchain-x402 | 2026-04-06
 agentres.dev | unclaimed | onchain-x402 | 2026-04-07
 api.dappdojo.com | unclaimed | onchain-x402 | 2026-04-07
 api.saidprotocol.com | unclaimed | onchain-x402 | 2026-04-07
@@ -2403,7 +2403,7 @@ kg.dyor.network | unclaimed | onchain-x402 | 2026-04-11
 language.x4api.com | unclaimed | onchain-x402 | 2026-04-11
 law-mcp.toulaw.workers.dev | unclaimed | onchain-x402 | 2026-04-11
 legal.x4api.com | unclaimed | onchain-x402 | 2026-04-11
-masterclaw.dev | verified | onchain-x402 | 2026-04-11
+masterclaw.dev | unclaimed | onchain-x402 | 2026-04-11
 pdf.x4api.com | unclaimed | onchain-x402 | 2026-04-11
 records.x4api.com | unclaimed | onchain-x402 | 2026-04-11
 redact.x4api.com | unclaimed | onchain-x402 | 2026-04-11
@@ -2985,3 +2985,9 @@ stabletickets.dev | unclaimed | onchain-x402 | 2026-05-22
 stabletube.dev | unclaimed | onchain-x402 | 2026-05-22
 tiresapi.com | unclaimed | onchain-x402 | 2026-05-22
 x402-agent-suite-production.up.railway.app | unclaimed | onchain-x402 | 2026-05-22
+agent-evolution-engine.onrender.com | unclaimed | onchain-x402 | 2026-05-23
+api.entit.ai | unclaimed | onchain-x402 | 2026-05-23
+api.openintel.agency | unclaimed | onchain-x402 | 2026-05-23
+api.vectorway.io | unclaimed | onchain-x402 | 2026-05-23
+conc-exe.xyz | unclaimed | onchain-x402 | 2026-05-23
+video.botpay.network | unclaimed | onchain-x402 | 2026-05-23
