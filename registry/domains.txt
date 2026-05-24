@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 2988
+# Total domains: 2994
 # Total endpoints: 14891
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -2977,7 +2977,7 @@ api.vishwalab.com | unclaimed | onchain-x402 | 2026-05-22
 btcnode.uk | unclaimed | onchain-x402 | 2026-05-22
 contracts.memoryapi.org | unclaimed | onchain-x402 | 2026-05-22
 geoplace.melis.ai | unclaimed | onchain-x402 | 2026-05-22
-ot-intel-api.onrender.com | unclaimed | onchain-x402 | 2026-05-22
+ot-intel-api.onrender.com | verified | onchain-x402 | 2026-05-22
 relay.agent-tools.cloud | unclaimed | onchain-x402 | 2026-05-22
 rep.memoryapi.org | unclaimed | onchain-x402 | 2026-05-22
 stableflowers.dev | unclaimed | onchain-x402 | 2026-05-22
@@ -2991,3 +2991,9 @@ api.openintel.agency | unclaimed | onchain-x402 | 2026-05-23
 api.vectorway.io | unclaimed | onchain-x402 | 2026-05-23
 conc-exe.xyz | unclaimed | onchain-x402 | 2026-05-23
 video.botpay.network | unclaimed | onchain-x402 | 2026-05-23
+agents.sayerandstone.com | unclaimed | onchain-mpp | 2026-05-24
+api.craigmbrown.com | unclaimed | onchain-x402 | 2026-05-24
+base-worker-01.j23726919.workers.dev | unclaimed | onchain-x402 | 2026-05-24
+drmadmeow.up.railway.app | unclaimed | onchain-x402 | 2026-05-24
+v.botpay.network | unclaimed | onchain-x402 | 2026-05-24
+x402-revenue-mvp.onrender.com | verified | onchain-x402 | 2026-05-24
