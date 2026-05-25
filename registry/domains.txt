@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 2994
+# Total domains: 3004
 # Total endpoints: 14891
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -2997,3 +2997,13 @@ base-worker-01.j23726919.workers.dev | unclaimed | onchain-x402 | 2026-05-24
 drmadmeow.up.railway.app | unclaimed | onchain-x402 | 2026-05-24
 v.botpay.network | unclaimed | onchain-x402 | 2026-05-24
 x402-revenue-mvp.onrender.com | verified | onchain-x402 | 2026-05-24
+api.travelx402.io.vn | unclaimed | onchain-x402 | 2026-05-25
+centry.cybercentry.co.uk | unclaimed | onchain-x402 | 2026-05-25
+cron.memoryapi.org | unclaimed | onchain-x402 | 2026-05-25
+econdash.org | unclaimed | onchain-x402 | 2026-05-25
+gleaming-cassata-d41682.netlify.app | unclaimed | onchain-x402 | 2026-05-25
+goldbean-api.xyz | unclaimed | onchain-x402 | 2026-05-25
+intel.memoryapi.org | unclaimed | onchain-x402 | 2026-05-25
+kyc.madhousewallet.com | unclaimed | onchain-x402 | 2026-05-25
+x402-cybercentry.up.railway.app | unclaimed | onchain-x402 | 2026-05-25
+x402-wallet-readiness-service.vercel.app | verified | onchain-x402 | 2026-05-25
