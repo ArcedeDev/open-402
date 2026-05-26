@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 3004
+# Total domains: 3012
 # Total endpoints: 14891
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -2314,7 +2314,7 @@ littlefinger-x402.loca.lt | verified | onchain-x402 | 2026-04-02
 littlefinger-xai.loca.lt | unclaimed | onchain-x402 | 2026-04-02
 plebtv.com | unclaimed | onchain-l402 | 2026-04-02
 x402-wallet-analyzer.dylan-caponi.workers.dev | unclaimed | onchain-x402 | 2026-04-02
-au-data-x402-production.up.railway.app | verified | onchain-x402 | 2026-04-03
+au-data-x402-production.up.railway.app | unclaimed | onchain-x402 | 2026-04-03
 data.eruditepay.com | unclaimed | onchain-x402 | 2026-04-03
 doma.xyz | unclaimed | onchain-mpp | 2026-04-03
 l402.directory | unclaimed | onchain-l402 | 2026-04-03
@@ -3007,3 +3007,11 @@ intel.memoryapi.org | unclaimed | onchain-x402 | 2026-05-25
 kyc.madhousewallet.com | unclaimed | onchain-x402 | 2026-05-25
 x402-cybercentry.up.railway.app | unclaimed | onchain-x402 | 2026-05-25
 x402-wallet-readiness-service.vercel.app | verified | onchain-x402 | 2026-05-25
+agenttrust.uk | unclaimed | onchain-x402 | 2026-05-26
+ai-agent-payment-safety-stack.onrender.com | unclaimed | onchain-x402 | 2026-05-26
+app.kognai.ai | unclaimed | onchain-x402 | 2026-05-26
+cheap-search--gw.swerver.net | unclaimed | onchain-x402 | 2026-05-26
+ngmi--b088743456a711f1b5c3ee650bb23af1.web.val.run | unclaimed | onchain-x402 | 2026-05-26
+regimeshift.xyz | unclaimed | onchain-x402 | 2026-05-26
+stableschedule.dev | unclaimed | onchain-x402 | 2026-05-26
+websearch--gw.swerver.net | unclaimed | onchain-x402 | 2026-05-26
