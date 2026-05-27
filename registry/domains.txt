@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 3012
+# Total domains: 3022
 # Total endpoints: 14891
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -3015,3 +3015,13 @@ ngmi--b088743456a711f1b5c3ee650bb23af1.web.val.run | unclaimed | onchain-x402 | 
 regimeshift.xyz | unclaimed | onchain-x402 | 2026-05-26
 stableschedule.dev | unclaimed | onchain-x402 | 2026-05-26
 websearch--gw.swerver.net | unclaimed | onchain-x402 | 2026-05-26
+dns.x402tools.xyz | unclaimed | onchain-x402 | 2026-05-27
+docparse.x402tools.xyz | unclaimed | onchain-x402 | 2026-05-27
+econ.memoryapi.org | unclaimed | onchain-x402 | 2026-05-27
+filing.memoryapi.org | unclaimed | onchain-x402 | 2026-05-27
+ledger-api.novadyne.ai | unclaimed | onchain-x402 | 2026-05-27
+liquita-x402-edge.liquita.workers.dev | unclaimed | onchain-x402 | 2026-05-27
+qr.x402tools.xyz | unclaimed | onchain-x402 | 2026-05-27
+vulnfeed-api.novadyne.ai | unclaimed | onchain-x402 | 2026-05-27
+x402-apis-eta.vercel.app | verified | onchain-x402 | 2026-05-27
+x402.dotrockets.com | unclaimed | onchain-x402 | 2026-05-27
