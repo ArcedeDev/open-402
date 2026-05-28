@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 3022
+# Total domains: 3038
 # Total endpoints: 14891
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -3025,3 +3025,19 @@ qr.x402tools.xyz | unclaimed | onchain-x402 | 2026-05-27
 vulnfeed-api.novadyne.ai | unclaimed | onchain-x402 | 2026-05-27
 x402-apis-eta.vercel.app | verified | onchain-x402 | 2026-05-27
 x402.dotrockets.com | unclaimed | onchain-x402 | 2026-05-27
+695995eb457b2055-201-170-130-122.serveousercontent.com | unclaimed | onchain-x402 | 2026-05-28
+api.influship.com | unclaimed | onchain-x402 | 2026-05-28
+clinical.memoryapi.org | unclaimed | onchain-x402 | 2026-05-28
+farcaster-intel-api.vercel.app | unclaimed | onchain-x402 | 2026-05-28
+getquali.com | unclaimed | onchain-x402 | 2026-05-28
+giveth.0000402.xyz | unclaimed | onchain-x402 | 2026-05-28
+guard.x402tools.xyz | unclaimed | onchain-x402 | 2026-05-28
+legal.memoryapi.org | unclaimed | onchain-x402 | 2026-05-28
+property.memoryapi.org | unclaimed | onchain-x402 | 2026-05-28
+rendex.x402tools.xyz | unclaimed | onchain-x402 | 2026-05-28
+ryzeagent.xyz | unclaimed | onchain-x402 | 2026-05-28
+solsigs.com | unclaimed | onchain-x402 | 2026-05-28
+store.nosub.club | unclaimed | onchain-x402 | 2026-05-28
+telesint-api.onrender.com | verified | onchain-x402 | 2026-05-28
+visionex.x402tools.xyz | unclaimed | onchain-x402 | 2026-05-28
+x402-market-intel-mcp.mtree.workers.dev | unclaimed | onchain-x402 | 2026-05-28
