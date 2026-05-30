@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 3058
+# Total domains: 3069
 # Total endpoints: 14891
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -2757,7 +2757,7 @@ stablevoice.dev | unclaimed | onchain-x402 | 2026-04-28
 svm402.com | unclaimed | onchain-x402 | 2026-04-28
 usemur.dev | unclaimed | onchain-x402 | 2026-04-28
 anthropic.yeetful.com | unclaimed | onchain-x402 | 2026-04-29
-api.rtkmotion.io | verified | onchain-x402 | 2026-04-29
+api.rtkmotion.io | unclaimed | onchain-x402 | 2026-04-29
 chain-analyzer.com | unclaimed | onchain-x402 | 2026-04-29
 cryptowerk.com | unclaimed | onchain-x402 | 2026-04-29
 mcp.blocksize.info | unclaimed | onchain-x402 | 2026-04-29
@@ -3061,3 +3061,14 @@ stableninja.dev | unclaimed | onchain-x402 | 2026-05-29
 stockwaves.net | unclaimed | onchain-x402 | 2026-05-29
 time.memoryapi.org | unclaimed | onchain-x402 | 2026-05-29
 x402.deepsearch.com | unclaimed | onchain-x402 | 2026-05-29
+2s.io | unclaimed | onchain-x402 | 2026-05-30
+ai.memoryapi.org | unclaimed | onchain-x402 | 2026-05-30
+api.compatify.io | unclaimed | onchain-x402 | 2026-05-30
+base-intel-api.jakemaxsigal.workers.dev | unclaimed | onchain-x402 | 2026-05-30
+bio.memoryapi.org | unclaimed | onchain-x402 | 2026-05-30
+health.memoryapi.org | unclaimed | onchain-x402 | 2026-05-30
+market.memoryapi.org | unclaimed | onchain-x402 | 2026-05-30
+news.memoryapi.org | unclaimed | onchain-x402 | 2026-05-30
+x402stock.vercel.app | unclaimed | onchain-x402 | 2026-05-30
+x402stock.xyz | unclaimed | onchain-x402 | 2026-05-30
+xspy.pro | unclaimed | onchain-x402 | 2026-05-30
