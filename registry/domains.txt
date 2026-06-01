@@ -1,7 +1,7 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 3081
-# Total endpoints: 14891
+# Total domains: 3090
+# Total endpoints: 14890
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
 x402scan.com | unclaimed | 402index | 2026-03-23
@@ -401,7 +401,7 @@ api.xquant.fund | unclaimed | 402index | 2026-03-23
 xquant-api.xyz | unclaimed | 402index | 2026-03-23
 x-quant-fund.vercel.app | unclaimed | 402index | 2026-03-23
 402claw.cloud | unclaimed | 402index | 2026-03-23
-postalform.com | unclaimed | 402index | 2026-03-23
+postalform.com | verified | 402index | 2026-03-23
 x402.quickintel.io | unclaimed | 402index | 2026-03-23
 api.quotenorm.ai | unclaimed | 402index | 2026-03-23
 slamlink-ai-main-50fbb45.d2.zuplo.dev | unclaimed | 402index | 2026-03-23
@@ -3084,3 +3084,12 @@ pricing-matrix-api.lewis-6d8.workers.dev | unclaimed | onchain-x402 | 2026-05-31
 tryponcho.com | unclaimed | onchain-x402 | 2026-05-31
 unlock-api.lewis-6d8.workers.dev | unclaimed | onchain-x402 | 2026-05-31
 x402trustlayer.xyz | unclaimed | onchain-x402 | 2026-05-31
+agentpay.tools | verified | onchain-x402 | 2026-06-01
+api.agentgoods.io | unclaimed | onchain-x402 | 2026-06-01
+api.hyperextend.xyz | unclaimed | onchain-x402 | 2026-06-01
+clink-lithium-vault.fly.dev | unclaimed | onchain-x402 | 2026-06-01
+edgar.apitoll.cloud | unclaimed | onchain-x402 | 2026-06-01
+flight.memoryapi.org | unclaimed | onchain-x402 | 2026-06-01
+funding-rates-x402.data-labs.cloud | unclaimed | onchain-x402 | 2026-06-01
+true402.dev | unclaimed | onchain-x402 | 2026-06-01
+try.madhousewallet.com | unclaimed | onchain-x402 | 2026-06-01
