@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 3090
+# Total domains: 3097
 # Total endpoints: 14890
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -3093,3 +3093,10 @@ flight.memoryapi.org | unclaimed | onchain-x402 | 2026-06-01
 funding-rates-x402.data-labs.cloud | unclaimed | onchain-x402 | 2026-06-01
 true402.dev | unclaimed | onchain-x402 | 2026-06-01
 try.madhousewallet.com | unclaimed | onchain-x402 | 2026-06-01
+agentfax.val.run | unclaimed | onchain-mpp | 2026-06-02
+api.markdown2pdf.ai | unclaimed | onchain-x402 | 2026-06-02
+api.minebean.com | unclaimed | onchain-x402 | 2026-06-02
+lion-x402.lionmaster-operations.workers.dev | unclaimed | onchain-x402 | 2026-06-02
+lionx402.com | unclaimed | onchain-x402 | 2026-06-02
+mdf-demo.bitcryptic.com | unclaimed | onchain-l402 | 2026-06-02
+x402.valkyry.fr | unclaimed | onchain-x402 | 2026-06-02
