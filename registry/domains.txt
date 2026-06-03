@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 3097
+# Total domains: 3117
 # Total endpoints: 14890
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -2884,19 +2884,19 @@ api.algovoi.co.uk | verified | onchain-x402 | 2026-05-15
 api.syndicatelinks.co | unclaimed | onchain-x402 | 2026-05-15
 apijapan.vercel.app | unclaimed | onchain-x402 | 2026-05-15
 bodyguard.finance | verified | onchain-x402 | 2026-05-15
-evm-tx-toolkit.mtree.workers.dev | unclaimed | onchain-x402 | 2026-05-15
+evm-tx-toolkit.mtree.workers.dev | verified | onchain-x402 | 2026-05-15
 flipr-x402.fly.dev | verified | onchain-x402 | 2026-05-15
 gateway.wayforth.io | unclaimed | onchain-x402 | 2026-05-15
-tensorfeed.ai | unclaimed | onchain-x402 | 2026-05-15
+tensorfeed.ai | verified | onchain-x402 | 2026-05-15
 war-tracker.com | unclaimed | onchain-x402 | 2026-05-15
 web-production-18a32.up.railway.app | unclaimed | onchain-x402 | 2026-05-15
 api.anchor-x402.com | unclaimed | onchain-x402 | 2026-05-16
 api.clusterprotocol.ai | unclaimed | onchain-x402 | 2026-05-16
 api.netbrainis.co.za | unclaimed | onchain-x402 | 2026-05-16
 chess402.vercel.app | unclaimed | onchain-x402 | 2026-05-16
-edgar-mcp.mtree.workers.dev | unclaimed | onchain-x402 | 2026-05-16
+edgar-mcp.mtree.workers.dev | verified | onchain-x402 | 2026-05-16
 embedpay.melis.ai | unclaimed | onchain-x402 | 2026-05-16
-fpds-mcp.mtree.workers.dev | unclaimed | onchain-x402 | 2026-05-16
+fpds-mcp.mtree.workers.dev | verified | onchain-x402 | 2026-05-16
 image.pollinations.ai | unclaimed | onchain-x402 | 2026-05-16
 imageguard.melis.ai | unclaimed | onchain-x402 | 2026-05-16
 jtifhcvbgxqwlywugvjv.supabase.co | unclaimed | onchain-x402 | 2026-05-16
@@ -3100,3 +3100,23 @@ lion-x402.lionmaster-operations.workers.dev | unclaimed | onchain-x402 | 2026-06
 lionx402.com | unclaimed | onchain-x402 | 2026-06-02
 mdf-demo.bitcryptic.com | unclaimed | onchain-l402 | 2026-06-02
 x402.valkyry.fr | unclaimed | onchain-x402 | 2026-06-02
+3dprintedcat.com | unclaimed | onchain-x402 | 2026-06-03
+5212cae4a05eec.lhr.life | unclaimed | onchain-x402 | 2026-06-03
+api.iris-ai.dev | unclaimed | onchain-x402 | 2026-06-03
+atelierai.xyz | unclaimed | onchain-x402 | 2026-06-03
+aviationapis.com | unclaimed | onchain-x402 | 2026-06-03
+base-graduation-retreat-automatically.trycloudflare.com | unclaimed | onchain-x402 | 2026-06-03
+behind-theology-deputy-cake.trycloudflare.com | unclaimed | onchain-x402 | 2026-06-03
+codex-local-growth-snapshot.netlify.app | unclaimed | onchain-x402 | 2026-06-03
+finder-rehabilitation-plane-orientation.trycloudflare.com | unclaimed | onchain-x402 | 2026-06-03
+implied-retirement-nov-assets.trycloudflare.com | unclaimed | onchain-x402 | 2026-06-03
+lens-stats-mounting-sorry.trycloudflare.com | unclaimed | onchain-x402 | 2026-06-03
+microphone-contemporary-msie-even.trycloudflare.com | unclaimed | onchain-x402 | 2026-06-03
+orleans-spice-www-forming.trycloudflare.com | unclaimed | onchain-x402 | 2026-06-03
+peter-microphone-longitude-lee.trycloudflare.com | unclaimed | onchain-x402 | 2026-06-03
+profit-daughter-giant-pharmacology.trycloudflare.com | unclaimed | onchain-x402 | 2026-06-03
+seoul-weather-402.fly.dev | unclaimed | onchain-x402 | 2026-06-03
+terminalverse.com | unclaimed | onchain-x402 | 2026-06-03
+wisdom-drain-switch-alias.trycloudflare.com | unclaimed | onchain-x402 | 2026-06-03
+x402-api.vybenetwork.xyz | unclaimed | onchain-x402 | 2026-06-03
+x402.nichospt.net | unclaimed | onchain-x402 | 2026-06-03
