@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 3117
+# Total domains: 3129
 # Total endpoints: 14890
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -2969,7 +2969,7 @@ scan.madhousewallet.com | unclaimed | onchain-x402 | 2026-05-21
 trust402.aztecbeacon.uk | unclaimed | onchain-x402 | 2026-05-21
 x402-resource-scanner.vercel.app | unclaimed | onchain-x402 | 2026-05-21
 x402joker.com | unclaimed | onchain-x402 | 2026-05-21
-agent-tools.cloud | unclaimed | onchain-x402 | 2026-05-22
+agent-tools.cloud | verified | onchain-x402 | 2026-05-22
 api.memoryapi.org | unclaimed | onchain-x402 | 2026-05-22
 api.northeastdealintel.com | unclaimed | onchain-x402 | 2026-05-22
 api.vibe.airforce | unclaimed | onchain-x402 | 2026-05-22
@@ -2984,7 +2984,7 @@ stableflowers.dev | unclaimed | onchain-x402 | 2026-05-22
 stabletickets.dev | unclaimed | onchain-x402 | 2026-05-22
 stabletube.dev | unclaimed | onchain-x402 | 2026-05-22
 tiresapi.com | unclaimed | onchain-x402 | 2026-05-22
-x402-agent-suite-production.up.railway.app | unclaimed | onchain-x402 | 2026-05-22
+x402-agent-suite-production.up.railway.app | verified | onchain-x402 | 2026-05-22
 agent-evolution-engine.onrender.com | unclaimed | onchain-x402 | 2026-05-23
 api.entit.ai | unclaimed | onchain-x402 | 2026-05-23
 api.openintel.agency | unclaimed | onchain-x402 | 2026-05-23
@@ -3083,7 +3083,7 @@ predict.memoryapi.org | unclaimed | onchain-x402 | 2026-05-31
 pricing-matrix-api.lewis-6d8.workers.dev | unclaimed | onchain-x402 | 2026-05-31
 tryponcho.com | unclaimed | onchain-x402 | 2026-05-31
 unlock-api.lewis-6d8.workers.dev | unclaimed | onchain-x402 | 2026-05-31
-x402trustlayer.xyz | unclaimed | onchain-x402 | 2026-05-31
+x402trustlayer.xyz | verified | onchain-x402 | 2026-05-31
 agentpay.tools | verified | onchain-x402 | 2026-06-01
 api.agentgoods.io | unclaimed | onchain-x402 | 2026-06-01
 api.hyperextend.xyz | unclaimed | onchain-x402 | 2026-06-01
@@ -3120,3 +3120,15 @@ terminalverse.com | unclaimed | onchain-x402 | 2026-06-03
 wisdom-drain-switch-alias.trycloudflare.com | unclaimed | onchain-x402 | 2026-06-03
 x402-api.vybenetwork.xyz | unclaimed | onchain-x402 | 2026-06-03
 x402.nichospt.net | unclaimed | onchain-x402 | 2026-06-03
+acrobat-contemporary-tips-investigator.trycloudflare.com | unclaimed | onchain-x402 | 2026-06-04
+codex-local-growth-production.up.railway.app | unclaimed | onchain-x402 | 2026-06-04
+dmarc-lookup.underscoredone.com | unclaimed | onchain-x402 | 2026-06-04
+endorsement-inside-genetic-guidance.trycloudflare.com | unclaimed | onchain-x402 | 2026-06-04
+hibra.app | unclaimed | onchain-x402 | 2026-06-04
+intel.twzrd.xyz | unclaimed | onchain-x402 | 2026-06-04
+madeonsol.com | unclaimed | onchain-x402 | 2026-06-04
+mercury-x402-jed.fly.dev | verified | onchain-x402 | 2026-06-04
+nectarpay.crypto-dreamr.com | unclaimed | onchain-x402 | 2026-06-04
+paddock.finance | unclaimed | onchain-x402 | 2026-06-04
+qr-code-generator.underscoredone.com | unclaimed | onchain-x402 | 2026-06-04
+x402.miroshark.xyz | unclaimed | onchain-x402 | 2026-06-04
