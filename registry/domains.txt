@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 3129
+# Total domains: 3143
 # Total endpoints: 14890
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -2940,7 +2940,7 @@ property-risk-passport-api.lifebite-app.workers.dev | unclaimed | onchain-x402 |
 stablecoin-policy.vercel.app | unclaimed | onchain-x402 | 2026-05-19
 stablefeedback.dev | unclaimed | onchain-x402 | 2026-05-19
 stableinfluencer.dev | unclaimed | onchain-x402 | 2026-05-19
-stech-api.sheradogilang.workers.dev | unclaimed | onchain-x402 | 2026-05-19
+stech-api.sheradogilang.workers.dev | verified | onchain-x402 | 2026-05-19
 surplusintelligence.ai | unclaimed | onchain-x402 | 2026-05-19
 the402.tateprograms.com | verified | onchain-x402 | 2026-05-19
 wolframalpha.x402.paysponge.com | unclaimed | onchain-x402 | 2026-05-19
@@ -3132,3 +3132,17 @@ nectarpay.crypto-dreamr.com | unclaimed | onchain-x402 | 2026-06-04
 paddock.finance | unclaimed | onchain-x402 | 2026-06-04
 qr-code-generator.underscoredone.com | unclaimed | onchain-x402 | 2026-06-04
 x402.miroshark.xyz | unclaimed | onchain-x402 | 2026-06-04
+api.babyblueviper.com | verified | onchain-x402 | 2026-06-05
+api.dynsuplabs.com | unclaimed | onchain-x402 | 2026-06-05
+charts.wdh.sh | unclaimed | onchain-x402 | 2026-06-05
+eltociear-secrets-audit.hf.space | unclaimed | onchain-x402 | 2026-06-05
+eltociear-skill-audit.hf.space | unclaimed | onchain-x402 | 2026-06-05
+files.wdh.sh | unclaimed | onchain-x402 | 2026-06-05
+md.wdh.sh | unclaimed | onchain-x402 | 2026-06-05
+qr.wdh.sh | unclaimed | onchain-x402 | 2026-06-05
+relayer.atriumhermes.tech | unclaimed | onchain-x402 | 2026-06-05
+sherlockdata.xyz | unclaimed | onchain-x402 | 2026-06-05
+short.wdh.sh | unclaimed | onchain-x402 | 2026-06-05
+stableshipping.dev | unclaimed | onchain-x402 | 2026-06-05
+supership.crestsystems.ai | unclaimed | onchain-x402 | 2026-06-05
+theagentbillboard.com | unclaimed | onchain-x402 | 2026-06-05
