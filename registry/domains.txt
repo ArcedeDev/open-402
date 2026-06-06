@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 3143
+# Total domains: 3151
 # Total endpoints: 14890
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -3146,3 +3146,11 @@ short.wdh.sh | unclaimed | onchain-x402 | 2026-06-05
 stableshipping.dev | unclaimed | onchain-x402 | 2026-06-05
 supership.crestsystems.ai | unclaimed | onchain-x402 | 2026-06-05
 theagentbillboard.com | unclaimed | onchain-x402 | 2026-06-05
+api.bitrefill.com | unclaimed | onchain-x402 | 2026-06-06
+api.ledgercore.io | unclaimed | onchain-x402 | 2026-06-06
+crestsystems.ai | verified | onchain-x402 | 2026-06-06
+eltociear-contract-guard.hf.space | unclaimed | onchain-x402 | 2026-06-06
+image.myceli.ai | unclaimed | onchain-x402 | 2026-06-06
+market2000.xyz | unclaimed | onchain-x402 | 2026-06-06
+peaceful-violation-push-economics.trycloudflare.com | unclaimed | onchain-l402 | 2026-06-06
+signals.nsgoods.org | unclaimed | onchain-x402 | 2026-06-06
