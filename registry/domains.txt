@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 3151
+# Total domains: 3161
 # Total endpoints: 14890
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -1944,7 +1944,7 @@ api.hyperclaw.app | unclaimed | onchain-x402 | 2026-03-23
 vu.velvetdao.xyz | unclaimed | onchain-x402 | 2026-03-23
 minting-dream.vercel.app | unclaimed | onchain-x402 | 2026-03-23
 compute.aurracloud.com | unclaimed | onchain-x402 | 2026-03-23
-apolloai.team | verified | onchain-x402 | 2026-03-23
+apolloai.team | unclaimed | onchain-x402 | 2026-03-23
 test9999.x420.dev | unclaimed | onchain-x402 | 2026-03-23
 api.obol.sh | verified | onchain-x402 | 2026-03-23
 x402.api.netmind.ai | unclaimed | onchain-x402 | 2026-03-23
@@ -3154,3 +3154,13 @@ image.myceli.ai | unclaimed | onchain-x402 | 2026-06-06
 market2000.xyz | unclaimed | onchain-x402 | 2026-06-06
 peaceful-violation-push-economics.trycloudflare.com | unclaimed | onchain-l402 | 2026-06-06
 signals.nsgoods.org | unclaimed | onchain-x402 | 2026-06-06
+api.greenwood.financial | unclaimed | onchain-x402 | 2026-06-07
+arxiv-mcp.mtree.workers.dev | unclaimed | onchain-x402 | 2026-06-07
+claw402.ai | unclaimed | onchain-x402 | 2026-06-07
+domain-age-checker.underscoredone.com | unclaimed | onchain-x402 | 2026-06-07
+finmath.qzqh5rrbkz.workers.dev | unclaimed | onchain-x402 | 2026-06-07
+mcp.flashpoint.ai | unclaimed | onchain-x402 | 2026-06-07
+palmyr.ai | unclaimed | onchain-x402 | 2026-06-07
+wewwwwww.netlify.app | unclaimed | onchain-x402 | 2026-06-07
+x402-api-seven.vercel.app | unclaimed | onchain-x402 | 2026-06-07
+x402-entity-resolver-production.up.railway.app | unclaimed | onchain-x402 | 2026-06-07
