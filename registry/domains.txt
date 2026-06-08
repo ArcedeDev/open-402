@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 3161
+# Total domains: 3167
 # Total endpoints: 14890
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -1912,7 +1912,7 @@ x402.kodaoracle.com | unclaimed | onchain-x402 | 2026-03-23
 www.x402angrypes.fun | unclaimed | onchain-x402 | 2026-03-23
 onchain-reputation-agent-1.arumam.engineer | unclaimed | onchain-x402 | 2026-03-23
 api.terminalx402.com | unclaimed | onchain-x402 | 2026-03-23
-autopayagent.com | verified | onchain-x402 | 2026-03-23
+autopayagent.com | unclaimed | onchain-x402 | 2026-03-23
 api-x402bit.vercel.app | unclaimed | onchain-x402 | 2026-03-23
 facilitator.mayaworld.ai | unclaimed | onchain-x402 | 2026-03-23
 facilitator.x4a.app | unclaimed | onchain-x402 | 2026-03-23
@@ -3164,3 +3164,9 @@ palmyr.ai | unclaimed | onchain-x402 | 2026-06-07
 wewwwwww.netlify.app | unclaimed | onchain-x402 | 2026-06-07
 x402-api-seven.vercel.app | unclaimed | onchain-x402 | 2026-06-07
 x402-entity-resolver-production.up.railway.app | unclaimed | onchain-x402 | 2026-06-07
+api-production-17e1.up.railway.app | unclaimed | onchain-x402 | 2026-06-08
+api.cdk.bot | verified | onchain-x402 | 2026-06-08
+data-vending.869biz.com | unclaimed | onchain-x402 | 2026-06-08
+dod.hshintelligence.com | unclaimed | onchain-x402 | 2026-06-08
+http-status-checker.underscoredone.com | unclaimed | onchain-x402 | 2026-06-08
+network.mercury-hq.com | verified | onchain-x402 | 2026-06-08
