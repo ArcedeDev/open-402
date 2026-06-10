@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 3498
+# Total domains: 3509
 # Total endpoints: 14890
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -198,7 +198,7 @@ xluihnzwcmxybtygewvy.supabase.co | unclaimed | 402index | 2026-03-23
 x402.xseer.fun | unclaimed | 402index | 2026-03-23
 ritmex.one | unclaimed | 402index | 2026-03-23
 pawr.link | verified | 402index | 2026-03-23
-api.deepnets.ai | unclaimed | 402index | 2026-03-23
+api.deepnets.ai | verified | 402index | 2026-03-23
 intel.hugen.tokyo | unclaimed | 402index | 2026-03-23
 x402-api.aubr.ai | unclaimed | 402index | 2026-03-23
 x402-tools.vercel.app | unclaimed | 402index | 2026-03-23
@@ -3235,7 +3235,7 @@ attestify-os.vercel.app | unclaimed | onchain-x402 | 2026-06-09
 audiobook-api-beta.vercel.app | unclaimed | onchain-x402 | 2026-06-09
 audit.crestsystems.ai | unclaimed | onchain-x402 | 2026-06-09
 autopulse-navy.vercel.app | verified | onchain-x402 | 2026-06-09
-avisradar-production.up.railway.app | unclaimed | onchain-x402 | 2026-06-09
+avisradar-production.up.railway.app | verified | onchain-x402 | 2026-06-09
 barcode-generator.api.klymax402.com | unclaimed | onchain-x402 | 2026-06-09
 base-launch-radar.vercel.app | unclaimed | onchain-x402 | 2026-06-09
 base64-codec.api.klymax402.com | unclaimed | onchain-x402 | 2026-06-09
@@ -3501,3 +3501,14 @@ x402.quiknode-cf.pro | unclaimed | onchain-x402 | 2026-06-09
 x402.smartmoney.market | unclaimed | onchain-x402 | 2026-06-09
 x711.io | unclaimed | onchain-x402 | 2026-06-09
 zrdmydk1pk.execute-api.ap-northeast-1.amazonaws.com | unclaimed | onchain-x402 | 2026-06-09
+api.predictionmarketdata.io | unclaimed | onchain-x402 | 2026-06-10
+api.stakedbots.com | unclaimed | onchain-x402 | 2026-06-10
+api.sylphyagent.com | unclaimed | onchain-x402 | 2026-06-10
+flashpoint.ai | unclaimed | onchain-x402 | 2026-06-10
+originalcontentverifyapi.replit.app | unclaimed | onchain-x402 | 2026-06-10
+pay.sivut.co | unclaimed | onchain-x402 | 2026-06-10
+piprail.com | unclaimed | onchain-x402 | 2026-06-10
+ragradar.vercel.app | unclaimed | onchain-x402 | 2026-06-10
+store.hfsp.cloud | unclaimed | onchain-x402 | 2026-06-10
+superhighway.walls.sh | unclaimed | onchain-x402 | 2026-06-10
+vpn.hfsp.cloud | unclaimed | onchain-x402 | 2026-06-10
