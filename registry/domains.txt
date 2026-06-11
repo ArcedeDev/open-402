@@ -1,7 +1,7 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 3509
-# Total endpoints: 14890
+# Total domains: 3524
+# Total endpoints: 14907
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
 x402scan.com | unclaimed | 402index | 2026-03-23
@@ -1298,7 +1298,7 @@ centrahub.vercel.app | unclaimed | onchain-x402 | 2026-03-23
 urlgate.xyz | unclaimed | onchain-x402 | 2026-03-23
 scan.agentx402.cc | unclaimed | onchain-x402 | 2026-03-23
 flaki.vercel.app | unclaimed | onchain-x402 | 2026-03-23
-suede-ai-app.onrender.com | unclaimed | onchain-x402 | 2026-03-23
+suede-ai-app.onrender.com | verified | onchain-x402 | 2026-03-23
 present-bigger-artist-range.trycloudflare.com | unclaimed | onchain-x402 | 2026-03-23
 test.billyx402.fun | unclaimed | onchain-x402 | 2026-03-23
 mint-rpl.x402.vip | unclaimed | onchain-x402 | 2026-03-23
@@ -2195,7 +2195,7 @@ payperlink.xyz | verified | onchain-x402 | 2026-03-23
 avav.online | unclaimed | onchain-x402 | 2026-03-23
 x402punks.wtf | unclaimed | onchain-x402 | 2026-03-23
 x402nexus.xyz | unclaimed | onchain-x402 | 2026-03-23
-app.suedeai.xyz | unclaimed | onchain-x402 | 2026-03-23
+app.suedeai.xyz | verified | onchain-x402 | 2026-03-23
 x402launch.app | unclaimed | onchain-x402 | 2026-03-23
 x402life.com | unclaimed | onchain-x402 | 2026-03-23
 penny.tech | unclaimed | onchain-x402 | 2026-03-23
@@ -2853,7 +2853,7 @@ unhusked-fumier-astrid.ngrok-free.dev | unclaimed | onchain-x402 | 2026-05-11
 agentoracle.co | unclaimed | onchain-x402 | 2026-05-12
 fuse402.vercel.app | unclaimed | onchain-x402 | 2026-05-12
 ip.coggler.com | unclaimed | onchain-x402 | 2026-05-12
-matches-caught-stat-administration.trycloudflare.com | verified | onchain-x402 | 2026-05-12
+matches-caught-stat-administration.trycloudflare.com | unclaimed | onchain-x402 | 2026-05-12
 mondello.dev | unclaimed | onchain-x402 | 2026-05-12
 probe.onchainintel.net | unclaimed | onchain-x402 | 2026-05-12
 rektwatch.dev | unclaimed | onchain-x402 | 2026-05-12
@@ -3512,3 +3512,18 @@ ragradar.vercel.app | unclaimed | onchain-x402 | 2026-06-10
 store.hfsp.cloud | unclaimed | onchain-x402 | 2026-06-10
 superhighway.walls.sh | unclaimed | onchain-x402 | 2026-06-10
 vpn.hfsp.cloud | unclaimed | onchain-x402 | 2026-06-10
+aiscan-proxy31.glorionefirst.workers.dev | unclaimed | onchain-x402 | 2026-06-11
+api.getaiscan.app | unclaimed | onchain-x402 | 2026-06-11
+api.gocreativeai.com | unclaimed | onchain-x402 | 2026-06-11
+api.liquidagent.ai | unclaimed | onchain-x402 | 2026-06-11
+api.onesource.io | unclaimed | onchain-x402 | 2026-06-11
+domain-enricher.hahavoid0.workers.dev | unclaimed | onchain-x402 | 2026-06-11
+flows-api-production.up.railway.app | unclaimed | onchain-x402 | 2026-06-11
+fresh-feeds.foomworks.workers.dev | unclaimed | onchain-x402 | 2026-06-11
+fresh-feeds.timbaru-r136.workers.dev | unclaimed | onchain-x402 | 2026-06-11
+meryol-payai.hf.space | verified | onchain-x402 | 2026-06-11
+mrwk.online | unclaimed | onchain-x402 | 2026-06-11
+parsedoc.wrapper-agency.com | unclaimed | onchain-x402 | 2026-06-11
+puresignal402.xyz | verified | onchain-x402 | 2026-06-11
+x402-parser-edge-mainnet.epicblubber.workers.dev | unclaimed | onchain-x402 | 2026-06-11
+x402.charliemorrison.dev | unclaimed | onchain-x402 | 2026-06-11
