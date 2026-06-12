@@ -1,7 +1,7 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 3524
-# Total endpoints: 14907
+# Total domains: 3544
+# Total endpoints: 14914
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
 x402scan.com | unclaimed | 402index | 2026-03-23
@@ -1944,7 +1944,7 @@ api.hyperclaw.app | unclaimed | onchain-x402 | 2026-03-23
 vu.velvetdao.xyz | unclaimed | onchain-x402 | 2026-03-23
 minting-dream.vercel.app | unclaimed | onchain-x402 | 2026-03-23
 compute.aurracloud.com | unclaimed | onchain-x402 | 2026-03-23
-apolloai.team | unclaimed | onchain-x402 | 2026-03-23
+apolloai.team | verified | onchain-x402 | 2026-03-23
 test9999.x420.dev | unclaimed | onchain-x402 | 2026-03-23
 api.obol.sh | verified | onchain-x402 | 2026-03-23
 x402.api.netmind.ai | unclaimed | onchain-x402 | 2026-03-23
@@ -3517,7 +3517,7 @@ api.getaiscan.app | unclaimed | onchain-x402 | 2026-06-11
 api.gocreativeai.com | unclaimed | onchain-x402 | 2026-06-11
 api.liquidagent.ai | unclaimed | onchain-x402 | 2026-06-11
 api.onesource.io | unclaimed | onchain-x402 | 2026-06-11
-domain-enricher.hahavoid0.workers.dev | unclaimed | onchain-x402 | 2026-06-11
+domain-enricher.hahavoid0.workers.dev | verified | onchain-x402 | 2026-06-11
 flows-api-production.up.railway.app | unclaimed | onchain-x402 | 2026-06-11
 fresh-feeds.foomworks.workers.dev | unclaimed | onchain-x402 | 2026-06-11
 fresh-feeds.timbaru-r136.workers.dev | unclaimed | onchain-x402 | 2026-06-11
@@ -3527,3 +3527,23 @@ parsedoc.wrapper-agency.com | unclaimed | onchain-x402 | 2026-06-11
 puresignal402.xyz | verified | onchain-x402 | 2026-06-11
 x402-parser-edge-mainnet.epicblubber.workers.dev | unclaimed | onchain-x402 | 2026-06-11
 x402.charliemorrison.dev | unclaimed | onchain-x402 | 2026-06-11
+api.x402-video.com | unclaimed | onchain-x402 | 2026-06-12
+api.x402cloud.space | unclaimed | onchain-x402 | 2026-06-12
+base-intel.deleonanalytics.com | unclaimed | onchain-x402 | 2026-06-12
+curl-http-request.underscoredone.com | unclaimed | onchain-x402 | 2026-06-12
+dev-gateway-proxy-api.abstraxn.com | unclaimed | onchain-x402 | 2026-06-12
+dick.com | unclaimed | onchain-x402 | 2026-06-12
+duty-stack.foomworks.workers.dev | unclaimed | onchain-x402 | 2026-06-12
+latent-lounge-x402-production-e6f1.up.railway.app | unclaimed | onchain-x402 | 2026-06-12
+mailcheck.x402tools.xyz | unclaimed | onchain-x402 | 2026-06-12
+pay.alephant.io | unclaimed | onchain-x402 | 2026-06-12
+rugradar.deleonanalytics.com | unclaimed | onchain-x402 | 2026-06-12
+snap.x402tools.xyz | unclaimed | onchain-x402 | 2026-06-12
+stable-deepline.dev | unclaimed | onchain-x402 | 2026-06-12
+tokenpulse.deleonanalytics.com | unclaimed | onchain-x402 | 2026-06-12
+walletwatch.deleonanalytics.com | unclaimed | onchain-x402 | 2026-06-12
+x402-payment-firewall.vercel.app | unclaimed | onchain-x402 | 2026-06-12
+x402-platform.deleonanalytics.com | unclaimed | onchain-x402 | 2026-06-12
+x402.payperbyte.io | verified | onchain-x402 | 2026-06-12
+x402.shizu.me | unclaimed | onchain-x402 | 2026-06-12
+x402.strikerobot.ai | unclaimed | onchain-x402 | 2026-06-12
