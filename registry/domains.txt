@@ -1,7 +1,7 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 3556
-# Total endpoints: 14914
+# Total domains: 3567
+# Total endpoints: 14890
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
 x402scan.com | unclaimed | 402index | 2026-03-23
@@ -2867,7 +2867,7 @@ api.metalend.tech | unclaimed | onchain-x402 | 2026-05-13
 require-healing-tyler-prayers.trycloudflare.com | unclaimed | onchain-x402 | 2026-05-13
 agent-budget-guard.onrender.com | unclaimed | onchain-x402 | 2026-05-14
 agent-memory-api-bix5.onrender.com | unclaimed | onchain-x402 | 2026-05-14
-agent-security-gateway.onrender.com | unclaimed | onchain-x402 | 2026-05-14
+agent-security-gateway.onrender.com | verified | onchain-x402 | 2026-05-14
 ai.fuse.io | unclaimed | onchain-x402 | 2026-05-14
 api.satspipe.com | unclaimed | onchain-l402 | 2026-05-14
 depscout.vercel.app | unclaimed | onchain-x402 | 2026-05-14
@@ -3153,7 +3153,7 @@ eltociear-contract-guard.hf.space | unclaimed | onchain-x402 | 2026-06-06
 image.myceli.ai | unclaimed | onchain-x402 | 2026-06-06
 market2000.xyz | unclaimed | onchain-x402 | 2026-06-06
 peaceful-violation-push-economics.trycloudflare.com | unclaimed | onchain-l402 | 2026-06-06
-signals.nsgoods.org | unclaimed | onchain-x402 | 2026-06-06
+signals.nsgoods.org | verified | onchain-x402 | 2026-06-06
 api.greenwood.financial | unclaimed | onchain-x402 | 2026-06-07
 arxiv-mcp.mtree.workers.dev | unclaimed | onchain-x402 | 2026-06-07
 claw402.ai | unclaimed | onchain-x402 | 2026-06-07
@@ -3559,3 +3559,14 @@ stable-shovels.dev | unclaimed | onchain-x402 | 2026-06-13
 store.agentexchange.work | verified | onchain-x402 | 2026-06-13
 uristocrat.com | unclaimed | onchain-x402 | 2026-06-13
 x402-earner.vercel.app | unclaimed | onchain-x402 | 2026-06-13
+api.cardhedger.com | unclaimed | onchain-x402 | 2026-06-14
+api.ingest0r.com | unclaimed | onchain-x402 | 2026-06-14
+api.serpang.xyz | unclaimed | onchain-x402 | 2026-06-14
+api.x402oracle.com | unclaimed | onchain-x402 | 2026-06-14
+carlotta-prealtar-undaintily.ngrok-free.dev | unclaimed | onchain-x402 | 2026-06-14
+dev.api.lyrivo.thirdorigin.io | unclaimed | onchain-x402 | 2026-06-14
+fathom-api.mioku-fathom.workers.dev | unclaimed | onchain-x402 | 2026-06-14
+fifa2026.madnodes.xyz | unclaimed | onchain-x402 | 2026-06-14
+ip402.xyz | unclaimed | onchain-x402 | 2026-06-14
+swarm-skill.vercel.app | unclaimed | onchain-x402 | 2026-06-14
+tropical-data-api.tropicalautonome.workers.dev | unclaimed | onchain-x402 | 2026-06-14
