@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 3567
+# Total domains: 3574
 # Total endpoints: 14890
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -3570,3 +3570,10 @@ fifa2026.madnodes.xyz | unclaimed | onchain-x402 | 2026-06-14
 ip402.xyz | unclaimed | onchain-x402 | 2026-06-14
 swarm-skill.vercel.app | unclaimed | onchain-x402 | 2026-06-14
 tropical-data-api.tropicalautonome.workers.dev | unclaimed | onchain-x402 | 2026-06-14
+api.24klabs.ai | unclaimed | onchain-x402 | 2026-06-15
+api.glianalabs.com | unclaimed | onchain-x402 | 2026-06-15
+cleared.ink | unclaimed | onchain-x402 | 2026-06-15
+feed.xstocks.hfsp.cloud | unclaimed | onchain-x402 | 2026-06-15
+market.compalyze.co.jp | unclaimed | onchain-x402 | 2026-06-15
+thelatentlounge.com | unclaimed | onchain-x402 | 2026-06-15
+x402-production-4a3a.up.railway.app | unclaimed | onchain-x402 | 2026-06-15
