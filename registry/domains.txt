@@ -1,7 +1,7 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 3574
-# Total endpoints: 14890
+# Total domains: 3584
+# Total endpoints: 14915
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
 x402scan.com | unclaimed | 402index | 2026-03-23
@@ -3577,3 +3577,13 @@ feed.xstocks.hfsp.cloud | unclaimed | onchain-x402 | 2026-06-15
 market.compalyze.co.jp | unclaimed | onchain-x402 | 2026-06-15
 thelatentlounge.com | unclaimed | onchain-x402 | 2026-06-15
 x402-production-4a3a.up.railway.app | unclaimed | onchain-x402 | 2026-06-15
+agent-ready.dev | unclaimed | onchain-x402 | 2026-06-16
+api.invoket.com | unclaimed | onchain-x402 | 2026-06-16
+api.jarvisclaw.ai | unclaimed | onchain-x402 | 2026-06-16
+crypto.apitoll.cloud | unclaimed | onchain-x402 | 2026-06-16
+kat.imgnai.com | unclaimed | onchain-x402 | 2026-06-16
+pagediff-api.hahavoid0.workers.dev | verified | onchain-x402 | 2026-06-16
+paygent.obsmetrics.com | unclaimed | onchain-x402 | 2026-06-16
+solcleus.com | unclaimed | onchain-x402 | 2026-06-16
+x402.edge402.xyz | unclaimed | onchain-x402 | 2026-06-16
+x402deploy.vercel.app | unclaimed | onchain-x402 | 2026-06-16
