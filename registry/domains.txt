@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 3584
+# Total domains: 3616
 # Total endpoints: 14915
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -3587,3 +3587,35 @@ paygent.obsmetrics.com | unclaimed | onchain-x402 | 2026-06-16
 solcleus.com | unclaimed | onchain-x402 | 2026-06-16
 x402.edge402.xyz | unclaimed | onchain-x402 | 2026-06-16
 x402deploy.vercel.app | unclaimed | onchain-x402 | 2026-06-16
+20fix.com | unclaimed | onchain-x402 | 2026-06-17
+agents.gedx402.com | unclaimed | onchain-x402 | 2026-06-17
+api.karma.domains | unclaimed | onchain-x402 | 2026-06-17
+browser.gedx402.com | unclaimed | onchain-x402 | 2026-06-17
+burst.solcleus.com | unclaimed | onchain-x402 | 2026-06-17
+chat.gedx402.com | unclaimed | onchain-x402 | 2026-06-17
+clawy.uk | unclaimed | onchain-x402 | 2026-06-17
+cryptyx.ai | unclaimed | onchain-x402 | 2026-06-17
+darrylbots.com | unclaimed | onchain-x402 | 2026-06-17
+embed.gedx402.com | unclaimed | onchain-x402 | 2026-06-17
+energy.netzhandwerker.de | unclaimed | onchain-x402 | 2026-06-17
+fiatdock.com | verified | onchain-x402 | 2026-06-17
+ged-x402-browser.jvalamis.workers.dev | unclaimed | onchain-x402 | 2026-06-17
+ged-x402-chat.jvalamis.workers.dev | unclaimed | onchain-x402 | 2026-06-17
+ged-x402-embed.jvalamis.workers.dev | unclaimed | onchain-x402 | 2026-06-17
+ged-x402-image.jvalamis.workers.dev | unclaimed | onchain-x402 | 2026-06-17
+ged-x402-jobs.jvalamis.workers.dev | unclaimed | onchain-x402 | 2026-06-17
+ged-x402-llm.jvalamis.workers.dev | unclaimed | onchain-x402 | 2026-06-17
+ged-x402-media.jvalamis.workers.dev | unclaimed | onchain-x402 | 2026-06-17
+ged-x402-search.jvalamis.workers.dev | unclaimed | onchain-x402 | 2026-06-17
+ged-x402.jvalamis.workers.dev | unclaimed | onchain-x402 | 2026-06-17
+hl-tool.darren-pi.workers.dev | unclaimed | onchain-x402 | 2026-06-17
+hypernatt.com | unclaimed | onchain-x402 | 2026-06-17
+image.gedx402.com | unclaimed | onchain-x402 | 2026-06-17
+jobs.gedx402.com | unclaimed | onchain-x402 | 2026-06-17
+live-vps.sasame.online | unclaimed | onchain-x402 | 2026-06-17
+llm.gedx402.com | unclaimed | onchain-x402 | 2026-06-17
+media.gedx402.com | unclaimed | onchain-x402 | 2026-06-17
+mpp.orthogonal.com | unclaimed | onchain-mpp | 2026-06-17
+search.gedx402.com | unclaimed | onchain-x402 | 2026-06-17
+trust.nsgoods.org | unclaimed | onchain-x402 | 2026-06-17
+xytara-mcp-executor.onrender.com | unclaimed | onchain-x402 | 2026-06-17
