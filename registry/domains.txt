@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 3616
+# Total domains: 3636
 # Total endpoints: 14915
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -178,7 +178,7 @@ x402.valoria.net| verified |402index|2026-03-23
 api.barvis.io | unclaimed | 402index | 2026-03-23
 api.slamai.dev | unclaimed | 402index | 2026-03-23
 basepost.vercel.app | unclaimed | 402index | 2026-03-23
-cryptorugmunch.app| verified |402index|2026-03-23
+cryptorugmunch.app | unclaimed | 402index | 2026-03-23
 x402.browserbase.com | unclaimed | 402index | 2026-03-23
 mpp.browserbase.com | unclaimed | 402index | 2026-03-23
 pro-api.coinmarketcap.com | unclaimed | 402index | 2026-03-23
@@ -2653,7 +2653,7 @@ surge-sand.basalthq.com | unclaimed | onchain-x402 | 2026-04-22
 test.987659876.xyz | unclaimed | onchain-x402 | 2026-04-22
 testpp.987659876.xyz | unclaimed | onchain-x402 | 2026-04-22
 trustscore.dev | unclaimed | onchain-x402 | 2026-04-22
-x402-agent-pay.com | verified | onchain-x402 | 2026-04-22
+x402-agent-pay.com | unclaimed | onchain-x402 | 2026-04-22
 x402.blocknotify.com | unclaimed | onchain-x402 | 2026-04-22
 x402.lightbrush.art | unclaimed | onchain-x402 | 2026-04-22
 agent-all-the-smoke.vercel.app | unclaimed | onchain-x402 | 2026-04-23
@@ -3526,7 +3526,7 @@ mrwk.online | unclaimed | onchain-x402 | 2026-06-11
 parsedoc.wrapper-agency.com | unclaimed | onchain-x402 | 2026-06-11
 puresignal402.xyz | verified | onchain-x402 | 2026-06-11
 x402-parser-edge-mainnet.epicblubber.workers.dev | unclaimed | onchain-x402 | 2026-06-11
-x402.charliemorrison.dev | unclaimed | onchain-x402 | 2026-06-11
+x402.charliemorrison.dev | verified | onchain-x402 | 2026-06-11
 api.x402-video.com | unclaimed | onchain-x402 | 2026-06-12
 api.x402cloud.space | unclaimed | onchain-x402 | 2026-06-12
 base-intel.deleonanalytics.com | unclaimed | onchain-x402 | 2026-06-12
@@ -3619,3 +3619,23 @@ mpp.orthogonal.com | unclaimed | onchain-mpp | 2026-06-17
 search.gedx402.com | unclaimed | onchain-x402 | 2026-06-17
 trust.nsgoods.org | unclaimed | onchain-x402 | 2026-06-17
 xytara-mcp-executor.onrender.com | unclaimed | onchain-x402 | 2026-06-17
+agent-bazaar-five.vercel.app | unclaimed | onchain-x402 | 2026-06-18
+agentfeed.up.railway.app | unclaimed | onchain-x402 | 2026-06-18
+apexrunner.ai | unclaimed | onchain-x402 | 2026-06-18
+api.402.coffee | unclaimed | onchain-x402 | 2026-06-18
+api.omniboard.pro | unclaimed | onchain-x402 | 2026-06-18
+api.solvela.ai | verified | onchain-x402 | 2026-06-18
+cryptojp.com | unclaimed | onchain-x402 | 2026-06-18
+db.gedx402.com | unclaimed | onchain-x402 | 2026-06-18
+gateway.gedx402.com | unclaimed | onchain-x402 | 2026-06-18
+hibraapp-delta.vercel.app | unclaimed | onchain-x402 | 2026-06-18
+hydrogen-baltimore-lou-violation.trycloudflare.com | unclaimed | onchain-x402 | 2026-06-18
+images-api.gedx402.com | unclaimed | onchain-x402 | 2026-06-18
+mcp.gapup.io | unclaimed | onchain-x402 | 2026-06-18
+posted-during-banker.ngrok-free.dev | unclaimed | onchain-x402 | 2026-06-18
+qkittyswap.fi | unclaimed | onchain-x402 | 2026-06-18
+rag.gedx402.com | unclaimed | onchain-x402 | 2026-06-18
+stayapi-jet.vercel.app | unclaimed | onchain-x402 | 2026-06-18
+storage.gedx402.com | unclaimed | onchain-x402 | 2026-06-18
+unsubscribe-proposals-upgrading-jar.trycloudflare.com | unclaimed | onchain-x402 | 2026-06-18
+web.x402node.dev | unclaimed | onchain-x402 | 2026-06-18
