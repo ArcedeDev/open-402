@@ -1,7 +1,7 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 3636
-# Total endpoints: 14915
+# Total domains: 3654
+# Total endpoints: 14918
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
 x402scan.com | unclaimed | 402index | 2026-03-23
@@ -137,7 +137,7 @@ api.grapevine.fyi | unclaimed | 402index | 2026-03-23
 staging.toolkit.dev | unclaimed | 402index | 2026-03-23
 gifu-server.onrender.com | unclaimed | 402index | 2026-03-23
 blocksearch.dev | unclaimed | 402index | 2026-03-23
-x402.hodle.com.br| verified |402index|2026-03-23
+x402.hodle.com.br | unclaimed | 402index | 2026-03-23
 api.ordiscan.com | unclaimed | 402index | 2026-03-23
 rng.sociologic.ai | unclaimed | 402index | 2026-03-23
 api.firecrawl.dev | unclaimed | 402index | 2026-03-23
@@ -3639,3 +3639,21 @@ stayapi-jet.vercel.app | unclaimed | onchain-x402 | 2026-06-18
 storage.gedx402.com | unclaimed | onchain-x402 | 2026-06-18
 unsubscribe-proposals-upgrading-jar.trycloudflare.com | unclaimed | onchain-x402 | 2026-06-18
 web.x402node.dev | unclaimed | onchain-x402 | 2026-06-18
+aero.lonestaroracle.xyz | unclaimed | onchain-x402 | 2026-06-19
+agent.api.0x.org | unclaimed | onchain-x402 | 2026-06-19
+api.locus.report | unclaimed | onchain-x402 | 2026-06-19
+api.tiny.place | unclaimed | onchain-x402 | 2026-06-19
+app.r3p.xyz | unclaimed | onchain-x402 | 2026-06-19
+bundle.lonestaroracle.xyz | unclaimed | onchain-x402 | 2026-06-19
+cascade.lonestaroracle.xyz | unclaimed | onchain-x402 | 2026-06-19
+chainscout.lonestaroracle.xyz | unclaimed | onchain-x402 | 2026-06-19
+content.lonestaroracle.xyz | unclaimed | onchain-x402 | 2026-06-19
+cryptointel-production.up.railway.app | unclaimed | onchain-x402 | 2026-06-19
+cyber-intel-api-production-a3c1.up.railway.app | unclaimed | onchain-x402 | 2026-06-19
+doc.lonestaroracle.xyz | unclaimed | onchain-x402 | 2026-06-19
+momoai-cyan.vercel.app | unclaimed | onchain-x402 | 2026-06-19
+orcpin.dev | verified | onchain-x402 | 2026-06-19
+pay.hergertsynthora.com | unclaimed | onchain-x402 | 2026-06-19
+stable.lonestaroracle.xyz | unclaimed | onchain-x402 | 2026-06-19
+wealth.lonestaroracle.xyz | unclaimed | onchain-x402 | 2026-06-19
+x402.tiny.place | unclaimed | onchain-x402 | 2026-06-19
