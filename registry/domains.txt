@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 3654
+# Total domains: 3694
 # Total endpoints: 14918
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -2381,7 +2381,7 @@ parsebit-lnd.fly.dev | unclaimed | onchain-l402 | 2026-04-09
 achillesalpha.onrender.com | verified | onchain-x402 | 2026-04-10
 api.fetch-sentry.online | unclaimed | onchain-x402 | 2026-04-10
 berghain.ravers.workers.dev | unclaimed | onchain-x402 | 2026-04-10
-graph-advocate-production.up.railway.app | verified | onchain-x402 | 2026-04-10
+graph-advocate-production.up.railway.app | unclaimed | onchain-x402 | 2026-04-10
 nexwave.so | unclaimed | onchain-x402 | 2026-04-10
 origin-exchange.fly.dev | unclaimed | onchain-x402 | 2026-04-10
 outcryai.com | verified | onchain-x402 | 2026-04-10
@@ -3612,7 +3612,7 @@ hl-tool.darren-pi.workers.dev | unclaimed | onchain-x402 | 2026-06-17
 hypernatt.com | unclaimed | onchain-x402 | 2026-06-17
 image.gedx402.com | unclaimed | onchain-x402 | 2026-06-17
 jobs.gedx402.com | unclaimed | onchain-x402 | 2026-06-17
-live-vps.sasame.online | unclaimed | onchain-x402 | 2026-06-17
+live-vps.sasame.online | verified | onchain-x402 | 2026-06-17
 llm.gedx402.com | unclaimed | onchain-x402 | 2026-06-17
 media.gedx402.com | unclaimed | onchain-x402 | 2026-06-17
 mpp.orthogonal.com | unclaimed | onchain-mpp | 2026-06-17
@@ -3653,7 +3653,47 @@ cyber-intel-api-production-a3c1.up.railway.app | unclaimed | onchain-x402 | 2026
 doc.lonestaroracle.xyz | unclaimed | onchain-x402 | 2026-06-19
 momoai-cyan.vercel.app | unclaimed | onchain-x402 | 2026-06-19
 orcpin.dev | verified | onchain-x402 | 2026-06-19
-pay.hergertsynthora.com | unclaimed | onchain-x402 | 2026-06-19
+pay.hergertsynthora.com | verified | onchain-x402 | 2026-06-19
 stable.lonestaroracle.xyz | unclaimed | onchain-x402 | 2026-06-19
 wealth.lonestaroracle.xyz | unclaimed | onchain-x402 | 2026-06-19
 x402.tiny.place | unclaimed | onchain-x402 | 2026-06-19
+402fluenc.netlify.app | unclaimed | onchain-x402 | 2026-06-20
+402fluent.netlify.app | unclaimed | onchain-x402 | 2026-06-20
+402inkagent.netlify.app | unclaimed | onchain-x402 | 2026-06-20
+ads.apitoll.cloud | unclaimed | onchain-x402 | 2026-06-20
+agentbanks.vercel.app | unclaimed | onchain-x402 | 2026-06-20
+agentshoping.vercel.app | unclaimed | onchain-x402 | 2026-06-20
+aiaxon.vercel.app | unclaimed | onchain-x402 | 2026-06-20
+aimomo.vercel.app | unclaimed | onchain-x402 | 2026-06-20
+aimomochan.vercel.app | unclaimed | onchain-x402 | 2026-06-20
+api.x402vector.com | unclaimed | onchain-x402 | 2026-06-20
+boxink402.netlify.app | unclaimed | onchain-x402 | 2026-06-20
+cccstudios.vercel.app | unclaimed | onchain-x402 | 2026-06-20
+cryptolens-rosy.vercel.app | unclaimed | onchain-x402 | 2026-06-20
+data-vault-zeta.vercel.app | unclaimed | onchain-x402 | 2026-06-20
+datavaultzeta.vercel.app | unclaimed | onchain-x402 | 2026-06-20
+hermesplant.com | unclaimed | onchain-x402 | 2026-06-20
+inkbox402.netlify.app | unclaimed | onchain-x402 | 2026-06-20
+inkboxx402.netlify.app | unclaimed | onchain-x402 | 2026-06-20
+inkinbox402.netlify.app | unclaimed | onchain-x402 | 2026-06-20
+inkonbase402.netlify.app | unclaimed | onchain-x402 | 2026-06-20
+inkx402.netlify.app | unclaimed | onchain-x402 | 2026-06-20
+jesseg.io | unclaimed | onchain-x402 | 2026-06-20
+lenscrypt.vercel.app | unclaimed | onchain-x402 | 2026-06-20
+neuroavichi.vercel.app | unclaimed | onchain-x402 | 2026-06-20
+onchainninja.vercel.app | unclaimed | onchain-x402 | 2026-06-20
+ragdar.vercel.app | unclaimed | onchain-x402 | 2026-06-20
+ragradar.space | unclaimed | onchain-x402 | 2026-06-20
+rovichi.vercel.app | unclaimed | onchain-x402 | 2026-06-20
+scopeapi-roan.vercel.app | unclaimed | onchain-x402 | 2026-06-20
+scopeapipay.vercel.app | unclaimed | onchain-x402 | 2026-06-20
+scopepay.vercel.app | unclaimed | onchain-x402 | 2026-06-20
+stayagent.vercel.app | unclaimed | onchain-x402 | 2026-06-20
+verify.gedx402.com | unclaimed | onchain-x402 | 2026-06-20
+webtools402.176-109-107-191.sslip.io | unclaimed | onchain-x402 | 2026-06-20
+x.1x402.sh | unclaimed | onchain-x402 | 2026-06-20
+x402-svt9.onrender.com | unclaimed | onchain-x402 | 2026-06-20
+x402.d-bis.org | unclaimed | onchain-x402 | 2026-06-20
+x402rail.net | unclaimed | onchain-x402 | 2026-06-20
+yearly-taxi-proprietary-donations.trycloudflare.com | unclaimed | onchain-x402 | 2026-06-20
+zetavault.vercel.app | unclaimed | onchain-x402 | 2026-06-20
