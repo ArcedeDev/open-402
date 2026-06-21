@@ -1,7 +1,7 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 3694
-# Total endpoints: 14918
+# Total domains: 3723
+# Total endpoints: 14919
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
 x402scan.com | unclaimed | 402index | 2026-03-23
@@ -37,7 +37,7 @@ api.carbon-cashmere.de | unclaimed | 402index | 2026-03-23
 api.nansen.ai | unclaimed | 402index | 2026-03-23
 solopreneur.402box.io | unclaimed | 402index | 2026-03-23
 solopreneur.apitoai.xyz | unclaimed | 402index | 2026-03-23
-netintel-production-440c.up.railway.app | unclaimed | 402index | 2026-03-23
+netintel-production-440c.up.railway.app | verified | 402index | 2026-03-23
 stableenrich.dev | unclaimed | 402index | 2026-03-23
 api.kicks.dev | unclaimed | 402index | 2026-03-23
 x402.silverbackdefi.app | unclaimed | 402index | 2026-03-23
@@ -2332,7 +2332,7 @@ api.bitcoinbenji.com | unclaimed | onchain-l402 | 2026-04-04
 api.imgzen.dev | unclaimed | onchain-x402 | 2026-04-04
 image-gen-x402-api.token-unlocks-x402.workers.dev | unclaimed | onchain-x402 | 2026-04-04
 lightningprox.com | verified | onchain-l402 | 2026-04-04
-mail.cusethejuice.com | unclaimed | onchain-x402 | 2026-04-04
+mail.cusethejuice.com | verified | onchain-x402 | 2026-04-04
 mpp.hyreagent.fun | unclaimed | onchain-x402 | 2026-04-04
 scan.convrgent.ai | unclaimed | onchain-x402 | 2026-04-04
 socialx402.com | unclaimed | onchain-x402 | 2026-04-04
@@ -3697,3 +3697,32 @@ x402.d-bis.org | unclaimed | onchain-x402 | 2026-06-20
 x402rail.net | unclaimed | onchain-x402 | 2026-06-20
 yearly-taxi-proprietary-donations.trycloudflare.com | unclaimed | onchain-x402 | 2026-06-20
 zetavault.vercel.app | unclaimed | onchain-x402 | 2026-06-20
+402inkbased.netlify.app | unclaimed | onchain-x402 | 2026-06-21
+402xaimomo.vercel.app | unclaimed | onchain-x402 | 2026-06-21
+69.67.172.228.sslip.io | unclaimed | onchain-x402 | 2026-06-21
+agent-paid-resource-control.onrender.com | verified | onchain-x402 | 2026-06-21
+agentink.netlify.app | unclaimed | onchain-x402 | 2026-06-21
+aiaxon402.vercel.app | unclaimed | onchain-x402 | 2026-06-21
+api-orbonomy.vercel.app | unclaimed | onchain-x402 | 2026-06-21
+api.orbonomy.xyz | unclaimed | onchain-x402 | 2026-06-21
+b402ink.netlify.app | unclaimed | onchain-x402 | 2026-06-21
+basedfact.vercel.app | unclaimed | onchain-x402 | 2026-06-21
+basedveritas.vercel.app | unclaimed | onchain-x402 | 2026-06-21
+lastink.netlify.app | unclaimed | onchain-x402 | 2026-06-21
+lensc.vercel.app | unclaimed | onchain-x402 | 2026-06-21
+momoxai.netlify.app | unclaimed | onchain-x402 | 2026-06-21
+nova-orbonomy.vercel.app | unclaimed | onchain-x402 | 2026-06-21
+nova.orbonomy.xyz | unclaimed | onchain-x402 | 2026-06-21
+orbonomy-xyz.vercel.app | unclaimed | onchain-x402 | 2026-06-21
+orbonomy.vercel.app | unclaimed | onchain-x402 | 2026-06-21
+orbonomy.xyz | unclaimed | onchain-x402 | 2026-06-21
+scrape402.xyz | unclaimed | onchain-x402 | 2026-06-21
+statepulse-api.hahavoid0.workers.dev | verified | onchain-x402 | 2026-06-21
+stay402.vercel.app | unclaimed | onchain-x402 | 2026-06-21
+veritas-theta-lilac.vercel.app | unclaimed | onchain-x402 | 2026-06-21
+veritas.orbonomy.xyz | unclaimed | onchain-x402 | 2026-06-21
+wallet-doctor-x402.m-zikriz.workers.dev | unclaimed | onchain-x402 | 2026-06-21
+x402-depeg-feed.yinkaphlay13.workers.dev | unclaimed | onchain-x402 | 2026-06-21
+x402-search-api.onrender.com | unclaimed | onchain-x402 | 2026-06-21
+x402ninja.vercel.app | unclaimed | onchain-x402 | 2026-06-21
+zetdatavault.vercel.app | unclaimed | onchain-x402 | 2026-06-21
