@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 3806
+# Total domains: 3858
 # Total endpoints: 14919
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -102,7 +102,7 @@ entropy.rip | unclaimed | 402index | 2026-03-23
 nonvisceral-eloisa-mousily.ngrok-free.dev | unclaimed | 402index | 2026-03-23
 l402.services | unclaimed | 402index | 2026-03-23
 api.spyfu.com | unclaimed | 402index | 2026-03-23
-brack-hive.tail4f568d.ts.net | verified | 402index | 2026-03-23
+brack-hive.tail4f568d.ts.net | unclaimed | 402index | 2026-03-23
 x402-server-sandy.vercel.app | unclaimed | 402index | 2026-03-23
 api.tanantor.com | unclaimed | 402index | 2026-03-23
 api.deepbluebase.xyz | verified | 402index | 2026-03-23
@@ -3622,7 +3622,7 @@ xytara-mcp-executor.onrender.com | unclaimed | onchain-x402 | 2026-06-17
 agent-bazaar-five.vercel.app | unclaimed | onchain-x402 | 2026-06-18
 agentfeed.up.railway.app | unclaimed | onchain-x402 | 2026-06-18
 apexrunner.ai | unclaimed | onchain-x402 | 2026-06-18
-api.402.coffee | unclaimed | onchain-x402 | 2026-06-18
+api.402.coffee | verified | onchain-x402 | 2026-06-18
 api.omniboard.pro | unclaimed | onchain-x402 | 2026-06-18
 api.solvela.ai | verified | onchain-x402 | 2026-06-18
 cryptojp.com | unclaimed | onchain-x402 | 2026-06-18
@@ -3809,3 +3809,55 @@ x402-demo-api-tau.vercel.app | unclaimed | onchain-x402 | 2026-06-22
 x402-demo-api-theta.vercel.app | unclaimed | onchain-x402 | 2026-06-22
 x402-store-v2.rileycraig14.workers.dev | unclaimed | onchain-x402 | 2026-06-22
 zx10r-x402-api.onrender.com | unclaimed | onchain-x402 | 2026-06-22
+0inkbox402.netlify.app | unclaimed | onchain-x402 | 2026-06-23
+0inkbox420.netlify.app | unclaimed | onchain-x402 | 2026-06-23
+1nk30x.netlify.app | unclaimed | onchain-x402 | 2026-06-23
+402roam.orbonomy.xyz | unclaimed | onchain-x402 | 2026-06-23
+api.getanyapi.com | unclaimed | onchain-x402 | 2026-06-23
+cassandra.dropwatchhq.com | unclaimed | onchain-x402 | 2026-06-23
+chain-data-mcp.vercel.app | unclaimed | onchain-x402 | 2026-06-23
+chain-data-xi.vercel.app | unclaimed | onchain-x402 | 2026-06-23
+clinicalintelpulse.vercel.app | verified | onchain-x402 | 2026-06-23
+contract-auditor-ivory.vercel.app | unclaimed | onchain-x402 | 2026-06-23
+contract-auditor-mcp.vercel.app | unclaimed | onchain-x402 | 2026-06-23
+coverage.dropwatchhq.com | unclaimed | onchain-x402 | 2026-06-23
+cravvol.vercel.app | unclaimed | onchain-x402 | 2026-06-23
+cryptodefidataintel-production.up.railway.app | unclaimed | onchain-x402 | 2026-06-23
+cyberpulse-six.vercel.app | unclaimed | onchain-x402 | 2026-06-23
+dnsdoctor.vercel.app | unclaimed | onchain-x402 | 2026-06-23
+exclude.dropwatchhq.com | unclaimed | onchain-x402 | 2026-06-23
+freight.dropwatchhq.com | unclaimed | onchain-x402 | 2026-06-23
+gateway.gocreativeai.com | unclaimed | onchain-x402 | 2026-06-23
+govcon.dropwatchhq.com | unclaimed | onchain-x402 | 2026-06-23
+health.dropwatchhq.com | unclaimed | onchain-x402 | 2026-06-23
+import-guardian.vercel.app | unclaimed | onchain-x402 | 2026-06-23
+ip-doctor.vercel.app | unclaimed | onchain-x402 | 2026-06-23
+license-guardian-psi.vercel.app | unclaimed | onchain-x402 | 2026-06-23
+lockfile-guardian.vercel.app | unclaimed | onchain-x402 | 2026-06-23
+ma.dropwatchhq.com | unclaimed | onchain-x402 | 2026-06-23
+npm-guardian.vercel.app | unclaimed | onchain-x402 | 2026-06-23
+omnicall.gocreativeai.com | unclaimed | onchain-x402 | 2026-06-23
+project-formatter-production.up.railway.app | unclaimed | onchain-x402 | 2026-06-23
+projectx402-production.up.railway.app | unclaimed | onchain-x402 | 2026-06-23
+readx.1x402.sh | unclaimed | onchain-x402 | 2026-06-23
+recompete.dropwatchhq.com | unclaimed | onchain-x402 | 2026-06-23
+rost3r.vercel.app | unclaimed | onchain-x402 | 2026-06-23
+roster.orbonomy.xyz | unclaimed | onchain-x402 | 2026-06-23
+safeagent-production.up.railway.app | unclaimed | onchain-x402 | 2026-06-23
+secret-scanner.vercel.app | unclaimed | onchain-x402 | 2026-06-23
+settle.ronakdaya.com | unclaimed | onchain-x402 | 2026-06-23
+social.gedx402.com | unclaimed | onchain-x402 | 2026-06-23
+spawnxchange.com | unclaimed | onchain-x402 | 2026-06-23
+tools.ipintel.ai | unclaimed | onchain-x402 | 2026-06-23
+travel-agent.forgemesh.io | unclaimed | onchain-x402 | 2026-06-23
+web-production-2d1051.up.railway.app | unclaimed | onchain-x402 | 2026-06-23
+web-production-78e17.up.railway.app | unclaimed | onchain-x402 | 2026-06-23
+x402-agent-toolkit.vercel.app | unclaimed | onchain-x402 | 2026-06-23
+x402-ai-gateway-rosy.vercel.app | unclaimed | onchain-x402 | 2026-06-23
+x402-alpha-hub.vercel.app | unclaimed | onchain-x402 | 2026-06-23
+x402-content-hub.vercel.app | unclaimed | onchain-x402 | 2026-06-23
+x402-data-hub.vercel.app | unclaimed | onchain-x402 | 2026-06-23
+x402-demo-api-kaya.vercel.app | unclaimed | onchain-x402 | 2026-06-23
+x402-multi-hub.vercel.app | unclaimed | onchain-x402 | 2026-06-23
+x402-social-intel.vercel.app | unclaimed | onchain-x402 | 2026-06-23
+x402-trading-hub.vercel.app | unclaimed | onchain-x402 | 2026-06-23
