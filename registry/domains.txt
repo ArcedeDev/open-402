@@ -1,11 +1,11 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 4491
+# Total domains: 4513
 # Total endpoints: 14921
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
 x402scan.com | unclaimed | 402index | 2026-03-23
-bridge.eruditepay.com | unclaimed | 402index | 2026-03-23
+bridge.eruditepay.com | verified | 402index | 2026-03-23
 api-dev.intra-tls2.dctx.link | unclaimed | 402index | 2026-03-23
 api.questflow.ai | unclaimed | 402index | 2026-03-23
 api.myceliasignal.com | verified | 402index | 2026-03-23
@@ -1793,14 +1793,14 @@ stamp.0000402.xyz | unclaimed | onchain-x402 | 2026-03-23
 mating-liable-folk-fabulous.trycloudflare.com | unclaimed | onchain-x402 | 2026-03-23
 hoped-important-environmental-renaissance.trycloudflare.com | unclaimed | onchain-x402 | 2026-03-23
 token-safety-check-production-9611.up.railway.app | verified | onchain-x402 | 2026-03-23
-skillscan-production.up.railway.app | verified | onchain-x402 | 2026-03-23
+skillscan-production.up.railway.app | unclaimed | onchain-x402 | 2026-03-23
 sol.blockrun.ai | unclaimed | onchain-x402 | 2026-03-23
 api.ai-pin.io | unclaimed | onchain-x402 | 2026-03-23
 alpha.snipersearch.fun | unclaimed | onchain-x402 | 2026-03-23
 api.mcpkeeper.com | unclaimed | onchain-x402 | 2026-03-23
 agentstamp.org | unclaimed | onchain-x402 | 2026-03-23
 mcp-x402.vishwanetwork.xyz | unclaimed | onchain-x402 | 2026-03-23
-skillscan.port402.com | verified | onchain-x402 | 2026-03-23
+skillscan.port402.com | unclaimed | onchain-x402 | 2026-03-23
 halloweenx402.onrender.com | unclaimed | onchain-x402 | 2026-03-23
 math.matrix402.com | unclaimed | onchain-x402 | 2026-03-23
 playground.llliiiii.workers.dev | unclaimed | onchain-x402 | 2026-03-23
@@ -4494,3 +4494,25 @@ vibes-coded.com | unclaimed | onchain-x402 | 2026-06-29
 vibes-coral-tau.vercel.app | unclaimed | onchain-x402 | 2026-06-29
 x402-blockchain-forensics.onrender.com | unclaimed | onchain-x402 | 2026-06-29
 x402-crypto-apis.onrender.com | unclaimed | onchain-x402 | 2026-06-29
+00be8ab632aa0f.lhr.life | unclaimed | onchain-x402 | 2026-06-30
+api.agentcourt.to | unclaimed | onchain-x402 | 2026-06-30
+api.terradeed.co.uk | unclaimed | onchain-x402 | 2026-06-30
+api.x402dataapi.com | unclaimed | onchain-x402 | 2026-06-30
+axixixia.vercel.app | unclaimed | onchain-x402 | 2026-06-30
+blackbobs-ai.vercel.app | unclaimed | onchain-x402 | 2026-06-30
+coockies-ai.vercel.app | unclaimed | onchain-x402 | 2026-06-30
+endpointsxrt.vercel.app | unclaimed | onchain-x402 | 2026-06-30
+gateway.apiosk.com | unclaimed | onchain-x402 | 2026-06-30
+gateway.hillguava.xyz | unclaimed | onchain-x402 | 2026-06-30
+ggwp-ten.vercel.app | unclaimed | onchain-x402 | 2026-06-30
+losbeto-production-dd7c.up.railway.app | unclaimed | onchain-x402 | 2026-06-30
+midway.lol | unclaimed | onchain-x402 | 2026-06-30
+negotiator402.alogos.xyz | unclaimed | onchain-x402 | 2026-06-30
+sgpropertydata.com | unclaimed | onchain-x402 | 2026-06-30
+sixpath.vercel.app | unclaimed | onchain-x402 | 2026-06-30
+sourcevane-security-production.up.railway.app | unclaimed | onchain-x402 | 2026-06-30
+touchstone.locomot.io | unclaimed | onchain-x402 | 2026-06-30
+tts.forgemesh.io | unclaimed | onchain-x402 | 2026-06-30
+voice.forgemesh.io | unclaimed | onchain-x402 | 2026-06-30
+x402.167-172-95-184.nip.io | unclaimed | onchain-x402 | 2026-06-30
+xx402.icu | unclaimed | onchain-x402 | 2026-06-30
