@@ -1,7 +1,7 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 4513
-# Total endpoints: 14921
+# Total domains: 4532
+# Total endpoints: 14916
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
 x402scan.com | unclaimed | 402index | 2026-03-23
@@ -45,7 +45,7 @@ agents.allium.so | unclaimed | 402index | 2026-03-23
 x402-gateway-production.up.railway.app| verified |402index|2026-03-23
 pro-api.coingecko.com | unclaimed | 402index | 2026-03-23
 lightningfaucet.com | unclaimed | 402index | 2026-03-23
-b9c7a16b-b90f-4d3c-b73c-bb8d49f9a8fd-00-2zmwe913s9fbf.picard.replit.dev | verified | 402index | 2026-03-23
+b9c7a16b-b90f-4d3c-b73c-bb8d49f9a8fd-00-2zmwe913s9fbf.picard.replit.dev | unclaimed | 402index | 2026-03-23
 gateway.grapevine.fyi | unclaimed | 402index | 2026-03-23
 defi.hugen.tokyo | unclaimed | 402index | 2026-03-23
 stablestudio.dev | unclaimed | 402index | 2026-03-23
@@ -2766,7 +2766,7 @@ api.autonomagic.org | unclaimed | onchain-x402 | 2026-04-30
 api.creatorfinder.dev | unclaimed | onchain-x402 | 2026-04-30
 apitoken.clawwallet.cc | unclaimed | onchain-x402 | 2026-04-30
 locally-merit-nest-specific.trycloudflare.com | unclaimed | onchain-x402 | 2026-04-30
-tack.inferenceroom.ai | verified | onchain-x402 | 2026-04-30
+tack.inferenceroom.ai | unclaimed | onchain-x402 | 2026-04-30
 three.ws | unclaimed | onchain-x402 | 2026-04-30
 x402.rye.com | unclaimed | onchain-x402 | 2026-04-30
 content-dx.hugen.tokyo | unclaimed | onchain-x402 | 2026-05-01
@@ -4495,7 +4495,7 @@ vibes-coral-tau.vercel.app | unclaimed | onchain-x402 | 2026-06-29
 x402-blockchain-forensics.onrender.com | unclaimed | onchain-x402 | 2026-06-29
 x402-crypto-apis.onrender.com | unclaimed | onchain-x402 | 2026-06-29
 00be8ab632aa0f.lhr.life | unclaimed | onchain-x402 | 2026-06-30
-api.agentcourt.to | unclaimed | onchain-x402 | 2026-06-30
+api.agentcourt.to | verified | onchain-x402 | 2026-06-30
 api.terradeed.co.uk | unclaimed | onchain-x402 | 2026-06-30
 api.x402dataapi.com | unclaimed | onchain-x402 | 2026-06-30
 axixixia.vercel.app | unclaimed | onchain-x402 | 2026-06-30
@@ -4505,7 +4505,7 @@ endpointsxrt.vercel.app | unclaimed | onchain-x402 | 2026-06-30
 gateway.apiosk.com | unclaimed | onchain-x402 | 2026-06-30
 gateway.hillguava.xyz | unclaimed | onchain-x402 | 2026-06-30
 ggwp-ten.vercel.app | unclaimed | onchain-x402 | 2026-06-30
-losbeto-production-dd7c.up.railway.app | unclaimed | onchain-x402 | 2026-06-30
+losbeto-production-dd7c.up.railway.app | verified | onchain-x402 | 2026-06-30
 midway.lol | unclaimed | onchain-x402 | 2026-06-30
 negotiator402.alogos.xyz | unclaimed | onchain-x402 | 2026-06-30
 sgpropertydata.com | unclaimed | onchain-x402 | 2026-06-30
@@ -4516,3 +4516,22 @@ tts.forgemesh.io | unclaimed | onchain-x402 | 2026-06-30
 voice.forgemesh.io | unclaimed | onchain-x402 | 2026-06-30
 x402.167-172-95-184.nip.io | unclaimed | onchain-x402 | 2026-06-30
 xx402.icu | unclaimed | onchain-x402 | 2026-06-30
+agents.dyoeway.org | unclaimed | onchain-x402 | 2026-07-01
+api.agentstools.dev | unclaimed | onchain-x402 | 2026-07-01
+api.agnet.world | unclaimed | onchain-x402 | 2026-07-01
+api.aiservices.to | unclaimed | onchain-x402 | 2026-07-01
+api.tantra-authority.com | unclaimed | onchain-x402 | 2026-07-01
+cc0-feed-api.bodhinindustries.workers.dev | unclaimed | onchain-x402 | 2026-07-01
+cpi-report-us.underscoredone.com | unclaimed | onchain-x402 | 2026-07-01
+datsavault.vercel.app | unclaimed | onchain-x402 | 2026-07-01
+evm-meme-intel.vercel.app | unclaimed | onchain-x402 | 2026-07-01
+hermes-guardian.xyz | unclaimed | onchain-x402 | 2026-07-01
+hyperliquid-data.v1337.org | unclaimed | onchain-x402 | 2026-07-01
+komo-ai.vercel.app | unclaimed | onchain-x402 | 2026-07-01
+magnum-ai-flame.vercel.app | unclaimed | onchain-x402 | 2026-07-01
+mcp.loopxxi.com | unclaimed | onchain-l402 | 2026-07-01
+ova.orbonomy.xyz | unclaimed | onchain-x402 | 2026-07-01
+sol-meme-intel.vercel.app | unclaimed | onchain-x402 | 2026-07-01
+twentyonemillion.art | unclaimed | onchain-x402 | 2026-07-01
+x402-data-api.bodhinindustries.workers.dev | unclaimed | onchain-x402 | 2026-07-01
+x402.professorsausages.com | unclaimed | onchain-x402 | 2026-07-01
