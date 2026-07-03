@@ -1,7 +1,7 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 4600
-# Total endpoints: 14916
+# Total domains: 4630
+# Total endpoints: 14919
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
 x402scan.com | unclaimed | 402index | 2026-03-23
@@ -1543,7 +1543,7 @@ www.bingx402.com | unclaimed | onchain-x402 | 2026-03-23
 x4a.app | unclaimed | onchain-x402 | 2026-03-23
 dad-jokes-agent-production.up.railway.app | unclaimed | onchain-x402 | 2026-03-23
 api.cobalt402.tools | unclaimed | onchain-x402 | 2026-03-23
-xbirdapi.up.railway.app | unclaimed | onchain-x402 | 2026-03-23
+xbirdapi.up.railway.app | verified | onchain-x402 | 2026-03-23
 aurabots.fun | unclaimed | onchain-x402 | 2026-03-23
 pay.orbofi.com | unclaimed | onchain-x402 | 2026-03-23
 api.x402.jobs | unclaimed | onchain-x402 | 2026-03-23
@@ -4502,7 +4502,7 @@ axixixia.vercel.app | unclaimed | onchain-x402 | 2026-06-30
 blackbobs-ai.vercel.app | unclaimed | onchain-x402 | 2026-06-30
 coockies-ai.vercel.app | unclaimed | onchain-x402 | 2026-06-30
 endpointsxrt.vercel.app | unclaimed | onchain-x402 | 2026-06-30
-gateway.apiosk.com | unclaimed | onchain-x402 | 2026-06-30
+gateway.apiosk.com | verified | onchain-x402 | 2026-06-30
 gateway.hillguava.xyz | unclaimed | onchain-x402 | 2026-06-30
 ggwp-ten.vercel.app | unclaimed | onchain-x402 | 2026-06-30
 losbeto-production-dd7c.up.railway.app | verified | onchain-x402 | 2026-06-30
@@ -4519,7 +4519,7 @@ xx402.icu | unclaimed | onchain-x402 | 2026-06-30
 agents.dyoeway.org | unclaimed | onchain-x402 | 2026-07-01
 api.agentstools.dev | unclaimed | onchain-x402 | 2026-07-01
 api.agnet.world | unclaimed | onchain-x402 | 2026-07-01
-api.aiservices.to | unclaimed | onchain-x402 | 2026-07-01
+api.aiservices.to | verified | onchain-x402 | 2026-07-01
 api.tantra-authority.com | unclaimed | onchain-x402 | 2026-07-01
 cc0-feed-api.bodhinindustries.workers.dev | unclaimed | onchain-x402 | 2026-07-01
 cpi-report-us.underscoredone.com | unclaimed | onchain-x402 | 2026-07-01
@@ -4603,3 +4603,33 @@ x402-utils.558686.xyz | unclaimed | onchain-x402 | 2026-07-02
 x402-wallet.558686.xyz | unclaimed | onchain-x402 | 2026-07-02
 x402-weather.vercel.app | unclaimed | onchain-x402 | 2026-07-02
 yield.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-02
+25eea783-b936-4296-ac87-c0e08276cd6c-00-1gb08v8hk77v0-l5j0cc5r.riker.replit.dev | unclaimed | onchain-x402 | 2026-07-03
+abstract-exchange-rates.payweave.services | unclaimed | onchain-x402 | 2026-07-03
+agentgate-x402.netlify.app | unclaimed | onchain-x402 | 2026-07-03
+agentic.crowdpull.click | verified | onchain-x402 | 2026-07-03
+browserbase.payweave.services | unclaimed | onchain-x402 | 2026-07-03
+c5aab9bb5700c3.lhr.life | unclaimed | onchain-x402 | 2026-07-03
+cloudflare.payweave.services | unclaimed | onchain-x402 | 2026-07-03
+da121843f517ce.lhr.life | unclaimed | onchain-x402 | 2026-07-03
+fal.payweave.services | unclaimed | onchain-x402 | 2026-07-03
+gatewaypay.online | unclaimed | onchain-x402 | 2026-07-03
+hyperliquid-analyst.v1337.org | unclaimed | onchain-x402 | 2026-07-03
+klymax402.com | unclaimed | onchain-x402 | 2026-07-03
+lumby-ping.pay.zeroclick.io | unclaimed | onchain-x402 | 2026-07-03
+mail.payweave.services | unclaimed | onchain-x402 | 2026-07-03
+mcp.yield.xyz | unclaimed | onchain-x402 | 2026-07-03
+mistral.payweave.services | unclaimed | onchain-x402 | 2026-07-03
+notary.forgemesh.io | unclaimed | onchain-x402 | 2026-07-03
+openapi.misttrack.io | unclaimed | onchain-x402 | 2026-07-03
+parallel.payweave.services | unclaimed | onchain-x402 | 2026-07-03
+pricepilot402.pricepilot402-arya.workers.dev | unclaimed | onchain-x402 | 2026-07-03
+relay.payweave.services | unclaimed | onchain-x402 | 2026-07-03
+replicate.payweave.services | unclaimed | onchain-x402 | 2026-07-03
+research.johnnybucks.tech | unclaimed | onchain-x402 | 2026-07-03
+retrieval.payweave.services | unclaimed | onchain-x402 | 2026-07-03
+sandbox.payweave.services | unclaimed | onchain-x402 | 2026-07-03
+scheduler.payweave.services | unclaimed | onchain-x402 | 2026-07-03
+storage.payweave.services | unclaimed | onchain-x402 | 2026-07-03
+x402-hub.vercel.app | unclaimed | onchain-x402 | 2026-07-03
+x402.xx402.icu | unclaimed | onchain-x402 | 2026-07-03
+x402stats.io | unclaimed | onchain-x402 | 2026-07-03
