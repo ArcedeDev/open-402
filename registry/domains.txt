@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 4630
+# Total domains: 4658
 # Total endpoints: 14919
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -2359,7 +2359,7 @@ api.dappdojo.com | unclaimed | onchain-x402 | 2026-04-07
 api.saidprotocol.com | unclaimed | onchain-x402 | 2026-04-07
 baseguard.scoopflashman.tech | unclaimed | onchain-x402 | 2026-04-07
 bazaar-gateway.vercel.app | unclaimed | onchain-x402 | 2026-04-07
-bitcoinsapi.com | verified | onchain-x402 | 2026-04-07
+bitcoinsapi.com | unclaimed | onchain-x402 | 2026-04-07
 dermi-znuq.onrender.com | unclaimed | onchain-x402 | 2026-04-07
 steven-reflection-copying-livecam.trycloudflare.com | unclaimed | onchain-x402 | 2026-04-07
 wallet-intel-api-production-3ec7.up.railway.app | unclaimed | onchain-x402 | 2026-04-07
@@ -2582,7 +2582,7 @@ orbisapi.com | verified | onchain-x402 | 2026-04-16
 api.rungate.ai | unclaimed | onchain-x402 | 2026-04-17
 barcode-generator-x402-production.up.railway.app | unclaimed | onchain-x402 | 2026-04-17
 base64-codec-x402-production.up.railway.app | unclaimed | onchain-x402 | 2026-04-17
-cdp.bitcoinsapi.com | verified | onchain-x402 | 2026-04-17
+cdp.bitcoinsapi.com | unclaimed | onchain-x402 | 2026-04-17
 console.sanfoundation.com | unclaimed | onchain-x402 | 2026-04-17
 findmea-nyc.vercel.app | unclaimed | onchain-x402 | 2026-04-17
 markdown-to-html-x402-production.up.railway.app | unclaimed | onchain-x402 | 2026-04-17
@@ -4633,3 +4633,31 @@ storage.payweave.services | unclaimed | onchain-x402 | 2026-07-03
 x402-hub.vercel.app | unclaimed | onchain-x402 | 2026-07-03
 x402.xx402.icu | unclaimed | onchain-x402 | 2026-07-03
 x402stats.io | unclaimed | onchain-x402 | 2026-07-03
+213-165-37-71.sslip.io | unclaimed | onchain-x402 | 2026-07-04
+ads.forgemesh.io | unclaimed | onchain-x402 | 2026-07-04
+agentbodega.store | unclaimed | onchain-x402 | 2026-07-04
+agentcash-proxy.onrender.com | unclaimed | onchain-x402 | 2026-07-04
+api-production-54bd.up.railway.app | unclaimed | onchain-x402 | 2026-07-04
+api.ideafactorylab.org | unclaimed | onchain-x402 | 2026-07-04
+api.ishtar.numetal.xyz | unclaimed | onchain-x402 | 2026-07-04
+base-gas-x402-production.up.railway.app | unclaimed | onchain-x402 | 2026-07-04
+broker-sync-api-production.up.railway.app | unclaimed | onchain-x402 | 2026-07-04
+codetrack-x402-api-production.up.railway.app | unclaimed | onchain-x402 | 2026-07-04
+disable-glen-feet-act.trycloudflare.com | unclaimed | onchain-x402 | 2026-07-04
+inference.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-04
+makrolens.vercel.app | unclaimed | onchain-x402 | 2026-07-04
+mcp.sap.oobeprotocol.ai | unclaimed | onchain-x402 | 2026-07-04
+notary-solana.forgemesh.io | unclaimed | onchain-x402 | 2026-07-04
+onchainpulse.theaslangroupllc.com | verified | onchain-x402 | 2026-07-04
+openinterest.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-04
+protocol-health-oracle-production.up.railway.app | unclaimed | onchain-x402 | 2026-07-04
+pulse.theaslangroupllc.com | unclaimed | onchain-x402 | 2026-07-04
+sendquotenow.com | unclaimed | onchain-x402 | 2026-07-04
+signalpulse.theaslangroupllc.com | unclaimed | onchain-x402 | 2026-07-04
+token-intel-x402.echolonius.deno.net | unclaimed | onchain-x402 | 2026-07-04
+unlockpressure.pricepilot402-arya.workers.dev | unclaimed | onchain-x402 | 2026-07-04
+upgradeguard.pricepilot402-arya.workers.dev | unclaimed | onchain-x402 | 2026-07-04
+williams-midnight-speak-somewhat.trycloudflare.com | unclaimed | onchain-x402 | 2026-07-04
+x402-key.558686.xyz | unclaimed | onchain-x402 | 2026-07-04
+x402.cheetahsecurity.de | unclaimed | onchain-x402 | 2026-07-04
+x402.openwebninja.com | unclaimed | onchain-x402 | 2026-07-04
