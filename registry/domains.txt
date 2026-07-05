@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 4658
+# Total domains: 4705
 # Total endpoints: 14919
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -2940,7 +2940,7 @@ property-risk-passport-api.lifebite-app.workers.dev | unclaimed | onchain-x402 |
 stablecoin-policy.vercel.app | unclaimed | onchain-x402 | 2026-05-19
 stablefeedback.dev | unclaimed | onchain-x402 | 2026-05-19
 stableinfluencer.dev | unclaimed | onchain-x402 | 2026-05-19
-stech-api.sheradogilang.workers.dev | verified | onchain-x402 | 2026-05-19
+stech-api.sheradogilang.workers.dev | unclaimed | onchain-x402 | 2026-05-19
 surplusintelligence.ai | unclaimed | onchain-x402 | 2026-05-19
 the402.tateprograms.com | verified | onchain-x402 | 2026-05-19
 wolframalpha.x402.paysponge.com | unclaimed | onchain-x402 | 2026-05-19
@@ -3579,7 +3579,7 @@ thelatentlounge.com | unclaimed | onchain-x402 | 2026-06-15
 x402-production-4a3a.up.railway.app | unclaimed | onchain-x402 | 2026-06-15
 agent-ready.dev | unclaimed | onchain-x402 | 2026-06-16
 api.invoket.com | unclaimed | onchain-x402 | 2026-06-16
-api.jarvisclaw.ai | unclaimed | onchain-x402 | 2026-06-16
+api.jarvisclaw.ai | verified | onchain-x402 | 2026-06-16
 crypto.apitoll.cloud | unclaimed | onchain-x402 | 2026-06-16
 kat.imgnai.com | unclaimed | onchain-x402 | 2026-06-16
 pagediff-api.hahavoid0.workers.dev | verified | onchain-x402 | 2026-06-16
@@ -4661,3 +4661,50 @@ williams-midnight-speak-somewhat.trycloudflare.com | unclaimed | onchain-x402 | 
 x402-key.558686.xyz | unclaimed | onchain-x402 | 2026-07-04
 x402.cheetahsecurity.de | unclaimed | onchain-x402 | 2026-07-04
 x402.openwebninja.com | unclaimed | onchain-x402 | 2026-07-04
+402timezones.vercel.app | unclaimed | onchain-x402 | 2026-07-05
+402utils.com | unclaimed | onchain-x402 | 2026-07-05
+5.75.142.199.sslip.io | unclaimed | onchain-x402 | 2026-07-05
+agent-data-hub-thebrandbard.replit.app | unclaimed | onchain-x402 | 2026-07-05
+agent-data-toolkit.onrender.com | unclaimed | onchain-x402 | 2026-07-05
+airdrop-checker.api.klymax402.com | unclaimed | onchain-x402 | 2026-07-05
+api-dev.cueframe.ai | unclaimed | onchain-x402 | 2026-07-05
+api.brokenkeyremapper.xyz | unclaimed | onchain-x402 | 2026-07-05
+api.omninexu.com | unclaimed | onchain-x402 | 2026-07-05
+api.stelardigital.com | unclaimed | onchain-x402 | 2026-07-05
+api.vevang.com | unclaimed | onchain-x402 | 2026-07-05
+app.axonos.io | unclaimed | onchain-x402 | 2026-07-05
+app.capacitr.xyz | unclaimed | onchain-x402 | 2026-07-05
+brasil-dados-api.onrender.com | unclaimed | onchain-x402 | 2026-07-05
+brdata.thomenz.me | unclaimed | onchain-x402 | 2026-07-05
+bridge-routes.api.klymax402.com | unclaimed | onchain-x402 | 2026-07-05
+data.japanagent.dev | unclaimed | onchain-x402 | 2026-07-05
+defi-yields.api.klymax402.com | unclaimed | onchain-x402 | 2026-07-05
+deliver.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-05
+domain-intelligence.api.klymax402.com | unclaimed | onchain-x402 | 2026-07-05
+email-auth.use.x402atlas.com | unclaimed | onchain-x402 | 2026-07-05
+email-deliverability.api.klymax402.com | unclaimed | onchain-x402 | 2026-07-05
+email-finder.api.klymax402.com | unclaimed | onchain-x402 | 2026-07-05
+funding-rates.api.klymax402.com | unclaimed | onchain-x402 | 2026-07-05
+gdelt.use.x402atlas.com | unclaimed | onchain-x402 | 2026-07-05
+gdpr-scanner.api.klymax402.com | unclaimed | onchain-x402 | 2026-07-05
+glowpulse-nine.vercel.app | verified | onchain-x402 | 2026-07-05
+headers.use.x402atlas.com | unclaimed | onchain-x402 | 2026-07-05
+hyperliquid-data.api.klymax402.com | unclaimed | onchain-x402 | 2026-07-05
+keyword-research.api.klymax402.com | unclaimed | onchain-x402 | 2026-07-05
+kronos-x402.vercel.app | unclaimed | onchain-x402 | 2026-07-05
+llmops-search.fly.dev | unclaimed | onchain-l402 | 2026-07-05
+mailcheck.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-05
+nad.payflowagent.net | unclaimed | onchain-x402 | 2026-07-05
+nft-floor.api.klymax402.com | unclaimed | onchain-x402 | 2026-07-05
+onchain.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-05
+orderbook-depth.api.klymax402.com | unclaimed | onchain-x402 | 2026-07-05
+perpsignals.use.x402atlas.com | unclaimed | onchain-x402 | 2026-07-05
+person-enrichment.api.klymax402.com | unclaimed | onchain-x402 | 2026-07-05
+receiptstamp.panmediatech.workers.dev | unclaimed | onchain-x402 | 2026-07-05
+scentpulse-xi.vercel.app | verified | onchain-x402 | 2026-07-05
+shopifyagentdata.com | unclaimed | onchain-x402 | 2026-07-05
+solana.gateway.orbfi.xyz | unclaimed | onchain-x402 | 2026-07-05
+supplier-risk-api-production.up.railway.app | unclaimed | onchain-x402 | 2026-07-05
+tablepulse.vercel.app | verified | onchain-x402 | 2026-07-05
+translate.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-05
+verify.smartflowproai.com | unclaimed | onchain-x402 | 2026-07-05
