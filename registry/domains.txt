@@ -4727,4 +4727,4 @@ token-intel-api.flreey.workers.dev | unclaimed | onchain-x402 | 2026-07-06
 vaaya.ai | unclaimed | onchain-x402 | 2026-07-06
 wallet-intel-phi.vercel.app | unclaimed | onchain-x402 | 2026-07-06
 x402-solana-cva8.onrender.com | unclaimed | onchain-x402 | 2026-07-06
-x402.wallace.us | unclaimed | onchain-x402 | 2026-07-06
+x402.wallace.us | unclaimed | onchain-x402 | 2026-07-06jmt-x402-proxy.jmthomasofficial.workers.dev | verified | self | 2026-07-06
