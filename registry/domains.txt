@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 4705
+# Total domains: 4725
 # Total endpoints: 14919
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -3125,7 +3125,7 @@ codex-local-growth-production.up.railway.app | unclaimed | onchain-x402 | 2026-0
 dmarc-lookup.underscoredone.com | unclaimed | onchain-x402 | 2026-06-04
 endorsement-inside-genetic-guidance.trycloudflare.com | unclaimed | onchain-x402 | 2026-06-04
 hibra.app | unclaimed | onchain-x402 | 2026-06-04
-intel.twzrd.xyz | unclaimed | onchain-x402 | 2026-06-04
+intel.twzrd.xyz | verified | onchain-x402 | 2026-06-04
 madeonsol.com | unclaimed | onchain-x402 | 2026-06-04
 mercury-x402-jed.fly.dev | verified | onchain-x402 | 2026-06-04
 nectarpay.crypto-dreamr.com | unclaimed | onchain-x402 | 2026-06-04
@@ -3321,7 +3321,7 @@ gpt55.558686.xyz | verified | onchain-x402 | 2026-06-09
 grantpulse-three.vercel.app | verified | onchain-x402 | 2026-06-09
 grid.lonestaroracle.xyz | unclaimed | onchain-x402 | 2026-06-09
 gridpulse-amber.vercel.app | verified | onchain-x402 | 2026-06-09
-harvestpulse.vercel.app | unclaimed | onchain-x402 | 2026-06-09
+harvestpulse.vercel.app | verified | onchain-x402 | 2026-06-09
 hash-generator.api.klymax402.com | unclaimed | onchain-x402 | 2026-06-09
 hl-portfolio.api.klymax402.com | unclaimed | onchain-x402 | 2026-06-09
 hl-spot.api.klymax402.com | unclaimed | onchain-x402 | 2026-06-09
@@ -3560,7 +3560,7 @@ store.agentexchange.work | verified | onchain-x402 | 2026-06-13
 uristocrat.com | unclaimed | onchain-x402 | 2026-06-13
 x402-earner.vercel.app | unclaimed | onchain-x402 | 2026-06-13
 api.cardhedger.com | unclaimed | onchain-x402 | 2026-06-14
-api.ingest0r.com | unclaimed | onchain-x402 | 2026-06-14
+api.ingest0r.com | verified | onchain-x402 | 2026-06-14
 api.serpang.xyz | unclaimed | onchain-x402 | 2026-06-14
 api.x402oracle.com | unclaimed | onchain-x402 | 2026-06-14
 carlotta-prealtar-undaintily.ngrok-free.dev | unclaimed | onchain-x402 | 2026-06-14
@@ -4654,7 +4654,7 @@ protocol-health-oracle-production.up.railway.app | unclaimed | onchain-x402 | 20
 pulse.theaslangroupllc.com | unclaimed | onchain-x402 | 2026-07-04
 sendquotenow.com | unclaimed | onchain-x402 | 2026-07-04
 signalpulse.theaslangroupllc.com | unclaimed | onchain-x402 | 2026-07-04
-token-intel-x402.echolonius.deno.net | unclaimed | onchain-x402 | 2026-07-04
+token-intel-x402.echolonius.deno.net | verified | onchain-x402 | 2026-07-04
 unlockpressure.pricepilot402-arya.workers.dev | unclaimed | onchain-x402 | 2026-07-04
 upgradeguard.pricepilot402-arya.workers.dev | unclaimed | onchain-x402 | 2026-07-04
 williams-midnight-speak-somewhat.trycloudflare.com | unclaimed | onchain-x402 | 2026-07-04
@@ -4708,3 +4708,23 @@ supplier-risk-api-production.up.railway.app | unclaimed | onchain-x402 | 2026-07
 tablepulse.vercel.app | verified | onchain-x402 | 2026-07-05
 translate.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-05
 verify.smartflowproai.com | unclaimed | onchain-x402 | 2026-07-05
+aegis.borisinc.com | unclaimed | onchain-x402 | 2026-07-06
+agent.gexlog.com | unclaimed | onchain-x402 | 2026-07-06
+api.agmsg.world | unclaimed | onchain-x402 | 2026-07-06
+api.borisinc.com | verified | onchain-x402 | 2026-07-06
+api.foursec.xyz | unclaimed | onchain-x402 | 2026-07-06
+api.veritylayer.dev | unclaimed | onchain-x402 | 2026-07-06
+authority-verify.zctechnologies.org | unclaimed | onchain-x402 | 2026-07-06
+citepulse.theaslangroupllc.com | verified | onchain-x402 | 2026-07-06
+edgar-verify.zctechnologies.org | unclaimed | onchain-x402 | 2026-07-06
+forge.parabellum.tech | unclaimed | onchain-x402 | 2026-07-06
+gentech-x402-gateway.jordanjones0902.workers.dev | verified | onchain-x402 | 2026-07-06
+latam-datos-api.onrender.com | unclaimed | onchain-x402 | 2026-07-06
+soldefi.thomenz.me | unclaimed | onchain-x402 | 2026-07-06
+stablecoinpulse.theaslangroupllc.com | verified | onchain-x402 | 2026-07-06
+suite.veritylayer.dev | unclaimed | onchain-x402 | 2026-07-06
+token-intel-api.flreey.workers.dev | unclaimed | onchain-x402 | 2026-07-06
+vaaya.ai | unclaimed | onchain-x402 | 2026-07-06
+wallet-intel-phi.vercel.app | unclaimed | onchain-x402 | 2026-07-06
+x402-solana-cva8.onrender.com | unclaimed | onchain-x402 | 2026-07-06
+x402.wallace.us | unclaimed | onchain-x402 | 2026-07-06
