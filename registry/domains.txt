@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 4725
+# Total domains: 4744
 # Total endpoints: 14919
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -4728,3 +4728,22 @@ vaaya.ai | unclaimed | onchain-x402 | 2026-07-06
 wallet-intel-phi.vercel.app | unclaimed | onchain-x402 | 2026-07-06
 x402-solana-cva8.onrender.com | unclaimed | onchain-x402 | 2026-07-06
 x402.wallace.us | unclaimed | onchain-x402 | 2026-07-06
+agdata.shveik.dev | unclaimed | onchain-x402 | 2026-07-07
+api.forum-labs.com | unclaimed | onchain-x402 | 2026-07-07
+api.vetpulse.theaslangroupllc.com | verified | onchain-x402 | 2026-07-07
+bizintel-api.hahavoid0.workers.dev | verified | onchain-x402 | 2026-07-07
+codepulse-api.hahavoid0.workers.dev | verified | onchain-x402 | 2026-07-07
+defidata.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-07
+docforge-selim.duckdns.org | unclaimed | onchain-x402 | 2026-07-07
+doi-verify.zctechnologies.org | unclaimed | onchain-x402 | 2026-07-07
+hermes-storefront.onrender.com | unclaimed | onchain-x402 | 2026-07-07
+jp-data-api-production.up.railway.app | unclaimed | onchain-x402 | 2026-07-07
+mem.borisinc.com | unclaimed | onchain-x402 | 2026-07-07
+midax402.com | verified | onchain-x402 | 2026-07-07
+mtasts.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-07
+nuza.io | unclaimed | onchain-x402 | 2026-07-07
+prediction-intel-tan.vercel.app | unclaimed | onchain-x402 | 2026-07-07
+quartermaster.surewhynot.app | unclaimed | onchain-x402 | 2026-07-07
+venture-mpp.vercel.app | verified | onchain-mpp | 2026-07-07
+x402-research-api-seven.vercel.app | verified | onchain-x402 | 2026-07-07
+x402.nobodytools.com | unclaimed | onchain-x402 | 2026-07-07
