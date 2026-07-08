@@ -1,7 +1,7 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 4744
-# Total endpoints: 14919
+# Total domains: 4786
+# Total endpoints: 14933
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
 x402scan.com | unclaimed | 402index | 2026-03-23
@@ -4747,3 +4747,45 @@ quartermaster.surewhynot.app | unclaimed | onchain-x402 | 2026-07-07
 venture-mpp.vercel.app | verified | onchain-mpp | 2026-07-07
 x402-research-api-seven.vercel.app | verified | onchain-x402 | 2026-07-07
 x402.nobodytools.com | unclaimed | onchain-x402 | 2026-07-07
+agentcard.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-08
+agentworld.me | verified | onchain-x402 | 2026-07-08
+amlscreen.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-08
+api.100levelup.com | unclaimed | onchain-x402 | 2026-07-08
+api.agenticdata.host | unclaimed | onchain-x402 | 2026-07-08
+api.isocast.dev | unclaimed | onchain-x402 | 2026-07-08
+api.vindexapi.dev | unclaimed | onchain-x402 | 2026-07-08
+bridgerisk.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-08
+businessrisk.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-08
+capacitr.xyz | unclaimed | onchain-x402 | 2026-07-08
+careerpulse.theaslangroupllc.com | verified | onchain-x402 | 2026-07-08
+clearcarepulse.theaslangroupllc.com | verified | onchain-x402 | 2026-07-08
+clonecho.builda.company | unclaimed | onchain-x402 | 2026-07-08
+dealpulse.theaslangroupllc.com | verified | onchain-x402 | 2026-07-08
+detector-parks-sacrifice-step.trycloudflare.com | unclaimed | onchain-x402 | 2026-07-08
+dnsdomain.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-08
+extract.vevang.com | unclaimed | onchain-x402 | 2026-07-08
+faceless-api.faceless-api.workers.dev | unclaimed | onchain-x402 | 2026-07-08
+filingspulse.theaslangroupllc.com | verified | onchain-x402 | 2026-07-08
+gasoracle.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-08
+gateway.stride20k.com | unclaimed | onchain-x402 | 2026-07-08
+genesis.vevang.com | unclaimed | onchain-x402 | 2026-07-08
+govfiles-api-git-mason-router-update-merit-systems.vercel.app | unclaimed | onchain-x402 | 2026-07-08
+grantpulse.theaslangroupllc.com | verified | onchain-x402 | 2026-07-08
+indie-pricing-deltas.bloom-basil.workers.dev | unclaimed | onchain-x402 | 2026-07-08
+leetspeak-translator.underscoredone.com | unclaimed | onchain-x402 | 2026-07-08
+mcpscan.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-08
+mcpswap-x402.kdlcfa.workers.dev | unclaimed | onchain-x402 | 2026-07-08
+patois.yard-news.xyz | unclaimed | onchain-l402 | 2026-07-08
+planets.agentexchange.work | verified | onchain-x402 | 2026-07-08
+port66.xyz | unclaimed | onchain-x402 | 2026-07-08
+remoteok-skill-heatmap.bloom-basil.workers.dev | unclaimed | onchain-x402 | 2026-07-08
+sales-intel-api-production-c525.up.railway.app | unclaimed | onchain-x402 | 2026-07-08
+tokenrisk.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-08
+twitter.payweave.services | unclaimed | onchain-x402 | 2026-07-08
+verifier.vevang.com | unclaimed | onchain-x402 | 2026-07-08
+visibility.vevang.com | unclaimed | onchain-x402 | 2026-07-08
+walletrep.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-08
+x402-json-repair.husquatch.workers.dev | unclaimed | onchain-x402 | 2026-07-08
+x402-local.husquatch.workers.dev | unclaimed | onchain-x402 | 2026-07-08
+x402-portdwell.nobodytools.com | unclaimed | onchain-x402 | 2026-07-08
+x402.fablerlabs.com | unclaimed | onchain-x402 | 2026-07-08
