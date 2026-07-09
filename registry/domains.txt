@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 4786
+# Total domains: 4825
 # Total endpoints: 14933
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -116,7 +116,7 @@ mapbox.mpp.paywithlocus.com | unclaimed | 402index | 2026-03-23
 marketing.apitoai.xyz | unclaimed | 402index | 2026-03-23
 domain.hugen.tokyo | unclaimed | 402index | 2026-03-23
 epsteinisland.club | unclaimed | 402index | 2026-03-23
-x402.eruditepay.com| verified |402index|2026-03-23
+x402.eruditepay.com | unclaimed | 402index | 2026-03-23
 l402apps.com | unclaimed | 402index | 2026-03-23
 x402factory.ai | unclaimed | 402index | 2026-03-23
 brandontan.app | unclaimed | 402index | 2026-03-23
@@ -2285,7 +2285,7 @@ ca3b1476dc28f4.lhr.life | unclaimed | onchain-l402 | 2026-03-29
 d7c48175b848df.lhr.life | unclaimed | onchain-l402 | 2026-03-29
 e67f2b513f5224.lhr.life | unclaimed | onchain-l402 | 2026-03-29
 sentinel-awms.onrender.com | unclaimed | onchain-x402 | 2026-03-29
-services.eruditepay.com | verified | onchain-x402 | 2026-03-29
+services.eruditepay.com | unclaimed | onchain-x402 | 2026-03-29
 stablemesh.dev | unclaimed | onchain-x402 | 2026-03-29
 useahoy.app | unclaimed | onchain-x402 | 2026-03-29
 api.shoal.xyz | unclaimed | onchain-x402 | 2026-03-30
@@ -2970,7 +2970,7 @@ trust402.aztecbeacon.uk | unclaimed | onchain-x402 | 2026-05-21
 x402-resource-scanner.vercel.app | unclaimed | onchain-x402 | 2026-05-21
 x402joker.com | unclaimed | onchain-x402 | 2026-05-21
 agent-tools.cloud | verified | onchain-x402 | 2026-05-22
-api.memoryapi.org | verified | onchain-x402 | 2026-05-22
+api.memoryapi.org | unclaimed | onchain-x402 | 2026-05-22
 api.northeastdealintel.com | unclaimed | onchain-x402 | 2026-05-22
 api.vibe.airforce | unclaimed | onchain-x402 | 2026-05-22
 api.vishwalab.com | unclaimed | onchain-x402 | 2026-05-22
@@ -4426,7 +4426,7 @@ f19f42e8a99e4e.lhr.life | unclaimed | onchain-x402 | 2026-06-29
 f883afc035ba75.lhr.life | unclaimed | onchain-x402 | 2026-06-29
 fa457c6d824eae.lhr.life | unclaimed | onchain-x402 | 2026-06-29
 fbde4d3691e21b.lhr.life | unclaimed | onchain-x402 | 2026-06-29
-find-my-json.com | unclaimed | onchain-x402 | 2026-06-29
+find-my-json.com | verified | onchain-x402 | 2026-06-29
 flagship-compliance.onrender.com | unclaimed | onchain-x402 | 2026-06-29
 flagship-infra-monitor.onrender.com | unclaimed | onchain-x402 | 2026-06-29
 flagship-law.onrender.com | unclaimed | onchain-x402 | 2026-06-29
@@ -4708,7 +4708,7 @@ supplier-risk-api-production.up.railway.app | unclaimed | onchain-x402 | 2026-07
 tablepulse.vercel.app | verified | onchain-x402 | 2026-07-05
 translate.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-05
 verify.smartflowproai.com | unclaimed | onchain-x402 | 2026-07-05
-aegis.borisinc.com | unclaimed | onchain-x402 | 2026-07-06
+aegis.borisinc.com | verified | onchain-x402 | 2026-07-06
 agent.gexlog.com | unclaimed | onchain-x402 | 2026-07-06
 api.agmsg.world | unclaimed | onchain-x402 | 2026-07-06
 api.borisinc.com | verified | onchain-x402 | 2026-07-06
@@ -4736,7 +4736,7 @@ codepulse-api.hahavoid0.workers.dev | verified | onchain-x402 | 2026-07-07
 defidata.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-07
 docforge-selim.duckdns.org | unclaimed | onchain-x402 | 2026-07-07
 doi-verify.zctechnologies.org | unclaimed | onchain-x402 | 2026-07-07
-hermes-storefront.onrender.com | unclaimed | onchain-x402 | 2026-07-07
+hermes-storefront.onrender.com | verified | onchain-x402 | 2026-07-07
 jp-data-api-production.up.railway.app | unclaimed | onchain-x402 | 2026-07-07
 mem.borisinc.com | unclaimed | onchain-x402 | 2026-07-07
 midax402.com | verified | onchain-x402 | 2026-07-07
@@ -4789,3 +4789,42 @@ x402-json-repair.husquatch.workers.dev | unclaimed | onchain-x402 | 2026-07-08
 x402-local.husquatch.workers.dev | unclaimed | onchain-x402 | 2026-07-08
 x402-portdwell.nobodytools.com | unclaimed | onchain-x402 | 2026-07-08
 x402.fablerlabs.com | unclaimed | onchain-x402 | 2026-07-08
+agentservices.to | unclaimed | onchain-x402 | 2026-07-09
+api.cudaso.com | unclaimed | onchain-x402 | 2026-07-09
+api.inboxpolicy.com | unclaimed | onchain-x402 | 2026-07-09
+api.relaystation.ai | unclaimed | onchain-x402 | 2026-07-09
+app.suedeai.ai | verified | onchain-x402 | 2026-07-09
+biccheck.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-09
+calscu.vercel.app | unclaimed | onchain-x402 | 2026-07-09
+contractwatch.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-09
+cryptonews.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-09
+defiverdict.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-09
+ibancheck.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-09
+ics.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-09
+joshhorneman.com | unclaimed | onchain-x402 | 2026-07-09
+journalize.dev | unclaimed | onchain-x402 | 2026-07-09
+liqrisk.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-09
+mevdetector.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-09
+music.x402.press | unclaimed | onchain-x402 | 2026-07-09
+perps.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-09
+presign.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-09
+quickpoll.x402.press | unclaimed | onchain-x402 | 2026-07-09
+relay402.georgespring.workers.dev | unclaimed | onchain-x402 | 2026-07-09
+routingcheck.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-09
+rpc-balance.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-09
+rpc-code.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-09
+rpc-contract.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-09
+rpc-ens.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-09
+rpc-erc20-balance.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-09
+rpc-network.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-09
+rpc-nonce.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-09
+rpc-proxy.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-09
+rpc-receipt.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-09
+rpc-tx.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-09
+space.x402.press | unclaimed | onchain-x402 | 2026-07-09
+tenjin.blog | unclaimed | onchain-x402 | 2026-07-09
+txintent.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-09
+weather.x402.press | unclaimed | onchain-x402 | 2026-07-09
+websearch.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-09
+x402-data-api.sigrunner.workers.dev | unclaimed | onchain-x402 | 2026-07-09
+x402meta.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-09
