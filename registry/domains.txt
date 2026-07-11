@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 4914
+# Total domains: 4959
 # Total endpoints: 14933
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -4750,7 +4750,7 @@ x402.nobodytools.com | unclaimed | onchain-x402 | 2026-07-07
 agentcard.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-08
 agentworld.me | verified | onchain-x402 | 2026-07-08
 amlscreen.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-08
-api.100levelup.com | unclaimed | onchain-x402 | 2026-07-08
+api.100levelup.com | verified | onchain-x402 | 2026-07-08
 api.agenticdata.host | unclaimed | onchain-x402 | 2026-07-08
 api.isocast.dev | unclaimed | onchain-x402 | 2026-07-08
 api.vindexapi.dev | unclaimed | onchain-x402 | 2026-07-08
@@ -4917,3 +4917,48 @@ waterpulse.theaslangroupllc.com | verified | onchain-x402 | 2026-07-10
 wealthpulse.theaslangroupllc.com | verified | onchain-x402 | 2026-07-10
 x402api.ivanskolic-creator.deno.net | unclaimed | onchain-x402 | 2026-07-10
 xinkx402.netlify.app | unclaimed | onchain-x402 | 2026-07-10
+address-risk.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-11
+api.nativebtc.org | unclaimed | onchain-x402 | 2026-07-11
+api.robinx.io | unclaimed | onchain-x402 | 2026-07-11
+api.vswarm.io | unclaimed | onchain-x402 | 2026-07-11
+arbiter.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-11
+asistent-crypto.vercel.app | verified | onchain-x402 | 2026-07-11
+base-block-metrics.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-11
+binance-ticker24.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-11
+crypto-trending.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-11
+cryptodd.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-11
+dayze.com | unclaimed | onchain-x402 | 2026-07-11
+deep-report-gilt.vercel.app | unclaimed | onchain-x402 | 2026-07-11
+dex-pair-price.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-11
+enrich-gate.vercel.app | unclaimed | onchain-x402 | 2026-07-11
+eucomply.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-11
+fear-greed.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-11
+forex-latest.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-11
+funding-rates.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-11
+hawaii-conditions.vercel.app | unclaimed | onchain-x402 | 2026-07-11
+holidays.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-11
+intent402.dylan-caponi.workers.dev | unclaimed | onchain-x402 | 2026-07-11
+lei-lookup.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-11
+market-dominance.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-11
+mediaforge.mediaforge-hq.workers.dev | unclaimed | onchain-x402 | 2026-07-11
+minia2a.uk | verified | onchain-x402 | 2026-07-11
+nexttask.team | unclaimed | onchain-x402 | 2026-07-11
+notary.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-11
+ohlcv-candles.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-11
+orderbook-liquidity.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-11
+polymarket.fablerlabs.com | unclaimed | onchain-x402 | 2026-07-11
+prices.fablerlabs.com | unclaimed | onchain-x402 | 2026-07-11
+regfeed.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-11
+robinhood-launches.hustlerhigher.workers.dev | unclaimed | onchain-x402 | 2026-07-11
+safetyincidents.org | unclaimed | onchain-x402 | 2026-07-11
+sanctions-screening.xplowdiaka.workers.dev | unclaimed | onchain-x402 | 2026-07-11
+stablecoin-mcap.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-11
+stablecoin-peg.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-11
+stem.x402.press | unclaimed | onchain-x402 | 2026-07-11
+tollbooth.memerhuwhite.workers.dev | verified | onchain-x402 | 2026-07-11
+top-movers.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-11
+trust.zuluworksai.com | unclaimed | onchain-x402 | 2026-07-11
+tryskopos.xyz | unclaimed | onchain-x402 | 2026-07-11
+wiki-summary.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-11
+wikipedia.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-11
+x402-market-intel.fly.dev | unclaimed | onchain-x402 | 2026-07-11
