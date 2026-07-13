@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 5122
+# Total domains: 5150
 # Total endpoints: 14933
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -5125,3 +5125,31 @@ x402swag.com | unclaimed | onchain-x402 | 2026-07-12
 xmedia.use.x402atlas.com | unclaimed | onchain-x402 | 2026-07-12
 yahoo-equity-delayed-quote.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-12
 yahoo-index-quote.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-12
+a0nexus.com | unclaimed | onchain-x402 | 2026-07-13
+agent402.dev | unclaimed | onchain-x402 | 2026-07-13
+agentdataapi.onrender.com | unclaimed | onchain-x402 | 2026-07-13
+api.agentfund.online | unclaimed | onchain-x402 | 2026-07-13
+api.chiro-x402.org | unclaimed | onchain-x402 | 2026-07-13
+api.clervo.dev | unclaimed | onchain-x402 | 2026-07-13
+api.xenoeconomy.xyz | unclaimed | onchain-l402 | 2026-07-13
+atq6wtkp6k.execute-api.us-east-1.amazonaws.com | unclaimed | onchain-x402 | 2026-07-13
+b20check.com | unclaimed | onchain-x402 | 2026-07-13
+compliancepulse.theaslangroupllc.com | verified | onchain-x402 | 2026-07-13
+couples-among-contains-dimensions.trycloudflare.com | unclaimed | onchain-x402 | 2026-07-13
+cryptopulse.theaslangroupllc.com | verified | onchain-x402 | 2026-07-13
+data-market.alickzheng618.workers.dev | unclaimed | onchain-x402 | 2026-07-13
+doh-https-svcb-record.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-13
+halima-api.com | unclaimed | onchain-x402 | 2026-07-13
+kr-intel-agent-production.up.railway.app | unclaimed | onchain-x402 | 2026-07-13
+market-risk.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-13
+pixel402.dylan-caponi.workers.dev | unclaimed | onchain-x402 | 2026-07-13
+pm-markets.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-13
+prospectpulse.theaslangroupllc.com | verified | onchain-x402 | 2026-07-13
+sna4an-sosmed-v1.vercel.app | unclaimed | onchain-x402 | 2026-07-13
+solana-rpc.coffeeboy.cafe | unclaimed | onchain-x402 | 2026-07-13
+timezone-toolkit.agishub.com | unclaimed | onchain-x402 | 2026-07-13
+token-alpha.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-13
+whale-alert.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-13
+x402-farcaster-social-signal-production.up.railway.app | unclaimed | onchain-x402 | 2026-07-13
+x402-gateway.alickzheng618.workers.dev | unclaimed | onchain-x402 | 2026-07-13
+zaref.dev | verified | onchain-x402 | 2026-07-13
