@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 5150
+# Total domains: 5175
 # Total endpoints: 14933
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -3545,7 +3545,7 @@ walletwatch.deleonanalytics.com | unclaimed | onchain-x402 | 2026-06-12
 x402-payment-firewall.vercel.app | unclaimed | onchain-x402 | 2026-06-12
 x402-platform.deleonanalytics.com | unclaimed | onchain-x402 | 2026-06-12
 x402.payperbyte.io | verified | onchain-x402 | 2026-06-12
-x402.shizu.me | unclaimed | onchain-x402 | 2026-06-12
+x402.shizu.me | verified | onchain-x402 | 2026-06-12
 x402.strikerobot.ai | unclaimed | onchain-x402 | 2026-06-12
 api.swedata.org | unclaimed | onchain-x402 | 2026-06-13
 app.cyberdyne-os.xyz | unclaimed | onchain-x402 | 2026-06-13
@@ -5153,3 +5153,28 @@ whale-alert.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-13
 x402-farcaster-social-signal-production.up.railway.app | unclaimed | onchain-x402 | 2026-07-13
 x402-gateway.alickzheng618.workers.dev | unclaimed | onchain-x402 | 2026-07-13
 zaref.dev | verified | onchain-x402 | 2026-07-13
+aniccanomac-mini-1.tail7a0ba4.ts.net | unclaimed | onchain-x402 | 2026-07-14
+api.gitbeacon.dev | unclaimed | onchain-x402 | 2026-07-14
+api.loopxxi.com | unclaimed | onchain-l402 | 2026-07-14
+api.newsgurus.ai | unclaimed | onchain-x402 | 2026-07-14
+api.orcatrace.dev | unclaimed | onchain-x402 | 2026-07-14
+api.signalis.dev | unclaimed | onchain-x402 | 2026-07-14
+api.speercyberdefense.com | unclaimed | onchain-x402 | 2026-07-14
+aura-revenue.helionixlabs.com | unclaimed | onchain-x402 | 2026-07-14
+btest-ldxw.onrender.com | unclaimed | onchain-x402 | 2026-07-14
+carry-lens-api.netlify.app | unclaimed | onchain-x402 | 2026-07-14
+carry-lens-api.vercel.app | verified | onchain-x402 | 2026-07-14
+conch402.dylan-caponi.workers.dev | unclaimed | onchain-x402 | 2026-07-14
+iamrich402.dylan-caponi.workers.dev | unclaimed | onchain-x402 | 2026-07-14
+k2-agent-services.vercel.app | unclaimed | onchain-x402 | 2026-07-14
+kite-endpoints.vercel.app | unclaimed | onchain-x402 | 2026-07-14
+modelprices.xyz | unclaimed | onchain-x402 | 2026-07-14
+nwb-vending.com | unclaimed | onchain-x402 | 2026-07-14
+oracles-production.up.railway.app | unclaimed | onchain-x402 | 2026-07-14
+sat.ipintel.ai | unclaimed | onchain-x402 | 2026-07-14
+studio-x.cc | unclaimed | onchain-x402 | 2026-07-14
+swarmx.io | unclaimed | onchain-x402 | 2026-07-14
+wazir-x402.duckdns.org | unclaimed | onchain-x402 | 2026-07-14
+wintel.canopy.finance | unclaimed | onchain-x402 | 2026-07-14
+x402-datashop-production.up.railway.app | unclaimed | onchain-x402 | 2026-07-14
+x402.tzkt.io | unclaimed | onchain-x402 | 2026-07-14
