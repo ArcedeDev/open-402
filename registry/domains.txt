@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 5175
+# Total domains: 5203
 # Total endpoints: 14933
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -1181,7 +1181,7 @@ x402-api.owlook.top | unclaimed | onchain-x402 | 2026-03-23
 api.billyx402.fun | unclaimed | onchain-x402 | 2026-03-23
 cumbot-production.up.railway.app | verified | onchain-x402 | 2026-03-23
 x402for.fun | unclaimed | onchain-x402 | 2026-03-23
-xinfos-x402-backend-production.up.railway.app | verified | onchain-x402 | 2026-03-23
+xinfos-x402-backend-production.up.railway.app | unclaimed | onchain-x402 | 2026-03-23
 api.logos.readia.io | unclaimed | onchain-x402 | 2026-03-23
 tc-ai-premium.vercel.app | unclaimed | onchain-x402 | 2026-03-23
 jnd.x420.dev | unclaimed | onchain-x402 | 2026-03-23
@@ -1944,7 +1944,7 @@ api.hyperclaw.app | unclaimed | onchain-x402 | 2026-03-23
 vu.velvetdao.xyz | unclaimed | onchain-x402 | 2026-03-23
 minting-dream.vercel.app | unclaimed | onchain-x402 | 2026-03-23
 compute.aurracloud.com | unclaimed | onchain-x402 | 2026-03-23
-apolloai.team | verified | onchain-x402 | 2026-03-23
+apolloai.team | unclaimed | onchain-x402 | 2026-03-23
 test9999.x420.dev | unclaimed | onchain-x402 | 2026-03-23
 api.obol.sh | verified | onchain-x402 | 2026-03-23
 x402.api.netmind.ai | unclaimed | onchain-x402 | 2026-03-23
@@ -2420,7 +2420,7 @@ verify.x4api.com | unclaimed | onchain-x402 | 2026-04-11
 x402-biz-intel.fly.dev | unclaimed | onchain-x402 | 2026-04-11
 x402-domain-check.fly.dev | unclaimed | onchain-x402 | 2026-04-11
 x402-router.fly.dev | unclaimed | onchain-x402 | 2026-04-11
-agentdata-api.com | unclaimed | onchain-x402 | 2026-04-12
+agentdata-api.com | verified | onchain-x402 | 2026-04-12
 alphastream.deleonanalytics.com | unclaimed | onchain-x402 | 2026-04-12
 walletguard.scoopflashman.tech | unclaimed | onchain-x402 | 2026-04-12
 x402-openrouter.serveousercontent.com | unclaimed | onchain-x402 | 2026-04-12
@@ -5126,7 +5126,7 @@ xmedia.use.x402atlas.com | unclaimed | onchain-x402 | 2026-07-12
 yahoo-equity-delayed-quote.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-12
 yahoo-index-quote.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-12
 a0nexus.com | unclaimed | onchain-x402 | 2026-07-13
-agent402.dev | unclaimed | onchain-x402 | 2026-07-13
+agent402.dev | verified | onchain-x402 | 2026-07-13
 agentdataapi.onrender.com | unclaimed | onchain-x402 | 2026-07-13
 api.agentfund.online | unclaimed | onchain-x402 | 2026-07-13
 api.chiro-x402.org | unclaimed | onchain-x402 | 2026-07-13
@@ -5178,3 +5178,31 @@ wazir-x402.duckdns.org | unclaimed | onchain-x402 | 2026-07-14
 wintel.canopy.finance | unclaimed | onchain-x402 | 2026-07-14
 x402-datashop-production.up.railway.app | unclaimed | onchain-x402 | 2026-07-14
 x402.tzkt.io | unclaimed | onchain-x402 | 2026-07-14
+402coffee.com | unclaimed | onchain-x402 | 2026-07-15
+agentpump.app | unclaimed | onchain-x402 | 2026-07-15
+api.hilt.so | unclaimed | onchain-x402 | 2026-07-15
+api.immuta.app | unclaimed | onchain-x402 | 2026-07-15
+changes.homelending.online | unclaimed | onchain-x402 | 2026-07-15
+companies.alvento.uk | unclaimed | onchain-x402 | 2026-07-15
+crypto.forgemesh.io | unclaimed | onchain-x402 | 2026-07-15
+data.greeneris.io | unclaimed | onchain-x402 | 2026-07-15
+data.mito.trade | unclaimed | onchain-x402 | 2026-07-15
+deeptrawler.com | unclaimed | onchain-x402 | 2026-07-15
+diligence.x402supply.com | unclaimed | onchain-x402 | 2026-07-15
+entity-resolve.x402supply.com | unclaimed | onchain-x402 | 2026-07-15
+foodalerts.alvento.uk | unclaimed | onchain-x402 | 2026-07-15
+fortfiapp.com | unclaimed | onchain-x402 | 2026-07-15
+geopoliticalpulse.theaslangroupllc.com | verified | onchain-x402 | 2026-07-15
+hts-classify.x402supply.com | unclaimed | onchain-x402 | 2026-07-15
+kestrel.alvento.uk | unclaimed | onchain-x402 | 2026-07-15
+lobre.lat | unclaimed | onchain-x402 | 2026-07-15
+news.x402.press | unclaimed | onchain-x402 | 2026-07-15
+paysafe-agent.com | unclaimed | onchain-x402 | 2026-07-15
+pii-redact.x402supply.com | unclaimed | onchain-x402 | 2026-07-15
+sanctions.alvento.uk | unclaimed | onchain-x402 | 2026-07-15
+sia.alvento.uk | unclaimed | onchain-x402 | 2026-07-15
+signals.neilkpatel.com | unclaimed | onchain-x402 | 2026-07-15
+stabledetect.dev | unclaimed | onchain-x402 | 2026-07-15
+x402-insolvency.nobodytools.com | unclaimed | onchain-x402 | 2026-07-15
+x402-services-production.up.railway.app | unclaimed | onchain-x402 | 2026-07-15
+x402hub.duckdns.org | unclaimed | onchain-x402 | 2026-07-15
