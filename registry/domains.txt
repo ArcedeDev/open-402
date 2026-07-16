@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 5203
+# Total domains: 5234
 # Total endpoints: 14933
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -5206,3 +5206,34 @@ stabledetect.dev | unclaimed | onchain-x402 | 2026-07-15
 x402-insolvency.nobodytools.com | unclaimed | onchain-x402 | 2026-07-15
 x402-services-production.up.railway.app | unclaimed | onchain-x402 | 2026-07-15
 x402hub.duckdns.org | unclaimed | onchain-x402 | 2026-07-15
+afriref.dev | unclaimed | onchain-x402 | 2026-07-16
+agentprovisions.com | unclaimed | onchain-x402 | 2026-07-16
+api.ai.everything.inc | unclaimed | onchain-x402 | 2026-07-16
+api.boonprotocol.com | unclaimed | onchain-x402 | 2026-07-16
+api.brazilmcp.dev | unclaimed | onchain-x402 | 2026-07-16
+api.celtagrupo.com | unclaimed | onchain-x402 | 2026-07-16
+api.finnputerdex.com | unclaimed | onchain-x402 | 2026-07-16
+api.instahuman.com | unclaimed | onchain-x402 | 2026-07-16
+api.zatena.com | unclaimed | onchain-x402 | 2026-07-16
+coil.trade | unclaimed | onchain-x402 | 2026-07-16
+crucible.unitynodes.com | unclaimed | onchain-x402 | 2026-07-16
+dataforagents.net | unclaimed | onchain-x402 | 2026-07-16
+datasig.ai | unclaimed | onchain-x402 | 2026-07-16
+dispatch-x402.fly.dev | unclaimed | onchain-x402 | 2026-07-16
+dispute-forge-x402.fly.dev | unclaimed | onchain-x402 | 2026-07-16
+history.parklandarchives.com | unclaimed | onchain-x402 | 2026-07-16
+l402.space | unclaimed | onchain-x402 | 2026-07-16
+nanobanana-x402.fly.dev | unclaimed | onchain-x402 | 2026-07-16
+nolawealthfinancial.com | unclaimed | onchain-x402 | 2026-07-16
+ontarioprotocol.com | unclaimed | onchain-x402 | 2026-07-16
+power-pack-x402.fly.dev | unclaimed | onchain-x402 | 2026-07-16
+royal-ruby-x402.fly.dev | unclaimed | onchain-x402 | 2026-07-16
+sentry-forge-x402.fly.dev | unclaimed | onchain-x402 | 2026-07-16
+solknife.xyz | unclaimed | onchain-x402 | 2026-07-16
+suprapack-x402.fly.dev | unclaimed | onchain-x402 | 2026-07-16
+vault-pro-x402.fly.dev | unclaimed | onchain-x402 | 2026-07-16
+web-production-0590d.up.railway.app | unclaimed | onchain-x402 | 2026-07-16
+whatchuneed.vercel.app | unclaimed | onchain-x402 | 2026-07-16
+x402-defi-signals.onrender.com | unclaimed | onchain-x402 | 2026-07-16
+x402.forgemesh.io | unclaimed | onchain-x402 | 2026-07-16
+youraionramp.com | unclaimed | onchain-x402 | 2026-07-16
