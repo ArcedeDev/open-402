@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 5234
+# Total domains: 5268
 # Total endpoints: 14933
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -3209,7 +3209,7 @@ api.hyperd.ai | unclaimed | onchain-x402 | 2026-06-09
 api.jubjubapp.com | unclaimed | onchain-x402 | 2026-06-09
 api.lastlookdata.com | verified | onchain-x402 | 2026-06-09
 api.midas-ops.com | verified | onchain-x402 | 2026-06-09
-api.osf-master-server.com | unclaimed | onchain-x402 | 2026-06-09
+api.osf-master-server.com | verified | onchain-x402 | 2026-06-09
 api.perquants.com | unclaimed | onchain-x402 | 2026-06-09
 api.regressionincoming.fyi | unclaimed | onchain-x402 | 2026-06-09
 api.seerium.xyz | unclaimed | onchain-x402 | 2026-06-09
@@ -5237,3 +5237,37 @@ whatchuneed.vercel.app | unclaimed | onchain-x402 | 2026-07-16
 x402-defi-signals.onrender.com | unclaimed | onchain-x402 | 2026-07-16
 x402.forgemesh.io | unclaimed | onchain-x402 | 2026-07-16
 youraionramp.com | unclaimed | onchain-x402 | 2026-07-16
+46-224-133-179.sslip.io | unclaimed | onchain-x402 | 2026-07-17
+5-obol-agent.dvlabs.dev | unclaimed | onchain-x402 | 2026-07-17
+agentpass-protocol.rmalka06.chatgpt.site | unclaimed | onchain-x402 | 2026-07-17
+andrei-obol-agent.dvlabs.dev | unclaimed | onchain-x402 | 2026-07-17
+api.agenticweb.nl | verified | onchain-x402 | 2026-07-17
+api.foreverbetter.xyz | unclaimed | onchain-x402 | 2026-07-17
+api.pixo.tools | unclaimed | onchain-x402 | 2026-07-17
+basebrain-ai.vercel.app | unclaimed | onchain-x402 | 2026-07-17
+bincrease.vercel.app | unclaimed | onchain-x402 | 2026-07-17
+bittensorman.xyz | unclaimed | onchain-x402 | 2026-07-17
+cloud.hyrule.host | unclaimed | onchain-x402 | 2026-07-17
+cloudworldmodel.ai | unclaimed | onchain-x402 | 2026-07-17
+data.aptibuildai.com | unclaimed | onchain-x402 | 2026-07-17
+desktop-suts94d.tail0b188d.ts.net | unclaimed | onchain-x402 | 2026-07-17
+driftflight.pay.zeroclick.io | unclaimed | onchain-x402 | 2026-07-17
+geo-seo-forge.donneash.workers.dev | verified | onchain-x402 | 2026-07-17
+kalo-obol-agent.dvlabs.dev | unclaimed | onchain-x402 | 2026-07-17
+legalfournier.com | unclaimed | onchain-x402 | 2026-07-17
+mailpulse.theaslangroupllc.com | verified | onchain-x402 | 2026-07-17
+marketer-apis.venture-labs.workers.dev | unclaimed | onchain-x402 | 2026-07-17
+mcp.dev-match.xyz | verified | onchain-x402 | 2026-07-17
+mcp.runbot.io | unclaimed | onchain-x402 | 2026-07-17
+mortgage.homelending.online | unclaimed | onchain-x402 | 2026-07-17
+orchard-data.netlify.app | unclaimed | onchain-x402 | 2026-07-17
+orisha-data.com | unclaimed | onchain-x402 | 2026-07-17
+robintern.app | unclaimed | onchain-x402 | 2026-07-17
+solidus-x402.fly.dev | verified | onchain-x402 | 2026-07-17
+syar-memory-proxy.lorenzo-amirante98.workers.dev | unclaimed | onchain-x402 | 2026-07-17
+terms-risk-api.fly.dev | unclaimed | onchain-x402 | 2026-07-17
+thomas-obol-agent.dvlabs.dev | unclaimed | onchain-x402 | 2026-07-17
+toolcall.click | unclaimed | onchain-x402 | 2026-07-17
+toolsmith-api.dassad10.workers.dev | unclaimed | onchain-x402 | 2026-07-17
+verza.dev | verified | onchain-x402 | 2026-07-17
+yuki-opportunity-intel.happy-porter.workers.dev | unclaimed | onchain-x402 | 2026-07-17
