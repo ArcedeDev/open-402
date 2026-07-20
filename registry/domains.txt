@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 5357
+# Total domains: 5398
 # Total endpoints: 14933
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -4511,7 +4511,7 @@ negotiator402.alogos.xyz | unclaimed | onchain-x402 | 2026-06-30
 sgpropertydata.com | unclaimed | onchain-x402 | 2026-06-30
 sixpath.vercel.app | unclaimed | onchain-x402 | 2026-06-30
 sourcevane-security-production.up.railway.app | unclaimed | onchain-x402 | 2026-06-30
-touchstone.locomot.io | unclaimed | onchain-x402 | 2026-06-30
+touchstone.locomot.io | verified | onchain-x402 | 2026-06-30
 tts.forgemesh.io | unclaimed | onchain-x402 | 2026-06-30
 voice.forgemesh.io | unclaimed | onchain-x402 | 2026-06-30
 x402.167-172-95-184.nip.io | unclaimed | onchain-x402 | 2026-06-30
@@ -4540,7 +4540,7 @@ agent-egress-proxy.onrender.com | unclaimed | onchain-x402 | 2026-07-02
 agentpmt-webapp.vercel.app | unclaimed | onchain-x402 | 2026-07-02
 agi.apify.com | unclaimed | onchain-x402 | 2026-07-02
 ai-summarizer.api.klymax402.com | unclaimed | onchain-x402 | 2026-07-02
-almanac.locomot.io | unclaimed | onchain-x402 | 2026-07-02
+almanac.locomot.io | verified | onchain-x402 | 2026-07-02
 api.aidress.ai | verified | onchain-x402 | 2026-07-02
 api.tickorigin.com | unclaimed | onchain-x402 | 2026-07-02
 api.webbersites.com | unclaimed | onchain-x402 | 2026-07-02
@@ -5206,7 +5206,7 @@ stabledetect.dev | unclaimed | onchain-x402 | 2026-07-15
 x402-insolvency.nobodytools.com | unclaimed | onchain-x402 | 2026-07-15
 x402-services-production.up.railway.app | unclaimed | onchain-x402 | 2026-07-15
 x402hub.duckdns.org | unclaimed | onchain-x402 | 2026-07-15
-afriref.dev | unclaimed | onchain-x402 | 2026-07-16
+afriref.dev | verified | onchain-x402 | 2026-07-16
 agentprovisions.com | unclaimed | onchain-x402 | 2026-07-16
 api.ai.everything.inc | unclaimed | onchain-x402 | 2026-07-16
 api.boonprotocol.com | unclaimed | onchain-x402 | 2026-07-16
@@ -5360,3 +5360,44 @@ x402-seller-m8nx.onrender.com | verified | onchain-x402 | 2026-07-19
 x402-stall.onrender.com | unclaimed | onchain-x402 | 2026-07-19
 x402-url-evidence.vercel.app | unclaimed | onchain-x402 | 2026-07-19
 x402.thematrixofdestiny.com | unclaimed | onchain-x402 | 2026-07-19
+0c59432e863070.lhr.life | unclaimed | onchain-x402 | 2026-07-20
+1850-2402-a00-401-c723-a0d3-ee99-ef6a-84e.ngrok-free.app | unclaimed | onchain-x402 | 2026-07-20
+26978401516a70.lhr.life | unclaimed | onchain-x402 | 2026-07-20
+47-85-47-24.sslip.io | unclaimed | onchain-x402 | 2026-07-20
+5-9-107-124.nip.io | verified | onchain-x402 | 2026-07-20
+551f3d0f3597f3.lhr.life | unclaimed | onchain-x402 | 2026-07-20
+6218f44c6824ac.lhr.life | unclaimed | onchain-x402 | 2026-07-20
+832cb21dfff985.lhr.life | unclaimed | onchain-x402 | 2026-07-20
+9289afaa986b4e.lhr.life | unclaimed | onchain-x402 | 2026-07-20
+a83f43b3ca9463.lhr.life | unclaimed | onchain-x402 | 2026-07-20
+actionlayer.pay.zeroclick.io | unclaimed | onchain-x402 | 2026-07-20
+agent-data-api-ui1c.onrender.com | unclaimed | onchain-x402 | 2026-07-20
+apex-api-gamma.vercel.app | unclaimed | onchain-x402 | 2026-07-20
+api.agentfeeds.jp | unclaimed | onchain-x402 | 2026-07-20
+api.commandclaw.com | unclaimed | onchain-x402 | 2026-07-20
+api.santosautomation.com | unclaimed | onchain-x402 | 2026-07-20
+api.zaroniacalculator.co.za | verified | onchain-x402 | 2026-07-20
+b91f5cc1e30184.lhr.life | unclaimed | onchain-x402 | 2026-07-20
+brmarket.thomenz.me | unclaimed | onchain-x402 | 2026-07-20
+commandclaw.com | unclaimed | onchain-x402 | 2026-07-20
+concordancehq.duckdns.org | unclaimed | onchain-x402 | 2026-07-20
+decipherranker.com | unclaimed | onchain-x402 | 2026-07-20
+denpyo-api.hp-vladic.workers.dev | unclaimed | onchain-x402 | 2026-07-20
+diagramforge.slatespark.workers.dev | unclaimed | onchain-x402 | 2026-07-20
+franklin2.tail7a0ba4.ts.net | unclaimed | onchain-x402 | 2026-07-20
+latamref.dev | verified | onchain-x402 | 2026-07-20
+money-machine.tail2b56e2.ts.net | unclaimed | onchain-x402 | 2026-07-20
+nebulacomponents.shop | verified | onchain-x402 | 2026-07-20
+nexus-api-peach-nine.vercel.app | unclaimed | onchain-x402 | 2026-07-20
+prime-api-seven.vercel.app | unclaimed | onchain-x402 | 2026-07-20
+santosautomation.com | unclaimed | onchain-x402 | 2026-07-20
+sentinel-agent.dev | verified | onchain-x402 | 2026-07-20
+sftunes.com | unclaimed | onchain-x402 | 2026-07-20
+signx402.com | unclaimed | onchain-x402 | 2026-07-20
+strategysignals.duckdns.org | unclaimed | onchain-x402 | 2026-07-20
+thevaultreport.com | unclaimed | onchain-x402 | 2026-07-20
+trustfetch.duckdns.org | unclaimed | onchain-x402 | 2026-07-20
+x402-cf-worker.mulberry-boar.workers.dev | unclaimed | onchain-x402 | 2026-07-20
+x402-dossier.chrislawman2015.workers.dev | unclaimed | onchain-x402 | 2026-07-20
+x402-signature-service.onrender.com | unclaimed | onchain-x402 | 2026-07-20
+x402.dailyelo.com | unclaimed | onchain-x402 | 2026-07-20
