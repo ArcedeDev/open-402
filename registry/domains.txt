@@ -1,7 +1,7 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 5441
-# Total endpoints: 14933
+# Total domains: 5481
+# Total endpoints: 14934
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
 x402scan.com | unclaimed | 402index | 2026-03-23
@@ -3149,7 +3149,7 @@ theagentbillboard.com | unclaimed | onchain-x402 | 2026-06-05
 api.bitrefill.com | unclaimed | onchain-x402 | 2026-06-06
 api.ledgercore.io | unclaimed | onchain-x402 | 2026-06-06
 crestsystems.ai | verified | onchain-x402 | 2026-06-06
-eltociear-contract-guard.hf.space | unclaimed | onchain-x402 | 2026-06-06
+eltociear-contract-guard.hf.space | verified | onchain-x402 | 2026-06-06
 image.myceli.ai | unclaimed | onchain-x402 | 2026-06-06
 market2000.xyz | unclaimed | onchain-x402 | 2026-06-06
 peaceful-violation-push-economics.trycloudflare.com | unclaimed | onchain-l402 | 2026-06-06
@@ -3552,7 +3552,7 @@ app.cyberdyne-os.xyz | unclaimed | onchain-x402 | 2026-06-13
 ccc-studios.vercel.app | unclaimed | onchain-x402 | 2026-06-13
 ccc-tools-phi.vercel.app | unclaimed | onchain-x402 | 2026-06-13
 clawhunter.fun | unclaimed | onchain-x402 | 2026-06-13
-eltociear-tokenguard.hf.space | unclaimed | onchain-x402 | 2026-06-13
+eltociear-tokenguard.hf.space | verified | onchain-x402 | 2026-06-13
 neurofi-chi.vercel.app | unclaimed | onchain-x402 | 2026-06-13
 onchaininja.vercel.app | unclaimed | onchain-x402 | 2026-06-13
 stable-shovels.dev | unclaimed | onchain-x402 | 2026-06-13
@@ -5444,3 +5444,43 @@ usaref.dev | verified | onchain-x402 | 2026-07-21
 virtualsms.io | unclaimed | onchain-x402 | 2026-07-21
 x402-api-production-266e.up.railway.app | unclaimed | onchain-x402 | 2026-07-21
 x402.tanship.dev | unclaimed | onchain-x402 | 2026-07-21
+1256706ccc3a38.lhr.life | unclaimed | onchain-x402 | 2026-07-22
+agent-pantry.agentfetcher.workers.dev | unclaimed | onchain-x402 | 2026-07-22
+agentkit-x402-buy.vercel.app | unclaimed | onchain-x402 | 2026-07-22
+agents.actionlayer.io | unclaimed | onchain-x402 | 2026-07-22
+agents.oromi.co.uk | unclaimed | onchain-x402 | 2026-07-22
+api.posttosource.com | unclaimed | onchain-x402 | 2026-07-22
+app.wellnizz.com | unclaimed | onchain-x402 | 2026-07-22
+autonomy-api-network.onrender.com | unclaimed | onchain-x402 | 2026-07-22
+b0x402-data.mulberry-boar.workers.dev | unclaimed | onchain-x402 | 2026-07-22
+capitol.lonestaroracle.xyz | unclaimed | onchain-x402 | 2026-07-22
+compounder-market-api.vercel.app | unclaimed | onchain-x402 | 2026-07-22
+crypto-sentiment-api-production-0ff4.up.railway.app | unclaimed | onchain-x402 | 2026-07-22
+dataenrichmentapi.dev | unclaimed | onchain-x402 | 2026-07-22
+docparse-x402.f3rnandonhan.workers.dev | unclaimed | onchain-x402 | 2026-07-22
+friday-seller-tools-production.up.railway.app | unclaimed | onchain-x402 | 2026-07-22
+fullenrich.agentscore.com | unclaimed | onchain-x402 | 2026-07-22
+guard.46-225-25-237.sslip.io | unclaimed | onchain-x402 | 2026-07-22
+guard.safepay402.com | unclaimed | onchain-x402 | 2026-07-22
+incomeforeveryone.org | unclaimed | onchain-x402 | 2026-07-22
+macbook-pro.tail62219a.ts.net | unclaimed | onchain-x402 | 2026-07-22
+method.parklandarchives.com | unclaimed | onchain-x402 | 2026-07-22
+oromi-agent-services.onrender.com | unclaimed | onchain-x402 | 2026-07-22
+pdf-api-production-cf1e.up.railway.app | unclaimed | onchain-x402 | 2026-07-22
+preflight.lorensaisolutions.com | verified | onchain-x402 | 2026-07-22
+seth-money-hrachya.zocomputer.io | unclaimed | onchain-x402 | 2026-07-22
+smarty-money.vercel.app | unclaimed | onchain-x402 | 2026-07-22
+tools.miniframe.com.br | unclaimed | onchain-x402 | 2026-07-22
+usdc-screenshot-api-production.up.railway.app | unclaimed | onchain-x402 | 2026-07-22
+vealth.net | unclaimed | onchain-x402 | 2026-07-22
+vibes-coded-production.up.railway.app | unclaimed | onchain-x402 | 2026-07-22
+website-evidence-pack.blissful.chatgpt.site | unclaimed | onchain-x402 | 2026-07-22
+x402-api-production-5133.up.railway.app | unclaimed | onchain-x402 | 2026-07-22
+x402-conversion-api-production.up.railway.app | unclaimed | onchain-x402 | 2026-07-22
+x402-discovery.nishvault.com | unclaimed | onchain-x402 | 2026-07-22
+x402-email-api-production.up.railway.app | unclaimed | onchain-x402 | 2026-07-22
+x402-farm.vercel.app | unclaimed | onchain-x402 | 2026-07-22
+x402-scraping-api-production.up.railway.app | unclaimed | onchain-x402 | 2026-07-22
+x402-search-api-production.up.railway.app | unclaimed | onchain-x402 | 2026-07-22
+x402-stock-indicators.vercel.app | unclaimed | onchain-x402 | 2026-07-22
+x402.evidencesupply.com | unclaimed | onchain-x402 | 2026-07-22
