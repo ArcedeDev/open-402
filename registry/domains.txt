@@ -1,7 +1,7 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 5696
-# Total endpoints: 14934
+# Total domains: 5722
+# Total endpoints: 14935
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
 x402scan.com | unclaimed | 402index | 2026-03-23
@@ -2613,7 +2613,7 @@ signalsfeed.com | verified | onchain-x402 | 2026-04-20
 sippar.network | unclaimed | onchain-x402 | 2026-04-20
 weather-data-api.kasanegi123.workers.dev | unclaimed | onchain-x402 | 2026-04-20
 3000-c905553a9700f51123f091260a9b8400.life.conway.tech | unclaimed | onchain-x402 | 2026-04-21
-agent-research-brief-api-production.up.railway.app | verified | onchain-x402 | 2026-04-21
+agent-research-brief-api-production.up.railway.app | unclaimed | onchain-x402 | 2026-04-21
 agentapis.top | unclaimed | onchain-x402 | 2026-04-21
 api.molty.cash | unclaimed | onchain-x402 | 2026-04-21
 edgar-x402.vercel.app | unclaimed | onchain-x402 | 2026-04-21
@@ -3367,7 +3367,7 @@ nba-odds-gap.relayhop.workers.dev | verified | onchain-x402 | 2026-06-09
 news.lonestaroracle.xyz | unclaimed | onchain-x402 | 2026-06-09
 nostrpulse.xyz | unclaimed | onchain-x402 | 2026-06-09
 nutripulse-alpha.vercel.app | verified | onchain-x402 | 2026-06-09
-ofacs-test-ene3pdnjwq-uc.a.run.app | verified | onchain-x402 | 2026-06-09
+ofacs-test-ene3pdnjwq-uc.a.run.app | unclaimed | onchain-x402 | 2026-06-09
 onchainpulse-nine.vercel.app | verified | onchain-x402 | 2026-06-09
 openwebninja-x402.vercel.app | unclaimed | onchain-x402 | 2026-06-09
 options.lonestaroracle.xyz | unclaimed | onchain-x402 | 2026-06-09
@@ -5011,7 +5011,7 @@ elevation-terrain-lookup.hergertsynthora.com | verified | onchain-x402 | 2026-07
 endoflife-product-cycles.hergertsynthora.com | verified | onchain-x402 | 2026-07-12
 ethereum-basefee-burn-stats.hergertsynthora.com | verified | onchain-x402 | 2026-07-12
 ethereum-network-stats-blockchair.hergertsynthora.com | verified | onchain-x402 | 2026-07-12
-fda_recall.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-12
+fda_recall.hergertsynthora.com | verified | onchain-x402 | 2026-07-12
 forex-convert.hergertsynthora.com | verified | onchain-x402 | 2026-07-12
 gbif-species-name-match.hergertsynthora.com | verified | onchain-x402 | 2026-07-12
 geocoding-place-search.hergertsynthora.com | verified | onchain-x402 | 2026-07-12
@@ -5039,7 +5039,7 @@ minerals.lonestaroracle.xyz | unclaimed | onchain-x402 | 2026-07-12
 mygene-gene-annotation.hergertsynthora.com | verified | onchain-x402 | 2026-07-12
 nasa-eonet-natural-events.hergertsynthora.com | verified | onchain-x402 | 2026-07-12
 nft-collection-stats-onchain.hergertsynthora.com | verified | onchain-x402 | 2026-07-12
-nftfloor.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-12
+nftfloor.hergertsynthora.com | verified | onchain-x402 | 2026-07-12
 nlm-icd10cm-code-search.hergertsynthora.com | verified | onchain-x402 | 2026-07-12
 noaa-tide-predictions.hergertsynthora.com | verified | onchain-x402 | 2026-07-12
 npm-downloads-point.hergertsynthora.com | verified | onchain-x402 | 2026-07-12
@@ -5432,7 +5432,7 @@ kairo-x402.onrender.com | unclaimed | onchain-x402 | 2026-07-21
 licenses.recordsforagents.com | unclaimed | onchain-x402 | 2026-07-21
 nexus-api-virid.vercel.app | unclaimed | onchain-x402 | 2026-07-21
 omni-api-cyan.vercel.app | unclaimed | onchain-x402 | 2026-07-21
-preppers-paradise.com | unclaimed | onchain-x402 | 2026-07-21
+preppers-paradise.com | verified | onchain-x402 | 2026-07-21
 recalls.recordsforagents.com | unclaimed | onchain-x402 | 2026-07-21
 sceeto-x402-market-api.netlify.app | unclaimed | onchain-x402 | 2026-07-21
 screenshots.underscoredone.com | unclaimed | onchain-x402 | 2026-07-21
@@ -5603,7 +5603,7 @@ api.agentx402.ai | unclaimed | onchain-x402 | 2026-07-23
 api.analoghubris.com | verified | onchain-x402 | 2026-07-23
 api.atms.nathanlidurin.com | unclaimed | onchain-x402 | 2026-07-23
 api.aventtech.com | unclaimed | onchain-x402 | 2026-07-23
-api.basefeed.io | unclaimed | onchain-x402 | 2026-07-23
+api.basefeed.io | verified | onchain-x402 | 2026-07-23
 api.brazilayer.com | unclaimed | onchain-x402 | 2026-07-23
 api.certaindata.ai | unclaimed | onchain-x402 | 2026-07-23
 api.clawinabox.xyz | unclaimed | onchain-x402 | 2026-07-23
@@ -5699,3 +5699,29 @@ x402.sleuthagent.ai | unclaimed | onchain-x402 | 2026-07-23
 x402.tavily.com | unclaimed | onchain-x402 | 2026-07-23
 x402vps.com | unclaimed | onchain-x402 | 2026-07-23
 xpensli.app | unclaimed | onchain-x402 | 2026-07-23
+5108-data-api-proxy.community.iamstarchild.com | unclaimed | onchain-x402 | 2026-07-24
+agent-commerce-guard.vercel.app | verified | onchain-x402 | 2026-07-24
+agentfetch.dynv6.net | unclaimed | onchain-x402 | 2026-07-24
+agentreeve.com | unclaimed | onchain-x402 | 2026-07-24
+agents.ai-rook.com | unclaimed | onchain-x402 | 2026-07-24
+ai-akari.ai | verified | onchain-x402 | 2026-07-24
+analyst.lonestaroracle.xyz | unclaimed | onchain-x402 | 2026-07-24
+api.trustedinformation.site | unclaimed | onchain-x402 | 2026-07-24
+api.utilia.ink | unclaimed | onchain-x402 | 2026-07-24
+bounty-sentinel-x402.angel001ma.workers.dev | unclaimed | onchain-x402 | 2026-07-24
+call.kelam.sh | unclaimed | onchain-x402 | 2026-07-24
+ens-resolver.underscoredone.com | unclaimed | onchain-x402 | 2026-07-24
+hypa1m.xyz | verified | onchain-x402 | 2026-07-24
+imagegen-agent.fretchen.eu | unclaimed | onchain-x402 | 2026-07-24
+llm-agent.fretchen.eu | unclaimed | onchain-x402 | 2026-07-24
+macro-pulse-x402.onrender.com | unclaimed | onchain-x402 | 2026-07-24
+pay.kelam.sh | unclaimed | onchain-x402 | 2026-07-24
+revolutionary-alcohol-cite-relates.trycloudflare.com | unclaimed | onchain-x402 | 2026-07-24
+rubric-protocol.com | unclaimed | onchain-x402 | 2026-07-24
+scanstack.dev | unclaimed | onchain-x402 | 2026-07-24
+searchmux-agent-search.burnzzz0.chatgpt.site | unclaimed | onchain-x402 | 2026-07-24
+stablecoffee.dev | unclaimed | onchain-x402 | 2026-07-24
+transaction-evidence-brief-2026.bowu365.chatgpt.site | unclaimed | onchain-x402 | 2026-07-24
+url-uptime-checker.underscoredone.com | unclaimed | onchain-x402 | 2026-07-24
+vedetta.dethboy.com | unclaimed | onchain-x402 | 2026-07-24
+vm402.com | unclaimed | onchain-x402 | 2026-07-24
