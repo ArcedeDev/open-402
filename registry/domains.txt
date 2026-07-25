@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 5722
+# Total domains: 5756
 # Total endpoints: 14935
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -5676,7 +5676,7 @@ meterly-ai.vercel.app | unclaimed | onchain-x402 | 2026-07-23
 mobilitychain.kr | unclaimed | onchain-x402 | 2026-07-23
 nico222222222-x402-trust-guard.hf.space | unclaimed | onchain-x402 | 2026-07-23
 openfda-drug-safety.xplowdiaka.workers.dev | unclaimed | onchain-x402 | 2026-07-23
-pay.ansht.tech | unclaimed | onchain-x402 | 2026-07-23
+pay.ansht.tech | verified | onchain-x402 | 2026-07-23
 pkgpulse.letom1176.workers.dev | unclaimed | onchain-x402 | 2026-07-23
 quietstore-production.edge-7e13f.workers.dev | unclaimed | onchain-x402 | 2026-07-23
 quotesheet.panmediatech.workers.dev | unclaimed | onchain-x402 | 2026-07-23
@@ -5725,3 +5725,37 @@ transaction-evidence-brief-2026.bowu365.chatgpt.site | unclaimed | onchain-x402 
 url-uptime-checker.underscoredone.com | unclaimed | onchain-x402 | 2026-07-24
 vedetta.dethboy.com | unclaimed | onchain-x402 | 2026-07-24
 vm402.com | unclaimed | onchain-x402 | 2026-07-24
+acp-x402-scriptmasterlabs.onrender.com | verified | onchain-x402 | 2026-07-25
+agent-sop-compiler-production.up.railway.app | verified | onchain-x402 | 2026-07-25
+agent.connskill.com | unclaimed | onchain-x402 | 2026-07-25
+agents.x402stock.xyz | unclaimed | onchain-x402 | 2026-07-25
+aliyev.site | unclaimed | onchain-x402 | 2026-07-25
+api.commodities.sh | verified | onchain-x402 | 2026-07-25
+api.julienlegoux.com | unclaimed | onchain-x402 | 2026-07-25
+api.losbeto.xyz | verified | onchain-x402 | 2026-07-25
+api.zinc.com | unclaimed | onchain-x402 | 2026-07-25
+byshovel.com | unclaimed | onchain-x402 | 2026-07-25
+circadian-agent.com | verified | onchain-x402 | 2026-07-25
+datasourcepulse.com | unclaimed | onchain-x402 | 2026-07-25
+deal-verdict-api-production.up.railway.app | unclaimed | onchain-x402 | 2026-07-25
+facebook.payweave.services | unclaimed | onchain-x402 | 2026-07-25
+google-patents.use.x402atlas.com | unclaimed | onchain-x402 | 2026-07-25
+instagram.payweave.services | unclaimed | onchain-x402 | 2026-07-25
+losbeto.xyz | unclaimed | onchain-x402 | 2026-07-25
+markets.losbeto.xyz | verified | onchain-x402 | 2026-07-25
+moneypilot-c6f8c4.joedyermens.chatgpt.site | unclaimed | onchain-x402 | 2026-07-25
+ora-x402-gateway.vercel.app | unclaimed | onchain-x402 | 2026-07-25
+phantom-api-omega.vercel.app | unclaimed | onchain-x402 | 2026-07-25
+prospex.x402tools.xyz | unclaimed | onchain-x402 | 2026-07-25
+reddit.hypa1m.xyz | verified | onchain-x402 | 2026-07-25
+seo.hypa1m.xyz | verified | onchain-x402 | 2026-07-25
+sml-rwa-api.onrender.com | unclaimed | onchain-x402 | 2026-07-25
+solana-quick-kit.nxtboyiii.chatgpt.site | unclaimed | onchain-x402 | 2026-07-25
+synapse-api-brown.vercel.app | unclaimed | onchain-x402 | 2026-07-25
+twit.use.x402atlas.com | unclaimed | onchain-x402 | 2026-07-25
+unwrap.use.x402atlas.com | unclaimed | onchain-x402 | 2026-07-25
+websearch.use.x402atlas.com | unclaimed | onchain-x402 | 2026-07-25
+x402-agent-server-per.vercel.app | unclaimed | onchain-x402 | 2026-07-25
+x402.bakdupoffroad.com | unclaimed | onchain-x402 | 2026-07-25
+youtube.payweave.services | unclaimed | onchain-x402 | 2026-07-25
+youtube.use.x402atlas.com | unclaimed | onchain-x402 | 2026-07-25
