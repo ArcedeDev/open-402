@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 5756
+# Total domains: 5777
 # Total endpoints: 14935
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -4738,7 +4738,7 @@ docforge-selim.duckdns.org | unclaimed | onchain-x402 | 2026-07-07
 doi-verify.zctechnologies.org | unclaimed | onchain-x402 | 2026-07-07
 hermes-storefront.onrender.com | verified | onchain-x402 | 2026-07-07
 jp-data-api-production.up.railway.app | unclaimed | onchain-x402 | 2026-07-07
-mem.borisinc.com | unclaimed | onchain-x402 | 2026-07-07
+mem.borisinc.com | verified | onchain-x402 | 2026-07-07
 midax402.com | verified | onchain-x402 | 2026-07-07
 mtasts.hergertsynthora.com | verified | onchain-x402 | 2026-07-07
 nuza.io | unclaimed | onchain-x402 | 2026-07-07
@@ -5437,7 +5437,7 @@ recalls.recordsforagents.com | unclaimed | onchain-x402 | 2026-07-21
 sceeto-x402-market-api.netlify.app | unclaimed | onchain-x402 | 2026-07-21
 screenshots.underscoredone.com | unclaimed | onchain-x402 | 2026-07-21
 structdoc-api.hp-vladic.workers.dev | unclaimed | onchain-x402 | 2026-07-21
-tools.borisinc.com | unclaimed | onchain-x402 | 2026-07-21
+tools.borisinc.com | verified | onchain-x402 | 2026-07-21
 uat.jarvisclaw.ai | verified | onchain-x402 | 2026-07-21
 ubuntu-4gb-fsn1-3.tail9df5c0.ts.net | unclaimed | onchain-x402 | 2026-07-21
 usaref.dev | verified | onchain-x402 | 2026-07-21
@@ -5759,3 +5759,24 @@ x402-agent-server-per.vercel.app | unclaimed | onchain-x402 | 2026-07-25
 x402.bakdupoffroad.com | unclaimed | onchain-x402 | 2026-07-25
 youtube.payweave.services | unclaimed | onchain-x402 | 2026-07-25
 youtube.use.x402atlas.com | unclaimed | onchain-x402 | 2026-07-25
+aeml-x402.zeabur.app | unclaimed | onchain-x402 | 2026-07-26
+agent-treats-production.up.railway.app | unclaimed | onchain-x402 | 2026-07-26
+agentcash-fortune-demo-six.vercel.app | unclaimed | onchain-x402 | 2026-07-26
+agents-x402.agents-x402.workers.dev | unclaimed | onchain-x402 | 2026-07-26
+airdroppulse.theaslangroupllc.com | verified | onchain-x402 | 2026-07-26
+anicca-x402-discovery-production.up.railway.app | unclaimed | onchain-x402 | 2026-07-26
+api.weblens.dev | unclaimed | onchain-x402 | 2026-07-26
+api.x402lint.dev | unclaimed | onchain-x402 | 2026-07-26
+audit-tools.ai | unclaimed | onchain-x402 | 2026-07-26
+chain-state-consensus.hergertsynthora.com | verified | onchain-x402 | 2026-07-26
+claude-p.tail7a0ba4.ts.net | unclaimed | onchain-x402 | 2026-07-26
+crypto-pulse.hergertsynthora.com | verified | onchain-x402 | 2026-07-26
+dimfact.xyz | unclaimed | onchain-x402 | 2026-07-26
+hyperliquid.hypa1m.xyz | unclaimed | onchain-x402 | 2026-07-26
+oix-autonomous-economy.fly.dev | unclaimed | onchain-x402 | 2026-07-26
+price-consensus.hergertsynthora.com | verified | onchain-x402 | 2026-07-26
+solana-x402-xi.vercel.app | unclaimed | onchain-x402 | 2026-07-26
+vape-x402.vapex402.workers.dev | unclaimed | onchain-x402 | 2026-07-26
+wallet-sanctions.use.x402atlas.com | unclaimed | onchain-x402 | 2026-07-26
+x402-intel.rileycraig14.workers.dev | unclaimed | onchain-x402 | 2026-07-26
+x402-market-data.vercel.app | unclaimed | onchain-x402 | 2026-07-26
