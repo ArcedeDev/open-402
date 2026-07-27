@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 5777
+# Total domains: 5807
 # Total endpoints: 14935
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -5780,3 +5780,33 @@ vape-x402.vapex402.workers.dev | unclaimed | onchain-x402 | 2026-07-26
 wallet-sanctions.use.x402atlas.com | unclaimed | onchain-x402 | 2026-07-26
 x402-intel.rileycraig14.workers.dev | unclaimed | onchain-x402 | 2026-07-26
 x402-market-data.vercel.app | unclaimed | onchain-x402 | 2026-07-26
+aizamon.com | unclaimed | onchain-x402 | 2026-07-27
+api.agentfilings.com | unclaimed | onchain-x402 | 2026-07-27
+api.andromalius.io | unclaimed | onchain-x402 | 2026-07-27
+api.clawfetch.ai | unclaimed | onchain-x402 | 2026-07-27
+api.decision-anchor.com | verified | onchain-x402 | 2026-07-27
+api.iamjuliand.com | unclaimed | onchain-x402 | 2026-07-27
+assess.revnuvo.site | unclaimed | onchain-x402 | 2026-07-27
+atlasmarkets-anubis.onrender.com | unclaimed | onchain-x402 | 2026-07-27
+atlasmarkets-apollo.onrender.com | unclaimed | onchain-x402 | 2026-07-27
+atlasmarkets-dagon.onrender.com | unclaimed | onchain-x402 | 2026-07-27
+atlasmarkets-pollux.onrender.com | unclaimed | onchain-x402 | 2026-07-27
+atlasmarkets-viking.onrender.com | unclaimed | onchain-x402 | 2026-07-27
+clanker-banker.agentfetcher.workers.dev | unclaimed | onchain-x402 | 2026-07-27
+derivatives-pricer-production.up.railway.app | unclaimed | onchain-x402 | 2026-07-27
+dns.revnuvo.site | unclaimed | onchain-x402 | 2026-07-27
+intel.rocket-core.com | unclaimed | onchain-x402 | 2026-07-27
+keystone-opportunity-api.keystone-opportunity.workers.dev | unclaimed | onchain-x402 | 2026-07-27
+khipu-x402.khipu-agency.workers.dev | unclaimed | onchain-x402 | 2026-07-27
+mart402.com | verified | onchain-x402 | 2026-07-27
+npm-package-ws-has-241560546-w-production.up.railway.app | unclaimed | onchain-x402 | 2026-07-27
+numberintel.dev | unclaimed | onchain-x402 | 2026-07-27
+packages.melchiorlabs.com | unclaimed | onchain-x402 | 2026-07-27
+parklandarchives.com | unclaimed | onchain-x402 | 2026-07-27
+red-breeze-8b8c.keenanbooker83.workers.dev | verified | onchain-x402 | 2026-07-27
+thegiftingbrief.com | unclaimed | onchain-x402 | 2026-07-27
+useful-data-source-for-agents-production.up.railway.app | unclaimed | onchain-x402 | 2026-07-27
+visibility.gleefulai.com | verified | onchain-x402 | 2026-07-27
+x402-87-106-236-84.nip.io | unclaimed | onchain-x402 | 2026-07-27
+x402-demo-base.mikedotexe.com | unclaimed | onchain-x402 | 2026-07-27
+x402.disputetracker.xyz | unclaimed | onchain-x402 | 2026-07-27
