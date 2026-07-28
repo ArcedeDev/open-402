@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 5807
+# Total domains: 5842
 # Total endpoints: 14935
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -2578,7 +2578,7 @@ api.agentlux.ai | unclaimed | onchain-x402 | 2026-04-16
 api.quantoracle.dev | verified | onchain-x402 | 2026-04-16
 api.xgen.world | unclaimed | onchain-x402 | 2026-04-16
 gateway.agonx402.com | unclaimed | onchain-x402 | 2026-04-16
-orbisapi.com | verified | onchain-x402 | 2026-04-16
+orbisapi.com | unclaimed | onchain-x402 | 2026-04-16
 api.rungate.ai | unclaimed | onchain-x402 | 2026-04-17
 barcode-generator-x402-production.up.railway.app | unclaimed | onchain-x402 | 2026-04-17
 base64-codec-x402-production.up.railway.app | unclaimed | onchain-x402 | 2026-04-17
@@ -5691,7 +5691,7 @@ spendguard.panmediatech.workers.dev | unclaimed | onchain-x402 | 2026-07-23
 supplements-retrieved-sized-outreach.trycloudflare.com | unclaimed | onchain-x402 | 2026-07-23
 test.alexwlex143.workers.dev | unclaimed | onchain-x402 | 2026-07-23
 token-risk.com | unclaimed | onchain-x402 | 2026-07-23
-token4u.ai | unclaimed | onchain-x402 | 2026-07-23
+token4u.ai | verified | onchain-x402 | 2026-07-23
 transform-balanced-trunk-remedies.trycloudflare.com | unclaimed | onchain-x402 | 2026-07-23
 x402-mcp.onrender.com | unclaimed | onchain-x402 | 2026-07-23
 x402.feld-feder.at | unclaimed | onchain-x402 | 2026-07-23
@@ -5810,3 +5810,38 @@ visibility.gleefulai.com | verified | onchain-x402 | 2026-07-27
 x402-87-106-236-84.nip.io | unclaimed | onchain-x402 | 2026-07-27
 x402-demo-base.mikedotexe.com | unclaimed | onchain-x402 | 2026-07-27
 x402.disputetracker.xyz | unclaimed | onchain-x402 | 2026-07-27
+agent-rescue-desk.netlify.app | unclaimed | onchain-x402 | 2026-07-28
+agentdatum.com | unclaimed | onchain-x402 | 2026-07-28
+api.402milly.xyz | unclaimed | onchain-x402 | 2026-07-28
+api.execution.market | verified | onchain-x402 | 2026-07-28
+api.manyhands.uk | unclaimed | onchain-x402 | 2026-07-28
+api.meshrelay.xyz | unclaimed | onchain-x402 | 2026-07-28
+api.timzinin.com | unclaimed | onchain-x402 | 2026-07-28
+atlasmarkets-titan001-k3fd.onrender.com | unclaimed | onchain-x402 | 2026-07-28
+atlasmarkets-titan002-ns4m.onrender.com | unclaimed | onchain-x402 | 2026-07-28
+atlasmarkets-titan003-s174.onrender.com | unclaimed | onchain-x402 | 2026-07-28
+atlasmarkets-titan004-upj5.onrender.com | unclaimed | onchain-x402 | 2026-07-28
+atlasmarkets-titan005-apf9.onrender.com | unclaimed | onchain-x402 | 2026-07-28
+atlasmarkets-titan006-30hz.onrender.com | unclaimed | onchain-x402 | 2026-07-28
+bazaar.fronesislabs.com | unclaimed | onchain-x402 | 2026-07-28
+citysquatters.com | unclaimed | onchain-x402 | 2026-07-28
+comply402.onrender.com | unclaimed | onchain-x402 | 2026-07-28
+contract-eye-x402.fly.dev | unclaimed | onchain-x402 | 2026-07-28
+d330-43-242-116-57.ngrok-free.app | unclaimed | onchain-x402 | 2026-07-28
+fetcher.sh | unclaimed | onchain-x402 | 2026-07-28
+keyring-agent.blockchhub.link | unclaimed | onchain-x402 | 2026-07-28
+lingua-x402.fly.dev | unclaimed | onchain-x402 | 2026-07-28
+promoting-slip-solve-ctrl.trycloudflare.com | unclaimed | onchain-x402 | 2026-07-28
+scramble.wibandwob.com | verified | onchain-x402 | 2026-07-28
+scvd.store | unclaimed | onchain-x402 | 2026-07-28
+sqlguard-eqhq.onrender.com | unclaimed | onchain-x402 | 2026-07-28
+sqlguard.io | unclaimed | onchain-x402 | 2026-07-28
+talkshi.com | unclaimed | onchain-x402 | 2026-07-28
+taskminer.exe.xyz | unclaimed | onchain-x402 | 2026-07-28
+thebotwire.com | unclaimed | onchain-x402 | 2026-07-28
+trust-agent.onrender.com | unclaimed | onchain-x402 | 2026-07-28
+twitr.sh | unclaimed | onchain-x402 | 2026-07-28
+x402-agents-production.up.railway.app | unclaimed | onchain-x402 | 2026-07-28
+x402.yruz.one | unclaimed | onchain-x402 | 2026-07-28
+zero-agent.thryx.workers.dev | unclaimed | onchain-x402 | 2026-07-28
+zero.broke2builtai.com | unclaimed | onchain-x402 | 2026-07-28
