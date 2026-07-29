@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 5842
+# Total domains: 5864
 # Total endpoints: 14935
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -2250,7 +2250,7 @@ mathpix.com | unclaimed | onchain-mpp | 2026-03-25
 mistral.ai | unclaimed | onchain-mpp | 2026-03-25
 openweathermap.org | unclaimed | onchain-mpp | 2026-03-25
 perplexity.ai | unclaimed | onchain-mpp | 2026-03-25
-quicknode.com | verified | onchain-mpp | 2026-03-25
+quicknode.com | unclaimed | onchain-mpp | 2026-03-25
 rentcast.io | unclaimed | onchain-mpp | 2026-03-25
 replicate.com | unclaimed | onchain-mpp | 2026-03-25
 satwork.ai | unclaimed | onchain-l402 | 2026-03-25
@@ -4574,7 +4574,7 @@ jwt-decoder.api.klymax402.com | unclaimed | onchain-x402 | 2026-07-02
 kronossignals.com | unclaimed | onchain-x402 | 2026-07-02
 markdown-renderer.api.klymax402.com | unclaimed | onchain-x402 | 2026-07-02
 markdown-to-html.api.klymax402.com | unclaimed | onchain-x402 | 2026-07-02
-marketpulse.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-02
+marketpulse.hergertsynthora.com | verified | onchain-x402 | 2026-07-02
 mcp-pulsenetwork.vercel.app | unclaimed | onchain-x402 | 2026-07-02
 mcp.tickorigin.com | unclaimed | onchain-x402 | 2026-07-02
 memory.tickorigin.com | unclaimed | onchain-x402 | 2026-07-02
@@ -5772,7 +5772,7 @@ chain-state-consensus.hergertsynthora.com | verified | onchain-x402 | 2026-07-26
 claude-p.tail7a0ba4.ts.net | unclaimed | onchain-x402 | 2026-07-26
 crypto-pulse.hergertsynthora.com | verified | onchain-x402 | 2026-07-26
 dimfact.xyz | unclaimed | onchain-x402 | 2026-07-26
-hyperliquid.hypa1m.xyz | unclaimed | onchain-x402 | 2026-07-26
+hyperliquid.hypa1m.xyz | verified | onchain-x402 | 2026-07-26
 oix-autonomous-economy.fly.dev | unclaimed | onchain-x402 | 2026-07-26
 price-consensus.hergertsynthora.com | verified | onchain-x402 | 2026-07-26
 solana-x402-xi.vercel.app | unclaimed | onchain-x402 | 2026-07-26
@@ -5811,7 +5811,7 @@ x402-87-106-236-84.nip.io | unclaimed | onchain-x402 | 2026-07-27
 x402-demo-base.mikedotexe.com | unclaimed | onchain-x402 | 2026-07-27
 x402.disputetracker.xyz | unclaimed | onchain-x402 | 2026-07-27
 agent-rescue-desk.netlify.app | unclaimed | onchain-x402 | 2026-07-28
-agentdatum.com | unclaimed | onchain-x402 | 2026-07-28
+agentdatum.com | verified | onchain-x402 | 2026-07-28
 api.402milly.xyz | unclaimed | onchain-x402 | 2026-07-28
 api.execution.market | verified | onchain-x402 | 2026-07-28
 api.manyhands.uk | unclaimed | onchain-x402 | 2026-07-28
@@ -5825,7 +5825,7 @@ atlasmarkets-titan005-apf9.onrender.com | unclaimed | onchain-x402 | 2026-07-28
 atlasmarkets-titan006-30hz.onrender.com | unclaimed | onchain-x402 | 2026-07-28
 bazaar.fronesislabs.com | unclaimed | onchain-x402 | 2026-07-28
 citysquatters.com | unclaimed | onchain-x402 | 2026-07-28
-comply402.onrender.com | unclaimed | onchain-x402 | 2026-07-28
+comply402.onrender.com | verified | onchain-x402 | 2026-07-28
 contract-eye-x402.fly.dev | unclaimed | onchain-x402 | 2026-07-28
 d330-43-242-116-57.ngrok-free.app | unclaimed | onchain-x402 | 2026-07-28
 fetcher.sh | unclaimed | onchain-x402 | 2026-07-28
@@ -5845,3 +5845,25 @@ x402-agents-production.up.railway.app | unclaimed | onchain-x402 | 2026-07-28
 x402.yruz.one | unclaimed | onchain-x402 | 2026-07-28
 zero-agent.thryx.workers.dev | unclaimed | onchain-x402 | 2026-07-28
 zero.broke2builtai.com | unclaimed | onchain-x402 | 2026-07-28
+agent-bounty-radar-29837.alissonayres-trb.chatgpt.site | unclaimed | onchain-x402 | 2026-07-29
+api-v3qhpbwutp.august.services | unclaimed | onchain-x402 | 2026-07-29
+api.auctiontrace.com | unclaimed | onchain-x402 | 2026-07-29
+api.creativeforesight.io | unclaimed | onchain-x402 | 2026-07-29
+api.insumermodel.com | unclaimed | onchain-x402 | 2026-07-29
+api.sms-x402.xyz | unclaimed | onchain-x402 | 2026-07-29
+api.tollmint.com | unclaimed | onchain-x402 | 2026-07-29
+directory-submission-lite.underscoredone.com | unclaimed | onchain-x402 | 2026-07-29
+happybirthday.digitalshop.xin | unclaimed | onchain-x402 | 2026-07-29
+kristo-intelligence.vercel.app | unclaimed | onchain-x402 | 2026-07-29
+norravex.com | unclaimed | onchain-x402 | 2026-07-29
+ocr.underscoredone.com | unclaimed | onchain-x402 | 2026-07-29
+open-pay.jp | unclaimed | onchain-x402 | 2026-07-29
+pagecheck.46-224-214-65.sslip.io | unclaimed | onchain-x402 | 2026-07-29
+resource.revnuvo.site | unclaimed | onchain-x402 | 2026-07-29
+runelynx--24b88c468a1411f1a0481607ee4eb77e.web.val.run | unclaimed | onchain-x402 | 2026-07-29
+scrub-mcp.malgorath.com | unclaimed | onchain-x402 | 2026-07-29
+serbia-company-x402.vercel.app | unclaimed | onchain-x402 | 2026-07-29
+tereno.xyz | unclaimed | onchain-x402 | 2026-07-29
+trust-agent.io | unclaimed | onchain-x402 | 2026-07-29
+verify-task-funding.zn5xpfff6b.chatgpt.site | unclaimed | onchain-x402 | 2026-07-29
+x402.yodeler.xyz | unclaimed | onchain-x402 | 2026-07-29
