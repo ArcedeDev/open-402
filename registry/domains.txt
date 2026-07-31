@@ -1,7 +1,7 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 5864
-# Total endpoints: 14935
+# Total domains: 5904
+# Total endpoints: 14938
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
 x402scan.com | unclaimed | 402index | 2026-03-23
@@ -3208,7 +3208,7 @@ api.getsly.ai | verified | onchain-x402 | 2026-06-09
 api.hyperd.ai | unclaimed | onchain-x402 | 2026-06-09
 api.jubjubapp.com | unclaimed | onchain-x402 | 2026-06-09
 api.lastlookdata.com | verified | onchain-x402 | 2026-06-09
-api.midas-ops.com | verified | onchain-x402 | 2026-06-09
+api.midas-ops.com | unclaimed | onchain-x402 | 2026-06-09
 api.osf-master-server.com | verified | onchain-x402 | 2026-06-09
 api.perquants.com | unclaimed | onchain-x402 | 2026-06-09
 api.regressionincoming.fyi | unclaimed | onchain-x402 | 2026-06-09
@@ -5851,7 +5851,7 @@ api.auctiontrace.com | unclaimed | onchain-x402 | 2026-07-29
 api.creativeforesight.io | unclaimed | onchain-x402 | 2026-07-29
 api.insumermodel.com | unclaimed | onchain-x402 | 2026-07-29
 api.sms-x402.xyz | unclaimed | onchain-x402 | 2026-07-29
-api.tollmint.com | unclaimed | onchain-x402 | 2026-07-29
+api.tollmint.com | verified | onchain-x402 | 2026-07-29
 directory-submission-lite.underscoredone.com | unclaimed | onchain-x402 | 2026-07-29
 happybirthday.digitalshop.xin | unclaimed | onchain-x402 | 2026-07-29
 kristo-intelligence.vercel.app | unclaimed | onchain-x402 | 2026-07-29
@@ -5861,9 +5861,49 @@ open-pay.jp | unclaimed | onchain-x402 | 2026-07-29
 pagecheck.46-224-214-65.sslip.io | unclaimed | onchain-x402 | 2026-07-29
 resource.revnuvo.site | unclaimed | onchain-x402 | 2026-07-29
 runelynx--24b88c468a1411f1a0481607ee4eb77e.web.val.run | unclaimed | onchain-x402 | 2026-07-29
-scrub-mcp.malgorath.com | unclaimed | onchain-x402 | 2026-07-29
+scrub-mcp.malgorath.com | verified | onchain-x402 | 2026-07-29
 serbia-company-x402.vercel.app | unclaimed | onchain-x402 | 2026-07-29
 tereno.xyz | unclaimed | onchain-x402 | 2026-07-29
 trust-agent.io | unclaimed | onchain-x402 | 2026-07-29
 verify-task-funding.zn5xpfff6b.chatgpt.site | unclaimed | onchain-x402 | 2026-07-29
 x402.yodeler.xyz | unclaimed | onchain-x402 | 2026-07-29
+3route.agents.bakingbad.dev | unclaimed | onchain-x402 | 2026-07-31
+50-7-41-26.sslip.io | unclaimed | onchain-x402 | 2026-07-31
+76.13.79.47.nip.io | unclaimed | onchain-x402 | 2026-07-31
+agent-guild-5d5r.onrender.com | verified | onchain-x402 | 2026-07-31
+api.capitalspec.com | unclaimed | onchain-x402 | 2026-07-31
+api.oblique.markets | unclaimed | onchain-x402 | 2026-07-31
+api.pnllabs.com | unclaimed | onchain-x402 | 2026-07-31
+api.tronenergyfrog.com | unclaimed | onchain-x402 | 2026-07-31
+apollo-contract-scan.vercel.app | unclaimed | onchain-x402 | 2026-07-31
+aurelius-node-01.onrender.com | verified | onchain-x402 | 2026-07-31
+bimi-checker.underscoredone.com | unclaimed | onchain-x402 | 2026-07-31
+claim-evaluator.com | unclaimed | onchain-x402 | 2026-07-31
+code.mamenesia.com | unclaimed | onchain-x402 | 2026-07-31
+defi-ops-402.vercel.app | unclaimed | onchain-x402 | 2026-07-31
+email-preflight-api.vercel.app | unclaimed | onchain-x402 | 2026-07-31
+fabtally.com | unclaimed | onchain-x402 | 2026-07-31
+fcdata.hurdyburt.com | unclaimed | onchain-x402 | 2026-07-31
+first-fold-48h.tatoespitia.chatgpt.site | unclaimed | onchain-x402 | 2026-07-31
+gardenpatch.xyz | unclaimed | onchain-x402 | 2026-07-31
+img-categorize.onrender.com | unclaimed | onchain-x402 | 2026-07-31
+inference.52-246-250-144.sslip.io | unclaimed | onchain-x402 | 2026-07-31
+jax.tail5e0766.ts.net | unclaimed | onchain-x402 | 2026-07-31
+library.forgemesh.io | unclaimed | onchain-x402 | 2026-07-31
+lotusnetworkapi.com | unclaimed | onchain-x402 | 2026-07-31
+mintguard-solana.durmazmete607518727.chatgpt.site | unclaimed | onchain-x402 | 2026-07-31
+nairarate.dev | unclaimed | onchain-x402 | 2026-07-31
+oblique.markets | unclaimed | onchain-x402 | 2026-07-31
+pagecrumb-x402.durmazmete607518727.chatgpt.site | unclaimed | onchain-x402 | 2026-07-31
+predict-node.com | unclaimed | onchain-x402 | 2026-07-31
+proofdesk-audit-api.konstanta-work-x.chatgpt.site | verified | onchain-x402 | 2026-07-31
+pulled-shell-intelligent-accessories.trycloudflare.com | unclaimed | onchain-x402 | 2026-07-31
+pulsefeed.dev | verified | onchain-x402 | 2026-07-31
+rest.coincap.io | unclaimed | onchain-x402 | 2026-07-31
+royal-feel-x402.fly.dev | unclaimed | onchain-x402 | 2026-07-31
+rsproule.agentcash.me | unclaimed | onchain-x402 | 2026-07-31
+sfmta-x402-ticket-bridge.bflynn4141.workers.dev | unclaimed | onchain-x402 | 2026-07-31
+theauditlog.com | unclaimed | onchain-x402 | 2026-07-31
+x402.ailabra.org | verified | onchain-x402 | 2026-07-31
+x402.nexus | unclaimed | onchain-x402 | 2026-07-31
+x402financialdata.com | unclaimed | onchain-x402 | 2026-07-31
