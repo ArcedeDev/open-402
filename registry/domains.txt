@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 5904
+# Total domains: 5933
 # Total endpoints: 14938
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -2890,7 +2890,7 @@ gateway.wayforth.io | unclaimed | onchain-x402 | 2026-05-15
 tensorfeed.ai | verified | onchain-x402 | 2026-05-15
 war-tracker.com | unclaimed | onchain-x402 | 2026-05-15
 web-production-18a32.up.railway.app | unclaimed | onchain-x402 | 2026-05-15
-api.anchor-x402.com | unclaimed | onchain-x402 | 2026-05-16
+api.anchor-x402.com | verified | onchain-x402 | 2026-05-16
 api.clusterprotocol.ai | unclaimed | onchain-x402 | 2026-05-16
 api.netbrainis.co.za | unclaimed | onchain-x402 | 2026-05-16
 chess402.vercel.app | unclaimed | onchain-x402 | 2026-05-16
@@ -3170,7 +3170,7 @@ data-vending.869biz.com | unclaimed | onchain-x402 | 2026-06-08
 dod.hshintelligence.com | unclaimed | onchain-x402 | 2026-06-08
 http-status-checker.underscoredone.com | unclaimed | onchain-x402 | 2026-06-08
 network.mercury-hq.com | verified | onchain-x402 | 2026-06-08
-1c09pdnrx1.execute-api.us-east-1.amazonaws.com | unclaimed | onchain-x402 | 2026-06-09
+1c09pdnrx1.execute-api.us-east-1.amazonaws.com | verified | onchain-x402 | 2026-06-09
 action402.vercel.app | unclaimed | onchain-x402 | 2026-06-09
 address-validator.api.klymax402.com | unclaimed | onchain-x402 | 2026-06-09
 aeonos.basechainlabs.com | verified | onchain-x402 | 2026-06-09
@@ -3250,7 +3250,7 @@ bounty.btnomb.com | verified | onchain-x402 | 2026-06-09
 buildpulse-alpha.vercel.app | verified | onchain-x402 | 2026-06-09
 careerpulse-steel.vercel.app | verified | onchain-x402 | 2026-06-09
 cc0.company | unclaimed | onchain-x402 | 2026-06-09
-chat.anchor-x402.com | unclaimed | onchain-x402 | 2026-06-09
+chat.anchor-x402.com | verified | onchain-x402 | 2026-06-09
 chronicapulse.vercel.app | verified | onchain-x402 | 2026-06-09
 clear-care-pulse.vercel.app | verified | onchain-x402 | 2026-06-09
 climatepulse-six.vercel.app | verified | onchain-x402 | 2026-06-09
@@ -4495,7 +4495,7 @@ vibes-coral-tau.vercel.app | unclaimed | onchain-x402 | 2026-06-29
 x402-blockchain-forensics.onrender.com | unclaimed | onchain-x402 | 2026-06-29
 x402-crypto-apis.onrender.com | unclaimed | onchain-x402 | 2026-06-29
 00be8ab632aa0f.lhr.life | unclaimed | onchain-x402 | 2026-06-30
-api.agentcourt.to | verified | onchain-x402 | 2026-06-30
+api.agentcourt.to | unclaimed | onchain-x402 | 2026-06-30
 api.terradeed.co.uk | unclaimed | onchain-x402 | 2026-06-30
 api.x402dataapi.com | unclaimed | onchain-x402 | 2026-06-30
 axixixia.vercel.app | unclaimed | onchain-x402 | 2026-06-30
@@ -5835,7 +5835,7 @@ promoting-slip-solve-ctrl.trycloudflare.com | unclaimed | onchain-x402 | 2026-07
 scramble.wibandwob.com | verified | onchain-x402 | 2026-07-28
 scvd.store | unclaimed | onchain-x402 | 2026-07-28
 sqlguard-eqhq.onrender.com | unclaimed | onchain-x402 | 2026-07-28
-sqlguard.io | unclaimed | onchain-x402 | 2026-07-28
+sqlguard.io | verified | onchain-x402 | 2026-07-28
 talkshi.com | unclaimed | onchain-x402 | 2026-07-28
 taskminer.exe.xyz | unclaimed | onchain-x402 | 2026-07-28
 thebotwire.com | unclaimed | onchain-x402 | 2026-07-28
@@ -5907,3 +5907,32 @@ theauditlog.com | unclaimed | onchain-x402 | 2026-07-31
 x402.ailabra.org | verified | onchain-x402 | 2026-07-31
 x402.nexus | unclaimed | onchain-x402 | 2026-07-31
 x402financialdata.com | unclaimed | onchain-x402 | 2026-07-31
+169-58-81-212.sslip.io | unclaimed | onchain-x402 | 2026-08-01
+agency-site-watch.5-10-250-79.sslip.io | unclaimed | onchain-x402 | 2026-08-01
+agent-arcade.use.x402atlas.com | unclaimed | onchain-x402 | 2026-08-01
+agent.kihustle.tech | verified | onchain-x402 | 2026-08-01
+agents-only-production.up.railway.app | unclaimed | onchain-x402 | 2026-08-01
+agents.dappier.com | unclaimed | onchain-x402 | 2026-08-01
+agents.zerogpu.ai | unclaimed | onchain-x402 | 2026-08-01
+agentsonly.vip | unclaimed | onchain-x402 | 2026-08-01
+agenttoll-pi.vercel.app | unclaimed | onchain-x402 | 2026-08-01
+aisearch.x.c00l.site | unclaimed | onchain-x402 | 2026-08-01
+api.402rates.com | unclaimed | onchain-x402 | 2026-08-01
+api.signalbound.art | unclaimed | onchain-x402 | 2026-08-01
+api.sundayfactoryx.com | unclaimed | onchain-x402 | 2026-08-01
+blixtworks.com | unclaimed | onchain-x402 | 2026-08-01
+control-freelance-kit.saiikork.chatgpt.site | unclaimed | onchain-x402 | 2026-08-01
+control.dehaasdigital.nl | unclaimed | onchain-x402 | 2026-08-01
+dataforge.x.c00l.site | unclaimed | onchain-x402 | 2026-08-01
+dev.gavedu.com | unclaimed | onchain-x402 | 2026-08-01
+dokimo.augaster.com | unclaimed | onchain-x402 | 2026-08-01
+mcp-x402-paywall.onrender.com | unclaimed | onchain-x402 | 2026-08-01
+netintel.x.c00l.site | unclaimed | onchain-x402 | 2026-08-01
+price-bot-production-4d6a.up.railway.app | unclaimed | onchain-x402 | 2026-08-01
+readable.x.c00l.site | unclaimed | onchain-x402 | 2026-08-01
+rpc.nodius.xyz | unclaimed | onchain-x402 | 2026-08-01
+spiralstake.x402.press | unclaimed | onchain-x402 | 2026-08-01
+structura.x.c00l.site | unclaimed | onchain-x402 | 2026-08-01
+trading-x402.rivr.workers.dev | unclaimed | onchain-x402 | 2026-08-01
+trend-signals.com | unclaimed | onchain-x402 | 2026-08-01
+vivarium-gateway.masterfree818.workers.dev | unclaimed | onchain-x402 | 2026-08-01
