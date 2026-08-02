@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 5933
+# Total domains: 5956
 # Total endpoints: 14938
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -5873,7 +5873,7 @@ x402.yodeler.xyz | unclaimed | onchain-x402 | 2026-07-29
 agent-guild-5d5r.onrender.com | verified | onchain-x402 | 2026-07-31
 api.capitalspec.com | unclaimed | onchain-x402 | 2026-07-31
 api.oblique.markets | unclaimed | onchain-x402 | 2026-07-31
-api.pnllabs.com | unclaimed | onchain-x402 | 2026-07-31
+api.pnllabs.com | verified | onchain-x402 | 2026-07-31
 api.tronenergyfrog.com | unclaimed | onchain-x402 | 2026-07-31
 apollo-contract-scan.vercel.app | unclaimed | onchain-x402 | 2026-07-31
 aurelius-node-01.onrender.com | verified | onchain-x402 | 2026-07-31
@@ -5936,3 +5936,26 @@ structura.x.c00l.site | unclaimed | onchain-x402 | 2026-08-01
 trading-x402.rivr.workers.dev | unclaimed | onchain-x402 | 2026-08-01
 trend-signals.com | unclaimed | onchain-x402 | 2026-08-01
 vivarium-gateway.masterfree818.workers.dev | unclaimed | onchain-x402 | 2026-08-01
+agent-fact-receipts-staging.131313122.workers.dev | unclaimed | onchain-x402 | 2026-08-02
+agent-json-utility.pablovph.chatgpt.site | unclaimed | onchain-x402 | 2026-08-02
+api.altahub.net | unclaimed | onchain-x402 | 2026-08-02
+api.canuverify.com | unclaimed | onchain-x402 | 2026-08-02
+api.mydev-tools.tech | unclaimed | onchain-x402 | 2026-08-02
+base-groundtruth-x402.base-agent-tools.workers.dev | unclaimed | onchain-x402 | 2026-08-02
+emerging-protocols.hergertsynthora.com | unclaimed | onchain-x402 | 2026-08-02
+extendcontent.com | unclaimed | onchain-x402 | 2026-08-02
+hedgehogedge.com | unclaimed | onchain-x402 | 2026-08-02
+herramientas-cobrables.consultoressasic.chatgpt.site | unclaimed | onchain-x402 | 2026-08-02
+market-sentiment.hergertsynthora.com | unclaimed | onchain-x402 | 2026-08-02
+oix-repoguard.fly.dev | unclaimed | onchain-x402 | 2026-08-02
+proofline-audit.chrismellado.chatgpt.site | unclaimed | onchain-x402 | 2026-08-02
+safe-to-trade.hergertsynthora.com | unclaimed | onchain-x402 | 2026-08-02
+space-weather-risk.hergertsynthora.com | unclaimed | onchain-x402 | 2026-08-02
+tollbooth-fdic-verify.sjwilliams8.workers.dev | unclaimed | onchain-x402 | 2026-08-02
+tollbooth-sanctions-screener.sjwilliams8.workers.dev | unclaimed | onchain-x402 | 2026-08-02
+tvl-concentration.hergertsynthora.com | unclaimed | onchain-x402 | 2026-08-02
+verdoc-x402.verdoc-x402-worker.workers.dev | unclaimed | onchain-x402 | 2026-08-02
+volume-anomaly.hergertsynthora.com | unclaimed | onchain-x402 | 2026-08-02
+x402-qr-api.vercel.app | unclaimed | onchain-x402 | 2026-08-02
+x402.swisspride.xyz | unclaimed | onchain-x402 | 2026-08-02
+xintel.aispace.bot | unclaimed | onchain-x402 | 2026-08-02
