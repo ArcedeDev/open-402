@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 6033
+# Total domains: 6079
 # Total endpoints: 14938
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -5723,7 +5723,7 @@ searchmux-agent-search.burnzzz0.chatgpt.site | unclaimed | onchain-x402 | 2026-0
 stablecoffee.dev | unclaimed | onchain-x402 | 2026-07-24
 transaction-evidence-brief-2026.bowu365.chatgpt.site | unclaimed | onchain-x402 | 2026-07-24
 url-uptime-checker.underscoredone.com | unclaimed | onchain-x402 | 2026-07-24
-vedetta.dethboy.com | unclaimed | onchain-x402 | 2026-07-24
+vedetta.dethboy.com | verified | onchain-x402 | 2026-07-24
 vm402.com | unclaimed | onchain-x402 | 2026-07-24
 acp-x402-scriptmasterlabs.onrender.com | verified | onchain-x402 | 2026-07-25
 agent-sop-compiler-production.up.railway.app | verified | onchain-x402 | 2026-07-25
@@ -5980,7 +5980,7 @@ googleplay.fetcher.sh | unclaimed | onchain-x402 | 2026-08-03
 instagram.fetcher.sh | unclaimed | onchain-x402 | 2026-08-03
 iti-official-source-evidence.fly.dev | unclaimed | onchain-x402 | 2026-08-03
 longwatch.dev | verified | onchain-x402 | 2026-08-03
-lucky-x402.onrender.com | unclaimed | onchain-x402 | 2026-08-03
+lucky-x402.onrender.com | verified | onchain-x402 | 2026-08-03
 open-interest.hergertsynthora.com | verified | onchain-x402 | 2026-08-03
 pastable-x402.pages.dev | unclaimed | onchain-x402 | 2026-08-03
 proofwork-the402-webhook.phase-voice.workers.dev | unclaimed | onchain-x402 | 2026-08-03
@@ -6004,8 +6004,8 @@ x402.poly-desk.com | unclaimed | onchain-x402 | 2026-08-03
 yelp.fetcher.sh | unclaimed | onchain-x402 | 2026-08-03
 youtube.fetcher.sh | unclaimed | onchain-x402 | 2026-08-03
 54f9c5ddd90e1f.lhr.life | unclaimed | onchain-l402 | 2026-08-04
-agent-reader.agent-reader.workers.dev | unclaimed | onchain-x402 | 2026-08-04
-agentreader.dev | unclaimed | onchain-x402 | 2026-08-04
+agent-reader.agent-reader.workers.dev | verified | onchain-x402 | 2026-08-04
+agentreader.dev | verified | onchain-x402 | 2026-08-04
 api.darangilau.com | unclaimed | onchain-x402 | 2026-08-04
 api.earnclaw.com | unclaimed | onchain-x402 | 2026-08-04
 api.fastapi.online | unclaimed | onchain-x402 | 2026-08-04
@@ -6036,3 +6036,49 @@ x402-realestate-poc.theliminalguy.workers.dev | unclaimed | onchain-x402 | 2026-
 x402-secfilings-poc.theliminalguy.workers.dev | unclaimed | onchain-x402 | 2026-08-04
 x402.aispace.bot | unclaimed | onchain-x402 | 2026-08-04
 x402.tremma.nl | unclaimed | onchain-x402 | 2026-08-04
+129-121-84-146.nip.io | unclaimed | onchain-x402 | 2026-08-05
+83-29-153-50.sslip.io | verified | onchain-x402 | 2026-08-05
+ai-agent-hub-backend-odzo.onrender.com | unclaimed | onchain-x402 | 2026-08-05
+apex.numetal.xyz | unclaimed | onchain-x402 | 2026-08-05
+api.futureinvoked.uk | unclaimed | onchain-x402 | 2026-08-05
+api.kachangsia.com | unclaimed | onchain-x402 | 2026-08-05
+api.neptyune.one | unclaimed | onchain-x402 | 2026-08-05
+api.zenvault.eu | unclaimed | onchain-x402 | 2026-08-05
+argonaut-base-network-pulse.vercel.app | verified | onchain-x402 | 2026-08-05
+argonaut-base-token-momentum-pulse.vercel.app | verified | onchain-x402 | 2026-08-05
+argonaut-bounty-signal.vercel.app | verified | onchain-x402 | 2026-08-05
+argonaut-crypto-headline-pulse.vercel.app | verified | onchain-x402 | 2026-08-05
+argonaut-schedule-fit.vercel.app | verified | onchain-x402 | 2026-08-05
+argonaut-us-weather-api.vercel.app | verified | onchain-x402 | 2026-08-05
+clearcut.agentic.clawca.sh | unclaimed | onchain-x402 | 2026-08-05
+conflict.lonestaroracle.xyz | unclaimed | onchain-x402 | 2026-08-05
+deposit.now | unclaimed | onchain-x402 | 2026-08-05
+ebay.use.x402atlas.com | unclaimed | onchain-x402 | 2026-08-05
+eqbuilder.dev | verified | onchain-x402 | 2026-08-05
+evidence.regulavita.com | unclaimed | onchain-x402 | 2026-08-05
+flights.use.x402atlas.com | unclaimed | onchain-x402 | 2026-08-05
+getsauce-kappa.vercel.app | unclaimed | onchain-x402 | 2026-08-05
+holidays.use.x402atlas.com | unclaimed | onchain-x402 | 2026-08-05
+hotels.use.x402atlas.com | unclaimed | onchain-x402 | 2026-08-05
+identity-risk.hergertsynthora.com | verified | onchain-x402 | 2026-08-05
+instagram.use.x402atlas.com | unclaimed | onchain-x402 | 2026-08-05
+issue-readiness.37.59.101.60.sslip.io | unclaimed | onchain-x402 | 2026-08-05
+jobs.use.x402atlas.com | unclaimed | onchain-x402 | 2026-08-05
+labor.virohanalife.com | verified | onchain-x402 | 2026-08-05
+mena.lonestaroracle.xyz | unclaimed | onchain-x402 | 2026-08-05
+neurotech-risk.hergertsynthora.com | verified | onchain-x402 | 2026-08-05
+official-fx-reference.vercel.app | verified | onchain-x402 | 2026-08-05
+permitverdict.com | unclaimed | onchain-x402 | 2026-08-05
+product-image-api-delta.vercel.app | verified | onchain-x402 | 2026-08-05
+products.54.168.247.83.sslip.io | unclaimed | onchain-x402 | 2026-08-05
+sanctions.lonestaroracle.xyz | unclaimed | onchain-x402 | 2026-08-05
+sec.use.x402atlas.com | unclaimed | onchain-x402 | 2026-08-05
+seguimiento-facil.gregjosegf1.chatgpt.site | verified | onchain-x402 | 2026-08-05
+ssl.use.x402atlas.com | unclaimed | onchain-x402 | 2026-08-05
+taskgate.13-204-198-31.sslip.io | unclaimed | onchain-x402 | 2026-08-05
+twit.sh | unclaimed | onchain-x402 | 2026-08-05
+verifiable-random.use.x402atlas.com | unclaimed | onchain-x402 | 2026-08-05
+visuals.use.x402atlas.com | unclaimed | onchain-x402 | 2026-08-05
+web-page-reader.vercel.app | verified | onchain-x402 | 2026-08-05
+x402-coin-api.vercel.app | unclaimed | onchain-x402 | 2026-08-05
+x402-web-extract.senpi-agent.workers.dev | unclaimed | onchain-x402 | 2026-08-05
