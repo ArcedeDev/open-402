@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 6079
+# Total domains: 6103
 # Total endpoints: 14938
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -4519,7 +4519,7 @@ xx402.icu | unclaimed | onchain-x402 | 2026-06-30
 agents.dyoeway.org | unclaimed | onchain-x402 | 2026-07-01
 api.agentstools.dev | unclaimed | onchain-x402 | 2026-07-01
 api.agnet.world | unclaimed | onchain-x402 | 2026-07-01
-api.aiservices.to | verified | onchain-x402 | 2026-07-01
+api.aiservices.to | unclaimed | onchain-x402 | 2026-07-01
 api.tantra-authority.com | unclaimed | onchain-x402 | 2026-07-01
 cc0-feed-api.bodhinindustries.workers.dev | unclaimed | onchain-x402 | 2026-07-01
 cpi-report-us.underscoredone.com | unclaimed | onchain-x402 | 2026-07-01
@@ -6082,3 +6082,27 @@ visuals.use.x402atlas.com | unclaimed | onchain-x402 | 2026-08-05
 web-page-reader.vercel.app | verified | onchain-x402 | 2026-08-05
 x402-coin-api.vercel.app | unclaimed | onchain-x402 | 2026-08-05
 x402-web-extract.senpi-agent.workers.dev | unclaimed | onchain-x402 | 2026-08-05
+agent-work-api.agentwork-market.workers.dev | verified | onchain-x402 | 2026-08-06
+agenttoll.app | unclaimed | onchain-x402 | 2026-08-06
+api.blockchainmoneymap.com | unclaimed | onchain-x402 | 2026-08-06
+api.chipscan.xyz | unclaimed | onchain-x402 | 2026-08-06
+api.predge.io | unclaimed | onchain-x402 | 2026-08-06
+api.zerion.io | unclaimed | onchain-x402 | 2026-08-06
+attest402.com | unclaimed | onchain-x402 | 2026-08-06
+base-scout.botty4541.workers.dev | unclaimed | onchain-x402 | 2026-08-06
+exviv.com | unclaimed | onchain-x402 | 2026-08-06
+legit.gonna.bond | verified | onchain-x402 | 2026-08-06
+oddments-x402.exe.xyz | unclaimed | onchain-x402 | 2026-08-06
+onecent-x402-pw76aqweia-uc.a.run.app | unclaimed | onchain-x402 | 2026-08-06
+picopages.botty4541.workers.dev | unclaimed | onchain-x402 | 2026-08-06
+proofflow-agent.vercel.app | verified | onchain-x402 | 2026-08-06
+spark.lonestaroracle.xyz | unclaimed | onchain-x402 | 2026-08-06
+toppot.io | unclaimed | onchain-x402 | 2026-08-06
+twitter.use.x402atlas.com | unclaimed | onchain-x402 | 2026-08-06
+upturned-penniless-obedient.ngrok-free.dev | unclaimed | onchain-x402 | 2026-08-06
+x402-ai.pages.dev | unclaimed | onchain-x402 | 2026-08-06
+x402-audit.tatschluizguilherme.workers.dev | unclaimed | onchain-x402 | 2026-08-06
+x402-cve-triage.sigrunner.workers.dev | unclaimed | onchain-x402 | 2026-08-06
+x402-orgauth-poc.theliminalguy.workers.dev | unclaimed | onchain-x402 | 2026-08-06
+x402.api.browser-use.com | unclaimed | onchain-x402 | 2026-08-06
+zeroclick.affiliate.com | unclaimed | onchain-x402 | 2026-08-06
