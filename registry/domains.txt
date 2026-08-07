@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 6103
+# Total domains: 6148
 # Total endpoints: 14938
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -6006,7 +6006,7 @@ youtube.fetcher.sh | unclaimed | onchain-x402 | 2026-08-03
 54f9c5ddd90e1f.lhr.life | unclaimed | onchain-l402 | 2026-08-04
 agent-reader.agent-reader.workers.dev | verified | onchain-x402 | 2026-08-04
 agentreader.dev | verified | onchain-x402 | 2026-08-04
-api.darangilau.com | unclaimed | onchain-x402 | 2026-08-04
+api.darangilau.com | verified | onchain-x402 | 2026-08-04
 api.earnclaw.com | unclaimed | onchain-x402 | 2026-08-04
 api.fastapi.online | unclaimed | onchain-x402 | 2026-08-04
 api.gatex402.dev | unclaimed | onchain-x402 | 2026-08-04
@@ -6099,10 +6099,55 @@ proofflow-agent.vercel.app | verified | onchain-x402 | 2026-08-06
 spark.lonestaroracle.xyz | unclaimed | onchain-x402 | 2026-08-06
 toppot.io | unclaimed | onchain-x402 | 2026-08-06
 twitter.use.x402atlas.com | unclaimed | onchain-x402 | 2026-08-06
-upturned-penniless-obedient.ngrok-free.dev | unclaimed | onchain-x402 | 2026-08-06
+upturned-penniless-obedient.ngrok-free.dev | verified | onchain-x402 | 2026-08-06
 x402-ai.pages.dev | unclaimed | onchain-x402 | 2026-08-06
 x402-audit.tatschluizguilherme.workers.dev | unclaimed | onchain-x402 | 2026-08-06
 x402-cve-triage.sigrunner.workers.dev | unclaimed | onchain-x402 | 2026-08-06
 x402-orgauth-poc.theliminalguy.workers.dev | unclaimed | onchain-x402 | 2026-08-06
 x402.api.browser-use.com | unclaimed | onchain-x402 | 2026-08-06
 zeroclick.affiliate.com | unclaimed | onchain-x402 | 2026-08-06
+37954192f2df77a4-83-30-15-138.serveousercontent.com | unclaimed | onchain-x402 | 2026-08-07
+4bf48764603a5843-83-30-15-138.serveousercontent.com | unclaimed | onchain-x402 | 2026-08-07
+5108-x402.community.iamstarchild.com | unclaimed | onchain-x402 | 2026-08-07
+58e08b09bf3b0461-83-30-15-138.serveousercontent.com | unclaimed | onchain-x402 | 2026-08-07
+5a20041a7e54c4b2-83-30-15-138.serveousercontent.com | unclaimed | onchain-x402 | 2026-08-07
+778e264cac9d1f7a-83-30-15-138.serveousercontent.com | unclaimed | onchain-x402 | 2026-08-07
+7ac50761bb4e5e27-83-30-15-138.serveousercontent.com | unclaimed | onchain-x402 | 2026-08-07
+7ad9affb588f3f67-83-30-15-138.serveousercontent.com | unclaimed | onchain-x402 | 2026-08-07
+agent-cash-three.vercel.app | unclaimed | onchain-x402 | 2026-08-07
+agent-offers-api-replitzip.replit.app | unclaimed | onchain-x402 | 2026-08-07
+agente.revenuerecoveryai.app | unclaimed | onchain-x402 | 2026-08-07
+airscout.scalpstream.com | unclaimed | onchain-x402 | 2026-08-07
+anywaypossible.com | unclaimed | onchain-x402 | 2026-08-07
+api.402.greatdatacompany.com | unclaimed | onchain-x402 | 2026-08-07
+api.cryptoretail.store | unclaimed | onchain-x402 | 2026-08-07
+api.pocketfactory.ai | unclaimed | onchain-x402 | 2026-08-07
+api.relayshield.net | unclaimed | onchain-x402 | 2026-08-07
+api.servocenter.com | unclaimed | onchain-x402 | 2026-08-07
+ba00adfa7465447c-83-30-15-138.serveousercontent.com | unclaimed | onchain-x402 | 2026-08-07
+cc01ab1b5270d167-83-30-15-138.serveousercontent.com | unclaimed | onchain-x402 | 2026-08-07
+dark-archive.botty4541.workers.dev | unclaimed | onchain-x402 | 2026-08-07
+dd2bd663796477fc-83-30-15-138.serveousercontent.com | unclaimed | onchain-x402 | 2026-08-07
+e2fa801f61b2e84e-83-30-15-138.serveousercontent.com | unclaimed | onchain-x402 | 2026-08-07
+fc117b69720f3c44-83-30-15-138.serveousercontent.com | unclaimed | onchain-x402 | 2026-08-07
+fetch.netzhandwerker.de | unclaimed | onchain-x402 | 2026-08-07
+ip.netzhandwerker.de | unclaimed | onchain-x402 | 2026-08-07
+kosmostream-iaas.kosmogrow.workers.dev | unclaimed | onchain-x402 | 2026-08-07
+lazareus.xyz | unclaimed | onchain-x402 | 2026-08-07
+oddments-s2.exe.xyz | unclaimed | onchain-x402 | 2026-08-07
+oddments-s3.exe.xyz | unclaimed | onchain-x402 | 2026-08-07
+oddments-s5.exe.xyz | unclaimed | onchain-x402 | 2026-08-07
+s1.oddments.ai | unclaimed | onchain-x402 | 2026-08-07
+s2.oddments.ai | unclaimed | onchain-x402 | 2026-08-07
+s3.oddments.ai | unclaimed | onchain-x402 | 2026-08-07
+s5.oddments.ai | unclaimed | onchain-x402 | 2026-08-07
+scrapecheck.fly.dev | unclaimed | onchain-x402 | 2026-08-07
+signal.servocenter.com | unclaimed | onchain-x402 | 2026-08-07
+stack.netzhandwerker.de | unclaimed | onchain-x402 | 2026-08-07
+time.24klabs.ai | unclaimed | onchain-x402 | 2026-08-07
+tools.netzhandwerker.de | unclaimed | onchain-x402 | 2026-08-07
+x402-ranker.zaden-gaming.workers.dev | unclaimed | onchain-x402 | 2026-08-07
+x402-snap.zaden-gaming.workers.dev | unclaimed | onchain-x402 | 2026-08-07
+x402-zadenworks.zaden-gaming.workers.dev | unclaimed | onchain-x402 | 2026-08-07
+yieldsignal.vercel.app | unclaimed | onchain-x402 | 2026-08-07
+zlv402.wreckbots.io | unclaimed | onchain-x402 | 2026-08-07
