@@ -1,7 +1,7 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 6148
-# Total endpoints: 14938
+# Total domains: 6170
+# Total endpoints: 14939
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
 x402scan.com | unclaimed | 402index | 2026-03-23
@@ -45,7 +45,7 @@ agents.allium.so | unclaimed | 402index | 2026-03-23
 x402-gateway-production.up.railway.app| verified |402index|2026-03-23
 pro-api.coingecko.com | unclaimed | 402index | 2026-03-23
 lightningfaucet.com | unclaimed | 402index | 2026-03-23
-b9c7a16b-b90f-4d3c-b73c-bb8d49f9a8fd-00-2zmwe913s9fbf.picard.replit.dev | unclaimed | 402index | 2026-03-23
+b9c7a16b-b90f-4d3c-b73c-bb8d49f9a8fd-00-2zmwe913s9fbf.picard.replit.dev | verified | 402index | 2026-03-23
 gateway.grapevine.fyi | unclaimed | 402index | 2026-03-23
 defi.hugen.tokyo | unclaimed | 402index | 2026-03-23
 stablestudio.dev | unclaimed | 402index | 2026-03-23
@@ -4745,7 +4745,7 @@ nuza.io | unclaimed | onchain-x402 | 2026-07-07
 prediction-intel-tan.vercel.app | unclaimed | onchain-x402 | 2026-07-07
 quartermaster.surewhynot.app | unclaimed | onchain-x402 | 2026-07-07
 venture-mpp.vercel.app | verified | onchain-mpp | 2026-07-07
-x402-research-api-seven.vercel.app | verified | onchain-x402 | 2026-07-07
+x402-research-api-seven.vercel.app | unclaimed | onchain-x402 | 2026-07-07
 x402.nobodytools.com | unclaimed | onchain-x402 | 2026-07-07
 agentcard.hergertsynthora.com | verified | onchain-x402 | 2026-07-08
 agentworld.me | verified | onchain-x402 | 2026-07-08
@@ -5833,7 +5833,7 @@ keyring-agent.blockchhub.link | unclaimed | onchain-x402 | 2026-07-28
 lingua-x402.fly.dev | unclaimed | onchain-x402 | 2026-07-28
 promoting-slip-solve-ctrl.trycloudflare.com | unclaimed | onchain-x402 | 2026-07-28
 scramble.wibandwob.com | verified | onchain-x402 | 2026-07-28
-scvd.store | unclaimed | onchain-x402 | 2026-07-28
+scvd.store | verified | onchain-x402 | 2026-07-28
 sqlguard-eqhq.onrender.com | unclaimed | onchain-x402 | 2026-07-28
 sqlguard.io | verified | onchain-x402 | 2026-07-28
 talkshi.com | unclaimed | onchain-x402 | 2026-07-28
@@ -6151,3 +6151,25 @@ x402-snap.zaden-gaming.workers.dev | unclaimed | onchain-x402 | 2026-08-07
 x402-zadenworks.zaden-gaming.workers.dev | unclaimed | onchain-x402 | 2026-08-07
 yieldsignal.vercel.app | unclaimed | onchain-x402 | 2026-08-07
 zlv402.wreckbots.io | unclaimed | onchain-x402 | 2026-08-07
+a2a.elonsusk.com | unclaimed | onchain-x402 | 2026-08-08
+api.m2mcent.com | unclaimed | onchain-x402 | 2026-08-08
+api.major-miners.com | unclaimed | onchain-l402 | 2026-08-08
+api.stackgoai.com | unclaimed | onchain-x402 | 2026-08-08
+chat.sperax.io | verified | onchain-x402 | 2026-08-08
+cheshireterminal.ai | unclaimed | onchain-x402 | 2026-08-08
+codex-autonomous-worker.rwdburley.chatgpt.site | verified | onchain-x402 | 2026-08-08
+issuelens-production.up.railway.app | unclaimed | onchain-x402 | 2026-08-08
+k2so.wrong.systems | unclaimed | onchain-x402 | 2026-08-08
+kronos.forgemesh.io | unclaimed | onchain-x402 | 2026-08-08
+mason.agentcash.me | unclaimed | onchain-x402 | 2026-08-08
+pagemd.dcstone09.workers.dev | unclaimed | onchain-x402 | 2026-08-08
+patchproof-api.krlosrdz.chatgpt.site | unclaimed | onchain-x402 | 2026-08-08
+payto-preflight.hergertsynthora.com | verified | onchain-x402 | 2026-08-08
+peoplescourt.ai | unclaimed | onchain-x402 | 2026-08-08
+quanta-roan.vercel.app | unclaimed | onchain-x402 | 2026-08-08
+r2-x402-manifest-audit.dragonfly27.workers.dev | unclaimed | onchain-x402 | 2026-08-08
+rwa-dashboard-gamma.vercel.app | unclaimed | onchain-x402 | 2026-08-08
+sourcemint-api.nap6281.chatgpt.site | unclaimed | onchain-x402 | 2026-08-08
+untracked-parish-unripe.ngrok-free.dev | unclaimed | onchain-x402 | 2026-08-08
+x402.halowerk.com | unclaimed | onchain-x402 | 2026-08-08
+x402.pkgproof.net | unclaimed | onchain-x402 | 2026-08-08
