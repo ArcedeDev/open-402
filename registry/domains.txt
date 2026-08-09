@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 6170
+# Total domains: 6227
 # Total endpoints: 14939
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -3279,8 +3279,8 @@ deploy.crestsystems.ai | unclaimed | onchain-x402 | 2026-06-09
 disruption.forgemesh.io | unclaimed | onchain-x402 | 2026-06-09
 dns-email-hygiene.relayhop.workers.dev | verified | onchain-x402 | 2026-06-09
 dns-lookup.api.klymax402.com | unclaimed | onchain-x402 | 2026-06-09
-docpull-production.up.railway.app | verified | onchain-x402 | 2026-06-09
-docpull.ai | verified | onchain-x402 | 2026-06-09
+docpull-production.up.railway.app | unclaimed | onchain-x402 | 2026-06-09
+docpull.ai | unclaimed | onchain-x402 | 2026-06-09
 dropspace.dev | unclaimed | onchain-x402 | 2026-06-09
 earnings.lonestaroracle.xyz | unclaimed | onchain-x402 | 2026-06-09
 edenguardian-production.up.railway.app | unclaimed | onchain-x402 | 2026-06-09
@@ -3653,7 +3653,7 @@ cyber-intel-api-production-a3c1.up.railway.app | unclaimed | onchain-x402 | 2026
 doc.lonestaroracle.xyz | unclaimed | onchain-x402 | 2026-06-19
 momoai-cyan.vercel.app | unclaimed | onchain-x402 | 2026-06-19
 orcpin.dev | verified | onchain-x402 | 2026-06-19
-pay.hergertsynthora.com | verified | onchain-x402 | 2026-06-19
+pay.hergertsynthora.com | unclaimed | onchain-x402 | 2026-06-19
 stable.lonestaroracle.xyz | unclaimed | onchain-x402 | 2026-06-19
 wealth.lonestaroracle.xyz | unclaimed | onchain-x402 | 2026-06-19
 x402.tiny.place | unclaimed | onchain-x402 | 2026-06-19
@@ -4014,7 +4014,7 @@ v2tolens.vercel.app | unclaimed | onchain-x402 | 2026-06-25
 vercanon.orbonomy.xyz | unclaimed | onchain-x402 | 2026-06-25
 x402-rapidapi-hub.vercel.app | unclaimed | onchain-x402 | 2026-06-25
 x402-social-hub-new.vercel.app | unclaimed | onchain-x402 | 2026-06-25
-x402-url-extractor-production.up.railway.app | unclaimed | onchain-x402 | 2026-06-25
+x402-url-extractor-production.up.railway.app | verified | onchain-x402 | 2026-06-25
 402alphacook.vercel.app | unclaimed | onchain-x402 | 2026-06-26
 402peddlr.vercel.app | unclaimed | onchain-x402 | 2026-06-26
 7olens.vercel.app | unclaimed | onchain-x402 | 2026-06-26
@@ -5215,7 +5215,7 @@ api.celtagrupo.com | unclaimed | onchain-x402 | 2026-07-16
 api.finnputerdex.com | unclaimed | onchain-x402 | 2026-07-16
 api.instahuman.com | unclaimed | onchain-x402 | 2026-07-16
 api.zatena.com | unclaimed | onchain-x402 | 2026-07-16
-coil.trade | unclaimed | onchain-x402 | 2026-07-16
+coil.trade | verified | onchain-x402 | 2026-07-16
 crucible.unitynodes.com | unclaimed | onchain-x402 | 2026-07-16
 dataforagents.net | unclaimed | onchain-x402 | 2026-07-16
 datasig.ai | unclaimed | onchain-x402 | 2026-07-16
@@ -6151,7 +6151,7 @@ x402-snap.zaden-gaming.workers.dev | unclaimed | onchain-x402 | 2026-08-07
 x402-zadenworks.zaden-gaming.workers.dev | unclaimed | onchain-x402 | 2026-08-07
 yieldsignal.vercel.app | unclaimed | onchain-x402 | 2026-08-07
 zlv402.wreckbots.io | unclaimed | onchain-x402 | 2026-08-07
-a2a.elonsusk.com | unclaimed | onchain-x402 | 2026-08-08
+a2a.elonsusk.com | verified | onchain-x402 | 2026-08-08
 api.m2mcent.com | unclaimed | onchain-x402 | 2026-08-08
 api.major-miners.com | unclaimed | onchain-l402 | 2026-08-08
 api.stackgoai.com | unclaimed | onchain-x402 | 2026-08-08
@@ -6173,3 +6173,60 @@ sourcemint-api.nap6281.chatgpt.site | unclaimed | onchain-x402 | 2026-08-08
 untracked-parish-unripe.ngrok-free.dev | unclaimed | onchain-x402 | 2026-08-08
 x402.halowerk.com | unclaimed | onchain-x402 | 2026-08-08
 x402.pkgproof.net | unclaimed | onchain-x402 | 2026-08-08
+agents.samedaydesk.com | verified | onchain-x402 | 2026-08-09
+aidatatools.dev | unclaimed | onchain-x402 | 2026-08-09
+alphavantage.x402.paywithlocus.com | unclaimed | onchain-x402 | 2026-08-09
+anthropic.x402.paywithlocus.com | unclaimed | onchain-x402 | 2026-08-09
+api.agent-immortality.com | unclaimed | onchain-x402 | 2026-08-09
+api.mossgate.dev | unclaimed | onchain-x402 | 2026-08-09
+apiacre.com | unclaimed | onchain-x402 | 2026-08-09
+apollo.x402.paywithlocus.com | unclaimed | onchain-x402 | 2026-08-09
+billboard.x402.paywithlocus.com | unclaimed | onchain-x402 | 2026-08-09
+brave.x402.paywithlocus.com | unclaimed | onchain-x402 | 2026-08-09
+browser-use.x402.paywithlocus.com | unclaimed | onchain-x402 | 2026-08-09
+builtwith.x402.paywithlocus.com | unclaimed | onchain-x402 | 2026-08-09
+chainverdict.xyz | unclaimed | onchain-x402 | 2026-08-09
+clado.x402.paywithlocus.com | unclaimed | onchain-x402 | 2026-08-09
+coingecko.x402.paywithlocus.com | unclaimed | onchain-x402 | 2026-08-09
+deepgram.x402.paywithlocus.com | unclaimed | onchain-x402 | 2026-08-09
+deepl.x402.paywithlocus.com | unclaimed | onchain-x402 | 2026-08-09
+deepseek.x402.paywithlocus.com | unclaimed | onchain-x402 | 2026-08-09
+diffbot-kg.x402.paywithlocus.com | unclaimed | onchain-x402 | 2026-08-09
+diffbot-nl.x402.paywithlocus.com | unclaimed | onchain-x402 | 2026-08-09
+diffbot.x402.paywithlocus.com | unclaimed | onchain-x402 | 2026-08-09
+edgar-search.x402.paywithlocus.com | unclaimed | onchain-x402 | 2026-08-09
+edgar.x402.paywithlocus.com | unclaimed | onchain-x402 | 2026-08-09
+elevenlabs.x402.paywithlocus.com | unclaimed | onchain-x402 | 2026-08-09
+fal.x402.paywithlocus.com | unclaimed | onchain-x402 | 2026-08-09
+gemini.x402.paywithlocus.com | unclaimed | onchain-x402 | 2026-08-09
+grok.x402.paywithlocus.com | unclaimed | onchain-x402 | 2026-08-09
+groq.x402.paywithlocus.com | unclaimed | onchain-x402 | 2026-08-09
+hunter.x402.paywithlocus.com | unclaimed | onchain-x402 | 2026-08-09
+ipinfo.x402.paywithlocus.com | unclaimed | onchain-x402 | 2026-08-09
+judge0.x402.paywithlocus.com | unclaimed | onchain-x402 | 2026-08-09
+lex.chainverdict.xyz | unclaimed | onchain-x402 | 2026-08-09
+mapbox.x402.paywithlocus.com | unclaimed | onchain-x402 | 2026-08-09
+mathpix.x402.paywithlocus.com | unclaimed | onchain-x402 | 2026-08-09
+mcp.chainhelix.io | unclaimed | onchain-x402 | 2026-08-09
+mistral.x402.paywithlocus.com | unclaimed | onchain-x402 | 2026-08-09
+nodescorecard.xyz | unclaimed | onchain-x402 | 2026-08-09
+ofac.x402.paywithlocus.com | unclaimed | onchain-x402 | 2026-08-09
+one-percent-agent-tip.middletontanne137269.chatgpt.site | unclaimed | onchain-x402 | 2026-08-09
+openrouter.x402.paywithlocus.com | unclaimed | onchain-x402 | 2026-08-09
+openweather.x402.paywithlocus.com | unclaimed | onchain-x402 | 2026-08-09
+patch-guard-api.me-e51.workers.dev | unclaimed | onchain-x402 | 2026-08-09
+perplexity.x402.paywithlocus.com | unclaimed | onchain-x402 | 2026-08-09
+proof402.15-204-209-67.sslip.io | unclaimed | onchain-x402 | 2026-08-09
+pulse.chainverdict.xyz | unclaimed | onchain-x402 | 2026-08-09
+rentcast.x402.paywithlocus.com | unclaimed | onchain-x402 | 2026-08-09
+replicate.x402.paywithlocus.com | unclaimed | onchain-x402 | 2026-08-09
+rue.mossgate.dev | unclaimed | onchain-x402 | 2026-08-09
+screenshotone.x402.paywithlocus.com | unclaimed | onchain-x402 | 2026-08-09
+stability-ai.x402.paywithlocus.com | unclaimed | onchain-x402 | 2026-08-09
+suno.x402.paywithlocus.com | unclaimed | onchain-x402 | 2026-08-09
+tavily.x402.paywithlocus.com | unclaimed | onchain-x402 | 2026-08-09
+trade.chainverdict.xyz | unclaimed | onchain-x402 | 2026-08-09
+virustotal.x402.paywithlocus.com | unclaimed | onchain-x402 | 2026-08-09
+wolframalpha.x402.paywithlocus.com | unclaimed | onchain-x402 | 2026-08-09
+x402events-leglmfnyea-uc.a.run.app | unclaimed | onchain-x402 | 2026-08-09
+x402getaway-leglmfnyea-uc.a.run.app | unclaimed | onchain-x402 | 2026-08-09
