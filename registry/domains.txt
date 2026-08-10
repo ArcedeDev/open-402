@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 6227
+# Total domains: 6247
 # Total endpoints: 14939
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -6179,7 +6179,7 @@ alphavantage.x402.paywithlocus.com | unclaimed | onchain-x402 | 2026-08-09
 anthropic.x402.paywithlocus.com | unclaimed | onchain-x402 | 2026-08-09
 api.agent-immortality.com | unclaimed | onchain-x402 | 2026-08-09
 api.mossgate.dev | unclaimed | onchain-x402 | 2026-08-09
-apiacre.com | unclaimed | onchain-x402 | 2026-08-09
+apiacre.com | verified | onchain-x402 | 2026-08-09
 apollo.x402.paywithlocus.com | unclaimed | onchain-x402 | 2026-08-09
 billboard.x402.paywithlocus.com | unclaimed | onchain-x402 | 2026-08-09
 brave.x402.paywithlocus.com | unclaimed | onchain-x402 | 2026-08-09
@@ -6230,3 +6230,23 @@ virustotal.x402.paywithlocus.com | unclaimed | onchain-x402 | 2026-08-09
 wolframalpha.x402.paywithlocus.com | unclaimed | onchain-x402 | 2026-08-09
 x402events-leglmfnyea-uc.a.run.app | unclaimed | onchain-x402 | 2026-08-09
 x402getaway-leglmfnyea-uc.a.run.app | unclaimed | onchain-x402 | 2026-08-09
+agentready-audit.seshiccse023.chatgpt.site | unclaimed | onchain-x402 | 2026-08-10
+agents.aiscale.pro | verified | onchain-x402 | 2026-08-10
+api.bakebakebake.no | unclaimed | onchain-x402 | 2026-08-10
+api.canienter.com | unclaimed | onchain-x402 | 2026-08-10
+api.compliapi.com | unclaimed | onchain-x402 | 2026-08-10
+api.onaeterna.com | unclaimed | onchain-x402 | 2026-08-10
+bykaranteli.com | unclaimed | onchain-x402 | 2026-08-10
+data.brain-de-le-jstew.com | unclaimed | onchain-x402 | 2026-08-10
+deutschland-famous-ecommerce-surveillance.trycloudflare.com | unclaimed | onchain-x402 | 2026-08-10
+html2md-converter.onrender.com | unclaimed | onchain-x402 | 2026-08-10
+latest-news-api.latest-news.workers.dev | unclaimed | onchain-x402 | 2026-08-10
+pagedistill.thumm.workers.dev | unclaimed | onchain-x402 | 2026-08-10
+taskmaster-x402.vercel.app | verified | onchain-x402 | 2026-08-10
+tlmnt.app | unclaimed | onchain-x402 | 2026-08-10
+website2vat.com | unclaimed | onchain-x402 | 2026-08-10
+x402-api-blond.vercel.app | unclaimed | onchain-x402 | 2026-08-10
+x402-preflight-api.onrender.com | unclaimed | onchain-x402 | 2026-08-10
+x402-safe-upgrade-api.onrender.com | unclaimed | onchain-x402 | 2026-08-10
+x402.tbs-digital.com | unclaimed | onchain-x402 | 2026-08-10
+x402scan-services-gq1i.onrender.com | unclaimed | onchain-x402 | 2026-08-10
