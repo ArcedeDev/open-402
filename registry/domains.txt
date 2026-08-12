@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 6254
+# Total domains: 6289
 # Total endpoints: 14939
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -4587,12 +4587,12 @@ optinx402.vercel.app | unclaimed | onchain-x402 | 2026-07-02
 password-strength.api.klymax402.com | unclaimed | onchain-x402 | 2026-07-02
 phone-validation.api.klymax402.com | unclaimed | onchain-x402 | 2026-07-02
 port-scanner.api.klymax402.com | unclaimed | onchain-x402 | 2026-07-02
-prediction.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-02
+prediction.hergertsynthora.com | verified | onchain-x402 | 2026-07-02
 preflight.kenoodl.com | unclaimed | onchain-x402 | 2026-07-02
 protocolo-x40.onrender.com | unclaimed | onchain-x402 | 2026-07-02
 regex-generator.api.klymax402.com | unclaimed | onchain-x402 | 2026-07-02
 research-report.api.klymax402.com | unclaimed | onchain-x402 | 2026-07-02
-sentiment.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-02
+sentiment.hergertsynthora.com | verified | onchain-x402 | 2026-07-02
 sq-intel-x402.aries-lao.workers.dev | unclaimed | onchain-x402 | 2026-07-02
 x402-ai-peach.vercel.app | unclaimed | onchain-x402 | 2026-07-02
 x402-alert.vercel.app | unclaimed | onchain-x402 | 2026-07-02
@@ -6207,7 +6207,7 @@ judge0.x402.paywithlocus.com | unclaimed | onchain-x402 | 2026-08-09
 lex.chainverdict.xyz | unclaimed | onchain-x402 | 2026-08-09
 mapbox.x402.paywithlocus.com | unclaimed | onchain-x402 | 2026-08-09
 mathpix.x402.paywithlocus.com | unclaimed | onchain-x402 | 2026-08-09
-mcp.chainhelix.io | unclaimed | onchain-x402 | 2026-08-09
+mcp.chainhelix.io | verified | onchain-x402 | 2026-08-09
 mistral.x402.paywithlocus.com | unclaimed | onchain-x402 | 2026-08-09
 nodescorecard.xyz | unclaimed | onchain-x402 | 2026-08-09
 ofac.x402.paywithlocus.com | unclaimed | onchain-x402 | 2026-08-09
@@ -6257,3 +6257,38 @@ pricing-state-api.replit.app | unclaimed | onchain-x402 | 2026-08-11
 viql.upgo.ai | unclaimed | onchain-x402 | 2026-08-11
 x402-validator-tools.onrender.com | unclaimed | onchain-x402 | 2026-08-11
 x402.whisperbox.my.id | unclaimed | onchain-x402 | 2026-08-11
+3ea58910b867fa.lhr.life | unclaimed | onchain-x402 | 2026-08-12
+a2a-verifier-production.up.railway.app | unclaimed | onchain-x402 | 2026-08-12
+agent-immortality.com | unclaimed | onchain-x402 | 2026-08-12
+agent.halowerk.com | unclaimed | onchain-x402 | 2026-08-12
+agent402.co.uk | unclaimed | onchain-x402 | 2026-08-12
+api.earnorg.com | unclaimed | onchain-x402 | 2026-08-12
+api.excelexi.com | unclaimed | onchain-x402 | 2026-08-12
+api.gondola-ai.com | unclaimed | onchain-x402 | 2026-08-12
+api402x.com | unclaimed | onchain-x402 | 2026-08-12
+app.ravn.exchange | unclaimed | onchain-x402 | 2026-08-12
+ar-analyzer.rileycraig14.workers.dev | unclaimed | onchain-x402 | 2026-08-12
+briefs.hergertsynthora.com | verified | onchain-x402 | 2026-08-12
+chain-pluse-production.up.railway.app | unclaimed | onchain-x402 | 2026-08-12
+f0eef35ac9124c.lhr.life | unclaimed | onchain-x402 | 2026-08-12
+f3lll4aoxdgrisxvqh2zfryehy.srv.us | unclaimed | onchain-x402 | 2026-08-12
+fdba780f327501.lhr.life | unclaimed | onchain-x402 | 2026-08-12
+geoalpha.hergertsynthora.com | verified | onchain-x402 | 2026-08-12
+goldkey-edge-storefront.noah-ing.workers.dev | verified | onchain-x402 | 2026-08-12
+hustleos-x402-feed.coolbladez05.workers.dev | verified | onchain-x402 | 2026-08-12
+llm.agenticfi.wtf | unclaimed | onchain-x402 | 2026-08-12
+market-intel.hergertsynthora.com | verified | onchain-x402 | 2026-08-12
+mcpfax-intel.bowling-anthony.workers.dev | unclaimed | onchain-x402 | 2026-08-12
+mcpfax-reliability.bowling-anthony.workers.dev | unclaimed | onchain-x402 | 2026-08-12
+mcpfax-utility.bowling-anthony.workers.dev | unclaimed | onchain-x402 | 2026-08-12
+metisagent.co | unclaimed | onchain-x402 | 2026-08-12
+osint.hergertsynthora.com | verified | onchain-x402 | 2026-08-12
+rotaryagency.uk | unclaimed | onchain-x402 | 2026-08-12
+slippage-oracle.hergertsynthora.com | verified | onchain-x402 | 2026-08-12
+theautonomousstack.xyz | unclaimed | onchain-x402 | 2026-08-12
+trusted-x402.compose.land | unclaimed | onchain-x402 | 2026-08-12
+vatcheck.hergertsynthora.com | verified | onchain-x402 | 2026-08-12
+voxsift-x402.fly.dev | unclaimed | onchain-x402 | 2026-08-12
+wallet-trust.rileycraig14.workers.dev | unclaimed | onchain-x402 | 2026-08-12
+x402-finmath.whale-feed-max.workers.dev | unclaimed | onchain-x402 | 2026-08-12
+x402.stan01.xyz | unclaimed | onchain-x402 | 2026-08-12
