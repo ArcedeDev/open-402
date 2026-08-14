@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 6316
+# Total domains: 6371
 # Total endpoints: 14939
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -6271,7 +6271,7 @@ ar-analyzer.rileycraig14.workers.dev | unclaimed | onchain-x402 | 2026-08-12
 briefs.hergertsynthora.com | verified | onchain-x402 | 2026-08-12
 chain-pluse-production.up.railway.app | unclaimed | onchain-x402 | 2026-08-12
 f0eef35ac9124c.lhr.life | unclaimed | onchain-x402 | 2026-08-12
-f3lll4aoxdgrisxvqh2zfryehy.srv.us | unclaimed | onchain-x402 | 2026-08-12
+f3lll4aoxdgrisxvqh2zfryehy.srv.us | verified | onchain-x402 | 2026-08-12
 fdba780f327501.lhr.life | unclaimed | onchain-x402 | 2026-08-12
 geoalpha.hergertsynthora.com | verified | onchain-x402 | 2026-08-12
 goldkey-edge-storefront.noah-ing.workers.dev | verified | onchain-x402 | 2026-08-12
@@ -6319,3 +6319,58 @@ spip39.vercel.app | unclaimed | onchain-x402 | 2026-08-13
 spip40.vercel.app | unclaimed | onchain-x402 | 2026-08-13
 wichita-houses-deluxe-perry.trycloudflare.com | unclaimed | onchain-x402 | 2026-08-13
 x402.presenceoperations.com | unclaimed | onchain-x402 | 2026-08-13
+agent.uponup.com | unclaimed | onchain-x402 | 2026-08-14
+api-staging.you.com | unclaimed | onchain-x402 | 2026-08-14
+audio.halowerk.com | unclaimed | onchain-x402 | 2026-08-14
+botboard.forgemesh.io | unclaimed | onchain-x402 | 2026-08-14
+buero.halowerk.com | unclaimed | onchain-x402 | 2026-08-14
+conway-replicatio-cloudflare.nikitamakiel1.workers.dev | unclaimed | onchain-x402 | 2026-08-14
+defi.netzhandwerker.de | unclaimed | onchain-x402 | 2026-08-14
+desktop-o99r0sf.tail935fba.ts.net | unclaimed | onchain-x402 | 2026-08-14
+dispute-risk.hergertsynthora.com | verified | onchain-x402 | 2026-08-14
+dns.netzhandwerker.de | unclaimed | onchain-x402 | 2026-08-14
+doc.netzhandwerker.de | unclaimed | onchain-x402 | 2026-08-14
+ensemble.netzhandwerker.de | unclaimed | onchain-x402 | 2026-08-14
+finanz.halowerk.com | unclaimed | onchain-x402 | 2026-08-14
+gisgp.com | unclaimed | onchain-x402 | 2026-08-14
+handel.halowerk.com | unclaimed | onchain-x402 | 2026-08-14
+ident.halowerk.com | unclaimed | onchain-x402 | 2026-08-14
+insider-radar.hergertsynthora.com | verified | onchain-x402 | 2026-08-14
+kalender.netzhandwerker.de | unclaimed | onchain-x402 | 2026-08-14
+karte.halowerk.com | unclaimed | onchain-x402 | 2026-08-14
+kette.netzhandwerker.de | unclaimed | onchain-x402 | 2026-08-14
+lauf.halowerk.com | unclaimed | onchain-x402 | 2026-08-14
+llm-fast.hergertsynthora.com | verified | onchain-x402 | 2026-08-14
+llm-smart.hergertsynthora.com | verified | onchain-x402 | 2026-08-14
+mailcheck.netzhandwerker.de | unclaimed | onchain-x402 | 2026-08-14
+market-data-x402-5wh8-ivory.vercel.app | unclaimed | onchain-x402 | 2026-08-14
+market-resolution.hergertsynthora.com | verified | onchain-x402 | 2026-08-14
+markt.netzhandwerker.de | unclaimed | onchain-x402 | 2026-08-14
+med.halowerk.com | unclaimed | onchain-x402 | 2026-08-14
+medien.halowerk.com | unclaimed | onchain-x402 | 2026-08-14
+modell.halowerk.com | unclaimed | onchain-x402 | 2026-08-14
+natur.halowerk.com | unclaimed | onchain-x402 | 2026-08-14
+netz.halowerk.com | unclaimed | onchain-x402 | 2026-08-14
+news.netzhandwerker.de | unclaimed | onchain-x402 | 2026-08-14
+nostr.halowerk.com | unclaimed | onchain-x402 | 2026-08-14
+paket.halowerk.com | unclaimed | onchain-x402 | 2026-08-14
+polymarket-odds-movers.hergertsynthora.com | verified | onchain-x402 | 2026-08-14
+polymarket-resolution-watch.hergertsynthora.com | verified | onchain-x402 | 2026-08-14
+polymarket-whales.hergertsynthora.com | verified | onchain-x402 | 2026-08-14
+poolproof.ru | unclaimed | onchain-x402 | 2026-08-14
+pronomad.duckdns.org | unclaimed | onchain-x402 | 2026-08-14
+recht.halowerk.com | unclaimed | onchain-x402 | 2026-08-14
+research.halowerk.com | unclaimed | onchain-x402 | 2026-08-14
+seo.forgemesh.io | unclaimed | onchain-x402 | 2026-08-14
+shot.netzhandwerker.de | unclaimed | onchain-x402 | 2026-08-14
+sicher.halowerk.com | unclaimed | onchain-x402 | 2026-08-14
+smart-event-scraper-agent.onrender.com | unclaimed | onchain-x402 | 2026-08-14
+stat.halowerk.com | unclaimed | onchain-x402 | 2026-08-14
+swarm-protocol.onrender.com | unclaimed | onchain-x402 | 2026-08-14
+token-risk-scanner.umitaltun1678.workers.dev | unclaimed | onchain-x402 | 2026-08-14
+vektor.netzhandwerker.de | unclaimed | onchain-x402 | 2026-08-14
+wallet-enrich.hergertsynthora.com | verified | onchain-x402 | 2026-08-14
+x402-api-x8om.onrender.com | unclaimed | onchain-x402 | 2026-08-14
+x402.netzhandwerker.de | unclaimed | onchain-x402 | 2026-08-14
+x402donghang.duckdns.org | unclaimed | onchain-x402 | 2026-08-14
+zero-agent.broke2builtai.com | unclaimed | onchain-x402 | 2026-08-14
