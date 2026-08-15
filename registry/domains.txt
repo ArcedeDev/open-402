@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 6371
+# Total domains: 6395
 # Total endpoints: 14939
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -6374,3 +6374,27 @@ x402-api-x8om.onrender.com | unclaimed | onchain-x402 | 2026-08-14
 x402.netzhandwerker.de | unclaimed | onchain-x402 | 2026-08-14
 x402donghang.duckdns.org | unclaimed | onchain-x402 | 2026-08-14
 zero-agent.broke2builtai.com | unclaimed | onchain-x402 | 2026-08-14
+91-197-235-206.sslip.io | unclaimed | onchain-x402 | 2026-08-15
+agent.atinamos.co.uk | unclaimed | onchain-x402 | 2026-08-15
+animica.dev | unclaimed | onchain-x402 | 2026-08-15
+api.agentwork.run | unclaimed | onchain-x402 | 2026-08-15
+api.macaroonnetwork.com | unclaimed | onchain-x402 | 2026-08-15
+aster-vale-audit402.shares.zrok.io | unclaimed | onchain-x402 | 2026-08-15
+basedailybrief.vercel.app | unclaimed | onchain-x402 | 2026-08-15
+basewire-x402.vercel.app | unclaimed | onchain-x402 | 2026-08-15
+dependency-risk-preflight.dependency-risk-preflight.workers.dev | unclaimed | onchain-x402 | 2026-08-15
+global-alpha-flow-oracle.vercel.app | unclaimed | onchain-x402 | 2026-08-15
+leoshi-blog.vercel.app | unclaimed | onchain-x402 | 2026-08-15
+locker.veritap.dev | unclaimed | onchain-x402 | 2026-08-15
+microscrape-production.up.railway.app | unclaimed | onchain-x402 | 2026-08-15
+resrisk.xyz | unclaimed | onchain-x402 | 2026-08-15
+rooke-token-risk-pilot.rookepoole.workers.dev | unclaimed | onchain-x402 | 2026-08-15
+travelcheck-x402.fly.dev | unclaimed | onchain-x402 | 2026-08-15
+vvc032z10fqp.shares.zrok.io | unclaimed | onchain-x402 | 2026-08-15
+walletbureau.com | unclaimed | onchain-x402 | 2026-08-15
+x402-education-evidence.travis82.workers.dev | unclaimed | onchain-x402 | 2026-08-15
+x402-package-risk.x402-package-risk.workers.dev | unclaimed | onchain-x402 | 2026-08-15
+x402-validator-tools.fly.dev | unclaimed | onchain-x402 | 2026-08-15
+x402.agentfund.net | unclaimed | onchain-x402 | 2026-08-15
+x402.botsmith.dev | unclaimed | onchain-x402 | 2026-08-15
+x402.sashco.ca | unclaimed | onchain-x402 | 2026-08-15
