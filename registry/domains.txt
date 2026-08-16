@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 6395
+# Total domains: 6406
 # Total endpoints: 14939
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -2595,7 +2595,7 @@ timezone-converter-x402-production.up.railway.app | unclaimed | onchain-x402 | 2
 token-ohlcv-production.up.railway.app | unclaimed | onchain-x402 | 2026-04-17
 token-price-x402-production.up.railway.app | unclaimed | onchain-x402 | 2026-04-17
 weather-api-x402-production.up.railway.app | unclaimed | onchain-x402 | 2026-04-17
-x402.agoragentic.com | verified | onchain-x402 | 2026-04-17
+x402.agoragentic.com | unclaimed | onchain-x402 | 2026-04-17
 nanoapi.org | unclaimed | onchain-x402 | 2026-04-18
 pokerstudy.ai | unclaimed | onchain-x402 | 2026-04-18
 signal-engine-production-d88d.up.railway.app | unclaimed | onchain-x402 | 2026-04-18
@@ -4966,7 +4966,7 @@ agenttoll.dev | verified | onchain-x402 | 2026-07-12
 air_quality.hergertsynthora.com | unclaimed | onchain-x402 | 2026-07-12
 air-quality.hergertsynthora.com | verified | onchain-x402 | 2026-07-12
 api.cortexcloud.org | unclaimed | onchain-x402 | 2026-07-12
-api.datasieve.xyz | unclaimed | onchain-x402 | 2026-07-12
+api.datasieve.xyz | verified | onchain-x402 | 2026-07-12
 appstore.use.x402atlas.com | unclaimed | onchain-x402 | 2026-07-12
 arxiv-preprint-search.hergertsynthora.com | verified | onchain-x402 | 2026-07-12
 base-token-intel.onrender.com | unclaimed | onchain-x402 | 2026-07-12
@@ -5163,7 +5163,7 @@ api.speercyberdefense.com | unclaimed | onchain-x402 | 2026-07-14
 aura-revenue.helionixlabs.com | verified | onchain-x402 | 2026-07-14
 btest-ldxw.onrender.com | unclaimed | onchain-x402 | 2026-07-14
 carry-lens-api.netlify.app | unclaimed | onchain-x402 | 2026-07-14
-carry-lens-api.vercel.app | verified | onchain-x402 | 2026-07-14
+carry-lens-api.vercel.app | unclaimed | onchain-x402 | 2026-07-14
 conch402.dylan-caponi.workers.dev | unclaimed | onchain-x402 | 2026-07-14
 iamrich402.dylan-caponi.workers.dev | unclaimed | onchain-x402 | 2026-07-14
 k2-agent-services.vercel.app | unclaimed | onchain-x402 | 2026-07-14
@@ -5702,7 +5702,7 @@ xpensli.app | unclaimed | onchain-x402 | 2026-07-23
 5108-data-api-proxy.community.iamstarchild.com | unclaimed | onchain-x402 | 2026-07-24
 agent-commerce-guard.vercel.app | verified | onchain-x402 | 2026-07-24
 agentfetch.dynv6.net | unclaimed | onchain-x402 | 2026-07-24
-agentreeve.com | unclaimed | onchain-x402 | 2026-07-24
+agentreeve.com | verified | onchain-x402 | 2026-07-24
 agents.ai-rook.com | unclaimed | onchain-x402 | 2026-07-24
 ai-akari.ai | verified | onchain-x402 | 2026-07-24
 analyst.lonestaroracle.xyz | unclaimed | onchain-x402 | 2026-07-24
@@ -6374,7 +6374,7 @@ x402-api-x8om.onrender.com | unclaimed | onchain-x402 | 2026-08-14
 x402.netzhandwerker.de | unclaimed | onchain-x402 | 2026-08-14
 x402donghang.duckdns.org | unclaimed | onchain-x402 | 2026-08-14
 zero-agent.broke2builtai.com | unclaimed | onchain-x402 | 2026-08-14
-91-197-235-206.sslip.io | unclaimed | onchain-x402 | 2026-08-15
+91-197-235-206.sslip.io | verified | onchain-x402 | 2026-08-15
 agent.atinamos.co.uk | unclaimed | onchain-x402 | 2026-08-15
 animica.dev | unclaimed | onchain-x402 | 2026-08-15
 api.agentwork.run | unclaimed | onchain-x402 | 2026-08-15
@@ -6398,3 +6398,14 @@ x402-validator-tools.fly.dev | unclaimed | onchain-x402 | 2026-08-15
 x402.agentfund.net | unclaimed | onchain-x402 | 2026-08-15
 x402.botsmith.dev | unclaimed | onchain-x402 | 2026-08-15
 x402.sashco.ca | unclaimed | onchain-x402 | 2026-08-15
+api.agentshub.dev | unclaimed | onchain-x402 | 2026-08-16
+api.electrooracle.com | unclaimed | onchain-x402 | 2026-08-16
+api.reelfy.online | unclaimed | onchain-x402 | 2026-08-16
+atlas-manual-free-validation.onrender.com | unclaimed | onchain-x402 | 2026-08-16
+contextslim.friczero.com | unclaimed | onchain-x402 | 2026-08-16
+desk-x402.iceline.workers.dev | unclaimed | onchain-x402 | 2026-08-16
+fastscrape.benlab.download | unclaimed | onchain-x402 | 2026-08-16
+prysm-kappa.vercel.app | unclaimed | onchain-x402 | 2026-08-16
+sarachai.com | unclaimed | onchain-x402 | 2026-08-16
+verify402-production.up.railway.app | unclaimed | onchain-x402 | 2026-08-16
+x402.lagaceta.net | unclaimed | onchain-x402 | 2026-08-16
