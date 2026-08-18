@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 6406
+# Total domains: 6457
 # Total endpoints: 14939
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -3096,8 +3096,8 @@ try.madhousewallet.com | unclaimed | onchain-x402 | 2026-06-01
 agentfax.val.run | unclaimed | onchain-mpp | 2026-06-02
 api.markdown2pdf.ai | unclaimed | onchain-x402 | 2026-06-02
 api.minebean.com | unclaimed | onchain-x402 | 2026-06-02
-lion-x402.lionmaster-operations.workers.dev | verified | onchain-x402 | 2026-06-02
-lionx402.com | verified | onchain-x402 | 2026-06-02
+lion-x402.lionmaster-operations.workers.dev | unclaimed | onchain-x402 | 2026-06-02
+lionx402.com | unclaimed | onchain-x402 | 2026-06-02
 mdf-demo.bitcryptic.com | unclaimed | onchain-l402 | 2026-06-02
 x402.valkyry.fr | unclaimed | onchain-x402 | 2026-06-02
 3dprintedcat.com | unclaimed | onchain-x402 | 2026-06-03
@@ -6152,7 +6152,7 @@ x402-zadenworks.zaden-gaming.workers.dev | unclaimed | onchain-x402 | 2026-08-07
 yieldsignal.vercel.app | unclaimed | onchain-x402 | 2026-08-07
 zlv402.wreckbots.io | unclaimed | onchain-x402 | 2026-08-07
 a2a.elonsusk.com | verified | onchain-x402 | 2026-08-08
-api.m2mcent.com | unclaimed | onchain-x402 | 2026-08-08
+api.m2mcent.com | verified | onchain-x402 | 2026-08-08
 api.major-miners.com | unclaimed | onchain-l402 | 2026-08-08
 api.stackgoai.com | unclaimed | onchain-x402 | 2026-08-08
 chat.sperax.io | verified | onchain-x402 | 2026-08-08
@@ -6378,7 +6378,7 @@ zero-agent.broke2builtai.com | unclaimed | onchain-x402 | 2026-08-14
 agent.atinamos.co.uk | unclaimed | onchain-x402 | 2026-08-15
 animica.dev | unclaimed | onchain-x402 | 2026-08-15
 api.agentwork.run | unclaimed | onchain-x402 | 2026-08-15
-api.macaroonnetwork.com | unclaimed | onchain-x402 | 2026-08-15
+api.macaroonnetwork.com | verified | onchain-x402 | 2026-08-15
 aster-vale-audit402.shares.zrok.io | unclaimed | onchain-x402 | 2026-08-15
 basedailybrief.vercel.app | unclaimed | onchain-x402 | 2026-08-15
 basewire-x402.vercel.app | unclaimed | onchain-x402 | 2026-08-15
@@ -6409,3 +6409,54 @@ prysm-kappa.vercel.app | unclaimed | onchain-x402 | 2026-08-16
 sarachai.com | unclaimed | onchain-x402 | 2026-08-16
 verify402-production.up.railway.app | unclaimed | onchain-x402 | 2026-08-16
 x402.lagaceta.net | unclaimed | onchain-x402 | 2026-08-16
+0f5f86d776604f.lhr.life | unclaimed | onchain-x402 | 2026-08-18
+137-131-197-57.sslip.io | verified | onchain-x402 | 2026-08-18
+149-28-140-63.nip.io | unclaimed | onchain-x402 | 2026-08-18
+28ee199f3b359390-23-234-96-126.serveousercontent.com | unclaimed | onchain-x402 | 2026-08-18
+402oracle.com | unclaimed | onchain-x402 | 2026-08-18
+agents.datamancer.io | unclaimed | onchain-x402 | 2026-08-18
+agents.varsity54.com | unclaimed | onchain-x402 | 2026-08-18
+api.fetchx402.com | unclaimed | onchain-x402 | 2026-08-18
+api.generalrelay.xyz | unclaimed | onchain-x402 | 2026-08-18
+api.premiumrewards.vip | unclaimed | onchain-x402 | 2026-08-18
+api.prismnetwork.tech | unclaimed | onchain-x402 | 2026-08-18
+api.snapfix.media | unclaimed | onchain-x402 | 2026-08-18
+api.x402card.org | unclaimed | onchain-x402 | 2026-08-18
+baseusdcearn.pythonanywhere.com | unclaimed | onchain-x402 | 2026-08-18
+bounty-radar.marvin-odigo.workers.dev | unclaimed | onchain-x402 | 2026-08-18
+bountysignal-radar.kwashi3345kaluwat2.chatgpt.site | unclaimed | onchain-x402 | 2026-08-18
+clear-to-send.audiemedhurstcre.workers.dev | unclaimed | onchain-x402 | 2026-08-18
+cryptopulse.pythonanywhere.com | unclaimed | onchain-x402 | 2026-08-18
+ducat-x402-api.vali0puha.workers.dev | unclaimed | onchain-x402 | 2026-08-18
+faultcode-diagnostic-mcp.bowling-anthony.workers.dev | unclaimed | onchain-x402 | 2026-08-18
+ffpipe.dev | unclaimed | onchain-x402 | 2026-08-18
+fractalai.net.co | unclaimed | onchain-x402 | 2026-08-18
+function-bun-production-00b4.up.railway.app | unclaimed | onchain-x402 | 2026-08-18
+getnock.xyz | unclaimed | onchain-x402 | 2026-08-18
+it.finlandfoxvpn.shop | unclaimed | onchain-x402 | 2026-08-18
+jealie--forecast-pilot-api.modal.run | unclaimed | onchain-x402 | 2026-08-18
+kingofthehill.3labsio.workers.dev | unclaimed | onchain-x402 | 2026-08-18
+lobby-laptop-shame-achieved.trycloudflare.com | unclaimed | onchain-x402 | 2026-08-18
+nock-opal.vercel.app | unclaimed | onchain-x402 | 2026-08-18
+permitreporter.com | unclaimed | onchain-x402 | 2026-08-18
+pjm-nowcast-production.up.railway.app | unclaimed | onchain-x402 | 2026-08-18
+policy-gate.3labsio.workers.dev | verified | onchain-x402 | 2026-08-18
+premiumrewards.vip | unclaimed | onchain-x402 | 2026-08-18
+prospectfit-x402.onrender.com | unclaimed | onchain-x402 | 2026-08-18
+regdelta.marvin-odigo.workers.dev | unclaimed | onchain-x402 | 2026-08-18
+seed402-api.evanshvetsov2.workers.dev | unclaimed | onchain-x402 | 2026-08-18
+seven-processors-touched-providers.trycloudflare.com | unclaimed | onchain-x402 | 2026-08-18
+stackwatch.marvin-odigo.workers.dev | unclaimed | onchain-x402 | 2026-08-18
+supplyguard.marvin-odigo.workers.dev | unclaimed | onchain-x402 | 2026-08-18
+tankid.io | unclaimed | onchain-x402 | 2026-08-18
+ticks.bnm.farm | unclaimed | onchain-x402 | 2026-08-18
+trafficmonetize.com | unclaimed | onchain-x402 | 2026-08-18
+trustdex.app | verified | onchain-x402 | 2026-08-18
+velaru.xyz | unclaimed | onchain-x402 | 2026-08-18
+vianerds.com | unclaimed | onchain-x402 | 2026-08-18
+volkov.evgeny.m2.fvds.ru | unclaimed | onchain-x402 | 2026-08-18
+voltron-x402.bonto.run | unclaimed | onchain-x402 | 2026-08-18
+x402-tc-agent-server.vercel.app | unclaimed | onchain-x402 | 2026-08-18
+x402.cultofjames.org | unclaimed | onchain-x402 | 2026-08-18
+x402.laboiteatubes.media | unclaimed | onchain-x402 | 2026-08-18
+x402tap.com | unclaimed | onchain-x402 | 2026-08-18
