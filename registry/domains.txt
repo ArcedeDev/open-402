@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 6457
+# Total domains: 6485
 # Total endpoints: 14939
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -6460,3 +6460,31 @@ x402-tc-agent-server.vercel.app | unclaimed | onchain-x402 | 2026-08-18
 x402.cultofjames.org | unclaimed | onchain-x402 | 2026-08-18
 x402.laboiteatubes.media | unclaimed | onchain-x402 | 2026-08-18
 x402tap.com | unclaimed | onchain-x402 | 2026-08-18
+4yearcycle.com | unclaimed | onchain-x402 | 2026-08-19
+agent-economy-sec-verifier.onrender.com | unclaimed | onchain-x402 | 2026-08-19
+agent-economy-signal-x402-test.bronzetti-andrea.workers.dev | unclaimed | onchain-x402 | 2026-08-19
+agent-proof.onrender.com | unclaimed | onchain-x402 | 2026-08-19
+agents.bytemine.ai | unclaimed | onchain-x402 | 2026-08-19
+agents.dubbleblack.com | unclaimed | onchain-x402 | 2026-08-19
+agents.scaledown.ai | unclaimed | onchain-x402 | 2026-08-19
+ai.gpuops.io | unclaimed | onchain-x402 | 2026-08-19
+anvil-ten-sigma.vercel.app | unclaimed | onchain-x402 | 2026-08-19
+api-staging.eckari.com | unclaimed | onchain-x402 | 2026-08-19
+api.agentnewsstand.com | verified | onchain-x402 | 2026-08-19
+api.agentservices.to | verified | onchain-x402 | 2026-08-19
+api.eckari.com | unclaimed | onchain-x402 | 2026-08-19
+api.getapi.nl | unclaimed | onchain-x402 | 2026-08-19
+api.signalnodus.ai | unclaimed | onchain-x402 | 2026-08-19
+businessdayapi.com | unclaimed | onchain-x402 | 2026-08-19
+chain.gpuops.io | unclaimed | onchain-x402 | 2026-08-19
+home.chrz.dev | unclaimed | onchain-x402 | 2026-08-19
+hostdefi.com | verified | onchain-x402 | 2026-08-19
+lookups.alienprobe.ai | unclaimed | onchain-x402 | 2026-08-19
+machineinbox.com | unclaimed | onchain-x402 | 2026-08-19
+mcp.djzs.ai | unclaimed | onchain-x402 | 2026-08-19
+scrape.gpuops.io | unclaimed | onchain-x402 | 2026-08-19
+signalsprint-mqysbksh.manus.space | unclaimed | onchain-x402 | 2026-08-19
+sovereign-x402.fly.dev | unclaimed | onchain-x402 | 2026-08-19
+tidehub.io | unclaimed | onchain-x402 | 2026-08-19
+x402-echo-service.onrender.com | unclaimed | onchain-x402 | 2026-08-19
+x402.freeq.one | unclaimed | onchain-x402 | 2026-08-19
