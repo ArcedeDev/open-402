@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 6485
+# Total domains: 6508
 # Total endpoints: 14939
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -2972,7 +2972,7 @@ x402joker.com | unclaimed | onchain-x402 | 2026-05-21
 agent-tools.cloud | verified | onchain-x402 | 2026-05-22
 api.memoryapi.org | unclaimed | onchain-x402 | 2026-05-22
 api.northeastdealintel.com | unclaimed | onchain-x402 | 2026-05-22
-api.vibe.airforce | unclaimed | onchain-x402 | 2026-05-22
+api.vibe.airforce | verified | onchain-x402 | 2026-05-22
 api.vishwalab.com | unclaimed | onchain-x402 | 2026-05-22
 btcnode.uk | unclaimed | onchain-x402 | 2026-05-22
 contracts.memoryapi.org | unclaimed | onchain-x402 | 2026-05-22
@@ -6488,3 +6488,26 @@ sovereign-x402.fly.dev | unclaimed | onchain-x402 | 2026-08-19
 tidehub.io | unclaimed | onchain-x402 | 2026-08-19
 x402-echo-service.onrender.com | unclaimed | onchain-x402 | 2026-08-19
 x402.freeq.one | unclaimed | onchain-x402 | 2026-08-19
+agent-api-listings.46-224-157-88.sslip.io | unclaimed | onchain-x402 | 2026-08-20
+anansidata.xyz | unclaimed | onchain-x402 | 2026-08-20
+api.adfreellm.com | unclaimed | onchain-x402 | 2026-08-20
+api.mindjack.xyz | verified | onchain-x402 | 2026-08-20
+basebrief-x402.savannah-5966.chatgpt.site | unclaimed | onchain-x402 | 2026-08-20
+binx402.com | unclaimed | onchain-x402 | 2026-08-20
+exhibit402.dylan-caponi.workers.dev | unclaimed | onchain-x402 | 2026-08-20
+friction-logs.46-224-157-88.sslip.io | unclaimed | onchain-x402 | 2026-08-20
+grant-search.46-224-157-88.sslip.io | unclaimed | onchain-x402 | 2026-08-20
+instructlint.vercel.app | unclaimed | onchain-x402 | 2026-08-20
+ipx402.com | unclaimed | onchain-x402 | 2026-08-20
+listing-watchdog.46-224-157-88.sslip.io | unclaimed | onchain-x402 | 2026-08-20
+mailproof-rescue.savannah-5966.chatgpt.site | unclaimed | onchain-x402 | 2026-08-20
+osha-search.46-224-157-88.sslip.io | unclaimed | onchain-x402 | 2026-08-20
+payment-recon.46-224-157-88.sslip.io | unclaimed | onchain-x402 | 2026-08-20
+q402.quackai.ai | unclaimed | onchain-x402 | 2026-08-20
+rasterly-x402-production.up.railway.app | unclaimed | onchain-x402 | 2026-08-20
+rates.lonestaroracle.xyz | unclaimed | onchain-x402 | 2026-08-20
+readiness-linter.46-224-157-88.sslip.io | unclaimed | onchain-x402 | 2026-08-20
+stillosdigitalholdings.com | unclaimed | onchain-x402 | 2026-08-20
+toolshed.lemon-agent.dev | unclaimed | onchain-x402 | 2026-08-20
+x402-canary.nicolas-x402-16f380a7.workers.dev | unclaimed | onchain-x402 | 2026-08-20
+x402-checker.nock-for-mak.workers.dev | verified | onchain-x402 | 2026-08-20
