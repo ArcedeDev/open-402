@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 6508
+# Total domains: 6537
 # Total endpoints: 14939
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -4709,7 +4709,7 @@ translate.hergertsynthora.com | verified | onchain-x402 | 2026-07-05
 verify.smartflowproai.com | unclaimed | onchain-x402 | 2026-07-05
 aegis.borisinc.com | verified | onchain-x402 | 2026-07-06
 agent.gexlog.com | unclaimed | onchain-x402 | 2026-07-06
-api.agmsg.world | unclaimed | onchain-x402 | 2026-07-06
+api.agmsg.world | verified | onchain-x402 | 2026-07-06
 api.borisinc.com | verified | onchain-x402 | 2026-07-06
 api.foursec.xyz | unclaimed | onchain-x402 | 2026-07-06
 api.veritylayer.dev | unclaimed | onchain-x402 | 2026-07-06
@@ -6116,7 +6116,7 @@ zeroclick.affiliate.com | unclaimed | onchain-x402 | 2026-08-06
 agent-cash-three.vercel.app | unclaimed | onchain-x402 | 2026-08-07
 agent-offers-api-replitzip.replit.app | unclaimed | onchain-x402 | 2026-08-07
 agente.revenuerecoveryai.app | unclaimed | onchain-x402 | 2026-08-07
-airscout.scalpstream.com | unclaimed | onchain-x402 | 2026-08-07
+airscout.scalpstream.com | verified | onchain-x402 | 2026-08-07
 anywaypossible.com | unclaimed | onchain-x402 | 2026-08-07
 api.402.greatdatacompany.com | unclaimed | onchain-x402 | 2026-08-07
 api.cryptoretail.store | unclaimed | onchain-x402 | 2026-08-07
@@ -6493,7 +6493,7 @@ api.adfreellm.com | unclaimed | onchain-x402 | 2026-08-20
 api.mindjack.xyz | verified | onchain-x402 | 2026-08-20
 basebrief-x402.savannah-5966.chatgpt.site | unclaimed | onchain-x402 | 2026-08-20
 binx402.com | unclaimed | onchain-x402 | 2026-08-20
-exhibit402.dylan-caponi.workers.dev | unclaimed | onchain-x402 | 2026-08-20
+exhibit402.dylan-caponi.workers.dev | verified | onchain-x402 | 2026-08-20
 friction-logs.46-224-157-88.sslip.io | unclaimed | onchain-x402 | 2026-08-20
 grant-search.46-224-157-88.sslip.io | unclaimed | onchain-x402 | 2026-08-20
 instructlint.vercel.app | unclaimed | onchain-x402 | 2026-08-20
@@ -6512,3 +6512,31 @@ x402-canary.nicolas-x402-16f380a7.workers.dev | unclaimed | onchain-x402 | 2026-
 x402-checker.nock-for-mak.workers.dev | verified | onchain-x402 | 2026-08-20
 publish.new | unclaimed | submit | 2026-08-21
 regal-bamboo-s7da.here.now | verified | submit | 2026-08-21
+
+10x402.com | unclaimed | onchain-x402 | 2026-08-21
+agent-api-listings.krimskrams.xyz | unclaimed | onchain-x402 | 2026-08-21
+agent-api.faux.social | unclaimed | onchain-x402 | 2026-08-21
+agent-economy-signal-x402-mainnet.bronzetti-andrea.workers.dev | unclaimed | onchain-x402 | 2026-08-21
+agent-service-station.onrender.com | unclaimed | onchain-x402 | 2026-08-21
+alpine-physiology-replaced-cabin.trycloudflare.com | verified | onchain-x402 | 2026-08-21
+api.aislabs.ai | unclaimed | onchain-x402 | 2026-08-21
+api.grokblender.com | unclaimed | onchain-x402 | 2026-08-21
+api.safe4.ai | unclaimed | onchain-x402 | 2026-08-21
+api.steamimagegenerator.com | unclaimed | onchain-x402 | 2026-08-21
+api.unland.dev | unclaimed | onchain-x402 | 2026-08-21
+base-tx-explain.fly.dev | unclaimed | onchain-x402 | 2026-08-21
+butterflydelta.com | verified | onchain-x402 | 2026-08-21
+callbacks.inversolabs.us | unclaimed | onchain-x402 | 2026-08-21
+cent-board.krimskrams.xyz | unclaimed | onchain-x402 | 2026-08-21
+disruptive-concepts.com | unclaimed | onchain-x402 | 2026-08-21
+hermes-counterparty-api.onrender.com | unclaimed | onchain-x402 | 2026-08-21
+localeformat.com | unclaimed | onchain-x402 | 2026-08-21
+oracle.cyberwarex.com | unclaimed | onchain-x402 | 2026-08-21
+payforapi.com | unclaimed | onchain-x402 | 2026-08-21
+petite-andreas-wrist-engines.trycloudflare.com | unclaimed | onchain-x402 | 2026-08-21
+rc-agent-pulse.runner-concepts.workers.dev | unclaimed | onchain-x402 | 2026-08-21
+repo-radar-audit-5.sebasvega55371.chatgpt.site | unclaimed | onchain-x402 | 2026-08-21
+solsafe-61lr.onrender.com | unclaimed | onchain-x402 | 2026-08-21
+triggerpack-registry-proxy.frost-output.workers.dev | unclaimed | onchain-x402 | 2026-08-21
+vea-base.onrender.com | unclaimed | onchain-x402 | 2026-08-21
+web.cyberwarex.com | unclaimed | onchain-x402 | 2026-08-21
