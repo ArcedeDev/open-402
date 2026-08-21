@@ -2209,7 +2209,7 @@ tip.md | unclaimed | onchain-x402 | 2026-03-23
 api.reqcast.com | unclaimed | onchain-x402 | 2026-03-23
 grid.ptsolutions.io | unclaimed | onchain-l402 | 2026-03-23
 x402-gw-v2-production.up.railway.app | unclaimed | onchain-mpp | 2026-03-23
-clawmerchants.com | unclaimed | onchain-mpp | 2026-03-23
+clawmerchants.com | unclaimed | submit | 2026-08-21
 api.ruliad.xyz | unclaimed | onchain-x402 | 2026-03-23
 x402.fullstack.cash | unclaimed | onchain-x402 | 2026-03-23
 sentineltrust.xyz | unclaimed | onchain-x402 | 2026-03-24
