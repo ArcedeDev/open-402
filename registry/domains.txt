@@ -6511,3 +6511,4 @@ toolshed.lemon-agent.dev | unclaimed | onchain-x402 | 2026-08-20
 x402-canary.nicolas-x402-16f380a7.workers.dev | unclaimed | onchain-x402 | 2026-08-20
 x402-checker.nock-for-mak.workers.dev | verified | onchain-x402 | 2026-08-20
 publish.new | unclaimed | submit | 2026-08-21
+regal-bamboo-s7da.here.now | verified | submit | 2026-08-21
