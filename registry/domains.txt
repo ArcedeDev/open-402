@@ -2166,7 +2166,6 @@ www.l402apps.com | unclaimed | onchain-l402 | 2026-03-23
 www.ganamos.earth | unclaimed | onchain-l402 | 2026-03-23
 api.search1api.com | unclaimed | onchain-mpp | 2026-03-23
 arcede.com | verified | submit | 2026-03-23
-
 ponzi402.com | unclaimed | onchain-x402 | 2026-03-23
 minimyths.xyz | unclaimed | onchain-x402 | 2026-03-23
 internetobserver.fun | unclaimed | onchain-x402 | 2026-03-23
@@ -6511,3 +6510,4 @@ stillosdigitalholdings.com | unclaimed | onchain-x402 | 2026-08-20
 toolshed.lemon-agent.dev | unclaimed | onchain-x402 | 2026-08-20
 x402-canary.nicolas-x402-16f380a7.workers.dev | unclaimed | onchain-x402 | 2026-08-20
 x402-checker.nock-for-mak.workers.dev | verified | onchain-x402 | 2026-08-20
+publish.new | unclaimed | submit | 2026-08-21
