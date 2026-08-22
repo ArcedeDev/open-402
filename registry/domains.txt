@@ -6512,7 +6512,6 @@ x402-canary.nicolas-x402-16f380a7.workers.dev | unclaimed | onchain-x402 | 2026-
 x402-checker.nock-for-mak.workers.dev | verified | onchain-x402 | 2026-08-20
 publish.new | unclaimed | submit | 2026-08-21
 regal-bamboo-s7da.here.now | verified | submit | 2026-08-21
-
 10x402.com | unclaimed | onchain-x402 | 2026-08-21
 agent-api-listings.krimskrams.xyz | unclaimed | onchain-x402 | 2026-08-21
 agent-api.faux.social | unclaimed | onchain-x402 | 2026-08-21
@@ -6561,3 +6560,4 @@ x402-factory.com | unclaimed | onchain-x402 | 2026-08-22
 x402-seller-202595743428.europe-west1.run.app | unclaimed | onchain-x402 | 2026-08-22
 x402.67enterprise.com | unclaimed | onchain-x402 | 2026-08-22
 x402.animica.dev | unclaimed | onchain-x402 | 2026-08-22
+attentioniscurrency.com | unclaimed | submit | 2026-08-22
