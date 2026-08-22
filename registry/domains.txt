@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 6537
+# Total domains: 6558
 # Total endpoints: 14939
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -1036,7 +1036,7 @@ api.xn--4kq65rx59c.com | unclaimed | onchain-x402 | 2026-03-23
 raffle-app-avs2z.ondigitalocean.app | unclaimed | onchain-x402 | 2026-03-23
 8809e75c2ea5.ngrok-free.app | unclaimed | onchain-x402 | 2026-03-23
 www.shirt.sh | unclaimed | onchain-x402 | 2026-03-23
-agentone-production.up.railway.app | verified | onchain-x402 | 2026-03-23
+agentone-production.up.railway.app | unclaimed | onchain-x402 | 2026-03-23
 pkm402-presale-2cnlgivvl-402pings-projects.vercel.app | unclaimed | onchain-x402 | 2026-03-23
 x402.hedgehogedge.com | unclaimed | onchain-x402 | 2026-03-23
 my-x314-hidgle0r4-402pings-projects.vercel.app | unclaimed | onchain-x402 | 2026-03-23
@@ -1280,7 +1280,7 @@ x402mfers-ten.vercel.app | unclaimed | onchain-x402 | 2026-03-23
 agentsunday-production.up.railway.app | unclaimed | onchain-x402 | 2026-03-23
 api.aixbt.tech | unclaimed | onchain-x402 | 2026-03-23
 x402space.fun | unclaimed | onchain-x402 | 2026-03-23
-agent-production-0f54.up.railway.app | verified | onchain-x402 | 2026-03-23
+agent-production-0f54.up.railway.app | unclaimed | onchain-x402 | 2026-03-23
 centra-content.vercel.app | unclaimed | onchain-x402 | 2026-03-23
 www.tibbirx402.fun | unclaimed | onchain-x402 | 2026-03-23
 schzoagn.x420.dev | unclaimed | onchain-x402 | 2026-03-23
@@ -1828,7 +1828,7 @@ crypto-enrich.up.railway.app | unclaimed | onchain-x402 | 2026-03-23
 pii-scrubber.fly.dev | unclaimed | onchain-x402 | 2026-03-23
 isolated-gzip-wilson-yesterday.trycloudflare.com | unclaimed | onchain-x402 | 2026-03-23
 format-converter.fly.dev | unclaimed | onchain-x402 | 2026-03-23
-gasroute-oracle-production.up.railway.app | verified | onchain-x402 | 2026-03-23
+gasroute-oracle-production.up.railway.app | unclaimed | onchain-x402 | 2026-03-23
 paynet.network | unclaimed | onchain-x402 | 2026-03-23
 x402pineapple-production.up.railway.app | unclaimed | onchain-x402 | 2026-03-23
 1rpc.ai | unclaimed | onchain-x402 | 2026-03-23
@@ -5333,7 +5333,7 @@ api.doc2json.de | unclaimed | onchain-x402 | 2026-07-19
 basepoolradar.vercel.app | unclaimed | onchain-x402 | 2026-07-19
 bc58d7229be3c91e-186-247-37-252.serveousercontent.com | unclaimed | onchain-x402 | 2026-07-19
 beef402.dvd90.workers.dev | unclaimed | onchain-x402 | 2026-07-19
-cc41c92c647919f6-186-247-37-252.serveousercontent.com | verified | onchain-x402 | 2026-07-19
+cc41c92c647919f6-186-247-37-252.serveousercontent.com | unclaimed | onchain-x402 | 2026-07-19
 ce8cd1c53f4d7942-186-247-37-252.serveousercontent.com | unclaimed | onchain-x402 | 2026-07-19
 conceptual-assistance-incurred-transformation.trycloudflare.com | unclaimed | onchain-x402 | 2026-07-19
 crypto-snapshot-pro.onrender.com | unclaimed | onchain-x402 | 2026-07-19
@@ -6235,7 +6235,7 @@ api.bakebakebake.no | unclaimed | onchain-x402 | 2026-08-10
 api.canienter.com | unclaimed | onchain-x402 | 2026-08-10
 api.compliapi.com | unclaimed | onchain-x402 | 2026-08-10
 api.onaeterna.com | unclaimed | onchain-x402 | 2026-08-10
-bykaranteli.com | unclaimed | onchain-x402 | 2026-08-10
+bykaranteli.com | verified | onchain-x402 | 2026-08-10
 data.brain-de-le-jstew.com | unclaimed | onchain-x402 | 2026-08-10
 deutschland-famous-ecommerce-surveillance.trycloudflare.com | unclaimed | onchain-x402 | 2026-08-10
 html2md-converter.onrender.com | unclaimed | onchain-x402 | 2026-08-10
@@ -6540,3 +6540,24 @@ solsafe-61lr.onrender.com | unclaimed | onchain-x402 | 2026-08-21
 triggerpack-registry-proxy.frost-output.workers.dev | unclaimed | onchain-x402 | 2026-08-21
 vea-base.onrender.com | unclaimed | onchain-x402 | 2026-08-21
 web.cyberwarex.com | unclaimed | onchain-x402 | 2026-08-21
+agenticcommerce.lol | unclaimed | onchain-x402 | 2026-08-22
+api-arkbrowser.arksystemes.fr | unclaimed | onchain-x402 | 2026-08-22
+api.freestylevault.com | unclaimed | onchain-x402 | 2026-08-22
+autonomous-revenue-agent.vercel.app | unclaimed | onchain-x402 | 2026-08-22
+base-onchain-tools.dolerite.workers.dev | unclaimed | onchain-x402 | 2026-08-22
+boulevard-mumbai-copyright-parameters.trycloudflare.com | unclaimed | onchain-l402 | 2026-08-22
+diagram-generation-api-production.up.railway.app | unclaimed | onchain-x402 | 2026-08-22
+fomoscan.dev | unclaimed | onchain-x402 | 2026-08-22
+khotem.com | unclaimed | onchain-x402 | 2026-08-22
+laen-army-cdp.fly.dev | unclaimed | onchain-x402 | 2026-08-22
+machinemint-api-production.up.railway.app | unclaimed | onchain-x402 | 2026-08-22
+old2new.app | unclaimed | onchain-x402 | 2026-08-22
+ontopx402.com | unclaimed | onchain-x402 | 2026-08-22
+route-catalog.46-224-157-88.sslip.io | unclaimed | onchain-x402 | 2026-08-22
+site-wine-nu-93.vercel.app | unclaimed | onchain-x402 | 2026-08-22
+status-state-api.replit.app | unclaimed | onchain-x402 | 2026-08-22
+x402-crypto-market-data.up.railway.app | unclaimed | onchain-x402 | 2026-08-22
+x402-factory.com | unclaimed | onchain-x402 | 2026-08-22
+x402-seller-202595743428.europe-west1.run.app | unclaimed | onchain-x402 | 2026-08-22
+x402.67enterprise.com | unclaimed | onchain-x402 | 2026-08-22
+x402.animica.dev | unclaimed | onchain-x402 | 2026-08-22
