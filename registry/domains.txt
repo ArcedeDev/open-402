@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 6558
+# Total domains: 6583
 # Total endpoints: 14939
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -6560,4 +6560,29 @@ x402-factory.com | unclaimed | onchain-x402 | 2026-08-22
 x402-seller-202595743428.europe-west1.run.app | unclaimed | onchain-x402 | 2026-08-22
 x402.67enterprise.com | unclaimed | onchain-x402 | 2026-08-22
 x402.animica.dev | unclaimed | onchain-x402 | 2026-08-22
-attentioniscurrency.com | unclaimed | submit | 2026-08-22
+attentioniscurrency.com | verified | submit | 2026-08-22
+
+adfreellm.com | unclaimed | onchain-x402 | 2026-08-23
+agents.nibiashara.biz | verified | onchain-x402 | 2026-08-23
+api.vrsai.tech | unclaimed | onchain-x402 | 2026-08-23
+api.wickedapi.com | unclaimed | onchain-x402 | 2026-08-23
+changelog-state-api.replit.app | unclaimed | onchain-x402 | 2026-08-23
+cryptorisk-api.vercel.app | unclaimed | onchain-x402 | 2026-08-23
+demo.payagents.io | unclaimed | onchain-x402 | 2026-08-23
+fingersai.co | verified | onchain-x402 | 2026-08-23
+gate.velaru.xyz | unclaimed | onchain-x402 | 2026-08-23
+gofrantic.com | unclaimed | onchain-x402 | 2026-08-23
+grocery-basket.bowling-anthony.workers.dev | unclaimed | onchain-x402 | 2026-08-23
+jar-resolve-305248849433.europe-west1.run.app | unclaimed | onchain-x402 | 2026-08-23
+mnemos-agent.onrender.com | unclaimed | onchain-x402 | 2026-08-23
+moneytest-x402-api.indierepo.chatgpt.site | unclaimed | onchain-x402 | 2026-08-23
+openclawproductions.com | unclaimed | onchain-x402 | 2026-08-23
+paperknife-api.davidgoparkid369.chatgpt.site | unclaimed | onchain-x402 | 2026-08-23
+read.onlybots.shop | unclaimed | onchain-x402 | 2026-08-23
+resume-agent-runs.website-findings.workers.dev | unclaimed | onchain-x402 | 2026-08-23
+sovereign-x402-zeta.vercel.app | unclaimed | onchain-x402 | 2026-08-23
+squeezeos-api.onrender.com | unclaimed | onchain-x402 | 2026-08-23
+tek-labs-402-linter.labstek9.workers.dev | unclaimed | onchain-x402 | 2026-08-23
+visa.orizn.app | unclaimed | onchain-x402 | 2026-08-23
+x402-demand-gaps.website-findings.workers.dev | unclaimed | onchain-x402 | 2026-08-23
+x402.onlybots.shop | unclaimed | onchain-x402 | 2026-08-23
