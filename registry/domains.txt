@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 6583
+# Total domains: 6616
 # Total endpoints: 14939
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -2908,7 +2908,7 @@ token-intel-api.tatsu77.workers.dev | unclaimed | onchain-x402 | 2026-05-16
 travel.brij.fi | unclaimed | onchain-x402 | 2026-05-16
 vercel-deploy-alpha-puce.vercel.app | unclaimed | onchain-x402 | 2026-05-16
 wellknown-audit-corpus.mtree.workers.dev | unclaimed | onchain-x402 | 2026-05-16
-x402station.io | verified | onchain-x402 | 2026-05-16
+x402station.io | unclaimed | onchain-x402 | 2026-05-16
 amalgix.io | unclaimed | onchain-x402 | 2026-05-17
 api.affinebox.today | unclaimed | onchain-x402 | 2026-05-17
 api.agentphone.ai | unclaimed | onchain-x402 | 2026-05-17
@@ -4977,7 +4977,7 @@ blockscout-chain-stats-multichain.hergertsynthora.com | verified | onchain-x402 
 blockscout-token-holder-counters.hergertsynthora.com | verified | onchain-x402 | 2026-07-12
 bls-cpi-us-index.hergertsynthora.com | verified | onchain-x402 | 2026-07-12
 bls-unemployment-rate-us.hergertsynthora.com | verified | onchain-x402 | 2026-07-12
-bridgenode.cc | unclaimed | onchain-x402 | 2026-07-12
+bridgenode.cc | verified | onchain-x402 | 2026-07-12
 certspotter-ct-issuances.hergertsynthora.com | verified | onchain-x402 | 2026-07-12
 chain-tvl.hergertsynthora.com | verified | onchain-x402 | 2026-07-12
 claudelines.com | unclaimed | onchain-x402 | 2026-07-12
@@ -5284,7 +5284,7 @@ yuki-opportunity-intel.happy-porter.workers.dev | unclaimed | onchain-x402 | 202
 agentkit-x402-buy.netlify.app | unclaimed | onchain-x402 | 2026-07-18
 api.pogo-tb.nl | verified | onchain-x402 | 2026-07-18
 api.sirenic.eu | verified | onchain-x402 | 2026-07-18
-api.solnodelabs.com | verified | onchain-x402 | 2026-07-18
+api.solnodelabs.com | unclaimed | onchain-x402 | 2026-07-18
 api.youraionramp.com | unclaimed | onchain-x402 | 2026-07-18
 c215-2402-a00-401-c723-3157-5003-224d-b1ee.ngrok-free.app | unclaimed | onchain-x402 | 2026-07-18
 c4e7-2402-a00-401-c723-3157-5003-224d-b1ee.ngrok-free.app | unclaimed | onchain-x402 | 2026-07-18
@@ -5663,7 +5663,7 @@ fa69-2402-a00-401-c723-f0dc-bc8e-ba91-18fc.ngrok-free.app | unclaimed | onchain-
 faf5-2402-a00-401-c723-f0dc-bc8e-ba91-18fc.ngrok-free.app | unclaimed | onchain-x402 | 2026-07-23
 fdca-2402-a00-401-c723-f0dc-bc8e-ba91-18fc.ngrok-free.app | unclaimed | onchain-x402 | 2026-07-23
 ff93-2402-a00-401-c723-f0dc-bc8e-ba91-18fc.ngrok-free.app | unclaimed | onchain-x402 | 2026-07-23
-foot-sept-oil-til.trycloudflare.com | verified | onchain-x402 | 2026-07-23
+foot-sept-oil-til.trycloudflare.com | unclaimed | onchain-x402 | 2026-07-23
 gateway.clawca.sh | unclaimed | onchain-x402 | 2026-07-23
 gleif-entity.xplowdiaka.workers.dev | unclaimed | onchain-x402 | 2026-07-23
 glow-compliance-stanford-enormous.trycloudflare.com | unclaimed | onchain-x402 | 2026-07-23
@@ -5792,7 +5792,7 @@ atlasmarkets-dagon.onrender.com | unclaimed | onchain-x402 | 2026-07-27
 atlasmarkets-pollux.onrender.com | unclaimed | onchain-x402 | 2026-07-27
 atlasmarkets-viking.onrender.com | unclaimed | onchain-x402 | 2026-07-27
 clanker-banker.agentfetcher.workers.dev | unclaimed | onchain-x402 | 2026-07-27
-derivatives-pricer-production.up.railway.app | unclaimed | onchain-x402 | 2026-07-27
+derivatives-pricer-production.up.railway.app | verified | onchain-x402 | 2026-07-27
 dns.revnuvo.site | unclaimed | onchain-x402 | 2026-07-27
 intel.rocket-core.com | unclaimed | onchain-x402 | 2026-07-27
 keystone-opportunity-api.keystone-opportunity.workers.dev | unclaimed | onchain-x402 | 2026-07-27
@@ -6438,7 +6438,7 @@ kingofthehill.3labsio.workers.dev | unclaimed | onchain-x402 | 2026-08-18
 lobby-laptop-shame-achieved.trycloudflare.com | unclaimed | onchain-x402 | 2026-08-18
 nock-opal.vercel.app | unclaimed | onchain-x402 | 2026-08-18
 permitreporter.com | unclaimed | onchain-x402 | 2026-08-18
-pjm-nowcast-production.up.railway.app | unclaimed | onchain-x402 | 2026-08-18
+pjm-nowcast-production.up.railway.app | verified | onchain-x402 | 2026-08-18
 policy-gate.3labsio.workers.dev | verified | onchain-x402 | 2026-08-18
 premiumrewards.vip | unclaimed | onchain-x402 | 2026-08-18
 prospectfit-x402.onrender.com | unclaimed | onchain-x402 | 2026-08-18
@@ -6473,7 +6473,7 @@ api.agentnewsstand.com | verified | onchain-x402 | 2026-08-19
 api.agentservices.to | verified | onchain-x402 | 2026-08-19
 api.eckari.com | unclaimed | onchain-x402 | 2026-08-19
 api.getapi.nl | unclaimed | onchain-x402 | 2026-08-19
-api.signalnodus.ai | unclaimed | onchain-x402 | 2026-08-19
+api.signalnodus.ai | verified | onchain-x402 | 2026-08-19
 businessdayapi.com | unclaimed | onchain-x402 | 2026-08-19
 chain.gpuops.io | unclaimed | onchain-x402 | 2026-08-19
 home.chrz.dev | unclaimed | onchain-x402 | 2026-08-19
@@ -6586,3 +6586,36 @@ tek-labs-402-linter.labstek9.workers.dev | unclaimed | onchain-x402 | 2026-08-23
 visa.orizn.app | unclaimed | onchain-x402 | 2026-08-23
 x402-demand-gaps.website-findings.workers.dev | unclaimed | onchain-x402 | 2026-08-23
 x402.onlybots.shop | unclaimed | onchain-x402 | 2026-08-23
+02a92711aed190.lhr.life | unclaimed | onchain-x402 | 2026-08-24
+045a1a040a39a9.lhr.life | unclaimed | onchain-x402 | 2026-08-24
+062f2e6b049daf.lhr.life | unclaimed | onchain-x402 | 2026-08-24
+19690de55e4d49.lhr.life | unclaimed | onchain-x402 | 2026-08-24
+2918fd4eb7b5e8.lhr.life | unclaimed | onchain-x402 | 2026-08-24
+4c5cb35db56e47.lhr.life | unclaimed | onchain-x402 | 2026-08-24
+991bbc33b6fd2ff8-152-44-119-74.serveousercontent.com | unclaimed | onchain-x402 | 2026-08-24
+9f6d69e737efba.lhr.life | unclaimed | onchain-x402 | 2026-08-24
+9uqdtv-ip-209-115-177-214.tunnelmole.net | unclaimed | onchain-x402 | 2026-08-24
+api.mercury402.com | unclaimed | onchain-x402 | 2026-08-24
+api.xfuel.app | unclaimed | onchain-x402 | 2026-08-24
+aspa-production-c5d2.up.railway.app | unclaimed | onchain-x402 | 2026-08-24
+b0db45fef0176a.lhr.life | unclaimed | onchain-x402 | 2026-08-24
+b8a699df420bd0.lhr.life | unclaimed | onchain-x402 | 2026-08-24
+badhttp.dev | unclaimed | onchain-x402 | 2026-08-24
+baseposting.ai.studio | unclaimed | onchain-x402 | 2026-08-24
+crypto-market-data.up.railway.app | unclaimed | onchain-x402 | 2026-08-24
+devpkg-intel.bowling-anthony.workers.dev | unclaimed | onchain-x402 | 2026-08-24
+e-commerce-price-monitoring-production.up.railway.app | unclaimed | onchain-x402 | 2026-08-24
+economic-agent-369.freysa.dev | unclaimed | onchain-x402 | 2026-08-24
+fae0097a2d474e.lhr.life | unclaimed | onchain-x402 | 2026-08-24
+meld402.vercel.app | unclaimed | onchain-x402 | 2026-08-24
+onchain-toolkit.bowling-anthony.workers.dev | unclaimed | onchain-x402 | 2026-08-24
+openrelay.hggfffdfy687.workers.dev | verified | onchain-x402 | 2026-08-24
+route-catalog.krimskrams.xyz | unclaimed | onchain-x402 | 2026-08-24
+salt19-agent-utility-grid.salt19-llc.workers.dev | unclaimed | onchain-x402 | 2026-08-24
+signals.edge.report | verified | onchain-x402 | 2026-08-24
+spark-2f53.tail8a7863.ts.net | unclaimed | onchain-x402 | 2026-08-24
+spawnxchange-api-485602182462.europe-west4.run.app | unclaimed | onchain-x402 | 2026-08-24
+wren-unlock-mcp.randall-75d.workers.dev | verified | onchain-x402 | 2026-08-24
+x402-preflight.tinyopsstudio.com | unclaimed | onchain-x402 | 2026-08-24
+x402.0xbs.org | unclaimed | onchain-x402 | 2026-08-24
+x402.billionaireorder.com | unclaimed | onchain-x402 | 2026-08-24
