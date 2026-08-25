@@ -1,7 +1,7 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 6616
-# Total endpoints: 14939
+# Total domains: 6672
+# Total endpoints: 14943
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
 x402scan.com | unclaimed | 402index | 2026-03-23
@@ -4425,7 +4425,7 @@ f19f42e8a99e4e.lhr.life | unclaimed | onchain-x402 | 2026-06-29
 f883afc035ba75.lhr.life | unclaimed | onchain-x402 | 2026-06-29
 fa457c6d824eae.lhr.life | unclaimed | onchain-x402 | 2026-06-29
 fbde4d3691e21b.lhr.life | unclaimed | onchain-x402 | 2026-06-29
-find-my-json.com | verified | onchain-x402 | 2026-06-29
+find-my-json.com | unclaimed | onchain-x402 | 2026-06-29
 flagship-compliance.onrender.com | unclaimed | onchain-x402 | 2026-06-29
 flagship-infra-monitor.onrender.com | unclaimed | onchain-x402 | 2026-06-29
 flagship-law.onrender.com | unclaimed | onchain-x402 | 2026-06-29
@@ -5466,7 +5466,7 @@ macbook-pro.tail62219a.ts.net | unclaimed | onchain-x402 | 2026-07-22
 method.parklandarchives.com | unclaimed | onchain-x402 | 2026-07-22
 oromi-agent-services.onrender.com | unclaimed | onchain-x402 | 2026-07-22
 pdf-api-production-cf1e.up.railway.app | unclaimed | onchain-x402 | 2026-07-22
-preflight.lorensaisolutions.com | verified | onchain-x402 | 2026-07-22
+preflight.lorensaisolutions.com | unclaimed | onchain-x402 | 2026-07-22
 seth-money-hrachya.zocomputer.io | unclaimed | onchain-x402 | 2026-07-22
 smarty-money.vercel.app | unclaimed | onchain-x402 | 2026-07-22
 tools.miniframe.com.br | unclaimed | onchain-x402 | 2026-07-22
@@ -6613,9 +6613,65 @@ openrelay.hggfffdfy687.workers.dev | verified | onchain-x402 | 2026-08-24
 route-catalog.krimskrams.xyz | unclaimed | onchain-x402 | 2026-08-24
 salt19-agent-utility-grid.salt19-llc.workers.dev | unclaimed | onchain-x402 | 2026-08-24
 signals.edge.report | verified | onchain-x402 | 2026-08-24
-spark-2f53.tail8a7863.ts.net | unclaimed | onchain-x402 | 2026-08-24
+spark-2f53.tail8a7863.ts.net | verified | onchain-x402 | 2026-08-24
 spawnxchange-api-485602182462.europe-west4.run.app | unclaimed | onchain-x402 | 2026-08-24
 wren-unlock-mcp.randall-75d.workers.dev | verified | onchain-x402 | 2026-08-24
 x402-preflight.tinyopsstudio.com | unclaimed | onchain-x402 | 2026-08-24
 x402.0xbs.org | unclaimed | onchain-x402 | 2026-08-24
 x402.billionaireorder.com | unclaimed | onchain-x402 | 2026-08-24
+0b755bfd5a6097.lhr.life | unclaimed | onchain-x402 | 2026-08-25
+1570c059957063.lhr.life | unclaimed | onchain-x402 | 2026-08-25
+1634ccab0317d8.lhr.life | unclaimed | onchain-x402 | 2026-08-25
+1b7f77b7b34ead.lhr.life | unclaimed | onchain-x402 | 2026-08-25
+1effa3f2f32447.lhr.life | unclaimed | onchain-x402 | 2026-08-25
+2327923f0dc01e.lhr.life | unclaimed | onchain-x402 | 2026-08-25
+368122d8fb52dd.lhr.life | unclaimed | onchain-x402 | 2026-08-25
+411732668914f1.lhr.life | unclaimed | onchain-x402 | 2026-08-25
+54ch10.uk | unclaimed | onchain-x402 | 2026-08-25
+5d7fbaaf35ccc8.lhr.life | unclaimed | onchain-x402 | 2026-08-25
+79a62859643695.lhr.life | unclaimed | onchain-x402 | 2026-08-25
+8263abbdd312d1.lhr.life | unclaimed | onchain-x402 | 2026-08-25
+8416d155e9d77e.lhr.life | unclaimed | onchain-x402 | 2026-08-25
+8917105331287e.lhr.life | unclaimed | onchain-x402 | 2026-08-25
+9f2b3e3ca5fc8e.lhr.life | unclaimed | onchain-x402 | 2026-08-25
+agjob.up.railway.app | verified | onchain-x402 | 2026-08-25
+api.17711.xyz | unclaimed | onchain-x402 | 2026-08-25
+api.x402-hosting.com | unclaimed | onchain-x402 | 2026-08-25
+arispay-x402-demo-production.up.railway.app | unclaimed | onchain-x402 | 2026-08-25
+botica.septarylabs.com | unclaimed | onchain-x402 | 2026-08-25
+brandon.septarylabs.com | unclaimed | onchain-x402 | 2026-08-25
+chain.cyberwarex.com | unclaimed | onchain-x402 | 2026-08-25
+clear-agent-fetch.fly.dev | unclaimed | onchain-x402 | 2026-08-25
+d1a09519b9f854.lhr.life | unclaimed | onchain-x402 | 2026-08-25
+d70d296e29d730.lhr.life | unclaimed | onchain-x402 | 2026-08-25
+dd0bf9ea3a20fa.lhr.life | unclaimed | onchain-x402 | 2026-08-25
+e004514f1de1d1.lhr.life | unclaimed | onchain-x402 | 2026-08-25
+e1e55a100f649d.lhr.life | unclaimed | onchain-x402 | 2026-08-25
+enso-signal-api-v2.vercel.app | unclaimed | onchain-x402 | 2026-08-25
+envoyreach.com | unclaimed | onchain-x402 | 2026-08-25
+f84d3a41229a55.lhr.life | unclaimed | onchain-x402 | 2026-08-25
+feed-reader.bowling-anthony.workers.dev | unclaimed | onchain-x402 | 2026-08-25
+gambit.barrioenergy.com | verified | onchain-x402 | 2026-08-25
+geodata-api-v2.vercel.app | unclaimed | onchain-x402 | 2026-08-25
+hardwarehunter.io | unclaimed | onchain-x402 | 2026-08-25
+heiekc-ip-209-115-177-214.tunnelmole.net | unclaimed | onchain-x402 | 2026-08-25
+hosaka-agents.vercel.app | unclaimed | onchain-x402 | 2026-08-25
+intelligence.inversolabs.us | unclaimed | onchain-x402 | 2026-08-25
+krimskrams.xyz | unclaimed | onchain-x402 | 2026-08-25
+kweucg-ip-209-115-177-214.tunnelmole.net | unclaimed | onchain-x402 | 2026-08-25
+nexus-x402-ff2a.onrender.com | unclaimed | onchain-x402 | 2026-08-25
+operator-zero-m4h-tester.lukepratermusic.workers.dev | verified | onchain-x402 | 2026-08-25
+outfight.lol | unclaimed | onchain-x402 | 2026-08-25
+pathmint.edge.report | verified | onchain-x402 | 2026-08-25
+powerboy856-x402-tools.cesarsr1420.chatgpt.site | unclaimed | onchain-x402 | 2026-08-25
+search.cyberwarex.com | unclaimed | onchain-x402 | 2026-08-25
+seo.cyberwarex.com | unclaimed | onchain-x402 | 2026-08-25
+speecship.com | unclaimed | onchain-x402 | 2026-08-25
+stride-shawl-affront.ngrok-free.dev | unclaimed | onchain-x402 | 2026-08-25
+tryx402.app | verified | onchain-x402 | 2026-08-25
+tryx402.fly.dev | unclaimed | onchain-x402 | 2026-08-25
+validate.cyberwarex.com | unclaimed | onchain-x402 | 2026-08-25
+video.cyberwarex.com | unclaimed | onchain-x402 | 2026-08-25
+voice.cyberwarex.com | unclaimed | onchain-x402 | 2026-08-25
+web-extract.bowling-anthony.workers.dev | unclaimed | onchain-x402 | 2026-08-25
+x402.momentbolt.com | unclaimed | onchain-x402 | 2026-08-25
