@@ -1,7 +1,7 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 6672
-# Total endpoints: 14943
+# Total domains: 6673
+# Total endpoints: 14959
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
 x402scan.com | unclaimed | 402index | 2026-03-23
@@ -6675,3 +6675,5 @@ video.cyberwarex.com | unclaimed | onchain-x402 | 2026-08-25
 voice.cyberwarex.com | unclaimed | onchain-x402 | 2026-08-25
 web-extract.bowling-anthony.workers.dev | unclaimed | onchain-x402 | 2026-08-25
 x402.momentbolt.com | unclaimed | onchain-x402 | 2026-08-25
+sigtap-outreach-api.sigtap.workers.dev | verified | self | 2026-09-08
+sigtap-mcp.sigtap.workers.dev | verified | self | 2026-09-08
