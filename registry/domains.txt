@@ -6561,7 +6561,6 @@ x402-seller-202595743428.europe-west1.run.app | unclaimed | onchain-x402 | 2026-
 x402.67enterprise.com | unclaimed | onchain-x402 | 2026-08-22
 x402.animica.dev | unclaimed | onchain-x402 | 2026-08-22
 attentioniscurrency.com | verified | submit | 2026-08-22
-
 adfreellm.com | unclaimed | onchain-x402 | 2026-08-23
 agents.nibiashara.biz | verified | onchain-x402 | 2026-08-23
 api.vrsai.tech | unclaimed | onchain-x402 | 2026-08-23
@@ -6675,3 +6674,4 @@ video.cyberwarex.com | unclaimed | onchain-x402 | 2026-08-25
 voice.cyberwarex.com | unclaimed | onchain-x402 | 2026-08-25
 web-extract.bowling-anthony.workers.dev | unclaimed | onchain-x402 | 2026-08-25
 x402.momentbolt.com | unclaimed | onchain-x402 | 2026-08-25
+example.com | unclaimed | submit | 2026-09-10
