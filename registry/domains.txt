@@ -6440,7 +6440,7 @@ nock-opal.vercel.app | unclaimed | onchain-x402 | 2026-08-18
 permitreporter.com | unclaimed | onchain-x402 | 2026-08-18
 pjm-nowcast-production.up.railway.app | verified | onchain-x402 | 2026-08-18
 policy-gate.3labsio.workers.dev | verified | onchain-x402 | 2026-08-18
-premiumrewards.vip | unclaimed | onchain-x402 | 2026-08-18
+premiumrewards.vip | unclaimed | submit | 2026-09-12
 prospectfit-x402.onrender.com | unclaimed | onchain-x402 | 2026-08-18
 regdelta.marvin-odigo.workers.dev | unclaimed | onchain-x402 | 2026-08-18
 seed402-api.evanshvetsov2.workers.dev | unclaimed | onchain-x402 | 2026-08-18
