@@ -6417,7 +6417,7 @@ agents.datamancer.io | unclaimed | onchain-x402 | 2026-08-18
 agents.varsity54.com | unclaimed | onchain-x402 | 2026-08-18
 api.fetchx402.com | unclaimed | onchain-x402 | 2026-08-18
 api.generalrelay.xyz | unclaimed | onchain-x402 | 2026-08-18
-api.premiumrewards.vip | unclaimed | onchain-x402 | 2026-08-18
+api.premiumrewards.vip | unclaimed | submit | 2026-09-12
 api.prismnetwork.tech | unclaimed | onchain-x402 | 2026-08-18
 api.snapfix.media | unclaimed | onchain-x402 | 2026-08-18
 api.x402card.org | unclaimed | onchain-x402 | 2026-08-18
