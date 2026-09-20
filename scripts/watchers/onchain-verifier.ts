@@ -28,8 +28,8 @@ const TRANSFER_TOPIC = "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a
 // How far back to look: ~30 days on Base (~2s blocks = ~1.3M blocks)
 const DEFAULT_LOOKBACK_BLOCKS = 1_300_000;
 
-// Max blocks per eth_getLogs request (some RPCs limit to 10k)
-const BLOCKS_PER_QUERY = 10_000;
+// The default public Base RPC rejects eth_getLogs ranges above 2,000 blocks.
+const BLOCKS_PER_QUERY = 2_000;
 
 function readNonNegativeIntEnv(name: string, defaultValue: number): number {
   const raw = process.env[name];
