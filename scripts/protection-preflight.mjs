@@ -36,6 +36,18 @@ export async function runPreflight(env, { fetchImpl = fetch, sleep = (ms) => new
     const createPr = method === "POST" && path === `${ROOT}/pulls` && body?.base === base && body?.head === topic;
     assert.ok(refWrite || createTopic || objectWrite || createPr, "Mutation outside disposable fixture refused");
   }
+  function diagnosticRoute(path) {
+    if (path === "/user" || path === ROOT) return path;
+    const routes = [
+      ["/branches/", "/branches/{fixture}/protection"], ["/rules/branches/", "/rules/branches/{fixture}"],
+      ["/rulesets/", "/rulesets/{id}"], ["/git/ref/", "/git/ref/{fixture}"],
+      ["/git/refs", "/git/refs/{fixture}"], ["/git/commits", "/git/commits/{sha}"],
+      ["/git/trees", "/git/trees"], ["/pulls", "/pulls/{number}"],
+      ["/actions/workflows/", "/actions/workflows/{workflow}/runs"],
+      ["/actions/runs/", "/actions/runs/{id}/jobs"], ["/check-runs/", "/check-runs/{id}"],
+    ];
+    return ROOT + (routes.find(([prefix]) => path.startsWith(ROOT + prefix))?.[1] ?? "/{unclassified}");
+  }
   async function api(actor, method, path, body, expected = [200]) {
     authorize(method, path, body);
     assert.ok(path === "/user" || path.startsWith(`${ROOT}/`) || path === ROOT);
@@ -45,8 +57,12 @@ export async function runPreflight(env, { fetchImpl = fetch, sleep = (ms) => new
       headers: { Authorization: `Bearer ${token}`, Accept: "application/vnd.github+json", "Content-Type": "application/json", "X-GitHub-Api-Version": "2026-03-10" },
       ...(body === undefined ? {} : { body: JSON.stringify(body) }),
     });
-    const data = response.status === 204 ? null : await response.json();
+    // Never read or echo an unexpected response body, header or exception.
+    if (!expected.includes(response.status)) emit("http_unexpected_status", {
+      actor, method, route: diagnosticRoute(path), status: response.status,
+    });
     assert.ok(expected.includes(response.status), `${actor} ${method} HTTP ${response.status}; response body withheld`);
+    const data = response.status === 204 ? null : await response.json();
     return { status: response.status, data };
   }
   const get = async (actor, path) => (await api(actor, "GET", path)).data;
@@ -63,6 +79,7 @@ export async function runPreflight(env, { fetchImpl = fetch, sleep = (ms) => new
     emit(label, { status: result.status, unchanged: true });
   }
 
+  emit("stage", { name: "identity" });
   const principal = await get("publisher", "/user");
   const publisherRepo = await get("publisher", ROOT);
   const ordinaryRepo = await get("ordinary", ROOT);
@@ -73,10 +90,13 @@ export async function runPreflight(env, { fetchImpl = fetch, sleep = (ms) => new
   assert.equal(ordinaryRepo.permissions?.admin, false, "Ordinary credential must be verified non-admin");
   // Repository ACL metadata does not prove this installation token's write scope;
   // the disposable topic create/update below is the required positive control.
+  emit("stage", { name: "start_ref" });
   assert.equal(await head(base), env.REVIEWED_SHA, "Fixture must start at reviewed commit");
+  emit("stage", { name: "topic_absence" });
   await api("ordinary", "GET", `${ROOT}/git/ref/${encodeURIComponent(`heads/${topic}`)}`, undefined, [404]);
 
-  async function readConfiguration() {
+  async function readConfiguration(phase) {
+    emit("stage", { name: "config_classic", phase });
     const protection = await get("publisher", `${ROOT}/branches/${encodeURIComponent(base)}/protection`);
     const status = protection.required_status_checks;
     const reviews = protection.required_pull_request_reviews;
@@ -117,11 +137,13 @@ export async function runPreflight(env, { fetchImpl = fetch, sleep = (ms) => new
     }, "Classic protection differs from reviewed settings");
     const contexts = [...(status.contexts ?? [])].sort();
     assert.ok(contexts.every((context) => context === CHECK), "Unexpected legacy required check");
+    emit("stage", { name: "config_effective_rules", phase });
     const effectiveRules = await get("publisher", `${ROOT}/rules/branches/${encodeURIComponent(base)}`);
     assert.deepEqual(effectiveRules.map((rule) => rule.type).sort(), ["deletion", "non_fast_forward"]);
     assert.equal(new Set(effectiveRules.map((rule) => rule.ruleset_id)).size, 1);
     const rulesetId = effectiveRules[0].ruleset_id;
     assert.ok(Number.isSafeInteger(rulesetId) && rulesetId > 0);
+    emit("stage", { name: "config_ruleset", phase });
     const rule = await get("publisher", `${ROOT}/rulesets/${rulesetId}`);
     assert.equal(rule.id, rulesetId);
     assert.equal(rule.name, rulesetName);
@@ -136,7 +158,7 @@ export async function runPreflight(env, { fetchImpl = fetch, sleep = (ms) => new
       integrity: { id: rule.id, name: rule.name, target: rule.target, enforcement: rule.enforcement, bypass_actors: rule.bypass_actors, conditions: rule.conditions, rules },
     };
   }
-  const initialConfiguration = await readConfiguration();
+  const initialConfiguration = await readConfiguration("initial");
   emit("configuration_verified", { base, configuration: initialConfiguration });
 
   const original = await head(base);
@@ -212,7 +234,8 @@ export async function runPreflight(env, { fetchImpl = fetch, sleep = (ms) => new
   await waitCheck(goodCommit, "success");
   await observePr(goodCommit, "clean");
   assert.equal(await head(base), publisherCommit, "Disposable base changed during PR observation");
-  const finalConfiguration = await readConfiguration();
+  const finalConfiguration = await readConfiguration("final");
+  emit("stage", { name: "config_compare" });
   assert.deepEqual(finalConfiguration, initialConfiguration, "Protection changed during preflight");
   emit("PASS", {
     base, topic, pr: prNumber, publisher_sha: publisherCommit, checked_head_sha: goodCommit,

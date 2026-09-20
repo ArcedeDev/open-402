@@ -171,6 +171,42 @@ test("ordinary ACL push=false and actual topic update 403 withholds PASS", async
   assert.ok(!sim.logs.some((entry) => ["PASS", "ordinary_write_control_passed"].includes(entry.event)));
 });
 
+test("unexpected HTTP diagnostics reveal only fixed metadata and never read the body", async () => {
+  const root = "/repos/ArcedeDev/open-402";
+  const { base } = fixture(env);
+  for (const [target, route] of [["/user", "/user"], ["", root],
+    [`/git/ref/heads/${base}`, `${root}/git/ref/{fixture}`],
+    [`/branches/${base}/protection`, `${root}/branches/{fixture}/protection`],
+    [`/rules/branches/${base}`, `${root}/rules/branches/{fixture}`],
+    ["/rulesets/9", `${root}/rulesets/{id}`]]) {
+    const sim = simulation();
+    let bodyReads = 0;
+    const secret = [env.PUBLISHER_TOKEN, env.ORDINARY_TOKEN, "private-response-marker"].join(":");
+    const fetchImpl = async (url, init) => {
+      const path = decodeURIComponent(new URL(url).pathname).replace(root, "");
+      if (path !== target) return sim.deps.fetchImpl(url, init);
+      return { status: 403, headers: { private: secret }, json: async () => { bodyReads++; throw new Error(secret); } };
+    };
+    await assert.rejects(runPreflight(env, { ...sim.deps, fetchImpl }));
+    assert.equal(bodyReads, 0);
+    const diagnostic = sim.logs.find((entry) => entry.event === "http_unexpected_status");
+    assert.deepEqual(diagnostic, { event: "http_unexpected_status", actor: target.startsWith("/git/ref/") ? "ordinary" : "publisher", method: "GET", route, status: 403 });
+    assert.ok(!sim.logs.some((entry) => entry.event === "PASS"));
+    const output = JSON.stringify(sim.logs);
+    for (const value of [env.PUBLISHER_TOKEN, env.ORDINARY_TOKEN, "private-response-marker"]) assert.ok(!output.includes(value));
+  }
+});
+
+test("safe stages identify initial reads and both configuration validation passes", async () => {
+  const sim = simulation();
+  await runPreflight(env, sim.deps);
+  assert.deepEqual(sim.logs.filter((entry) => entry.event === "stage"), [
+    { event: "stage", name: "identity" }, { event: "stage", name: "start_ref" }, { event: "stage", name: "topic_absence" },
+    ...["initial", "final"].flatMap((phase) => ["config_classic", "config_effective_rules", "config_ruleset"].map((name) => ({ event: "stage", name, phase }))),
+    { event: "stage", name: "config_compare" },
+  ]);
+});
+
 test("retarget fuzz at every request boundary cannot merge; observed retargets withhold PASS", async () => {
   const baseline = simulation();
   await runPreflight(env, baseline.deps);
