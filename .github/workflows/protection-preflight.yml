@@ -16,6 +16,14 @@ on:
         description: Exact reviewed main commit containing this temporary workflow and script
         type: string
         required: true
+      configuration_mode:
+        description: Reviewed configuration attestation; external mode reports behavior only
+        type: choice
+        required: true
+        default: inline
+        options:
+          - inline
+          - externally_attested
 
 permissions: {}
 
@@ -46,6 +54,7 @@ jobs:
           PREFLIGHT_APPROVED: ${{ inputs.reviewed_preflight }}
           FIXTURE_KEY: ${{ inputs.fixture_key }}
           REVIEWED_SHA: ${{ inputs.reviewed_sha }}
+          CONFIGURATION_MODE: ${{ inputs.configuration_mode }}
           PUBLISHER_TOKEN: ${{ secrets.DIRECTORY_GITHUB_TOKEN }}
           ORDINARY_TOKEN: ${{ github.token }}
         run: node scripts/protection-preflight.mjs
