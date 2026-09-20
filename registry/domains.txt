@@ -1,6 +1,6 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 8883
+# Total domains: 8888
 # Total endpoints: 15027
 contract-lens-nano.dev-romanv.chatgpt.site | unclaimed | self | 2026-09-20
 agentinternetruntime.com | verified | self | 2026-03-23
@@ -4230,7 +4230,7 @@ x402.fold.computer | unclaimed | onchain-x402 | 2026-06-27
 a78e5529ace35f.lhr.life | unclaimed | onchain-x402 | 2026-06-28
 ac716b05b47f6a.lhr.life | unclaimed | onchain-x402 | 2026-06-28
 ads.gitlawb.com | unclaimed | onchain-x402 | 2026-06-28
-agent-compression-biz-production.up.railway.app | verified | onchain-x402 | 2026-06-28
+agent-compression-biz-production.up.railway.app | unclaimed | onchain-x402 | 2026-06-28
 ai.tureka.com | unclaimed | onchain-x402 | 2026-06-28
 alephack.vercel.app | unclaimed | onchain-x402 | 2026-06-28
 allin-onecents.orbonomy.xyz | unclaimed | onchain-x402 | 2026-06-28
@@ -5049,7 +5049,7 @@ nyfed-all-reference-rates-latest.hergertsynthora.com | verified | onchain-x402 |
 nyfed-effr-fed-funds-rate.hergertsynthora.com | verified | onchain-x402 | 2026-07-12
 nyfed-sofr-secured-rate.hergertsynthora.com | verified | onchain-x402 | 2026-07-12
 nyfed-treasury-operations-results.hergertsynthora.com | verified | onchain-x402 | 2026-07-12
-obol-x402.fly.dev | verified | onchain-x402 | 2026-07-12
+obol-x402.fly.dev | unclaimed | onchain-x402 | 2026-07-12
 openalex-author-search.hergertsynthora.com | verified | onchain-x402 | 2026-07-12
 openalex-work-by-doi.hergertsynthora.com | verified | onchain-x402 | 2026-07-12
 openalex-works-search.hergertsynthora.com | verified | onchain-x402 | 2026-07-12
@@ -8886,3 +8886,9 @@ x7njc8i90pti.shares.zrok.io | unclaimed | onchain-x402 | 2026-09-20
 xwecs-159-89-4-32.free.pinggy.net | unclaimed | onchain-x402 | 2026-09-20
 yrtyp-159-89-4-32.free.pinggy.net | unclaimed | onchain-x402 | 2026-09-20
 zambo.dev | unclaimed | onchain-x402 | 2026-09-20
+
+a952ccb0bb196a.lhr.life | unclaimed | onchain-x402 | 2026-09-20
+agent-utilities.agent-utilities.workers.dev | unclaimed | onchain-x402 | 2026-09-20
+cf684bb6ca4cee.lhr.life | unclaimed | onchain-x402 | 2026-09-20
+daaae3fe5bbf77.lhr.life | unclaimed | onchain-x402 | 2026-09-20
+socseal.xyz | unclaimed | onchain-x402 | 2026-09-20
