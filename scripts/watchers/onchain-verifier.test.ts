@@ -3,6 +3,114 @@ import assert from "node:assert/strict";
 import { runAddressVerificationQueue } from "../lib/address-scheduler.ts";
 import { addressKey, type AddressVerificationRecord } from "../lib/verification-model.ts";
 
+test("transient JSON-RPC retry classification survives redaction and aggregate failures stay bounded", { concurrency: false }, async () => {
+  process.env.BASE_RPC_RETRIES = "1";
+  process.env.BASE_RPC_BACKOFF_MS = "0";
+  const { verifyAddressesIncremental, verifyPayoutAddresses } = await import("./onchain-verifier.ts");
+  const originalFetch = globalThis.fetch;
+  const originalLog = console.log;
+  const messages: string[] = [];
+  const marker = "PRIVATE_RETRY_CANARY_DO_NOT_LOG";
+  const address = `0x${"1".repeat(40)}`;
+  const failure = (message: string) => new Response(JSON.stringify({ jsonrpc: "2.0", id: 1,
+    error: { code: -32000, message: `${message} ${marker}` },
+  }), { status: 200 });
+  console.log = (...args) => { messages.push(args.join(" ")); };
+  try {
+    for (const transient of ["rate limit", "temporarily unavailable"]) {
+      let heads = 0;
+      globalThis.fetch = async (_input, init) => {
+        const { method } = JSON.parse(String(init?.body));
+        if (method === "eth_blockNumber") return ++heads === 1 ? failure(transient) : jsonRpcResponse("0x64");
+        assert.equal(method, "eth_getLogs");
+        return jsonRpcResponse([]);
+      };
+      const results = await verifyAddressesIncremental([{ address, lastScannedBlock: 80 }]);
+      assert.equal(heads, 2, "transient head error must retry before scanning");
+      assert.equal(results.get(address)?.scanComplete, true);
+      assert.equal(results.get(address)?.lastScannedBlock, 100);
+      process.env.BASE_RPC_RETRIES = "0";
+      globalThis.fetch = async () => failure(transient);
+      await assert.rejects(verifyAddressesIncremental([{ address, lastScannedBlock: 80 }]), (error: Error & { retryable?: boolean }) => {
+        assert.equal(error.message, "RPC error: provider_error");
+        assert.equal(error.retryable, true);
+        assert.ok(!String(error.stack).includes(marker));
+        return true;
+      });
+      process.env.BASE_RPC_RETRIES = "1";
+    }
+    process.env.BASE_RPC_RETRIES = "0";
+    globalThis.fetch = async () => { throw new Error(marker); };
+    await assert.rejects(verifyPayoutAddresses([{ domain: "example.com", payoutAddress: address }]), (error: AggregateError) => {
+      assert.equal(error.message, "Payout verification failed");
+      assert.deepEqual(error.errors.map(cause => cause.message), ["unexpected_error"]);
+      assert.ok(!error.errors.some(cause => String(cause.stack).includes(marker)));
+      return true;
+    });
+    assert.ok(!messages.join("\n").includes(marker));
+  } finally {
+    globalThis.fetch = originalFetch;
+    console.log = originalLog;
+    process.env.BASE_RPC_RETRIES = "0";
+  }
+});
+
+test("provider-controlled errors never enter logs or persisted queue evidence", { concurrency: false }, async () => {
+  process.env.BASE_RPC_RETRIES = "0";
+  process.env.BASE_LOG_QUERY_DELAY_MS = "0";
+  const { verifyAddressesIncremental } = await import("./onchain-verifier.ts");
+  const originalFetch = globalThis.fetch;
+  const originalLog = console.log;
+  const messages: string[] = [];
+  const marker = "PRIVATE_PROVIDER_CANARY_DO_NOT_LOG";
+  const previousAt = "2026-09-01T00:00:00.000Z";
+  const attemptAt = "2026-09-20T12:00:00.000Z";
+  const prior: AddressVerificationRecord = {
+    protocol: "x402", network: "base", asset: "USDC", address: `0x${"1".repeat(40)}`,
+    verification_state: "verified", verification_method: "base_usdc_transfer_scan",
+    tx_count: 3, volume_usd: 9.5, first_tx: previousAt, last_tx: previousAt, last_tx_hash: "0xabc",
+    first_verified_at: previousAt, last_verified_at: previousAt, last_scanned_block: 80,
+    last_scan_complete_at: previousAt,
+  };
+  const rpcError = () => new Response(JSON.stringify({ jsonrpc: "2.0", id: 1,
+    error: { code: -32000, message: marker, data: { secret: marker } },
+  }), { status: 200 });
+  console.log = (...args) => { messages.push(args.join(" ")); };
+  try {
+    for (const failure of ["rpc", "http", "transport", "json"]) {
+      messages.length = 0;
+      globalThis.fetch = async (_input, init) => {
+        const { method } = JSON.parse(String(init?.body));
+        if (method === "eth_blockNumber") return jsonRpcResponse("0x64");
+        assert.equal(method, "eth_getLogs");
+        if (failure === "rpc") return rpcError();
+        if (failure === "http") return new Response(marker, { status: 429, statusText: marker });
+        if (failure === "transport") throw new Error(marker);
+        return new Response(marker, { status: 200 });
+      };
+      const records = new Map([[addressKey(prior), { ...prior }]]);
+      const summary = await runAddressVerificationQueue(records, {
+        limit: 5, concurrency: 1, verify: verifyAddressesIncremental, now: () => attemptAt,
+      });
+      assert.deepEqual(summary, { eligible: 1, attempted: 1, completed: 0, failed: 1 });
+      assert.deepEqual(records.get(addressKey(prior)), {
+        ...prior, last_scan_attempt_at: attemptAt, last_scan_error: "incomplete_scan",
+      });
+      assert.ok(messages.includes("[onchain]   Chunk 81-100 failed: incomplete_scan"), failure);
+      assert.ok(!messages.join("\n").includes(marker), failure);
+    }
+    globalThis.fetch = async () => rpcError();
+    await assert.rejects(verifyAddressesIncremental([{ address: prior.address, lastScannedBlock: 80 }]),
+      (error: Error) => error.message === "RPC error: provider_error");
+    globalThis.fetch = async () => new Response(marker, { status: 429, statusText: marker });
+    await assert.rejects(verifyAddressesIncremental([{ address: prior.address, lastScannedBlock: 80 }]),
+      (error: Error) => error.message === "RPC HTTP 429");
+  } finally {
+    globalThis.fetch = originalFetch;
+    console.log = originalLog;
+  }
+});
+
 function transferLog(toAddress: string, changes: Record<string, unknown> = {}) {
   return {
     address: "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",

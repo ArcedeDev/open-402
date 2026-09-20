@@ -150,14 +150,18 @@ async function rpcCall(method: string, params: unknown[], retries = getRpcRetrie
         signal: AbortSignal.timeout(15_000),
       });
       if (!res.ok) {
-        const error = new Error(`RPC HTTP ${res.status}: ${res.statusText}`) as Error & {
+        const error = new Error(`RPC HTTP ${res.status}`) as Error & {
           retryAfterHeader?: string | null;
         };
         error.retryAfterHeader = res.headers.get("retry-after");
         throw error;
       }
       const data = await res.json() as { result?: unknown; error?: { message: string } };
-      if (data.error) throw new Error(`RPC error: ${data.error.message}`);
+      if (data.error) {
+        throw Object.assign(new Error("RPC error: provider_error"), {
+          retryable: isRetryableRpcMessage(typeof data.error.message === "string" ? data.error.message : ""),
+        });
+      }
       return data.result;
     } catch (e) {
       const message = e instanceof Error ? e.message : String(e);
@@ -166,7 +170,8 @@ async function rpcCall(method: string, params: unknown[], retries = getRpcRetrie
           ? String((e as { retryAfterHeader?: string | null }).retryAfterHeader ?? "")
           : null;
       const retryable =
-        isRetryableRpcMessage(message)
+        (e instanceof Error && "retryable" in e && e.retryable === true)
+        || isRetryableRpcMessage(message)
         || !(message.startsWith("RPC HTTP 4") && !message.startsWith("RPC HTTP 429"));
 
       if (attempt === retries || !retryable) throw e;
@@ -272,9 +277,9 @@ async function scanAddressRange(
     try {
       const logs = await getUsdcTransfersTo(payoutAddress, start, end);
       allLogs.push(...logs);
-    } catch (e) {
+    } catch {
       failedChunks++;
-      log(`  Chunk ${start}-${end} failed: ${e instanceof Error ? e.message : e}`);
+      log(`  Chunk ${start}-${end} failed: incomplete_scan`);
     }
 
     const queryDelayMs = getLogQueryDelayMs();
@@ -606,7 +611,7 @@ export async function verifyPayoutAddresses(
     );
 
     const failures = batchResults.filter((result) => result.status === "rejected");
-    if (failures.length) throw new AggregateError(failures.map((result) => result.reason), "Payout verification failed");
+    if (failures.length) throw new AggregateError(failures.map(() => new Error("unexpected_error")), "Payout verification failed");
 
     // Log progress
     const done = Math.min(i + concurrency, entries.length);
