@@ -71,7 +71,8 @@ export async function runPreflight(env, { fetchImpl = fetch, sleep = (ms) => new
   assert.equal(publisherRepo.permissions?.admin, true, "Publisher credential is not verified admin");
   assert.equal(publisherRepo.permissions?.push, true);
   assert.equal(ordinaryRepo.permissions?.admin, false, "Ordinary credential must be verified non-admin");
-  assert.equal(ordinaryRepo.permissions?.push, true);
+  // Repository ACL metadata does not prove this installation token's write scope;
+  // the disposable topic create/update below is the required positive control.
   assert.equal(await head(base), env.REVIEWED_SHA, "Fixture must start at reviewed commit");
   await api("ordinary", "GET", `${ROOT}/git/ref/${encodeURIComponent(`heads/${topic}`)}`, undefined, [404]);
 

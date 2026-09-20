@@ -46,7 +46,7 @@ function simulation(options = {}) {
     if (prCreated && options.retargetBeforeCall === calls.length) prBase = "main";
     const ok = (data, status = 200) => response(status, data);
     if (path === "/user") return ok({ login: "fixture-owner", id: 1, type: "User" });
-    if (path === "") return ok({ permissions: { admin: publisher ? options.publisherAdmin !== false : false, push: true } });
+    if (path === "") return ok({ permissions: { admin: publisher ? options.publisherAdmin !== false : false, push: publisher || options.ordinaryAclPush !== false } });
     if (path.startsWith("/git/ref/heads/")) {
       const value = refs.get(path.slice("/git/ref/heads/".length));
       return value ? ok({ object: { sha: value } }) : response(404, {});
@@ -56,6 +56,7 @@ function simulation(options = {}) {
       if (protectionReads > 1 && options.removeProtection) return response(404, {});
       if (protectionReads > 1 && options.finalDeniedRead === "classic") return response(403, {});
       const settings = structuredClone(config);
+      if (options.contexts !== undefined) settings.required_status_checks.contexts = options.contexts;
       if (protectionReads > 1 && options.changeCheckApp) settings.required_status_checks.checks[0].app_id = 99;
       if (protectionReads > 1 && options.changeClassic) settings.required_pull_request_reviews.dismiss_stale_reviews = false;
       if (protectionReads > 1 && options.addPrBypass) settings.required_pull_request_reviews.bypass_pull_request_allowances.users.push({ login: "unexpected" });
@@ -140,6 +141,34 @@ test("matrix observes exact-head PR states without merging and revalidates canon
   assert.ok(sim.calls.filter((call) => call.method !== "GET").every((call) => !call.path.includes("heads/main") && call.body?.base !== "main" && call.body?.ref !== "refs/heads/main"));
   const output = JSON.stringify(sim.logs);
   assert.ok(!output.includes(env.PUBLISHER_TOKEN) && !output.includes(env.ORDINARY_TOKEN));
+});
+
+test("protection readback accepts absent, empty or derived contexts but not unrelated contexts", async () => {
+  for (const contexts of [undefined, [], ["Registry checks"]]) {
+    const sim = simulation({ contexts });
+    await runPreflight(env, sim.deps);
+    assert.equal(sim.logs.at(-1).event, "PASS");
+  }
+  const invalid = simulation({ contexts: ["Unrelated check"] });
+  await assert.rejects(runPreflight(env, invalid.deps));
+  assert.ok(invalid.calls.every((call) => call.method === "GET"));
+});
+
+test("ordinary ACL push=false can PASS only with actual authorized topic writes", async () => {
+  const sim = simulation({ ordinaryAclPush: false });
+  await runPreflight(env, sim.deps);
+  assert.equal(sim.logs.find((entry) => entry.event === "identity").ordinary.push, false);
+  assert.ok(sim.calls.some((call) => call.path === "/git/refs" && call.method === "POST" && !call.publisher));
+  assert.ok(sim.calls.some((call) => call.path === `/git/refs/heads/${fixture(env).topic}` && call.method === "PATCH" && !call.publisher));
+  assert.ok(sim.logs.some((entry) => entry.event === "ordinary_write_control_passed"));
+  assert.equal(sim.logs.at(-1).event, "PASS");
+});
+
+test("ordinary ACL push=false and actual topic update 403 withholds PASS", async () => {
+  const sim = simulation({ ordinaryAclPush: false, denyWriteControl: true });
+  await assert.rejects(runPreflight(env, sim.deps), /ordinary PATCH HTTP 403/);
+  assert.ok(sim.calls.some((call) => call.path === `/git/refs/heads/${fixture(env).topic}` && call.method === "PATCH" && !call.publisher));
+  assert.ok(!sim.logs.some((entry) => ["PASS", "ordinary_write_control_passed"].includes(entry.event)));
 });
 
 test("retarget fuzz at every request boundary cannot merge; observed retargets withhold PASS", async () => {
