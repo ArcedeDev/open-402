@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { fixture, runPreflight } from "./protection-preflight.mjs";
+import { fixture, runPreflight, readConfiguration, sourceSha256 } from "./protection-preflight.mjs";
 
 const sha = "a".repeat(40);
 const env = { PREFLIGHT_APPROVED: "true", GITHUB_EVENT_NAME: "workflow_dispatch", GITHUB_REPOSITORY: "ArcedeDev/open-402", GITHUB_REF: "refs/heads/main", GITHUB_SHA: sha, REVIEWED_SHA: sha, FIXTURE_KEY: "0".repeat(16), PUBLISHER_TOKEN: "publisher-sentinel", ORDINARY_TOKEN: "ordinary-sentinel" };
@@ -85,7 +85,7 @@ function simulation(options = {}) {
     if (path === "/git/refs") { refs.set(body.ref.replace("refs/heads/", ""), body.sha); return ok({}, 201); }
     if (path.startsWith("/git/refs/heads/")) {
       const branch = path.slice("/git/refs/heads/".length);
-      if (init.method === "DELETE") return response(422, { message: "Repository rule violations found: cannot delete" });
+      if (init.method === "DELETE") return options.allowDelete ? response(204, null) : response(422, { message: "Repository rule violations found: cannot delete" });
       if (branch === base && !publisher) return response(403, { message: "Protected branch: pull request required" });
       if (body.force && !options.allowForce) return response(422, { message: options.ambiguousForce ? "Protected branch" : "Repository rule violations found: cannot force-push" });
       if (branch === topic && !publisher && options.denyWriteControl) return response(403, { message: "Resource not accessible by integration" });
@@ -205,6 +205,50 @@ test("safe stages identify initial reads and both configuration validation passe
     ...["initial", "final"].flatMap((phase) => ["config_classic", "config_effective_rules", "config_ruleset"].map((name) => ({ event: "stage", name, phase }))),
     { event: "stage", name: "config_compare" },
   ]);
+});
+
+test("explicit external mode skips only config reads and emits bound PARTIAL, never PASS", async () => {
+  const sim = simulation({ ordinaryAclPush: false });
+  await runPreflight({ ...env, CONFIGURATION_MODE: "externally_attested", GITHUB_RUN_ID: "123", GITHUB_RUN_ATTEMPT: "1" }, sim.deps);
+  const receipt = sim.logs.at(-1);
+  assert.equal(receipt.event, "PARTIAL");
+  assert.equal(receipt.behavior_complete, true);
+  assert.equal(receipt.configuration_attestation, "external_required");
+  assert.equal(receipt.source_sha256, sourceSha256);
+  assert.equal(receipt.start_sha, sha);
+  assert.equal(receipt.end_sha, sim.refs.get(fixture(env).base));
+  assert.deepEqual(receipt.execution, { kind: "github", run_id: "123", run_attempt: "1", head_sha: sha });
+  assert.equal(receipt.identity.publisher.login, "fixture-owner");
+  assert.equal(receipt.evidence.length, 9);
+  assert.ok(!sim.logs.some((entry) => ["PASS", "configuration_verified"].includes(entry.event)));
+  assert.ok(sim.calls.every((call) => !call.path.endsWith("/protection") && !call.path.startsWith("/rules")));
+});
+
+test("external mode requires run identity before requests and never masks failed behavior", async () => {
+  const external = { ...env, CONFIGURATION_MODE: "externally_attested", GITHUB_RUN_ID: "123", GITHUB_RUN_ATTEMPT: "1" };
+  for (const patch of [{ GITHUB_RUN_ID: undefined }, { GITHUB_RUN_ATTEMPT: undefined }, { CONFIGURATION_MODE: "automatic" }]) {
+    const sim = simulation();
+    await assert.rejects(runPreflight({ ...external, ...patch }, sim.deps));
+    assert.equal(sim.calls.length, 0);
+  }
+  for (const options of [{ denyWriteControl: true }, { allowForce: true }, { allowDelete: true }, { ambiguousForce: true }, { publisherAdmin: false }, { wrongHead: true }, { wrongPrState: true }, { wrongApp: true }]) {
+    const sim = simulation(options);
+    await assert.rejects(runPreflight(external, sim.deps));
+    assert.ok(!sim.logs.some((entry) => ["PASS", "PARTIAL"].includes(entry.event)));
+  }
+});
+
+test("inline 403 never falls back to external mode; owner can reuse exported canonical reader", async () => {
+  const sim = simulation();
+  const get = async (path) => (await sim.deps.fetchImpl(`https://api.github.com${path}`, { method: "GET", headers: { Authorization: `Bearer ${env.PUBLISHER_TOKEN}` } })).json();
+  const settings = await readConfiguration({ key: env.FIXTURE_KEY, get });
+  assert.equal(settings.integrity.id, 9);
+  assert.equal(sim.calls.length, 3);
+  const denied = simulation();
+  await assert.rejects(runPreflight(env, { ...denied.deps, fetchImpl: (url, init) => url.endsWith("/protection")
+    ? Promise.resolve({ status: 403 }) : denied.deps.fetchImpl(url, init) }));
+  assert.ok(denied.calls.every((call) => call.method === "GET"));
+  assert.ok(!denied.logs.some((entry) => ["PASS", "PARTIAL"].includes(entry.event)));
 });
 
 test("retarget fuzz at every request boundary cannot merge; observed retargets withhold PASS", async () => {
