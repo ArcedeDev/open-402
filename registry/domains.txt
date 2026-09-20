@@ -8657,7 +8657,7 @@ ralph-crypto-summary.simgokr.workers.dev | unclaimed | onchain-x402 | 2026-09-20
 rated-societies-operated-pioneer.trycloudflare.com | unclaimed | onchain-x402 | 2026-09-20
 ratings-points-delivery-roy.trycloudflare.com | unclaimed | onchain-x402 | 2026-09-20
 reactionpulse-production.reactionpulse-x402.workers.dev | unclaimed | onchain-x402 | 2026-09-20
-readr.hatchagent.workers.dev | verified | onchain-x402 | 2026-09-20
+readr.hatchagent.workers.dev | verified | self | 2026-09-20
 recasound.es | unclaimed | onchain-x402 | 2026-09-20
 record-reconcile.jaymosley.chatgpt.site | unclaimed | onchain-x402 | 2026-09-20
 reefjaco.loujaxking1.workers.dev | unclaimed | onchain-x402 | 2026-09-20
