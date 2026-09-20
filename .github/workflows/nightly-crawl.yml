@@ -48,7 +48,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.DIRECTORY_GITHUB_TOKEN }}
           GITHUB_REPO: ArcedeDev/open-402
           CONCURRENCY: '50'
-          MAX_ONCHAIN_ADDRESSES_PER_RUN: '25'
+          MAX_ONCHAIN_ADDRESSES_PER_RUN: '5'
           APPROVED_REMOVALS: ${{ inputs.approved_removals }}
           SYNC_WEBHOOK_SECRET: ${{ secrets.SYNC_WEBHOOK_SECRET }}
           SYNC_WEBHOOK_URL: ${{ secrets.SYNC_WEBHOOK_URL }}
