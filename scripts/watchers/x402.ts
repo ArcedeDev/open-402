@@ -16,8 +16,8 @@
  * which couldn't discover domains (only wallet addresses).
  */
 
-import type { PaymentEvent, PaymentRailWatcher } from "./types";
-import { extractDomain } from "./utils";
+import type { PaymentEvent, PaymentRailWatcher } from "./types.ts";
+import { extractDomain } from "./utils.ts";
 import { getNextOffset, parsePaginatedServicesResponse } from "./pagination.ts";
 
 function log(msg: string): void {

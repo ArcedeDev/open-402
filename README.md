@@ -73,10 +73,10 @@ You can read this file directly for structured data without crawling individual 
 
 ### Nightly crawl pipeline
 
-The registry is refreshed nightly in private infrastructure:
+The registry is refreshed nightly by the [crawler workflow](.github/workflows/nightly-crawl.yml):
 
 1. **Domain discovery** from x402scan.com and 402index.io watchers
-2. **Crawl** every domain for `/.well-known/agent.json` (15 concurrent)
+2. **Crawl** every domain for `/.well-known/agent.json` (50 concurrent in the nightly workflow)
 3. **On-chain verification** of payout addresses against Base USDC transfers
 4. **Ecosystem stats** from x402scan (transactions, volume, buyers, sellers)
 5. **Publish** updated `snapshot.json` and `domains.txt` together in one atomic Git commit
