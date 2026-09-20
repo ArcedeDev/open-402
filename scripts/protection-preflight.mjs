@@ -1,10 +1,13 @@
 import assert from "node:assert/strict";
+import { createHash } from "node:crypto";
+import { readFileSync } from "node:fs";
 import { pathToFileURL } from "node:url";
 
 const REPO = "ArcedeDev/open-402";
 const ROOT = `/repos/${REPO}`;
 const CHECK = "Registry checks";
 const APP = 15368;
+export const sourceSha256 = createHash("sha256").update(readFileSync(new URL(import.meta.url))).digest("hex");
 
 // The tested admin exception also permits ordinary code/workflow writes when
 // the credential allows them; only force-push and deletion have no bypass.
@@ -21,10 +24,90 @@ export function fixture(env) {
   return { base, topic: `${base}-pr`, rulesetName: `preflight-integrity-${env.FIXTURE_KEY}` };
 }
 
+export async function readConfiguration({ key, get, phase, emit = () => {} }) {
+  assert.match(key ?? "", /^[a-f0-9]{16}$/);
+  const base = `preflight/open402-${key}`;
+  const rulesetName = `preflight-integrity-${key}`;
+  emit("stage", { name: "config_classic", phase });
+  const protection = await get(`${ROOT}/branches/${encodeURIComponent(base)}/protection`);
+  const status = protection.required_status_checks;
+  const reviews = protection.required_pull_request_reviews;
+  assert.ok(status && reviews, "Required checks or PR requirement missing");
+  const bypass = reviews.bypass_pull_request_allowances;
+  const classic = {
+    enforce_admins: protection.enforce_admins?.enabled,
+    required_status_checks: {
+      strict: status.strict,
+      checks: status.checks.map(({ context, app_id }) => ({ context, app_id })),
+    },
+    required_pull_request_reviews: {
+      dismiss_stale_reviews: reviews.dismiss_stale_reviews,
+      require_code_owner_reviews: reviews.require_code_owner_reviews,
+      required_approving_review_count: reviews.required_approving_review_count,
+      require_last_push_approval: reviews.require_last_push_approval,
+      bypass_pull_request_allowances: { users: bypass?.users ?? [], teams: bypass?.teams ?? [], apps: bypass?.apps ?? [] },
+    },
+    restrictions: protection.restrictions ?? null,
+    required_linear_history: protection.required_linear_history?.enabled,
+    allow_force_pushes: protection.allow_force_pushes?.enabled,
+    allow_deletions: protection.allow_deletions?.enabled,
+    required_conversation_resolution: protection.required_conversation_resolution?.enabled,
+    lock_branch: protection.lock_branch?.enabled,
+    allow_fork_syncing: protection.allow_fork_syncing?.enabled,
+  };
+  assert.deepEqual(classic, {
+    enforce_admins: false,
+    required_status_checks: { strict: true, checks: [{ context: CHECK, app_id: APP }] },
+    required_pull_request_reviews: {
+      dismiss_stale_reviews: true, require_code_owner_reviews: false,
+      required_approving_review_count: 0, require_last_push_approval: false,
+      bypass_pull_request_allowances: { users: [], teams: [], apps: [] },
+    },
+    restrictions: null, required_linear_history: false, allow_force_pushes: false,
+    allow_deletions: false, required_conversation_resolution: true,
+    lock_branch: false, allow_fork_syncing: false,
+  }, "Classic protection differs from reviewed settings");
+  const contexts = [...(status.contexts ?? [])].sort();
+  assert.ok(contexts.every((context) => context === CHECK), "Unexpected legacy required check");
+  emit("stage", { name: "config_effective_rules", phase });
+  const effectiveRules = await get(`${ROOT}/rules/branches/${encodeURIComponent(base)}`);
+  assert.deepEqual(effectiveRules.map((rule) => rule.type).sort(), ["deletion", "non_fast_forward"]);
+  assert.equal(new Set(effectiveRules.map((rule) => rule.ruleset_id)).size, 1);
+  const rulesetId = effectiveRules[0].ruleset_id;
+  assert.ok(Number.isSafeInteger(rulesetId) && rulesetId > 0);
+  emit("stage", { name: "config_ruleset", phase });
+  const rule = await get(`${ROOT}/rulesets/${rulesetId}`);
+  assert.equal(rule.id, rulesetId);
+  assert.equal(rule.name, rulesetName);
+  assert.equal(rule.target, "branch");
+  assert.equal(rule.enforcement, "active");
+  assert.deepEqual(rule.bypass_actors, [], "No integrity bypass is allowed; missing metadata is not proof");
+  assert.deepEqual(rule.conditions.ref_name, { include: [`refs/heads/${base}`], exclude: [] });
+  const rules = [...rule.rules].sort((a, b) => a.type.localeCompare(b.type));
+  assert.deepEqual(rules, [{ type: "deletion" }, { type: "non_fast_forward" }]);
+  return {
+    classic, contexts,
+    integrity: { id: rule.id, name: rule.name, target: rule.target, enforcement: rule.enforcement, bypass_actors: rule.bypass_actors, conditions: rule.conditions, rules },
+  };
+}
+
 export async function runPreflight(env, { fetchImpl = fetch, sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms)), log = console.log } = {}) {
-  const { base, topic, rulesetName } = fixture(env);
+  const { base, topic } = fixture(env);
+  const mode = env.CONFIGURATION_MODE ?? "inline";
+  assert.ok(["inline", "externally_attested"].includes(mode));
+  const external = mode === "externally_attested";
+  if (external) {
+    assert.match(env.GITHUB_RUN_ID ?? "", /^[1-9][0-9]{0,19}$/);
+    assert.match(env.GITHUB_RUN_ATTEMPT ?? "", /^[1-9][0-9]{0,5}$/);
+  }
+  const startedAt = new Date().toISOString();
   let prNumber;
-  const emit = (event, fields = {}) => log(JSON.stringify({ event, ...fields }));
+  const evidence = [];
+  const emit = (event, fields = {}) => {
+    if (["ordinary_direct_write_blocked", "publisher_fast_forward_allowed", "publisher_force_blocked", "publisher_delete_blocked",
+      "ordinary_write_control_passed", "registry_check", "pr_state_observed"].includes(event)) evidence.push({ event, ...fields });
+    log(JSON.stringify({ event, ...fields }));
+  };
   const branchPath = (branch) => `${ROOT}/git/refs/${encodeURIComponent(`heads/${branch}`)}`;
 
   // Limit all mutable API routes and references even if later code is edited.
@@ -83,7 +166,10 @@ export async function runPreflight(env, { fetchImpl = fetch, sleep = (ms) => new
   const principal = await get("publisher", "/user");
   const publisherRepo = await get("publisher", ROOT);
   const ordinaryRepo = await get("ordinary", ROOT);
-  emit("identity", { publisher: { login: principal.login, id: principal.id, type: principal.type, admin: publisherRepo.permissions?.admin, push: publisherRepo.permissions?.push }, ordinary: { admin: ordinaryRepo.permissions?.admin, push: ordinaryRepo.permissions?.push } });
+  const identity = { publisher: { login: principal.login, id: principal.id, type: principal.type, admin: publisherRepo.permissions?.admin, push: publisherRepo.permissions?.push }, ordinary: { admin: ordinaryRepo.permissions?.admin, push: ordinaryRepo.permissions?.push } };
+  assert.match(principal.login, /^[a-zA-Z0-9-]{1,39}$/);
+  assert.ok(Number.isSafeInteger(principal.id) && principal.id > 0);
+  emit("identity", identity);
   assert.equal(principal.type, "User");
   assert.equal(publisherRepo.permissions?.admin, true, "Publisher credential is not verified admin");
   assert.equal(publisherRepo.permissions?.push, true);
@@ -95,71 +181,10 @@ export async function runPreflight(env, { fetchImpl = fetch, sleep = (ms) => new
   emit("stage", { name: "topic_absence" });
   await api("ordinary", "GET", `${ROOT}/git/ref/${encodeURIComponent(`heads/${topic}`)}`, undefined, [404]);
 
-  async function readConfiguration(phase) {
-    emit("stage", { name: "config_classic", phase });
-    const protection = await get("publisher", `${ROOT}/branches/${encodeURIComponent(base)}/protection`);
-    const status = protection.required_status_checks;
-    const reviews = protection.required_pull_request_reviews;
-    assert.ok(status && reviews, "Required checks or PR requirement missing");
-    const bypass = reviews.bypass_pull_request_allowances;
-    const classic = {
-      enforce_admins: protection.enforce_admins?.enabled,
-      required_status_checks: {
-        strict: status.strict,
-        checks: status.checks.map(({ context, app_id }) => ({ context, app_id })),
-      },
-      required_pull_request_reviews: {
-        dismiss_stale_reviews: reviews.dismiss_stale_reviews,
-        require_code_owner_reviews: reviews.require_code_owner_reviews,
-        required_approving_review_count: reviews.required_approving_review_count,
-        require_last_push_approval: reviews.require_last_push_approval,
-        bypass_pull_request_allowances: { users: bypass?.users ?? [], teams: bypass?.teams ?? [], apps: bypass?.apps ?? [] },
-      },
-      restrictions: protection.restrictions ?? null,
-      required_linear_history: protection.required_linear_history?.enabled,
-      allow_force_pushes: protection.allow_force_pushes?.enabled,
-      allow_deletions: protection.allow_deletions?.enabled,
-      required_conversation_resolution: protection.required_conversation_resolution?.enabled,
-      lock_branch: protection.lock_branch?.enabled,
-      allow_fork_syncing: protection.allow_fork_syncing?.enabled,
-    };
-    assert.deepEqual(classic, {
-      enforce_admins: false,
-      required_status_checks: { strict: true, checks: [{ context: CHECK, app_id: APP }] },
-      required_pull_request_reviews: {
-        dismiss_stale_reviews: true, require_code_owner_reviews: false,
-        required_approving_review_count: 0, require_last_push_approval: false,
-        bypass_pull_request_allowances: { users: [], teams: [], apps: [] },
-      },
-      restrictions: null, required_linear_history: false, allow_force_pushes: false,
-      allow_deletions: false, required_conversation_resolution: true,
-      lock_branch: false, allow_fork_syncing: false,
-    }, "Classic protection differs from reviewed settings");
-    const contexts = [...(status.contexts ?? [])].sort();
-    assert.ok(contexts.every((context) => context === CHECK), "Unexpected legacy required check");
-    emit("stage", { name: "config_effective_rules", phase });
-    const effectiveRules = await get("publisher", `${ROOT}/rules/branches/${encodeURIComponent(base)}`);
-    assert.deepEqual(effectiveRules.map((rule) => rule.type).sort(), ["deletion", "non_fast_forward"]);
-    assert.equal(new Set(effectiveRules.map((rule) => rule.ruleset_id)).size, 1);
-    const rulesetId = effectiveRules[0].ruleset_id;
-    assert.ok(Number.isSafeInteger(rulesetId) && rulesetId > 0);
-    emit("stage", { name: "config_ruleset", phase });
-    const rule = await get("publisher", `${ROOT}/rulesets/${rulesetId}`);
-    assert.equal(rule.id, rulesetId);
-    assert.equal(rule.name, rulesetName);
-    assert.equal(rule.target, "branch");
-    assert.equal(rule.enforcement, "active");
-    assert.deepEqual(rule.bypass_actors, [], "No integrity bypass is allowed; missing metadata is not proof");
-    assert.deepEqual(rule.conditions.ref_name, { include: [`refs/heads/${base}`], exclude: [] });
-    const rules = [...rule.rules].sort((a, b) => a.type.localeCompare(b.type));
-    assert.deepEqual(rules, [{ type: "deletion" }, { type: "non_fast_forward" }]);
-    return {
-      classic, contexts,
-      integrity: { id: rule.id, name: rule.name, target: rule.target, enforcement: rule.enforcement, bypass_actors: rule.bypass_actors, conditions: rule.conditions, rules },
-    };
-  }
-  const initialConfiguration = await readConfiguration("initial");
-  emit("configuration_verified", { base, configuration: initialConfiguration });
+  const configuration = (phase) => readConfiguration({ key: env.FIXTURE_KEY, get: (path) => get("publisher", path), phase, emit });
+  const initialConfiguration = external ? null : await configuration("initial");
+  if (!external) emit("configuration_verified", { base, configuration: initialConfiguration });
+  else emit("configuration_external_required", { base });
 
   const original = await head(base);
   const tree = (await get("ordinary", `${ROOT}/git/commits/${original}`)).tree.sha;
@@ -234,7 +259,18 @@ export async function runPreflight(env, { fetchImpl = fetch, sleep = (ms) => new
   await waitCheck(goodCommit, "success");
   await observePr(goodCommit, "clean");
   assert.equal(await head(base), publisherCommit, "Disposable base changed during PR observation");
-  const finalConfiguration = await readConfiguration("final");
+  if (external) {
+    emit("PARTIAL", {
+      mode, behavior_complete: true, configuration_attestation: "external_required",
+      repository: REPO, base, topic, pr: prNumber, identity, start_sha: original, end_sha: publisherCommit,
+      checked_head_sha: goodCommit, evidence, reviewed_sha: env.REVIEWED_SHA, source_sha256: sourceSha256,
+      execution: { kind: "github", run_id: env.GITHUB_RUN_ID, run_attempt: env.GITHUB_RUN_ATTEMPT, head_sha: env.GITHUB_SHA },
+      started_at: startedAt, completed_at: new Date().toISOString(), pr_state_only: true,
+      note: "Behavior only. Independent owner configuration receipts are required; this is not activation approval.",
+    });
+    return;
+  }
+  const finalConfiguration = await configuration("final");
   emit("stage", { name: "config_compare" });
   assert.deepEqual(finalConfiguration, initialConfiguration, "Protection changed during preflight");
   emit("PASS", {
