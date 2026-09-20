@@ -8892,3 +8892,4 @@ agent-utilities.agent-utilities.workers.dev | unclaimed | onchain-x402 | 2026-09
 cf684bb6ca4cee.lhr.life | unclaimed | onchain-x402 | 2026-09-20
 daaae3fe5bbf77.lhr.life | unclaimed | onchain-x402 | 2026-09-20
 socseal.xyz | unclaimed | onchain-x402 | 2026-09-20
+jmt-x402-proxy.jmthomasofficial.workers.dev | unclaimed | self | 2026-09-20
