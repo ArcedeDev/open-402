@@ -1,0 +1,51 @@
+name: Disposable protection preflight
+
+on:
+  workflow_dispatch:
+    inputs:
+      reviewed_preflight:
+        description: Authorize the reviewed disposable protection fixture
+        type: boolean
+        required: true
+        default: false
+      fixture_key:
+        description: 16 lowercase hex characters; targets preflight/open402-<key> and its -pr branch
+        type: string
+        required: true
+      reviewed_sha:
+        description: Exact reviewed main commit containing this temporary workflow and script
+        type: string
+        required: true
+
+permissions: {}
+
+concurrency:
+  group: protection-preflight-${{ inputs.fixture_key }}
+  cancel-in-progress: false
+
+jobs:
+  probe:
+    if: inputs.reviewed_preflight && github.repository == 'ArcedeDev/open-402' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: write
+      pull-requests: read
+      actions: read
+      checks: read
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444
+        with:
+          node-version: '24.14.0'
+      - name: Probe disposable branches only
+        env:
+          PREFLIGHT_APPROVED: ${{ inputs.reviewed_preflight }}
+          FIXTURE_KEY: ${{ inputs.fixture_key }}
+          REVIEWED_SHA: ${{ inputs.reviewed_sha }}
+          PUBLISHER_TOKEN: ${{ secrets.DIRECTORY_GITHUB_TOKEN }}
+          ORDINARY_TOKEN: ${{ github.token }}
+        run: node scripts/protection-preflight.mjs
