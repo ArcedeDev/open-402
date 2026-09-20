@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 import { pathToFileURL } from "node:url";
-import { readFile } from "node:fs/promises";
+import { appendFile, readFile } from "node:fs/promises";
 import { crawlDomain, isPublicDomain } from "./lib/manifest.ts";
 import { assertCoverage, assertSnapshot, assertApprovedRemovals, mapConcurrent } from "./lib/crawl-runtime.ts";
+import { applyDailyDemotions, normalizeManifestDemotionBudget, normalizeManifestHealth, observeManifestHealth, type ManifestDemotionBudget, type ManifestHealth } from "./lib/manifest-health.ts";
 
 import {
   buildUpdatedDomainsTxt,
@@ -39,8 +40,7 @@ import {
  *   GITHUB_TOKEN    — PAT with write access to the public repo
  *   GITHUB_REPO     — e.g., "ArcedeDev/open-402" (default)
  *   CONCURRENCY     — Max parallel crawls (default: 50)
- *   STALE_DAYS      — Days of 404 before marking stale (default: 7)
- *   DEMOTE_DAYS     — Days of 404 before demoting to unclaimed (default: 30)
+ *   DEMOTE_DAYS     — Observed UTC failure dates before demotion eligibility (default: 30)
  */
 
 const GITHUB_REPO = process.env.GITHUB_REPO || "ArcedeDev/open-402";
@@ -48,7 +48,6 @@ const GITHUB_BRANCH = process.env.GITHUB_BRANCH || "main";
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN || "";
 const GITHUB_COMMIT_RETRIES = parseInt(process.env.GITHUB_COMMIT_RETRIES || "3", 10) || 3;
 const CONCURRENCY = Number(process.env.CONCURRENCY || "50");
-const STALE_DAYS = parseInt(process.env.STALE_DAYS || "7", 10) || 7;
 const DEMOTE_DAYS = parseInt(process.env.DEMOTE_DAYS || "30", 10) || 30;
 const ONCHAIN_CONCURRENCY = parseInt(process.env.ONCHAIN_CONCURRENCY || "3", 10) || 3;
 const MAX_ONCHAIN_ADDRESSES_PER_RUN = parseInt(process.env.MAX_ONCHAIN_ADDRESSES_PER_RUN || "0", 10) || 0;
@@ -72,6 +71,7 @@ interface SnapshotEntry {
   first_seen: string;
   last_crawled: string;
   consecutive_failures?: number;
+  manifest_health?: ManifestHealth;
   claims: Claim[];
   verification: VerificationSummary;
   // Legacy fields accepted when reading old snapshots.
@@ -119,6 +119,7 @@ interface Snapshot {
   verified: number;
   unclaimed: number;
   entries: SnapshotEntry[];
+  manifest_demotion_budget?: ManifestDemotionBudget;
   address_verifications?: AddressVerificationRecord[];
   verification_stats?: VerificationStats;
   ecosystem_stats?: EcosystemStats;
@@ -201,6 +202,7 @@ function normalizeSnapshotEntry(raw: SnapshotEntry): SnapshotEntry {
     first_seen: typeof raw.first_seen === "string" ? raw.first_seen : new Date().toISOString().split("T")[0],
     last_crawled: typeof raw.last_crawled === "string" ? raw.last_crawled : new Date().toISOString(),
     consecutive_failures: Number(raw.consecutive_failures) || 0,
+    manifest_health: normalizeManifestHealth(raw.manifest_health),
     claims: materialized.claims,
     verification: materialized.verification,
   };
@@ -222,6 +224,7 @@ function sanitizeSnapshotEntry(entry: SnapshotEntry): SnapshotEntry {
     first_seen: entry.first_seen,
     last_crawled: entry.last_crawled,
     consecutive_failures: entry.consecutive_failures,
+    manifest_health: entry.manifest_health,
     claims: entry.claims,
     verification: entry.verification,
   };
@@ -234,10 +237,11 @@ function extractEntry(
   domain: string,
   manifest: Record<string, unknown>,
   existing: SnapshotEntry | undefined,
-  source: string
+  source: string,
+  now = new Date(),
 ): SnapshotEntry {
-  const firstSeen = existing?.first_seen || new Date().toISOString().split("T")[0];
-  const lastCrawled = new Date().toISOString();
+  const firstSeen = existing?.first_seen || now.toISOString().split("T")[0];
+  const lastCrawled = now.toISOString();
   // Protocol extraction (same logic as web/app/directory/crawler.ts)
   const protocols: string[] = [];
   const networks: string[] = [];
@@ -307,6 +311,7 @@ function extractEntry(
     first_seen: firstSeen,
     last_crawled: lastCrawled,
     consecutive_failures: 0,
+    manifest_health: observeManifestHealth(existing?.manifest_health, existing?.status ?? "unclaimed", { success: true }, now),
     claims,
     verification: existing?.verification || defaultVerification(),
   };
@@ -317,7 +322,7 @@ function extractEntry(
 export async function crawlAll(
   domains: DomainEntry[],
   existingSnapshot: Map<string, SnapshotEntry>,
-  options: { concurrency?: number; crawl?: typeof crawlDomain; onOutcome?: (domain: string, success: boolean, error: string | undefined, elapsedMs: number) => void } = {}
+  options: { concurrency?: number; crawl?: typeof crawlDomain; now?: () => Date; onOutcome?: (domain: string, success: boolean, error: string | undefined, elapsedMs: number) => void } = {}
 ): Promise<SnapshotEntry[]> {
   let completed = 0;
   const total = domains.length;
@@ -326,11 +331,13 @@ export async function crawlAll(
       const existing = existingSnapshot.get(entry.domain);
       const startedAt = Date.now();
       const result = await (options.crawl ?? crawlDomain)(entry.domain);
+      if (result.success && !result.manifest) throw new Error("Successful crawl has no manifest");
+      const now = options.now?.() ?? new Date();
       options.onOutcome?.(entry.domain, result.success, result.error, Date.now() - startedAt);
 
       if (result.success && result.manifest) {
         // Success — verified with fresh metadata
-        return extractEntry(entry.domain, result.manifest, existing, entry.source);
+        return extractEntry(entry.domain, result.manifest, existing, entry.source, now);
       }
 
       // Failed to crawl
@@ -338,26 +345,12 @@ export async function crawlAll(
         // Domain was previously in snapshot
         const failures = (existing.consecutive_failures || 0) + 1;
 
-        if (existing.status === "verified" && failures >= DEMOTE_DAYS) {
-          // 30+ consecutive days of failure — demote but preserve metadata
-          log(`  DEMOTE ${entry.domain} (${failures} consecutive failures)`);
-          return {
-            ...existing,
-            status: "unclaimed" as const,
-            last_crawled: new Date().toISOString(),
-            consecutive_failures: failures,
-          };
-        }
-
-        if (existing.status === "verified" && failures >= STALE_DAYS) {
-          log(`  STALE ${entry.domain} (${failures} consecutive failures)`);
-        }
-
         // Keep existing data but increment failure counter
         return {
           ...existing,
-          last_crawled: new Date().toISOString(),
+          last_crawled: now.toISOString(),
           consecutive_failures: failures,
+          manifest_health: observeManifestHealth(existing.manifest_health, existing.status, result, now),
         };
       }
 
@@ -375,8 +368,9 @@ export async function crawlAll(
         assets: [],
         source: entry.source,
         first_seen: entry.added_date,
-        last_crawled: new Date().toISOString(),
+        last_crawled: now.toISOString(),
         consecutive_failures: 0,
+        manifest_health: observeManifestHealth(undefined, "unclaimed", result, now),
         claims: [],
         verification: defaultVerification(),
       };
@@ -414,7 +408,7 @@ interface GitHubFileUpdate {
   content: string;
 }
 
-async function githubGet(path: string, ref: string = GITHUB_BRANCH): Promise<GitHubFile | null> {
+export async function githubGet(path: string, ref: string = GITHUB_BRANCH): Promise<GitHubFile | null> {
   // Get SHA from Contents API
   const metaRes = await fetch(`${API_BASE}/contents/${path}?ref=${encodeURIComponent(ref)}`, {
     headers: {
@@ -453,7 +447,7 @@ async function githubGet(path: string, ref: string = GITHUB_BRANCH): Promise<Git
   return { content: Buffer.from(blob.content, "base64").toString("utf-8"), sha };
 }
 
-async function githubGetBranchHead(): Promise<string> {
+export async function githubGetBranchHead(): Promise<string> {
   const ref = encodeURIComponent(`heads/${GITHUB_BRANCH}`);
   const res = await fetch(`${API_BASE}/git/ref/${ref}`, {
     headers: {
@@ -673,6 +667,7 @@ export async function main(options: { dryRun: boolean; limit?: number } = { dryR
     try {
       const snap: Snapshot = JSON.parse(snapshotFile.content);
       assertSnapshot(snap);
+      normalizeManifestDemotionBudget(snap.manifest_demotion_budget);
       previousSnapshot = snap;
       for (const entry of snap.entries || []) {
         existingSnapshot.set(entry.domain, normalizeSnapshotEntry(entry));
@@ -744,16 +739,22 @@ export async function main(options: { dryRun: boolean; limit?: number } = { dryR
   let newlyFailingVerified = 0;
   let deadlineOverruns = 0;
   const failures: Record<string, number> = {};
-  const entries = await crawlAll(domains, existingSnapshot, { crawl, onOutcome(domain, success, error, elapsedMs) {
+  let entries = await crawlAll(domains, existingSnapshot, { crawl, onOutcome(domain, success, error, elapsedMs) {
     if (success) freshManifests++;
     else {
       const reason = error || "unknown";
       failures[reason] = (failures[reason] || 0) + 1;
       const prior = existingSnapshot.get(domain);
-      if (prior?.status === "verified" && !prior.consecutive_failures) newlyFailingVerified++;
+      if (prior?.status === "verified" && prior.manifest_health?.status === "healthy") newlyFailingVerified++;
     }
     if (elapsedMs > 9_000) deadlineOverruns++;
   } });
+  const demotionQueue = applyDailyDemotions(entries, existingSnapshot.values(), {
+    thresholdDays: DEMOTE_DAYS, previousBudget: previousSnapshot?.manifest_demotion_budget,
+  });
+  entries = demotionQueue.entries;
+  if (previousSnapshot) previousSnapshot.manifest_demotion_budget = demotionQueue.budget;
+  log(`Manifest demotion queue: ${demotionQueue.demoted} selected, ${demotionQueue.held} held; ${demotionQueue.alreadyDemotedToday}/${demotionQueue.dailyLimit} daily slots already used`);
   const elapsed = ((Date.now() - startTime) / 1000).toFixed(1);
 
   const verified = entries.filter((e) => e.status === "verified").length;
@@ -798,8 +799,8 @@ export async function main(options: { dryRun: boolean; limit?: number } = { dryR
 
     const allClaims = entries.flatMap((entry) => entry.claims);
     const addressVerifications = seedAddressVerifications(allClaims, existingAddressVerifications);
+    existingAddressVerifications = addressVerifications;
     const addressDomainMap = new Map<string, Set<string>>();
-    const addressClaimSourceMap = new Map<string, { manifest: boolean; watcher: boolean }>();
 
     for (const entry of entries) {
       for (const claim of entry.claims) {
@@ -808,76 +809,20 @@ export async function main(options: { dryRun: boolean; limit?: number } = { dryR
         const domainsForAddress = addressDomainMap.get(key) || new Set<string>();
         domainsForAddress.add(entry.domain);
         addressDomainMap.set(key, domainsForAddress);
-
-        const existingSources = addressClaimSourceMap.get(key) || { manifest: false, watcher: false };
-        if (claim.claim_source === "manifest") existingSources.manifest = true;
-        if (claim.claim_source === "watcher") existingSources.watcher = true;
-        addressClaimSourceMap.set(key, existingSources);
       }
     }
 
-    const verifierCandidates = Array.from(addressVerifications.values())
-      .filter((record) =>
-        isVerifierSupported(record.protocol, record.network, record.asset)
-        && isValidEvmAddress(record.address)
-      )
-      .sort((a, b) => {
-        const aSources = addressClaimSourceMap.get(addressKey(a)) || { manifest: false, watcher: false };
-        const bSources = addressClaimSourceMap.get(addressKey(b)) || { manifest: false, watcher: false };
-        const aRank = aSources.manifest ? 0 : a.last_scanned_block != null ? 1 : 2;
-        const bRank = bSources.manifest ? 0 : b.last_scanned_block != null ? 1 : 2;
-        return aRank - bRank || (a.last_scanned_block ?? -1) - (b.last_scanned_block ?? -1) || a.address.localeCompare(b.address);
-      });
-
-    const verifierQueued = MAX_ONCHAIN_ADDRESSES_PER_RUN > 0
-      ? verifierCandidates.slice(0, MAX_ONCHAIN_ADDRESSES_PER_RUN)
-      : verifierCandidates;
-    const queueTarget = verifierQueued.length;
-    const deferredCount = verifierCandidates.length - queueTarget;
-
+    const { runAddressVerificationQueue } = await import("./lib/address-scheduler.ts");
+    const { verifyAddressesIncremental } = await import("./watchers/onchain-verifier.ts");
+    const scanQueue = await runAddressVerificationQueue(addressVerifications, {
+      limit: MAX_ONCHAIN_ADDRESSES_PER_RUN || 5,
+      concurrency: ONCHAIN_CONCURRENCY,
+      verify: verifyAddressesIncremental,
+    });
     log(
-      `Address verification queue: ${queueTarget}/${verifierCandidates.length} supported unique addresses`
-        + (deferredCount > 0 ? ` (${deferredCount} deferred by MAX_ONCHAIN_ADDRESSES_PER_RUN)` : "")
+      `Address verification queue: ${scanQueue.attempted}/${scanQueue.eligible} supported unique addresses; `
+        + `${scanQueue.completed} complete, ${scanQueue.failed} failed, ${scanQueue.eligible - scanQueue.attempted} deferred`
     );
-
-    if (verifierQueued.length > 0) {
-      const { verifyAddressesIncremental } = await import("./watchers/onchain-verifier.ts");
-      const results = await verifyAddressesIncremental(
-        verifierQueued.map((record) => ({
-          address: record.address,
-          lastScannedBlock: record.last_scanned_block,
-          priorTotals: {
-            totalTransactions: record.tx_count,
-            totalVolumeUsdc: record.volume_usd,
-            firstTxTimestamp: record.first_tx,
-            lastTxTimestamp: record.last_tx,
-            lastTxHash: record.last_tx_hash,
-            firstVerifiedAt: record.first_verified_at,
-            lastVerifiedAt: record.last_verified_at,
-          },
-        })),
-        ONCHAIN_CONCURRENCY
-      );
-
-      for (const record of verifierQueued) {
-        const result = results.get(record.address.toLowerCase());
-        if (!result) continue;
-
-        addressVerifications.set(addressKey(record), {
-          ...record,
-          verification_state: result.verificationState,
-          verification_method: result.verificationState === "invalid" ? null : "base_usdc_transfer_scan",
-          tx_count: result.totalTransactions,
-          volume_usd: result.totalVolumeUsdc,
-          first_tx: result.firstTxTimestamp,
-          last_tx: result.lastTxTimestamp,
-          last_tx_hash: result.lastTxHash,
-          first_verified_at: result.firstVerifiedAt,
-          last_verified_at: result.lastVerifiedAt,
-          last_scanned_block: result.lastScannedBlock,
-        });
-      }
-    }
 
     const sharedDomainCounts = new Map<string, number>();
     for (const [key, domainsForAddress] of addressDomainMap.entries()) {
@@ -1071,6 +1016,7 @@ export async function main(options: { dryRun: boolean; limit?: number } = { dryR
     verified: verifiedNow,
     unclaimed: unclaimedNow,
     entries: finalEntries,
+    manifest_demotion_budget: demotionQueue.budget,
     address_verifications: addressVerificationList,
     verification_stats: verificationStats,
     ecosystem_stats: ecosystemStats,
@@ -1115,47 +1061,20 @@ export async function main(options: { dryRun: boolean; limit?: number } = { dryR
   );
 
   if (publishOk) {
-    const published = await githubGet("registry/snapshot.json");
+    const publishedCommit = await githubGetBranchHead();
+    const published = await githubGet("registry/snapshot.json", publishedCommit);
     if (published?.content !== snapshotJson) throw new Error("Published snapshot readback did not match this crawl");
+    if (process.env.GITHUB_OUTPUT) {
+      if (!/^[a-f0-9]{40}$/.test(publishedCommit)) throw new Error("Invalid publication commit");
+      await appendFile(process.env.GITHUB_OUTPUT,
+        `snapshot_commit=${publishedCommit}\nsnapshot_generated_at=${snapshot.generated_at}\nsnapshot_total=${snapshot.total}\n`);
+    }
     log("Done. Registry committed successfully.");
   } else {
     log("ERROR: Failed to publish registry update.");
     process.exit(1);
   }
 
-  // 10. Notify web app to sync snapshot → Supabase (fire-and-forget)
-  const webhookSecret = process.env.SYNC_WEBHOOK_SECRET;
-  const webhookUrl =
-    process.env.SYNC_WEBHOOK_URL ||
-    "https://agentinternetruntime.com/api/directory/sync";
-  if (webhookSecret) {
-    try {
-      const syncRes = await fetch(webhookUrl, {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${webhookSecret}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          triggered_by: "nightly-crawl",
-          timestamp: new Date().toISOString(),
-        }),
-        signal: AbortSignal.timeout(30_000),
-      });
-      const syncData = (await syncRes.json().catch(() => ({}))) as Record<string, unknown>;
-      if (syncRes.ok) {
-        log(
-          `[sync] OK: ${syncData.synced ?? 0} synced, ${syncData.skipped ?? 0} skipped, ${syncData.errors ?? 0} errors`
-        );
-      } else {
-        log(
-          `[sync] FAILED (${syncRes.status}): ${syncData.error ?? "unknown error"}`
-        );
-      }
-    } catch (e) {
-      log(`[sync] Webhook failed (non-fatal): ${e}`);
-    }
-  }
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {

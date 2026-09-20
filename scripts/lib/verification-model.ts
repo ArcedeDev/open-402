@@ -63,6 +63,9 @@ export interface AddressVerificationRecord {
   first_verified_at: string | null;
   last_verified_at: string | null;
   last_scanned_block: number | null;
+  last_scan_attempt_at?: string | null;
+  last_scan_complete_at?: string | null;
+  last_scan_error?: string | null;
 }
 
 export interface VerificationStats {

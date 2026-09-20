@@ -81,6 +81,8 @@ The registry is refreshed nightly by the [crawler workflow](.github/workflows/ni
 4. **Ecosystem stats** from x402scan (transactions, volume, buyers, sellers)
 5. **Publish** updated `snapshot.json` and `domains.txt` together in one atomic Git commit
 
+Payment verification attempts at most five supported payout addresses per run across manifest and watcher claims, ordered by oldest scan attempt, then oldest block cursor. Failed and incomplete attempts rotate through the same queue without erasing historical payment evidence. Deferred addresses are unchanged. See [payment verification queue semantics](MAINTENANCE.md#payment-verification-queue) for attempt, completion and error fields.
+
 New domains are discovered automatically. Domains that go offline for 30+ consecutive days are demoted to unclaimed.
 
 ---
