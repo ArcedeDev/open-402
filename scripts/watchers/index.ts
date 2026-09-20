@@ -8,9 +8,9 @@
  *   npx tsx scripts/crawler/watchers/index.ts
  */
 
-import type { PaymentEvent, PaymentRailWatcher, DomainTransactionStats, WatcherCheckpoint } from "./types";
-import { X402Watcher } from "./x402";
-import { Index402Watcher } from "./index402";
+import type { PaymentEvent, PaymentRailWatcher, DomainTransactionStats, WatcherCheckpoint } from "./types.ts";
+import { X402Watcher } from "./x402.ts";
+import { Index402Watcher } from "./index402.ts";
 
 /* ── Registry of all watcher adapters ── */
 
@@ -65,8 +65,9 @@ export async function runWatchers(checkpoints?: Map<string, WatcherCheckpoint>):
   // Aggregate: extract unique domains
   const domainSet = new Map<string, string>(); // domain → source
   for (const event of allEvents) {
+    if (typeof event.protocol !== "string" || !/^[a-z0-9-]+$/i.test(event.protocol)) continue;
     if (event.domain && !domainSet.has(event.domain)) {
-      domainSet.set(event.domain, `onchain-${event.protocol}`);
+      domainSet.set(event.domain, `onchain-${event.protocol.toLowerCase()}`);
     }
   }
 

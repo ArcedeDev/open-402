@@ -1,5 +1,8 @@
-#!/usr/bin/env npx tsx
+#!/usr/bin/env node
 import { pathToFileURL } from "node:url";
+import { readFile } from "node:fs/promises";
+import { crawlDomain, isPublicDomain } from "./lib/manifest.ts";
+import { assertCoverage, assertSnapshot, assertApprovedRemovals, mapConcurrent } from "./lib/crawl-runtime.ts";
 
 import {
   buildUpdatedDomainsTxt,
@@ -28,16 +31,14 @@ import {
  * Reads domains.txt from the public registry repo, crawls each domain's
  * /.well-known/agent.json, rebuilds snapshot.json, and commits the results.
  *
- * This script is PRIVATE — it runs in our infrastructure (GitHub Action or cron)
- * and pushes to the public repo. The public repo never sees this code.
- *
  * Usage:
- *   npx tsx scripts/crawler/crawl.ts
+ *   node scripts/crawl.ts
+ *   node scripts/crawl.ts --dry-run --limit 100
  *
  * Environment:
  *   GITHUB_TOKEN    — PAT with write access to the public repo
  *   GITHUB_REPO     — e.g., "ArcedeDev/open-402" (default)
- *   CONCURRENCY     — Max parallel crawls (default: 15)
+ *   CONCURRENCY     — Max parallel crawls (default: 50)
  *   STALE_DAYS      — Days of 404 before marking stale (default: 7)
  *   DEMOTE_DAYS     — Days of 404 before demoting to unclaimed (default: 30)
  */
@@ -46,7 +47,7 @@ const GITHUB_REPO = process.env.GITHUB_REPO || "ArcedeDev/open-402";
 const GITHUB_BRANCH = process.env.GITHUB_BRANCH || "main";
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN || "";
 const GITHUB_COMMIT_RETRIES = parseInt(process.env.GITHUB_COMMIT_RETRIES || "3", 10) || 3;
-const CONCURRENCY = parseInt(process.env.CONCURRENCY || "15", 10) || 15;
+const CONCURRENCY = Number(process.env.CONCURRENCY || "50");
 const STALE_DAYS = parseInt(process.env.STALE_DAYS || "7", 10) || 7;
 const DEMOTE_DAYS = parseInt(process.env.DEMOTE_DAYS || "30", 10) || 30;
 const ONCHAIN_CONCURRENCY = parseInt(process.env.ONCHAIN_CONCURRENCY || "3", 10) || 3;
@@ -226,82 +227,6 @@ function sanitizeSnapshotEntry(entry: SnapshotEntry): SnapshotEntry {
   };
 }
 
-/* ── Crawl a single domain ── */
-
-function isCrawlBlocked(domain: string): boolean {
-  const lower = domain.toLowerCase().split(":")[0];
-  if (/^\d{1,3}(\.\d{1,3}){3}$/.test(lower)) return true;
-  if (lower.startsWith("[") || lower.includes("::")) return true;
-  const blocked = ["localhost", "127.0.0.1", "0.0.0.0", "metadata.google.internal", "169.254.169.254"];
-  if (blocked.includes(lower)) return true;
-  const blockedSuffix = [".local", ".internal", ".localhost", ".test", ".invalid", ".example", ".corp", ".lan"];
-  if (blockedSuffix.some((s) => lower.endsWith(s))) return true;
-  if (!lower.includes(".")) return true;
-  return false;
-}
-
-async function crawlDomain(domain: string): Promise<{
-  success: boolean;
-  manifest?: Record<string, unknown>;
-  error?: string;
-}> {
-  if (isCrawlBlocked(domain)) return { success: false, error: "blocked" };
-  const url = `https://${domain}/.well-known/agent.json`;
-  const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), 8_000); // 8s for nightly (more generous)
-
-  try {
-    const res = await fetch(url, {
-      signal: controller.signal,
-      headers: { Accept: "application/json", "User-Agent": "Open402DirectoryCrawler/1.0" },
-      redirect: "manual", // Don't auto-follow — validate redirect target
-    });
-
-    // Handle redirects safely — verify target isn't internal
-    if (res.status >= 300 && res.status < 400) {
-      const location = res.headers.get("location");
-      if (location) {
-        try {
-          const target = new URL(location, url);
-          if (isCrawlBlocked(target.hostname)) return { success: false, error: "redirect_blocked" };
-          // Follow the redirect manually
-          const redirectRes = await fetch(target.href, {
-            signal: controller.signal,
-            headers: { Accept: "application/json", "User-Agent": "Open402DirectoryCrawler/1.0" },
-            redirect: "manual",
-          });
-          if (!redirectRes.ok) return { success: false, error: `HTTP ${redirectRes.status}` };
-          const ct = redirectRes.headers.get("content-type") || "";
-          if (!ct.includes("json")) return { success: false, error: "not_json" };
-          const text = await redirectRes.text();
-          if (text.length > 100_000) return { success: false, error: "too_large" };
-          const manifest = JSON.parse(text);
-          if (!manifest.version) return { success: false, error: "missing_version" };
-          clearTimeout(timeout);
-          return { success: true, manifest };
-        } catch { return { success: false, error: "redirect_failed" }; }
-      }
-      return { success: false, error: "redirect_no_location" };
-    }
-    clearTimeout(timeout);
-
-    if (!res.ok) return { success: false, error: `HTTP ${res.status}` };
-
-    const contentType = res.headers.get("content-type") || "";
-    if (!contentType.includes("json")) return { success: false, error: "not_json" };
-
-    const text = await res.text();
-    if (text.length > 100_000) return { success: false, error: "too_large" };
-
-    const manifest = JSON.parse(text);
-    if (!manifest.version) return { success: false, error: "missing_version" };
-
-    return { success: true, manifest };
-  } catch (e) {
-    clearTimeout(timeout);
-    return { success: false, error: e instanceof Error ? e.name : "unknown" };
-  }
-}
 
 /* ── Extract metadata from manifest ── */
 
@@ -327,6 +252,7 @@ function extractEntry(
     for (const config of Object.values(payments)) {
       if (config && typeof config === "object" && Array.isArray((config as Record<string, unknown>).networks)) {
         for (const n of (config as Record<string, unknown>).networks as Record<string, unknown>[]) {
+          if (!n || typeof n !== "object" || Array.isArray(n)) continue;
           if (typeof n.network === "string") networks.push(n.network);
           if (typeof n.asset === "string") assets.push(n.asset);
         }
@@ -337,6 +263,7 @@ function extractEntry(
     const x402 = manifest.x402 as Record<string, unknown>;
     if (Array.isArray(x402.networks)) {
       for (const n of x402.networks as Record<string, unknown>[]) {
+        if (!n || typeof n !== "object" || Array.isArray(n)) continue;
         if (typeof n.network === "string") networks.push(n.network);
         if (typeof n.asset === "string") assets.push(n.asset);
       }
@@ -387,89 +314,78 @@ function extractEntry(
 
 /* ── Concurrency-limited batch crawler ── */
 
-async function crawlAll(
+export async function crawlAll(
   domains: DomainEntry[],
-  existingSnapshot: Map<string, SnapshotEntry>
+  existingSnapshot: Map<string, SnapshotEntry>,
+  options: { concurrency?: number; crawl?: typeof crawlDomain; onOutcome?: (domain: string, success: boolean, error: string | undefined, elapsedMs: number) => void } = {}
 ): Promise<SnapshotEntry[]> {
-  const results: SnapshotEntry[] = [];
   let completed = 0;
   const total = domains.length;
+  const results = await mapConcurrent(domains, options.concurrency ?? CONCURRENCY, async (entry) => {
+    try {
+      const existing = existingSnapshot.get(entry.domain);
+      const startedAt = Date.now();
+      const result = await (options.crawl ?? crawlDomain)(entry.domain);
+      options.onOutcome?.(entry.domain, result.success, result.error, Date.now() - startedAt);
 
-  // Process in batches
-  for (let i = 0; i < domains.length; i += CONCURRENCY) {
-    const batch = domains.slice(i, i + CONCURRENCY);
+      if (result.success && result.manifest) {
+        // Success — verified with fresh metadata
+        return extractEntry(entry.domain, result.manifest, existing, entry.source);
+      }
 
-    const batchResults = await Promise.allSettled(
-      batch.map(async (entry) => {
-        const existing = existingSnapshot.get(entry.domain);
-        const result = await crawlDomain(entry.domain);
+      // Failed to crawl
+      if (existing) {
+        // Domain was previously in snapshot
+        const failures = (existing.consecutive_failures || 0) + 1;
 
-        if (result.success && result.manifest) {
-          // Success — verified with fresh metadata
-          return extractEntry(entry.domain, result.manifest, existing, entry.source);
-        }
-
-        // Failed to crawl
-        if (existing) {
-          // Domain was previously in snapshot
-          const failures = (existing.consecutive_failures || 0) + 1;
-
-          if (existing.status === "verified" && failures >= DEMOTE_DAYS) {
-            // 30+ consecutive days of failure — demote but preserve metadata
-            log(`  DEMOTE ${entry.domain} (${failures} consecutive failures)`);
-            return {
-              ...existing,
-              status: "unclaimed" as const,
-              last_crawled: new Date().toISOString(),
-              consecutive_failures: failures,
-            };
-          }
-
-          if (existing.status === "verified" && failures >= STALE_DAYS) {
-            log(`  STALE ${entry.domain} (${failures} consecutive failures)`);
-          }
-
-          // Keep existing data but increment failure counter
+        if (existing.status === "verified" && failures >= DEMOTE_DAYS) {
+          // 30+ consecutive days of failure — demote but preserve metadata
+          log(`  DEMOTE ${entry.domain} (${failures} consecutive failures)`);
           return {
             ...existing,
+            status: "unclaimed" as const,
             last_crawled: new Date().toISOString(),
             consecutive_failures: failures,
           };
         }
 
-        // New unclaimed domain — no agent.json found
+        if (existing.status === "verified" && failures >= STALE_DAYS) {
+          log(`  STALE ${entry.domain} (${failures} consecutive failures)`);
+        }
+
+        // Keep existing data but increment failure counter
         return {
-          domain: entry.domain,
-          status: "unclaimed" as const,
-          display_name: entry.domain,
-          description: null,
-          version: null,
-          intent_count: 0,
-          intents: [],
-          protocols: [],
-          networks: [],
-          assets: [],
-          source: entry.source,
-          first_seen: entry.added_date,
+          ...existing,
           last_crawled: new Date().toISOString(),
-          consecutive_failures: 0,
-          claims: [],
-          verification: defaultVerification(),
+          consecutive_failures: failures,
         };
-      })
-    );
-
-    for (const r of batchResults) {
-      if (r.status === "fulfilled") {
-        results.push(r.value);
       }
-    }
 
-    completed += batch.length;
-    if (completed % 50 === 0 || completed === total) {
-      log(`Progress: ${completed}/${total} domains crawled`);
+      // New unclaimed domain — no agent.json found
+      return {
+        domain: entry.domain,
+        status: "unclaimed" as const,
+        display_name: entry.domain,
+        description: null,
+        version: null,
+        intent_count: 0,
+        intents: [],
+        protocols: [],
+        networks: [],
+        assets: [],
+        source: entry.source,
+        first_seen: entry.added_date,
+        last_crawled: new Date().toISOString(),
+        consecutive_failures: 0,
+        claims: [],
+        verification: defaultVerification(),
+      };
+    } finally {
+      completed++;
+      if (completed % 100 === 0 || completed === total) log(`Progress: ${completed}/${total} domains crawled`);
     }
-  }
+  });
+  assertCoverage(domains, results);
 
   return results;
 }
@@ -587,8 +503,7 @@ async function githubCreateBlob(content: string): Promise<string> {
     signal: AbortSignal.timeout(30_000),
   });
   if (!res.ok) {
-    const err = await res.text();
-    throw new Error(`GitHub blob POST failed: ${err}`);
+    throw new Error(`GitHub blob POST failed: HTTP ${res.status}`);
   }
   const data = await res.json() as { sha?: string };
   if (!data.sha) throw new Error("GitHub blob POST returned no SHA");
@@ -610,8 +525,7 @@ async function githubCreateTree(baseTree: string, tree: GitHubTreeItem[]): Promi
     signal: AbortSignal.timeout(30_000),
   });
   if (!res.ok) {
-    const err = await res.text();
-    throw new Error(`GitHub tree POST failed: ${err}`);
+    throw new Error(`GitHub tree POST failed: HTTP ${res.status}`);
   }
   const data = await res.json() as { sha?: string };
   if (!data.sha) throw new Error("GitHub tree POST returned no SHA");
@@ -638,8 +552,7 @@ async function githubCreateCommit(
     signal: AbortSignal.timeout(30_000),
   });
   if (!res.ok) {
-    const err = await res.text();
-    throw new Error(`GitHub commit POST failed: ${err}`);
+    throw new Error(`GitHub commit POST failed: HTTP ${res.status}`);
   }
   const data = await res.json() as { sha?: string };
   if (!data.sha) throw new Error("GitHub commit POST returned no SHA");
@@ -662,13 +575,12 @@ async function githubUpdateBranchHead(commitSha: string): Promise<GitHubApiResul
     signal: AbortSignal.timeout(30_000),
   });
   if (!res.ok) {
-    const err = await res.text();
-    log(`GitHub ref update failed: ${err}`);
+    log(`GitHub ref update failed: HTTP ${res.status}`);
   }
   return { ok: res.ok, status: res.status };
 }
 
-async function githubCommitFilesAtomically(
+export async function githubCommitFilesAtomically(
   paths: string[],
   message: string,
   buildFiles: (remoteFiles: Map<string, GitHubFile | null>) => Promise<GitHubFileUpdate[]> | GitHubFileUpdate[],
@@ -714,29 +626,45 @@ async function githubCommitFilesAtomically(
 
 /* ── Main ── */
 
-export async function main(): Promise<void> {
-  log("=== Open 402 Directory — Nightly Crawl ===");
-
-  if (!GITHUB_TOKEN) {
-    log("ERROR: GITHUB_TOKEN not set. Cannot read/write to the public repo.");
-    process.exit(1);
+export function parseCrawlOptions(args: string[]): { dryRun: boolean; limit?: number } {
+  let dryRun = false;
+  let limit: number | undefined;
+  for (let i = 0; i < args.length; i++) {
+    if (args[i] === "--dry-run") dryRun = true;
+    else if (args[i] === "--limit") {
+      limit = Number(args[++i]);
+      if (!Number.isSafeInteger(limit) || limit < 1) throw new Error("--limit requires a positive integer");
+    } else throw new Error("Unknown crawler argument");
   }
+  if (limit !== undefined && !dryRun) throw new Error("--limit is allowed only with --dry-run");
+  return { dryRun, limit };
+}
+
+export async function main(options: { dryRun: boolean; limit?: number } = { dryRun: false }, crawl: typeof crawlDomain = crawlDomain): Promise<void> {
+  log("=== Open 402 Directory — Nightly Crawl ===");
+  if (options.limit !== undefined && !options.dryRun) throw new Error("Partial crawls cannot publish");
+  if (!options.dryRun && !GITHUB_TOKEN) throw new Error("GITHUB_TOKEN not set. Cannot publish.");
 
   // 1. Read domains.txt from the public repo
   log("Fetching domains.txt...");
-  const initialHeadSha = await githubGetBranchHead();
-  const domainsFile = await githubGet("registry/domains.txt", initialHeadSha);
+  const initialHeadSha = options.dryRun ? "" : await githubGetBranchHead();
+  const domainsFile = options.dryRun
+    ? { content: await readFile(new URL("../registry/domains.txt", import.meta.url), "utf8"), sha: "local" }
+    : await githubGet("registry/domains.txt", initialHeadSha);
   if (!domainsFile) {
-    log("ERROR: Could not read domains.txt from repo.");
-    process.exit(1);
+    throw new Error("Could not read domains.txt from repo");
   }
 
-  const domains = parseDomainsTxt(domainsFile.content);
+  const registeredDomains = parseDomainsTxt(domainsFile.content);
+  const domains = [...registeredDomains];
+  if (!domains.length) throw new Error("Refusing an empty registry");
   log(`Found ${domains.length} domains in registry.`);
 
   // 2. Read existing snapshot.json for preserving first_seen and failure counts
   log("Fetching existing snapshot.json...");
-  const snapshotFile = await githubGet("registry/snapshot.json", initialHeadSha);
+  const snapshotFile = options.dryRun
+    ? { content: await readFile(new URL("../registry/snapshot.json", import.meta.url), "utf8"), sha: "local" }
+    : await githubGet("registry/snapshot.json", initialHeadSha);
   const existingSnapshot = new Map<string, SnapshotEntry>();
   let previousSnapshot: Snapshot | null = null;
   let existingAddressVerifications = new Map<string, AddressVerificationRecord>();
@@ -744,6 +672,7 @@ export async function main(): Promise<void> {
   if (snapshotFile) {
     try {
       const snap: Snapshot = JSON.parse(snapshotFile.content);
+      assertSnapshot(snap);
       previousSnapshot = snap;
       for (const entry of snap.entries || []) {
         existingSnapshot.set(entry.domain, normalizeSnapshotEntry(entry));
@@ -759,15 +688,23 @@ export async function main(): Promise<void> {
       );
       log(`Loaded ${existingSnapshot.size} existing entries from snapshot.`);
     } catch {
-      log("WARNING: Could not parse existing snapshot. Starting fresh.");
+      throw new Error("Existing snapshot is invalid; refusing to discard prior evidence");
     }
+  } else throw new Error("Existing snapshot is missing; refusing to discard prior evidence");
+  const approvedRemovals = new Set((process.env.APPROVED_REMOVALS ?? "").split(",").map((domain) => domain.trim()).filter(Boolean));
+  assertApprovedRemovals([...existingSnapshot.values()], registeredDomains, approvedRemovals);
+
+  if (options.dryRun && options.limit && domains.length > options.limit) {
+    const sample = Array.from({ length: options.limit }, (_, i) => domains[Math.floor(i * domains.length / options.limit!)]);
+    domains.length = 0;
+    domains.push(...sample);
   }
 
   // 3. Run on-chain watchers (Phase 2) — discover new domains from payment events
   let onchainDiscoveries = 0;
   let watcherEvents: import("./watchers/types.ts").PaymentEvent[] = [];
-  try {
-    const { runWatchers } = await import("./watchers/index");
+  if (!options.dryRun) try {
+    const { runWatchers } = await import("./watchers/index.ts");
     log("Running on-chain watchers...");
     const watcherResult = await runWatchers();
     watcherEvents = watcherResult.events;
@@ -775,7 +712,7 @@ export async function main(): Promise<void> {
     // Add newly discovered domains to the crawl list
     const existingDomainSet = new Set(domains.map((d) => d.domain));
     for (const discovered of watcherResult.newDomains) {
-      if (discovered.domain && !existingDomainSet.has(discovered.domain)) {
+      if (discovered.domain && isPublicDomain(discovered.domain) && !existingDomainSet.has(discovered.domain)) {
         domains.push({
           domain: discovered.domain,
           status: "unclaimed",
@@ -803,13 +740,33 @@ export async function main(): Promise<void> {
   // 4. Crawl all domains (including any newly discovered ones)
   log(`Crawling ${domains.length} domains (concurrency: ${CONCURRENCY})...`);
   const startTime = Date.now();
-  const entries = await crawlAll(domains, existingSnapshot);
+  let freshManifests = 0;
+  let newlyFailingVerified = 0;
+  let deadlineOverruns = 0;
+  const failures: Record<string, number> = {};
+  const entries = await crawlAll(domains, existingSnapshot, { crawl, onOutcome(domain, success, error, elapsedMs) {
+    if (success) freshManifests++;
+    else {
+      const reason = error || "unknown";
+      failures[reason] = (failures[reason] || 0) + 1;
+      const prior = existingSnapshot.get(domain);
+      if (prior?.status === "verified" && !prior.consecutive_failures) newlyFailingVerified++;
+    }
+    if (elapsedMs > 9_000) deadlineOverruns++;
+  } });
   const elapsed = ((Date.now() - startTime) / 1000).toFixed(1);
 
   const verified = entries.filter((e) => e.status === "verified").length;
   const unclaimed = entries.filter((e) => e.status === "unclaimed").length;
 
   log(`Crawl complete in ${elapsed}s: ${verified} verified, ${unclaimed} unclaimed`);
+  log(`Request outcomes: ${JSON.stringify({ freshManifests, failedRequests: domains.length - freshManifests, failures, newlyFailingVerified, deadlineOverruns })}`);
+  const demotions = entries.filter((entry) => entry.status === "unclaimed" && existingSnapshot.get(entry.domain)?.status === "verified").length;
+  if (!freshManifests || deadlineOverruns || demotions / domains.length > 0.01) throw new Error("Crawl health gate failed; refusing publication");
+  if (options.dryRun) {
+    log(`DRY RUN complete: ${entries.length}/${domains.length} outcomes; ${demotions} proposed demotions. No publication, enrichment or sync performed.`);
+    return;
+  }
 
   // 5. Check for newly verified domains (unclaimed → verified upgrade)
   let upgrades = 0;
@@ -869,7 +826,7 @@ export async function main(): Promise<void> {
         const bSources = addressClaimSourceMap.get(addressKey(b)) || { manifest: false, watcher: false };
         const aRank = aSources.manifest ? 0 : a.last_scanned_block != null ? 1 : 2;
         const bRank = bSources.manifest ? 0 : b.last_scanned_block != null ? 1 : 2;
-        return aRank - bRank || a.address.localeCompare(b.address);
+        return aRank - bRank || (a.last_scanned_block ?? -1) - (b.last_scanned_block ?? -1) || a.address.localeCompare(b.address);
       });
 
     const verifierQueued = MAX_ONCHAIN_ADDRESSES_PER_RUN > 0
@@ -884,7 +841,7 @@ export async function main(): Promise<void> {
     );
 
     if (verifierQueued.length > 0) {
-      const { verifyAddressesIncremental } = await import("./watchers/onchain-verifier");
+      const { verifyAddressesIncremental } = await import("./watchers/onchain-verifier.ts");
       const results = await verifyAddressesIncremental(
         verifierQueued.map((record) => ({
           address: record.address,
@@ -1120,6 +1077,8 @@ export async function main(): Promise<void> {
     daily_history: dailyHistory.length > 0 ? dailyHistory : undefined,
   };
 
+  assertCoverage(domains, finalEntries);
+  assertSnapshot(snapshot);
   const snapshotJson = JSON.stringify(snapshot, null, 2);
 
   // 8. Plan domains.txt updates against the crawl-start snapshot for logging,
@@ -1138,11 +1097,14 @@ export async function main(): Promise<void> {
       if (!remoteDomains) {
         throw new Error("Could not read domains.txt from repo during publish.");
       }
+      // A concurrent addition/removal needs a new crawl, not a partial snapshot.
+      assertCoverage(registeredDomains, parseDomainsTxt(remoteDomains.content));
 
       const files: GitHubFileUpdate[] = [
         { path: "registry/snapshot.json", content: snapshotJson },
       ];
       const mergedDomains = buildUpdatedDomainsTxt(remoteDomains.content, finalEntries);
+      assertCoverage(finalEntries, parseDomainsTxt(mergedDomains.content));
 
       if (plannedDomains.changed || mergedDomains.changed) {
         files.push({ path: "registry/domains.txt", content: mergedDomains.content });
@@ -1153,6 +1115,8 @@ export async function main(): Promise<void> {
   );
 
   if (publishOk) {
+    const published = await githubGet("registry/snapshot.json");
+    if (published?.content !== snapshotJson) throw new Error("Published snapshot readback did not match this crawl");
     log("Done. Registry committed successfully.");
   } else {
     log("ERROR: Failed to publish registry update.");
@@ -1195,8 +1159,10 @@ export async function main(): Promise<void> {
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
-  main().catch((e) => {
+  try {
+    await main(parseCrawlOptions(process.argv.slice(2)));
+  } catch (e) {
     log(`FATAL: ${e}`);
-    process.exit(1);
-  });
+    process.exitCode = 1;
+  }
 }

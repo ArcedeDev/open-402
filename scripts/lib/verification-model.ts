@@ -206,6 +206,7 @@ function deriveManifestPaymentTarget(manifest: Record<string, unknown>): {
         });
       }
       for (const networkConfig of networks) {
+        if (!networkConfig || typeof networkConfig !== "object" || Array.isArray(networkConfig)) continue;
         candidates.push({
           protocol: normalizedProtocol,
           network: normalizeNetwork(typeof networkConfig.network === "string" ? networkConfig.network : "unknown"),
@@ -228,6 +229,7 @@ function deriveManifestPaymentTarget(manifest: Record<string, unknown>): {
       });
     }
     for (const networkConfig of legacyNetworks) {
+      if (!networkConfig || typeof networkConfig !== "object" || Array.isArray(networkConfig)) continue;
       candidates.push({
         protocol: "x402",
         network: normalizeNetwork(typeof networkConfig.network === "string" ? networkConfig.network : "unknown"),

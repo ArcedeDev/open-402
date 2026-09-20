@@ -4,7 +4,19 @@ on:
   schedule:
     # Run at 2:17 AM UTC daily (off-minute to avoid GitHub Actions congestion)
     - cron: '17 2 * * *'
-  workflow_dispatch: {} # Manual trigger from Actions tab
+  workflow_dispatch:
+    inputs:
+      approved_removals:
+        description: 'Reviewed domains to remove from the published snapshot (comma-separated, exact names)'
+        type: string
+        default: ''
+
+permissions:
+  contents: read
+
+concurrency:
+  group: directory-publication
+  cancel-in-progress: false
 
 jobs:
   crawl:
@@ -13,21 +25,31 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          persist-credentials: false
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
         with:
-          node-version: '20'
+          node-version: '24.14.0'
 
-      - name: Install tsx
-        run: npm install -g tsx
+      - name: Install pinned dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Test publication contracts
+        run: npm test
+
+      - name: Check registry
+        run: npm run check:registry
 
       - name: Run crawler
         env:
           GITHUB_TOKEN: ${{ secrets.DIRECTORY_GITHUB_TOKEN }}
           GITHUB_REPO: ArcedeDev/open-402
-          CONCURRENCY: '15'
+          CONCURRENCY: '50'
+          MAX_ONCHAIN_ADDRESSES_PER_RUN: '25'
+          APPROVED_REMOVALS: ${{ inputs.approved_removals }}
           SYNC_WEBHOOK_SECRET: ${{ secrets.SYNC_WEBHOOK_SECRET }}
           SYNC_WEBHOOK_URL: ${{ secrets.SYNC_WEBHOOK_URL }}
-        run: npx tsx scripts/crawl.ts
+        run: node scripts/crawl.ts
