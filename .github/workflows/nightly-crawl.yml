@@ -6,6 +6,13 @@ on:
     - cron: '17 2 * * *'
   workflow_dispatch:
     inputs:
+      mode:
+        description: 'Full publication or retry only the published snapshot reconciliation'
+        type: choice
+        options:
+          - full
+          - sync-only
+        default: full
       approved_removals:
         description: 'Reviewed domains to remove from the published snapshot (comma-separated, exact names)'
         type: string
@@ -44,12 +51,23 @@ jobs:
         run: npm run check:registry
 
       - name: Run crawler
+        id: publish
+        if: inputs.mode != 'sync-only'
         env:
           GITHUB_TOKEN: ${{ secrets.DIRECTORY_GITHUB_TOKEN }}
           GITHUB_REPO: ArcedeDev/open-402
           CONCURRENCY: '50'
           MAX_ONCHAIN_ADDRESSES_PER_RUN: '5'
           APPROVED_REMOVALS: ${{ inputs.approved_removals }}
+        run: node scripts/crawl.ts
+
+      - name: Reconcile published snapshot
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          GITHUB_REPO: ArcedeDev/open-402
           SYNC_WEBHOOK_SECRET: ${{ secrets.SYNC_WEBHOOK_SECRET }}
           SYNC_WEBHOOK_URL: ${{ secrets.SYNC_WEBHOOK_URL }}
-        run: node scripts/crawl.ts
+          SYNC_SNAPSHOT_COMMIT: ${{ steps.publish.outputs.snapshot_commit }}
+          SYNC_SNAPSHOT_GENERATED_AT: ${{ steps.publish.outputs.snapshot_generated_at }}
+          SYNC_SNAPSHOT_TOTAL: ${{ steps.publish.outputs.snapshot_total }}
+        run: node scripts/sync.ts

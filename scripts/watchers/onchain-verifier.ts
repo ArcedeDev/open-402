@@ -92,6 +92,28 @@ export interface IncrementalVerificationResult {
   firstVerifiedAt: string | null;
   lastVerifiedAt: string | null;
   lastScannedBlock: number | null;
+  scanError?: "incomplete_scan" | "unexpected_error" | "cursor_ahead_of_head";
+}
+
+function incompleteVerification(
+  input: IncrementalVerificationInput,
+  scanError: NonNullable<IncrementalVerificationResult["scanError"]>
+): IncrementalVerificationResult {
+  const prior = input.priorTotals;
+  return {
+    address: input.address,
+    verificationState: (prior?.totalTransactions ?? 0) > 0 ? "verified" : "incomplete",
+    scanComplete: false,
+    scanError,
+    totalTransactions: prior?.totalTransactions ?? 0,
+    totalVolumeUsdc: prior?.totalVolumeUsdc ?? 0,
+    firstTxTimestamp: prior?.firstTxTimestamp ?? null,
+    lastTxTimestamp: prior?.lastTxTimestamp ?? null,
+    lastTxHash: prior?.lastTxHash ?? null,
+    firstVerifiedAt: prior?.firstVerifiedAt ?? null,
+    lastVerifiedAt: prior?.lastVerifiedAt ?? null,
+    lastScannedBlock: input.lastScannedBlock,
+  };
 }
 
 function log(msg: string): void {
@@ -155,8 +177,10 @@ async function rpcCall(method: string, params: unknown[], retries = getRpcRetrie
 }
 
 async function getLatestBlock(): Promise<number> {
-  const hex = (await rpcCall("eth_blockNumber", [])) as string;
-  return parseInt(hex, 16);
+  const hex = await rpcCall("eth_blockNumber", []);
+  const block = typeof hex === "string" && /^0x[0-9a-f]+$/i.test(hex) ? parseInt(hex, 16) : NaN;
+  if (!Number.isSafeInteger(block) || block < 0) throw new Error("Invalid RPC block number");
+  return block;
 }
 
 async function getBlockTimestamp(blockHex: string): Promise<string> {
@@ -188,7 +212,7 @@ async function getUsdcTransfersTo(
 ): Promise<TransferLog[]> {
   const paddedTo = "0x" + toAddress.slice(2).toLowerCase().padStart(64, "0");
 
-  const result = (await rpcCall("eth_getLogs", [
+  const result = await rpcCall("eth_getLogs", [
     {
       fromBlock: `0x${fromBlock.toString(16)}`,
       toBlock: `0x${toBlock.toString(16)}`,
@@ -199,9 +223,31 @@ async function getUsdcTransfersTo(
         paddedTo,   // to: the payout address
       ],
     },
-  ])) as TransferLog[];
+  ]);
 
-  return result || [];
+  if (!Array.isArray(result)) throw new Error("Invalid eth_getLogs result: expected array");
+  return result.map((value): TransferLog => {
+    if (!value || typeof value !== "object" || Array.isArray(value)) {
+      throw new Error("Invalid eth_getLogs entry");
+    }
+    const { address, removed, topics, data, blockNumber, transactionHash } = value;
+    const block = typeof blockNumber === "string" && /^0x(?:0|[1-9a-f][0-9a-f]*)$/i.test(blockNumber)
+      ? Number(blockNumber) : NaN;
+    // A filtered response must contain only mined USDC transfers to this recipient in this chunk.
+    if (typeof address !== "string" || address.toLowerCase() !== USDC_CONTRACT.toLowerCase()
+      || removed !== false
+      || !Array.isArray(topics) || topics.length !== 3
+      || !topics.every((topic) => typeof topic === "string" && /^0x[0-9a-f]{64}$/i.test(topic))
+      || topics[0].toLowerCase() !== TRANSFER_TOPIC
+      || !/^0x0{24}[0-9a-f]{40}$/i.test(topics[1])
+      || topics[2].toLowerCase() !== paddedTo
+      || typeof data !== "string" || !/^0x[0-9a-f]{64}$/i.test(data)
+      || !Number.isSafeInteger(block) || block < fromBlock || block > toBlock
+      || typeof transactionHash !== "string" || !/^0x[0-9a-f]{64}$/i.test(transactionHash)) {
+      throw new Error("Invalid eth_getLogs transfer or filter mismatch");
+    }
+    return { topics, data, blockNumber, transactionHash };
+  });
 }
 
 async function scanAddressRange(
@@ -265,11 +311,7 @@ function aggregateLogs(logs: TransferLog[]): {
   const sortedLogs = [...logs].sort((a, b) => parseInt(a.blockNumber, 16) - parseInt(b.blockNumber, 16));
   let totalVolumeRaw = BigInt(0);
   for (const txLog of sortedLogs) {
-    try {
-      totalVolumeRaw += BigInt(txLog.data || "0x0");
-    } catch {
-      // Skip malformed log data
-    }
+    totalVolumeRaw += BigInt(txLog.data);
   }
 
   const wholeDollars = totalVolumeRaw / BigInt(1_000_000);
@@ -388,7 +430,9 @@ export async function verifyAddressesIncremental(
   concurrency: number = 3,
   lookbackBlocks: number = DEFAULT_LOOKBACK_BLOCKS
 ): Promise<Map<string, IncrementalVerificationResult>> {
+  if (!Number.isInteger(concurrency) || concurrency < 1 || concurrency > 100) throw new Error("Concurrency must be an integer from 1 to 100");
   const results = new Map<string, IncrementalVerificationResult>();
+  if (!addresses.length) return results;
   const latestBlock = await getLatestBlock();
   const now = new Date().toISOString();
 
@@ -396,7 +440,7 @@ export async function verifyAddressesIncremental(
 
   for (let i = 0; i < addresses.length; i += concurrency) {
     const batch = addresses.slice(i, i + concurrency);
-    await Promise.allSettled(batch.map(async (input) => {
+    const outcomes = await Promise.allSettled(batch.map(async (input) => {
       const normalized = input.address.toLowerCase();
       const prior = input.priorTotals;
       const invalid = !input.address
@@ -418,6 +462,11 @@ export async function verifyAddressesIncremental(
           lastVerifiedAt: prior?.lastVerifiedAt || null,
           lastScannedBlock: input.lastScannedBlock,
         });
+        return;
+      }
+
+      if (input.lastScannedBlock != null && input.lastScannedBlock > latestBlock) {
+        results.set(normalized, incompleteVerification(input, "cursor_ahead_of_head"));
         return;
       }
 
@@ -444,19 +493,7 @@ export async function verifyAddressesIncremental(
 
       const rangeScan = await scanAddressRange(input.address, fromBlock, latestBlock);
       if (!rangeScan.scanComplete) {
-        results.set(normalized, {
-          address: input.address,
-          verificationState: prior ? ((prior.totalTransactions || 0) > 0 ? "verified" : "incomplete") : "incomplete",
-          scanComplete: false,
-          totalTransactions: prior?.totalTransactions || 0,
-          totalVolumeUsdc: prior?.totalVolumeUsdc || 0,
-          firstTxTimestamp: prior?.firstTxTimestamp || null,
-          lastTxTimestamp: prior?.lastTxTimestamp || null,
-          lastTxHash: prior?.lastTxHash || null,
-          firstVerifiedAt: prior?.firstVerifiedAt || null,
-          lastVerifiedAt: prior?.lastVerifiedAt || null,
-          lastScannedBlock: input.lastScannedBlock,
-        });
+        results.set(normalized, incompleteVerification(input, "incomplete_scan"));
         return;
       }
 
@@ -497,6 +534,14 @@ export async function verifyAddressesIncremental(
         lastScannedBlock: latestBlock,
       });
     }));
+
+    for (const [index, outcome] of outcomes.entries()) {
+      if (outcome.status === "rejected") {
+        const input = batch[index];
+        results.set(input.address.toLowerCase(), incompleteVerification(input, "unexpected_error"));
+        log(`  ${input.address}: unexpected verification failure; prior evidence retained`);
+      }
+    }
 
     const done = Math.min(i + concurrency, addresses.length);
     if (done % 10 === 0 || done === addresses.length) {
@@ -559,6 +604,9 @@ export async function verifyPayoutAddresses(
         return verification;
       })
     );
+
+    const failures = batchResults.filter((result) => result.status === "rejected");
+    if (failures.length) throw new AggregateError(failures.map((result) => result.reason), "Payout verification failed");
 
     // Log progress
     const done = Math.min(i + concurrency, entries.length);
