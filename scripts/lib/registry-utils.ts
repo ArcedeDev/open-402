@@ -13,23 +13,46 @@ export interface RegistryEntryLike {
 }
 
 export function parseDomainsTxt(content: string): DomainEntry[] {
+  const seen = new Set<string>();
   return content
     .split("\n")
-    .filter((line) => line.trim() && !line.startsWith("#"))
-    .map((line) => {
+    .map((line, index) => ({ line: line.trim(), index }))
+    .filter(({ line }) => line && !line.startsWith("#"))
+    .map(({ line, index }) => {
       const parts = line.split("|").map((p) => p.trim());
+      const [domain, status, source, date] = parts;
+      const parsedDate = /^\d{4}-\d{2}-\d{2}$/.test(date ?? "") ? new Date(`${date}T00:00:00Z`) : null;
+      if (parts.length !== 4 || !domain || /[\s/:@?#]/.test(domain)
+        || !["verified", "unclaimed"].includes(status) || !/^[a-z0-9-]+$/.test(source ?? "")
+        || !parsedDate || !Number.isFinite(parsedDate.getTime()) || parsedDate.toISOString().slice(0, 10) !== date) {
+        throw new Error(`Invalid registry row at line ${index + 1}`);
+      }
+      if (seen.has(domain.toLowerCase())) throw new Error(`Duplicate registry domain at line ${index + 1}`);
+      seen.add(domain.toLowerCase());
       return {
-        domain: parts[0] || "",
-        status: (parts[1] === "verified" ? "verified" : "unclaimed") as "verified" | "unclaimed",
-        source: parts[2] || "unknown",
-        added_date: parts[3] || new Date().toISOString().split("T")[0],
+        domain,
+        status: status as "verified" | "unclaimed",
+        source,
+        added_date: date,
       };
-    })
-    .filter((entry) => entry.domain);
+    });
 }
 
 export function formatDomainLine(entry: DomainEntry): string {
-  return `${entry.domain} | ${entry.status} | ${entry.source} | ${entry.added_date}`;
+  const fields = [entry.domain, entry.status, entry.source, entry.added_date];
+  if (fields.some((field) => typeof field !== "string" || /[|\r\n]/.test(field))) throw new Error("Registry fields cannot contain delimiters");
+  const line = fields.join(" | ");
+  parseDomainsTxt(line);
+  return line;
+}
+
+export function registryChanges(previous: DomainEntry[], current: DomainEntry[]) {
+  const previousByDomain = new Map(previous.map((entry) => [entry.domain, entry]));
+  const currentDomains = new Set(current.map((entry) => entry.domain));
+  const changed = current.filter((entry) => JSON.stringify(entry) !== JSON.stringify(previousByDomain.get(entry.domain)));
+  const removed = previous.filter((entry) => !currentDomains.has(entry.domain));
+  if (changed.length + removed.length > 100) throw new Error("Bulk listing changes require a separate maintainer review");
+  return { changed, removed };
 }
 
 export function buildUpdatedDomainsTxt(
@@ -101,5 +124,7 @@ export function buildUpdatedDomainsTxt(
     return line;
   });
 
-  return { content: finalizedLines.join("\n"), changed };
+  const content = `${finalizedLines.join("\n").trimEnd()}\n`;
+  parseDomainsTxt(content);
+  return { content, changed: changed || content !== currentContent };
 }

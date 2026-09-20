@@ -14,3 +14,6 @@ Thumbs.db
 .idea/
 *.swp
 *.swo
+
+# Local engineering evidence
+.process/
