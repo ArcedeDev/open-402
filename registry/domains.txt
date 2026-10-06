@@ -12478,3 +12478,4 @@ trust.weatherriskapi.com | unclaimed | onchain-x402 | 2026-10-05
 ujnte-159-89-4-32.free.pinggy.net | unclaimed | onchain-x402 | 2026-10-05
 web3id.xyz | unclaimed | onchain-x402 | 2026-10-05
 yffne-159-89-4-32.run.pinggy-free.link | unclaimed | onchain-x402 | 2026-10-05
+tokensafe.x402api.workers.dev | unclaimed | self | 2026-10-06
