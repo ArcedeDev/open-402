@@ -12693,3 +12693,4 @@ toolbelt402.catalystdesk.workers.dev | unclaimed | onchain-x402 | 2026-10-06
 vunnv-159-89-4-32.free.pinggy.net | unclaimed | onchain-x402 | 2026-10-06
 x402-agent-api.onrender.com | unclaimed | onchain-x402 | 2026-10-06
 xrnbc-159-89-4-32.free.pinggy.net | unclaimed | onchain-x402 | 2026-10-06
+agnttoolbx.agenttoolbox2026.workers.dev | unclaimed | self | 2026-10-07
