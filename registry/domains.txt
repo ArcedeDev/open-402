@@ -12921,3 +12921,4 @@ zeropin.pay.zeroclick.io | unclaimed | onchain-x402 | 2026-10-07
 agi.agenttoolbox2026.workers.dev | unclaimed | self | 2026-10-07
 tokensafe.x402api.workers.dev | unclaimed | self | 2026-10-06
 railaudit.x402api.workers.dev | unclaimed | self | 2026-10-06
+slippage.x402api.workers.dev | unclaimed | self | 2026-10-06
