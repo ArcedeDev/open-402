@@ -26,7 +26,8 @@ export async function runAddressVerificationQueue(
   };
   const candidates = Array.from(records.values())
     .filter((record) => isVerifierSupported(record.protocol, record.network, record.asset) && isValidEvmAddress(record.address))
-    .sort((a, b) => attemptTime(a) - attemptTime(b)
+    .sort((a, b) => Number(b.last_scan_error === "budget_deferred") - Number(a.last_scan_error === "budget_deferred")
+      || attemptTime(a) - attemptTime(b)
       || (a.last_scanned_block ?? -1) - (b.last_scanned_block ?? -1)
       || addressKey(a).localeCompare(addressKey(b)));
   const queued = candidates.slice(0, options.limit);
