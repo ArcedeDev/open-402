@@ -57,13 +57,13 @@ domain | status | source | added_date
 | Field | Values | Description |
 |-------|--------|-------------|
 | `domain` | `api.example.com` | The API's domain |
-| `status` | `verified` · `unclaimed` | Whether the domain hosts an `agent.json` |
+| `status` | `verified` · `unclaimed` | Retained listing status; see `manifest_health` for current observations |
 | `source` | `self` · `submit` · `402index` · `onchain-*` | How the domain was discovered |
 | `added_date` | `2026-03-23` | When it was first added to the registry |
 
-**Verified** means the domain hosts `/.well-known/agent.json` — a machine-readable manifest declaring the API's capabilities, pricing, and payment protocols.
+**Verified** records an accepted manifest listing. This status can be retained after later manifest failures; it does not prove a currently valid manifest, working service, or payment settlement. Check `manifest_health` and its observation timestamps for freshness.
 
-**Unclaimed** means the domain is known to process 402 payments (observed on-chain or via other indexes) but hasn't published an `agent.json` yet.
+**Unclaimed** records a discovered or submitted domain without accepted or retained manifest verification. It is not independent proof that the service works or processes payments.
 
 ### `snapshot.json`
 
@@ -81,9 +81,9 @@ The registry is refreshed nightly by the [crawler workflow](.github/workflows/ni
 4. **Ecosystem stats** from x402scan (transactions, volume, buyers, sellers)
 5. **Publish** updated `snapshot.json` and `domains.txt` together in one atomic Git commit
 
-Payment verification attempts at most five supported payout addresses per run across manifest and watcher claims, ordered by oldest scan attempt, then oldest block cursor. Failed and incomplete attempts rotate through the same queue without erasing historical payment evidence. Deferred addresses are unchanged. See [payment verification queue semantics](MAINTENANCE.md#payment-verification-queue) for attempt, completion and error fields.
+Payment verification attempts at most five supported payout addresses per run across manifest and watcher claims. Explicit budget-deferred records receive priority; within each priority group, selection uses the oldest scan attempt, then oldest block cursor. Unselected addresses are unchanged. Incomplete selected addresses retain historical evidence and cursors while recording their attempt and error. See [payment verification queue semantics](MAINTENANCE.md#payment-verification-queue) for bounds and recovery limits.
 
-New domains are discovered automatically. Domains that go offline for 30+ consecutive days are demoted to unclaimed.
+New domains are discovered automatically. After 30 distinct observed UTC manifest-failure dates, stale verified listings become eligible for the bounded daily demotion queue. Missing observations do not count as failures; see [manifest health policy](MAINTENANCE.md#manifest-health).
 
 ---
 

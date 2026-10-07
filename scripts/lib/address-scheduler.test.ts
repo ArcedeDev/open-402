@@ -71,6 +71,41 @@ test("legacy, malformed and future attempt times cannot starve an address", asyn
   });
 });
 
+test("explicit budget deferrals lead the queue without falsifying attempts and clear on real outcomes", async () => {
+  for (const outcome of ["complete", "incomplete_scan", "unexpected_error", "throw"] as const) {
+    const normal = record(1, { last_scan_attempt_at: previousAt });
+    const deferred = record(2, {
+      last_scan_attempt_at: "2026-09-19T00:00:00Z", last_scan_error: "budget_deferred",
+      last_scan_complete_at: previousAt,
+    });
+    const records = recordsMap([normal, deferred]);
+    await runAddressVerificationQueue(records, {
+      limit: 1, concurrency: 1, now: () => attemptAt,
+      verify: async (inputs) => {
+        assert.equal(inputs[0].address, deferred.address);
+        assert.equal(records.get(addressKey(deferred))!.last_scan_attempt_at, attemptAt);
+        if (outcome === "throw") throw new Error("provider failure");
+        return new Map([[deferred.address, result(inputs[0], outcome === "complete" ? {} : {
+          scanComplete: false, scanError: outcome,
+        })]]);
+      },
+    });
+    const updated = records.get(addressKey(deferred))!;
+    assert.equal(updated.last_scan_attempt_at, attemptAt);
+    assert.equal(updated.last_scan_error, outcome === "complete" ? null : outcome === "throw" ? "verifier_failed" : outcome);
+    if (outcome !== "complete") assert.deepEqual(updated, {
+      ...deferred, last_scan_attempt_at: attemptAt, last_scan_error: updated.last_scan_error,
+    });
+    await runAddressVerificationQueue(records, {
+      limit: 1, concurrency: 1, now: () => completeAt,
+      verify: async (inputs) => {
+        assert.equal(inputs[0].address, normal.address, "a full allocation failure must not keep priority");
+        return new Map([[normal.address, result(inputs[0])]]);
+      },
+    });
+  }
+});
+
 test("scan budget rejects invalid or more-than-five limits before mutation or RPC", async () => {
   for (const limit of [0, -1, 6, 1.5, Infinity, NaN]) {
     const records = recordsMap([record(1)]);

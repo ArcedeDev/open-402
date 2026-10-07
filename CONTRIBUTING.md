@@ -19,6 +19,8 @@ The most common contribution. If you know of an API that accepts HTTP 402 paymen
 - [ ] The domain isn't already in `registry/domains.txt`
 - [ ] If marking as `verified`, the domain serves a valid `agent.json` at `/.well-known/agent.json`
 
+The directory uses the pinned `agent-json-validate` package and additionally requires the manifest's `origin` to equal the registered domain, ignoring case. An ancestor domain is not enough: a listing for `api.example.com` must declare `"origin": "api.example.com"`, not `"example.com"`. A standalone validator pass does not override this directory policy. Use a supported schema version and the required manifest fields; do not substitute an application version or invent payment details. CI checks newly verified listings without executing paid requests.
+
 **How to submit:**
 
 1. Fork this repository

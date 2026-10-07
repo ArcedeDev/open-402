@@ -17,6 +17,8 @@
  *   BASE_RPC_URL  — Base mainnet RPC endpoint (default: public)
  */
 
+import { setTimeout as sleep } from "node:timers/promises";
+
 const BASE_RPC_URL = process.env.BASE_RPC_URL || "https://mainnet.base.org";
 
 // USDC on Base (6 decimals)
@@ -28,8 +30,23 @@ const TRANSFER_TOPIC = "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a
 // How far back to look: ~30 days on Base (~2s blocks = ~1.3M blocks)
 const DEFAULT_LOOKBACK_BLOCKS = 1_300_000;
 
-// The default public Base RPC rejects eth_getLogs ranges above 2,000 blocks.
-const BLOCKS_PER_QUERY = 2_000;
+// Conservative inclusive range for the public Base RPC's 500-block span limit.
+const BLOCKS_PER_QUERY = 500;
+
+interface RpcBudget {
+  remainingRequests: number;
+  signal: AbortSignal;
+}
+
+class RpcBudgetExhaustedError extends Error {}
+
+function createRpcBudget(): RpcBudget {
+  return {
+    // Shared across candidates, retries, head queries, and timestamp lookups.
+    remainingRequests: 3_500,
+    signal: AbortSignal.timeout(15 * 60 * 1000),
+  };
+}
 
 function readNonNegativeIntEnv(name: string, defaultValue: number): number {
   const raw = process.env[name];
@@ -92,7 +109,7 @@ export interface IncrementalVerificationResult {
   firstVerifiedAt: string | null;
   lastVerifiedAt: string | null;
   lastScannedBlock: number | null;
-  scanError?: "incomplete_scan" | "unexpected_error" | "cursor_ahead_of_head";
+  scanError?: "incomplete_scan" | "budget_deferred" | "unexpected_error" | "cursor_ahead_of_head";
 }
 
 function incompleteVerification(
@@ -120,10 +137,6 @@ function log(msg: string): void {
   console.log(`[onchain] ${msg}`);
 }
 
-function sleep(ms: number): Promise<void> {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}
-
 function isRetryableRpcMessage(message: string): boolean {
   return /429|rate limit|too many requests|timeout|temporar|header not found|busy|unavailable|gateway/i.test(message);
 }
@@ -140,14 +153,19 @@ function getBackoffMs(attempt: number, retryAfterHeader: string | null = null): 
 
 /* ── RPC Helpers ── */
 
-async function rpcCall(method: string, params: unknown[], retries = getRpcRetries()): Promise<unknown> {
+async function rpcCall(method: string, params: unknown[], budget: RpcBudget, onRequest?: () => void): Promise<unknown> {
+  const retries = getRpcRetries();
   for (let attempt = 0; attempt <= retries; attempt++) {
+    budget.signal.throwIfAborted();
+    if (budget.remainingRequests <= 0) throw new RpcBudgetExhaustedError("RPC request budget exhausted");
+    budget.remainingRequests--;
+    onRequest?.();
     try {
       const res = await fetch(BASE_RPC_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ jsonrpc: "2.0", method, params, id: 1 }),
-        signal: AbortSignal.timeout(15_000),
+        signal: AbortSignal.any([budget.signal, AbortSignal.timeout(15_000)]),
       });
       if (!res.ok) {
         const error = new Error(`RPC HTTP ${res.status}`) as Error & {
@@ -156,7 +174,15 @@ async function rpcCall(method: string, params: unknown[], retries = getRpcRetrie
         error.retryAfterHeader = res.headers.get("retry-after");
         throw error;
       }
-      const data = await res.json() as { result?: unknown; error?: { message: string } };
+      const data = await res.json().catch((error: unknown) => {
+        if (error instanceof SyntaxError) {
+          throw Object.assign(new Error("RPC error: invalid_json"), { retryable: false });
+        }
+        throw error;
+      }) as { result?: unknown; error?: { message: string } };
+      if (!data || typeof data !== "object" || Array.isArray(data)) {
+        throw Object.assign(new Error("RPC error: invalid_envelope"), { retryable: false });
+      }
       if (data.error) {
         throw Object.assign(new Error("RPC error: provider_error"), {
           retryable: isRetryableRpcMessage(typeof data.error.message === "string" ? data.error.message : ""),
@@ -169,31 +195,33 @@ async function rpcCall(method: string, params: unknown[], retries = getRpcRetrie
         typeof e === "object" && e !== null && "retryAfterHeader" in e
           ? String((e as { retryAfterHeader?: string | null }).retryAfterHeader ?? "")
           : null;
-      const retryable =
-        (e instanceof Error && "retryable" in e && e.retryable === true)
-        || isRetryableRpcMessage(message)
-        || !(message.startsWith("RPC HTTP 4") && !message.startsWith("RPC HTTP 429"));
+      const retryable = e instanceof Error && "retryable" in e
+        ? e.retryable === true
+        : !(message.startsWith("RPC HTTP 4") && !message.startsWith("RPC HTTP 429"));
 
-      if (attempt === retries || !retryable) throw e;
-      await sleep(getBackoffMs(attempt, retryAfterHeader));
+      if (budget.signal.aborted || attempt === retries || !retryable) throw e;
+      if (budget.remainingRequests <= 0) throw new RpcBudgetExhaustedError("RPC retry budget exhausted");
+      await sleep(getBackoffMs(attempt, retryAfterHeader), undefined, { signal: budget.signal });
     }
   }
   throw new Error("unreachable");
 }
 
-async function getLatestBlock(): Promise<number> {
-  const hex = await rpcCall("eth_blockNumber", []);
+async function getLatestBlock(budget: RpcBudget): Promise<number> {
+  const hex = await rpcCall("eth_blockNumber", [], budget);
   const block = typeof hex === "string" && /^0x[0-9a-f]+$/i.test(hex) ? parseInt(hex, 16) : NaN;
   if (!Number.isSafeInteger(block) || block < 0) throw new Error("Invalid RPC block number");
   return block;
 }
 
-async function getBlockTimestamp(blockHex: string): Promise<string> {
-  const block = (await rpcCall("eth_getBlockByNumber", [blockHex, false])) as {
-    timestamp: string;
+async function getBlockTimestamp(blockHex: string, budget: RpcBudget): Promise<string | null> {
+  const block = (await rpcCall("eth_getBlockByNumber", [blockHex, false], budget)) as {
+    timestamp?: unknown;
   } | null;
-  if (!block) return new Date().toISOString();
-  return new Date(parseInt(block.timestamp, 16) * 1000).toISOString();
+  const timestamp = typeof block?.timestamp === "string" && /^0x(?:0|[1-9a-f][0-9a-f]*)$/i.test(block.timestamp)
+    ? Number(block.timestamp) : NaN;
+  const date = new Date(timestamp * 1000);
+  return Number.isSafeInteger(timestamp) && Number.isFinite(date.getTime()) ? date.toISOString() : null;
 }
 
 interface TransferLog {
@@ -206,6 +234,8 @@ interface TransferLog {
 interface RangeScanResult {
   logs: TransferLog[];
   scanComplete: boolean;
+  budgetExhausted: boolean;
+  requestsUsed: number;
   fromBlock: number;
   toBlock: number;
 }
@@ -213,7 +243,9 @@ interface RangeScanResult {
 async function getUsdcTransfersTo(
   toAddress: string,
   fromBlock: number,
-  toBlock: number
+  toBlock: number,
+  budget: RpcBudget,
+  onRequest: () => void
 ): Promise<TransferLog[]> {
   const paddedTo = "0x" + toAddress.slice(2).toLowerCase().padStart(64, "0");
 
@@ -228,7 +260,7 @@ async function getUsdcTransfersTo(
         paddedTo,   // to: the payout address
       ],
     },
-  ]);
+  ], budget, onRequest);
 
   if (!Array.isArray(result)) throw new Error("Invalid eth_getLogs result: expected array");
   return result.map((value): TransferLog => {
@@ -258,15 +290,20 @@ async function getUsdcTransfersTo(
 async function scanAddressRange(
   payoutAddress: string,
   fromBlock: number,
-  latestBlock: number
+  latestBlock: number,
+  budget: RpcBudget
 ): Promise<RangeScanResult> {
-  let allLogs: TransferLog[] = [];
-  let failedChunks = 0;
+  const allLogs: TransferLog[] = [];
+  let scanComplete = true;
+  let budgetExhausted = false;
+  let requestsUsed = 0;
 
   if (fromBlock > latestBlock) {
     return {
       logs: [],
       scanComplete: true,
+      budgetExhausted: false,
+      requestsUsed,
       fromBlock,
       toBlock: latestBlock,
     };
@@ -275,22 +312,27 @@ async function scanAddressRange(
   for (let start = fromBlock; start <= latestBlock; start += BLOCKS_PER_QUERY) {
     const end = Math.min(start + BLOCKS_PER_QUERY - 1, latestBlock);
     try {
-      const logs = await getUsdcTransfersTo(payoutAddress, start, end);
+      const logs = await getUsdcTransfersTo(payoutAddress, start, end, budget, () => { requestsUsed++; });
       allLogs.push(...logs);
-    } catch {
-      failedChunks++;
+      const queryDelayMs = getLogQueryDelayMs();
+      if (end < latestBlock && queryDelayMs > 0) {
+        await sleep(queryDelayMs, undefined, { signal: budget.signal });
+      }
+    } catch (error) {
+      scanComplete = false;
+      budgetExhausted = error instanceof RpcBudgetExhaustedError
+        || (budget.signal.aborted && error instanceof Error
+          && (error.name === "AbortError" || error.name === "TimeoutError"));
       log(`  Chunk ${start}-${end} failed: incomplete_scan`);
-    }
-
-    const queryDelayMs = getLogQueryDelayMs();
-    if (end < latestBlock && queryDelayMs > 0) {
-      await sleep(queryDelayMs);
+      break;
     }
   }
 
   return {
     logs: allLogs,
-    scanComplete: failedChunks === 0,
+    scanComplete,
+    budgetExhausted,
+    requestsUsed,
     fromBlock,
     toBlock: latestBlock,
   };
@@ -382,9 +424,10 @@ export async function verifyPayoutAddress(
     };
   }
 
-  const latestBlock = await getLatestBlock();
+  const budget = createRpcBudget();
+  const latestBlock = await getLatestBlock(budget);
   const fromBlock = Math.max(0, latestBlock - lookbackBlocks);
-  const rangeScan = await scanAddressRange(payoutAddress, fromBlock, latestBlock);
+  const rangeScan = await scanAddressRange(payoutAddress, fromBlock, latestBlock, budget);
   const allLogs = rangeScan.logs;
   const scanComplete = rangeScan.scanComplete;
 
@@ -409,10 +452,10 @@ export async function verifyPayoutAddress(
   let lastTxTimestamp: string | null = null;
 
   try {
-    if (firstLog) firstTxTimestamp = await getBlockTimestamp(firstLog.blockNumber);
+    if (firstLog) firstTxTimestamp = await getBlockTimestamp(firstLog.blockNumber, budget);
     lastTxTimestamp = firstLog === lastLog
       ? firstTxTimestamp
-      : lastLog ? await getBlockTimestamp(lastLog.blockNumber) : null;
+      : lastLog ? await getBlockTimestamp(lastLog.blockNumber, budget) : null;
   } catch {
     // Timestamp resolution is best-effort
   }
@@ -438,8 +481,10 @@ export async function verifyAddressesIncremental(
   if (!Number.isInteger(concurrency) || concurrency < 1 || concurrency > 100) throw new Error("Concurrency must be an integer from 1 to 100");
   const results = new Map<string, IncrementalVerificationResult>();
   if (!addresses.length) return results;
-  const latestBlock = await getLatestBlock();
+  const budget = createRpcBudget();
+  const latestBlock = await getLatestBlock(budget);
   const now = new Date().toISOString();
+  const fullScanAllowance = budget.remainingRequests;
 
   log(`Verifying ${addresses.length} unique payout addresses incrementally...`);
 
@@ -496,9 +541,12 @@ export async function verifyAddressesIncremental(
         return;
       }
 
-      const rangeScan = await scanAddressRange(input.address, fromBlock, latestBlock);
+      const rangeScan = await scanAddressRange(input.address, fromBlock, latestBlock, budget);
       if (!rangeScan.scanComplete) {
-        results.set(normalized, incompleteVerification(input, "incomplete_scan"));
+        // Other candidates' usage distinguishes a reduced allocation from an oversized full attempt.
+        const reducedAllocation = budget.remainingRequests + rangeScan.requestsUsed < fullScanAllowance;
+        results.set(normalized, incompleteVerification(input,
+          rangeScan.budgetExhausted && reducedAllocation ? "budget_deferred" : "incomplete_scan"));
         return;
       }
 
@@ -507,11 +555,11 @@ export async function verifyAddressesIncremental(
       let lastTxTimestamp = prior?.lastTxTimestamp || null;
 
       try {
-        const scannedFirst = aggregated.firstLog ? await getBlockTimestamp(aggregated.firstLog.blockNumber) : null;
+        const scannedFirst = aggregated.firstLog ? await getBlockTimestamp(aggregated.firstLog.blockNumber, budget) : null;
         const scannedLast = aggregated.lastLog
           ? aggregated.firstLog === aggregated.lastLog
             ? scannedFirst
-            : await getBlockTimestamp(aggregated.lastLog.blockNumber)
+            : await getBlockTimestamp(aggregated.lastLog.blockNumber, budget)
           : null;
         firstTxTimestamp = chooseEarlier(firstTxTimestamp, scannedFirst);
         lastTxTimestamp = chooseLater(lastTxTimestamp, scannedLast);

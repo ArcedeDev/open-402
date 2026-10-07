@@ -58,6 +58,8 @@ jobs:
           GITHUB_REPO: ArcedeDev/open-402
           CONCURRENCY: '50'
           MAX_ONCHAIN_ADDRESSES_PER_RUN: '5'
+          # Finish candidates sequentially within the shared RPC budget.
+          ONCHAIN_CONCURRENCY: '1'
           APPROVED_REMOVALS: ${{ inputs.approved_removals }}
         run: node scripts/crawl.ts
 
