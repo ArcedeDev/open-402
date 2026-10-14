@@ -14691,4 +14691,4 @@ ycvfo-89-58-13-105.run.pinggy-free.link | unclaimed | onchain-x402 | 2026-10-14
 yjrft-2a03-4000-60-9b5-d48c-d9ff-feb2-1dca.run.pinggy-free.link | unclaimed | onchain-x402 | 2026-10-14
 zmrhr-89-58-13-105.run.pinggy-free.link | unclaimed | onchain-x402 | 2026-10-14
 zxmwi-2a03-4000-60-9b5-d48c-d9ff-feb2-1dca.run.pinggy-free.link | unclaimed | onchain-x402 | 2026-10-14
-9eouter-0f49c8.abyte.my.id | unclaimed | submit | 2026-10-14
+9eouter-0f49c8.abyte.my.id | verified | submit | 2026-10-14
