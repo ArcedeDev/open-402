@@ -16083,3 +16083,4 @@ zmaba6ifav5m.hostc.app | unclaimed | onchain-x402 | 2026-10-21
 zr8fbae882c5.hostc.app | unclaimed | onchain-x402 | 2026-10-21
 zrtti-2a03-4000-60-9b5-d48c-d9ff-feb2-1dca.free.pinggy.net | unclaimed | onchain-x402 | 2026-10-21
 zycewzj46p2t.hostc.app | unclaimed | onchain-x402 | 2026-10-21
+api-staging.aomi.dev | verified | self | 2026-10-21
