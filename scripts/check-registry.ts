@@ -15,7 +15,7 @@ if (live && !base) throw new Error("Live validation requires --base to bound ext
 const content = await readFile(new URL("../registry/domains.txt", import.meta.url), "utf8");
 const entries = parseDomainsTxt(content);
 if (!entries.length) throw new Error("Registry must not be empty");
-const previous = base ? parseDomainsTxt(execFileSync("git", ["show", `${base}:registry/domains.txt`], { encoding: "utf8" })) : [];
+const previous = base ? parseDomainsTxt(execFileSync("git", ["show", `${base}:registry/domains.txt`], { encoding: "utf8", maxBuffer: 16 * 1024 * 1024 })) : [];
 const { changed, removed } = base ? registryChanges(previous, entries) : { changed: [], removed: [] };
 for (const entry of changed) {
   if (!isPublicDomain(entry.domain) || entry.domain !== entry.domain.toLowerCase()) throw new Error(`Invalid public domain: ${entry.domain}`);
