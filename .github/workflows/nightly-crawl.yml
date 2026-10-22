@@ -39,7 +39,8 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
         with:
-          node-version: '24.14.0'
+          node-version: '24'
+          check-latest: true
 
       - name: Install pinned dependencies
         run: npm ci --ignore-scripts
