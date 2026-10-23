@@ -16418,3 +16418,4 @@ x402-paywall-demo.astratc.workers.dev | unclaimed | onchain-x402 | 2026-10-23
 x402-seller-kit.liveapps.dev | unclaimed | onchain-x402 | 2026-10-23
 x402fix.agentgate.workers.dev | unclaimed | onchain-x402 | 2026-10-23
 ybd3gvw2vq8p.hostc.app | unclaimed | onchain-x402 | 2026-10-23
+api.aomi.dev | verified | self | 2026-10-23
