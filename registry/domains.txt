@@ -15996,7 +15996,7 @@ rvt3mwyverhs.hostc.app | unclaimed | onchain-x402 | 2026-10-21
 rypiy-2a03-4000-60-9b5-d48c-d9ff-feb2-1dca.free.pinggy.net | unclaimed | onchain-x402 | 2026-10-21
 rzamo-2a03-4000-60-9b5-d48c-d9ff-feb2-1dca.free.pinggy.net | unclaimed | onchain-x402 | 2026-10-21
 rzbub-2a03-4000-60-9b5-d48c-d9ff-feb2-1dca.free.pinggy.net | unclaimed | onchain-x402 | 2026-10-21
-scdo.com.au | unclaimed | onchain-x402 | 2026-10-21
+scdo.com.au | verified | submit | 2026-10-27
 screwtape.ai | unclaimed | onchain-x402 | 2026-10-21
 sec-intel.agentdiet.dev | unclaimed | onchain-x402 | 2026-10-21
 seenly-agent-reputation.vercel.app | unclaimed | onchain-x402 | 2026-10-21
