@@ -1,7 +1,7 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 17616
-# Total endpoints: 15603
+# Total domains: 17757
+# Total endpoints: 15618
 contract-lens-nano.dev-romanv.chatgpt.site | unclaimed | self | 2026-09-20
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -279,7 +279,7 @@ stableupload.dev | unclaimed | 402index | 2026-03-23
 true-cast-agent.vercel.app | unclaimed | 402index | 2026-03-23
 img402.dev | unclaimed | 402index | 2026-03-23
 xonin-x402.vercel.app | unclaimed | 402index | 2026-03-23
-x402engine.app| verified |402index|2026-03-23
+x402engine.app | unclaimed | 402index | 2026-03-23
 eth-mainnet.g.alchemy.com | unclaimed | 402index | 2026-03-23
 agents.alchemy.com | unclaimed | 402index | 2026-03-23
 api.anthropic.com | unclaimed | 402index | 2026-03-23
@@ -334,7 +334,7 @@ qr.camelai.io | unclaimed | 402index | 2026-03-23
 twit-api-production-de12.up.railway.app | unclaimed | 402index | 2026-03-23
 visual.hugen.tokyo | unclaimed | 402index | 2026-03-23
 weather.hugen.tokyo | unclaimed | 402index | 2026-03-23
-web3-signals-api-production.up.railway.app| verified |402index|2026-03-23
+web3-signals-api-production.up.railway.app | unclaimed | 402index | 2026-03-23
 agentgram.site | unclaimed | 402index | 2026-03-23
 capminal.ai | unclaimed | 402index | 2026-03-23
 x402-trading.useotto.xyz | unclaimed | 402index | 2026-03-23
@@ -355,16 +355,16 @@ pay.x402monopoly.com | unclaimed | 402index | 2026-03-23
 turbidimetrically-pillared-viviana.ngrok-free.dev | unclaimed | 402index | 2026-03-23
 xgated.vercel.app | unclaimed | 402index | 2026-03-23
 askclaude.shop | unclaimed | 402index | 2026-03-23
-color.agentutil.net| verified |402index|2026-03-23
-cron.agentutil.net| verified |402index|2026-03-23
+color.agentutil.net | unclaimed | 402index | 2026-03-23
+cron.agentutil.net | unclaimed | 402index | 2026-03-23
 game-theory-agent-production.up.railway.app | unclaimed | 402index | 2026-03-23
 nacian-x402.vercel.app | unclaimed | 402index | 2026-03-23
-norm.agentutil.net| verified |402index|2026-03-23
-random.agentutil.net| verified |402index|2026-03-23
+norm.agentutil.net | unclaimed | 402index | 2026-03-23
+random.agentutil.net | unclaimed | 402index | 2026-03-23
 re-oracle-production.up.railway.app | unclaimed | 402index | 2026-03-23
 trader.rigoblock.com | unclaimed | 402index | 2026-03-23
-undo.agentutil.net| verified |402index|2026-03-23
-useragent.agentutil.net| verified |402index|2026-03-23
+undo.agentutil.net | unclaimed | 402index | 2026-03-23
+useragent.agentutil.net | unclaimed | 402index | 2026-03-23
 x402-arvos.vercel.app | unclaimed | 402index | 2026-03-23
 agent.paywall402.com | unclaimed | 402index | 2026-03-23
 pay.boo402.xyz | unclaimed | 402index | 2026-03-23
@@ -402,7 +402,7 @@ api.xquant.fund | unclaimed | 402index | 2026-03-23
 xquant-api.xyz | unclaimed | 402index | 2026-03-23
 x-quant-fund.vercel.app | unclaimed | 402index | 2026-03-23
 402claw.cloud | unclaimed | 402index | 2026-03-23
-postalform.com | verified | 402index | 2026-03-23
+postalform.com | unclaimed | 402index | 2026-03-23
 x402.quickintel.io | unclaimed | 402index | 2026-03-23
 api.quotenorm.ai | unclaimed | 402index | 2026-03-23
 slamlink-ai-main-50fbb45.d2.zuplo.dev | unclaimed | 402index | 2026-03-23
@@ -415,7 +415,7 @@ x402-cybercentry-wallet-verification.up.railway.app | unclaimed | 402index | 202
 app.opennode.com | unclaimed | 402index | 2026-03-23
 api.2captcha.com | unclaimed | 402index | 2026-03-23
 alittlebitofmoney.com | unclaimed | 402index | 2026-03-23
-aiprox.dev| verified |402index|2026-03-23
+aiprox.dev | unclaimed | 402index | 2026-03-23
 otaku.so | unclaimed | 402index | 2026-03-23
 research.heurist.ai | unclaimed | 402index | 2026-03-23
 agent-commerce.store | unclaimed | 402index | 2026-03-23
@@ -466,7 +466,7 @@ x402-next.netlify.app | unclaimed | 402index | 2026-03-23
 x402-ai-starter-ruby.vercel.app | unclaimed | 402index | 2026-03-23
 final-project-bitcoin-three.vercel.app | unclaimed | 402index | 2026-03-23
 market.lnpay.ai | unclaimed | 402index | 2026-03-23
-api.060504.shop| verified |402index|2026-03-23
+api.060504.shop | unclaimed | 402index | 2026-03-23
 x402whois.com | unclaimed | 402index | 2026-03-23
 dog.x420.dev | unclaimed | 402index | 2026-03-23
 dream.x420.dev | unclaimed | 402index | 2026-03-23
@@ -544,7 +544,7 @@ api.iconiqnerds.com | unclaimed | 402index | 2026-03-23
 api.punkpredictor.xyz | unclaimed | 402index | 2026-03-23
 data-selling-api-53234eff36dc.herokuapp.com | unclaimed | 402index | 2026-03-23
 files.camelai.io | unclaimed | 402index | 2026-03-23
-legaleasy.tools| verified |402index|2026-03-23
+legaleasy.tools | unclaimed | 402index | 2026-03-23
 obagents.vercel.app | unclaimed | 402index | 2026-03-23
 peach.mypinata.cloud | unclaimed | 402index | 2026-03-23
 search.reversesandbox.com | unclaimed | 402index | 2026-03-23
@@ -553,7 +553,7 @@ sportsarbitrageapi-production.up.railway.app | unclaimed | 402index | 2026-03-23
 testgateway.mattober.com | unclaimed | 402index | 2026-03-23
 thebestagency.dev-mypinata.cloud | unclaimed | 402index | 2026-03-23
 tokenaru.vercel.app | unclaimed | 402index | 2026-03-23
-verify.agentutil.net| verified |402index|2026-03-23
+verify.agentutil.net | unclaimed | 402index | 2026-03-23
 x402repo.vercel.app | unclaimed | 402index | 2026-03-23
 x402scan-e11utvi3p-merit-systems.vercel.app | unclaimed | 402index | 2026-03-23
 x402scan-hnqp3auxm-merit-systems.vercel.app | unclaimed | 402index | 2026-03-23
@@ -594,7 +594,7 @@ nanobrain-alpha.vercel.app | unclaimed | 402index | 2026-03-23
 link-sign-402.turboservercap.workers.dev | unclaimed | 402index | 2026-03-23
 beta.vaultlayer.xyz | unclaimed | 402index | 2026-03-23
 snapshot-api.zeebot.xyz | unclaimed | 402index | 2026-03-23
-x402.onchainexpat.com| verified |402index|2026-03-23
+x402.onchainexpat.com | unclaimed | 402index | 2026-03-23
 priceagent-production.up.railway.app | unclaimed | 402index | 2026-03-23
 scoutpay-production.up.railway.app | unclaimed | 402index | 2026-03-23
 intentflow.melis.ai | unclaimed | 402index | 2026-03-23
@@ -619,8 +619,8 @@ scrapepay.melis.ai | unclaimed | 402index | 2026-03-23
 x402-hello-agent-production.up.railway.app | unclaimed | 402index | 2026-03-23
 mercurio.agentscantina.com | unclaimed | 402index | 2026-03-23
 myagenticoverlord.com | unclaimed | 402index | 2026-03-23
-agentutil.net| verified |402index|2026-03-23
-api.actiongate.xyz| verified |402index|2026-03-23
+agentutil.net | unclaimed | 402index | 2026-03-23
+api.actiongate.xyz | unclaimed | 402index | 2026-03-23
 api.agentcamo.xyz | unclaimed | 402index | 2026-03-23
 api.arvos.xyz | unclaimed | 402index | 2026-03-23
 api.gazette.bot | unclaimed | 402index | 2026-03-23
@@ -629,22 +629,22 @@ browser.camelai.io | unclaimed | 402index | 2026-03-23
 claim-verify.agentutil.net | unclaimed | 402index | 2026-03-23
 clawmail.xyz | unclaimed | 402index | 2026-03-23
 clawmegle-production.up.railway.app | unclaimed | 402index | 2026-03-23
-convert.agentutil.net| verified |402index|2026-03-23
+convert.agentutil.net | unclaimed | 402index | 2026-03-23
 convert.kasandell.workers.dev | unclaimed | 402index | 2026-03-23
 daa254c34060.ngrok-free.app | unclaimed | 402index | 2026-03-23
 data-ground-truth.agentutil.net | unclaimed | 402index | 2026-03-23
 dev-toolkit.agentutil.net | unclaimed | 402index | 2026-03-23
-dns.agentutil.net| verified |402index|2026-03-23
+dns.agentutil.net | unclaimed | 402index | 2026-03-23
 dns.camelai.io | unclaimed | 402index | 2026-03-23
 docs-lookup.agentutil.net | unclaimed | 402index | 2026-03-23
 evaluator.openmid.xyz | unclaimed | 402index | 2026-03-23
 flip-coin-eta.vercel.app | unclaimed | 402index | 2026-03-23
 geo.camelai.io | unclaimed | 402index | 2026-03-23
-geocode.agentutil.net| verified |402index|2026-03-23
-hash.agentutil.net| verified |402index|2026-03-23
+geocode.agentutil.net | unclaimed | 402index | 2026-03-23
+hash.agentutil.net | unclaimed | 402index | 2026-03-23
 inbox.camelai.io | unclaimed | 402index | 2026-03-23
 link.camelai.io | unclaimed | 402index | 2026-03-23
-math.agentutil.net| verified |402index|2026-03-23
+math.agentutil.net | unclaimed | 402index | 2026-03-23
 merc-growth.vercel.app | unclaimed | 402index | 2026-03-23
 mobile-independance.vercel.app | unclaimed | 402index | 2026-03-23
 pdf.camelai.io | unclaimed | 402index | 2026-03-23
@@ -653,11 +653,11 @@ resize.camelai.io | unclaimed | 402index | 2026-03-23
 safe-action.agentutil.net | unclaimed | 402index | 2026-03-23
 scraper.camelai.io | unclaimed | 402index | 2026-03-23
 screenshot.camelai.io | unclaimed | 402index | 2026-03-23
-text.agentutil.net| verified |402index|2026-03-23
-time.agentutil.net| verified |402index|2026-03-23
-validate.agentutil.net| verified |402index|2026-03-23
+text.agentutil.net | unclaimed | 402index | 2026-03-23
+time.agentutil.net | unclaimed | 402index | 2026-03-23
+validate.agentutil.net | unclaimed | 402index | 2026-03-23
 verify.camelai.io | unclaimed | 402index | 2026-03-23
-weather.agentutil.net| verified |402index|2026-03-23
+weather.agentutil.net | unclaimed | 402index | 2026-03-23
 jesuschrist.sh | unclaimed | 402index | 2026-03-23
 x402.jinn.network | unclaimed | 402index | 2026-03-23
 x402.purch.xyz | unclaimed | 402index | 2026-03-23
@@ -17651,3 +17651,145 @@ zayguard.onrender.com | unclaimed | onchain-x402 | 2026-10-29
 zendiq-backend.onrender.com | unclaimed | onchain-x402 | 2026-10-29
 zeuskb.com | unclaimed | onchain-x402 | 2026-10-29
 zoll.halowerk.com | unclaimed | onchain-x402 | 2026-10-29
+
+agent-read-proxy.agent-read-proxy.workers.dev | unclaimed | onchain-x402 | 2026-10-30
+agent-tools-x402.t6y11a.workers.dev | unclaimed | onchain-x402 | 2026-10-30
+agents.avasis.ai | unclaimed | onchain-x402 | 2026-10-30
+agents.modaic.dev | unclaimed | onchain-x402 | 2026-10-30
+agents.vimmerse.net | unclaimed | onchain-x402 | 2026-10-30
+agentsiteaudit.com | unclaimed | onchain-x402 | 2026-10-30
+anibalb.duckdns.org | unclaimed | onchain-x402 | 2026-10-30
+api.bicscan.io | unclaimed | onchain-x402 | 2026-10-30
+api.blackforge.so | unclaimed | onchain-x402 | 2026-10-30
+api.stevensaavedra.com | unclaimed | onchain-x402 | 2026-10-30
+assetfactory-jobs-x402.sigrunner.workers.dev | unclaimed | onchain-x402 | 2026-10-30
+aurelmark.live | unclaimed | onchain-x402 | 2026-10-30
+bridgepilot.onrender.com | unclaimed | onchain-x402 | 2026-10-30
+cashboard.live | unclaimed | onchain-x402 | 2026-10-30
+countcrackula-guide.countcrackula.workers.dev | unclaimed | onchain-x402 | 2026-10-30
+crypto-link-check.nextill-pos.workers.dev | unclaimed | onchain-x402 | 2026-10-30
+data.azeronyx.com | unclaimed | onchain-x402 | 2026-10-30
+dealdocs.genexxis.com | unclaimed | onchain-x402 | 2026-10-30
+edge.goldsky.com | unclaimed | onchain-x402 | 2026-10-30
+es.redtapeapi.com | unclaimed | onchain-x402 | 2026-10-30
+finder.marknetic.co.uk | unclaimed | onchain-x402 | 2026-10-30
+getamber.dev | unclaimed | onchain-x402 | 2026-10-30
+grok-bot-vm-364526197-1.taila3dd0b.ts.net | unclaimed | onchain-x402 | 2026-10-30
+imference.com | unclaimed | onchain-x402 | 2026-10-30
+jpyc.x402jp.com | unclaimed | onchain-x402 | 2026-10-30
+lily.owmini.com | unclaimed | onchain-x402 | 2026-10-30
+merchandise-threshold-crucial-lift.trycloudflare.com | unclaimed | onchain-x402 | 2026-10-30
+mintintel.35-171-220-195.sslip.io | unclaimed | onchain-x402 | 2026-10-30
+mintscope-zrvv.onrender.com | unclaimed | onchain-x402 | 2026-10-30
+mx.redtapeapi.com | unclaimed | onchain-x402 | 2026-10-30
+pearl-valium-stickers-upc.trycloudflare.com | unclaimed | onchain-x402 | 2026-10-30
+pegproof.com | unclaimed | onchain-x402 | 2026-10-30
+premium.35-171-220-195.sslip.io | unclaimed | onchain-x402 | 2026-10-30
+radar-api.rarefrequencyworks.com | unclaimed | onchain-x402 | 2026-10-30
+repo-run-check.nextill-pos.workers.dev | unclaimed | onchain-x402 | 2026-10-30
+rowpocket-csv-rescue.josuegrnds21.chatgpt.site | unclaimed | onchain-x402 | 2026-10-30
+safepay.genexxis.com | unclaimed | onchain-x402 | 2026-10-30
+sweeper-check.nextill-pos.workers.dev | unclaimed | onchain-x402 | 2026-10-30
+tap-c1-claim-checker.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+tap-c2-legal-data.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+tap-c3-viet-data.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+tap-c4-scam-shield.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+tap-c5-form-explainer.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+tap-c6-crawl-guard.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+task-radar-x402.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+test.agentify.ad | unclaimed | onchain-x402 | 2026-10-30
+toll402.io | unclaimed | onchain-x402 | 2026-10-30
+verdict.genexxis.com | unclaimed | onchain-x402 | 2026-10-30
+vibe.node01.org | unclaimed | onchain-x402 | 2026-10-30
+x402-apis-production.up.railway.app | unclaimed | onchain-x402 | 2026-10-30
+x402-convert.arikanuk.workers.dev | unclaimed | onchain-x402 | 2026-10-30
+x402-crediting-swarm.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-filing-digest.ecmforge-cloudflare.workers.dev | unclaimed | onchain-x402 | 2026-10-30
+x402-preflight.nextill-pos.workers.dev | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-arxiv-metadata.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-aviationweather-metar.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-cleveland-art-search.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-clinvar-variant-search.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-crates-io-lookup.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-crossref-funders.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-crossref-journals.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-crossref-members.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-crossref-works.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-crt-sh-ct-lookup.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-dailymed-spl-search.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-data-gouv-datasets.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-datacite-doi-lookup.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-dataeuropa-ds.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-dataverse-dataset-search.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-dictionary-define.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-doaj-articles.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-dryad-datasets.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-encode-search.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-epa-echo-facilities.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-europepmc-search.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-fbi-wanted.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-fda-drug-label.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-federal-register-documents.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-figshare-article-search.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-gutendex-books.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-hn-stories.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-humdata-package-search.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-hypothes-annotations.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-ietf-dt-search.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-inaturalist-taxa-search.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-inspire-authors.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-inspire-journals.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-inspirehep-literature.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-internet-archive-search.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-interpro-entry-search.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-itis-taxonomy-search.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-itunes-search.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-jpl-horizons.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-launch-library-upcoming.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-loc-search.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-mbta-stops.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-metmuseum-collection-search.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-monarch-search.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-musicbrainz-lookup.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-nasa-techport.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-news-brief.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-nih-reporter-lookup.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-nws-alerts-lookup.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-ols-ontology-search.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-openaire-datasets.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-openaire-publications.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-openalex-authors.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-openalex-institutions.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-openalex-sources.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-openalex-works.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-openfda-device-510k.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-openfda-device-event.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-openfda-device-recall.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-openfda-drug-enforcement.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-openfda-drug-event.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-openfda-food-enforcement.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-openfigi-search.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-openlibrary-search.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-openproducts-product-search.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-orcid-lookup.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-osf-nodes-search.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-plos-article-search.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-pride-project-search.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-pubmed-search.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-reactome-pathway-search.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-rhea-reaction-search.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-ror-org-search.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-swpc-space-weather.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-tfl-line-status.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-tfl-stop-search.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-token-price.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-token-risk.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-tvmaze-search.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-tx-status.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-uniprot-protein-lookup.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-usaspending-awards.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-weather-forecast.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-wikidata-entity.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-zenodo-communities.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402-v2-mint-zenodo-record-lookup.vercel.app | unclaimed | onchain-x402 | 2026-10-30
+x402orcle.vercel.app | unclaimed | onchain-x402 | 2026-10-30
