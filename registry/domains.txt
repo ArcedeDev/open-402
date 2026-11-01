@@ -1,7 +1,7 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 18006
-# Total endpoints: 15618
+# Total domains: 18042
+# Total endpoints: 15635
 contract-lens-nano.dev-romanv.chatgpt.site | unclaimed | self | 2026-09-20
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -1947,7 +1947,7 @@ minting-dream.vercel.app | unclaimed | onchain-x402 | 2026-03-23
 compute.aurracloud.com | unclaimed | onchain-x402 | 2026-03-23
 apolloai.team | unclaimed | onchain-x402 | 2026-03-23
 test9999.x420.dev | unclaimed | onchain-x402 | 2026-03-23
-api.obol.sh | verified | onchain-x402 | 2026-03-23
+api.obol.sh | unclaimed | onchain-x402 | 2026-03-23
 x402.api.netmind.ai | unclaimed | onchain-x402 | 2026-03-23
 apipapai.vercel.app | unclaimed | onchain-x402 | 2026-03-23
 bounty5-auditor-production.up.railway.app | unclaimed | onchain-x402 | 2026-03-23
@@ -1960,15 +1960,15 @@ x402.asalvocreative.com | unclaimed | onchain-x402 | 2026-03-23
 api-coo.vercel.app | unclaimed | onchain-x402 | 2026-03-23
 token-safety-oracle-production.up.railway.app | unclaimed | onchain-x402 | 2026-03-23
 twitterapi-x402.vercel.app | unclaimed | onchain-x402 | 2026-03-23
-api.zeroreader.com | verified | onchain-x402 | 2026-03-23
+api.zeroreader.com | unclaimed | onchain-x402 | 2026-03-23
 www.basehub.fun | unclaimed | onchain-x402 | 2026-03-23
-socialintel.dev | verified | onchain-x402 | 2026-03-23
+socialintel.dev | unclaimed | onchain-x402 | 2026-03-23
 x402-ai-gateway.onrender.com | unclaimed | onchain-x402 | 2026-03-23
 transaction-simulator-production.up.railway.app | unclaimed | onchain-x402 | 2026-03-23
-api.prereason.com| verified |onchain-x402|2026-03-23
+api.prereason.com | unclaimed | onchain-x402 | 2026-03-23
 price-oracle-production-9e7c.up.railway.app | unclaimed | onchain-x402 | 2026-03-23
 battleship.nanupanda.com | unclaimed | onchain-x402 | 2026-03-23
-api.syraa.fun | verified | onchain-x402 | 2026-03-23
+api.syraa.fun | unclaimed | onchain-x402 | 2026-03-23
 docconvert-text.melis.ai | unclaimed | onchain-x402 | 2026-03-23
 structextract.melis.ai | unclaimed | onchain-x402 | 2026-03-23
 api.mart.fun | unclaimed | onchain-x402 | 2026-03-23
@@ -1978,8 +1978,8 @@ www.x402rs.fun | unclaimed | onchain-x402 | 2026-03-23
 docconvert-pdf.melis.ai | unclaimed | onchain-x402 | 2026-03-23
 cacheserve.melis.ai | unclaimed | onchain-x402 | 2026-03-23
 x402picker.com | unclaimed | onchain-x402 | 2026-03-23
-crossdex-arbitrage-alert.vercel.app | verified | onchain-x402 | 2026-03-23
-lp-impermanent-loss-estimator-production.up.railway.app | verified | onchain-x402 | 2026-03-23
+crossdex-arbitrage-alert.vercel.app | unclaimed | onchain-x402 | 2026-03-23
+lp-impermanent-loss-estimator-production.up.railway.app | unclaimed | onchain-x402 | 2026-03-23
 402pexel.fun | unclaimed | onchain-x402 | 2026-03-23
 api.voxight.online | unclaimed | onchain-x402 | 2026-03-23
 x402deadpunk.vercel.app | unclaimed | onchain-x402 | 2026-03-23
@@ -2021,9 +2021,9 @@ dogui.vercel.app | unclaimed | onchain-x402 | 2026-03-23
 final-wine-ten.vercel.app | unclaimed | onchain-x402 | 2026-03-23
 x402-sms.reddio.com | unclaimed | onchain-x402 | 2026-03-23
 x402-xapi.onrender.com | unclaimed | onchain-x402 | 2026-03-23
-yield-pool-watcher.vercel.app | verified | onchain-x402 | 2026-03-23
+yield-pool-watcher.vercel.app | unclaimed | onchain-x402 | 2026-03-23
 contract-helper-production.up.railway.app | unclaimed | onchain-x402 | 2026-03-23
-picoads.xyz | verified | onchain-x402 | 2026-03-23
+picoads.xyz | unclaimed | onchain-x402 | 2026-03-23
 tacox-omega.vercel.app | unclaimed | onchain-x402 | 2026-03-23
 server.r1xlabs.com | unclaimed | onchain-x402 | 2026-03-23
 babydoge.x420.dev | unclaimed | onchain-x402 | 2026-03-23
@@ -2085,7 +2085,7 @@ ship.frego.ai | unclaimed | onchain-x402 | 2026-03-23
 x402orangapes.vercel.app | unclaimed | onchain-x402 | 2026-03-23
 x402.wach.ai | unclaimed | onchain-x402 | 2026-03-23
 reap.deals | unclaimed | onchain-x402 | 2026-03-23
-api.cheapestinference.com | verified | onchain-x402 | 2026-03-23
+api.cheapestinference.com | unclaimed | onchain-x402 | 2026-03-23
 daydreams.ecliptic.gg | unclaimed | onchain-x402 | 2026-03-23
 n8n.1shotapi.dev | unclaimed | onchain-x402 | 2026-03-23
 market.dexfra.fun | unclaimed | onchain-x402 | 2026-03-23
@@ -2111,7 +2111,7 @@ lfg.x420.dev | unclaimed | onchain-x402 | 2026-03-23
 mamdani.x420.dev | unclaimed | onchain-x402 | 2026-03-23
 onefaith.x420.dev | unclaimed | onchain-x402 | 2026-03-23
 x402.anyspend.com | unclaimed | onchain-x402 | 2026-03-23
-brookerbot-production.up.railway.app | verified | onchain-x402 | 2026-03-23
+brookerbot-production.up.railway.app | unclaimed | onchain-x402 | 2026-03-23
 pulseapi-production-4a4b.up.railway.app | unclaimed | onchain-x402 | 2026-03-23
 agent-dark-pool-proxy-production.up.railway.app | unclaimed | onchain-x402 | 2026-03-23
 ginger-uncondoning-lashaunda.ngrok-free.dev | unclaimed | onchain-x402 | 2026-03-23
@@ -2119,7 +2119,7 @@ ore402.fun | unclaimed | onchain-x402 | 2026-03-23
 elizawakesup.ai | unclaimed | onchain-x402 | 2026-03-23
 x402-twitter-xapi.onrender.com | unclaimed | onchain-x402 | 2026-03-23
 irc.x420.dev | unclaimed | onchain-x402 | 2026-03-23
-rng.spinnin.top | verified | onchain-x402 | 2026-03-23
+rng.spinnin.top | unclaimed | onchain-x402 | 2026-03-23
 poop.x420.dev | unclaimed | onchain-x402 | 2026-03-23
 x402y00ts.vercel.app | unclaimed | onchain-x402 | 2026-03-23
 kum.x420.dev | unclaimed | onchain-x402 | 2026-03-23
@@ -2156,17 +2156,17 @@ api.example.com | unclaimed | onchain-x402 | 2026-03-23
 www.x420.dev | unclaimed | onchain-x402 | 2026-03-23
 api.ai402.fun | unclaimed | onchain-x402 | 2026-03-23
 hardx402.vercel.app | unclaimed | onchain-x402 | 2026-03-23
-www.agenttax.io | verified | onchain-x402 | 2026-03-23
+www.agenttax.io | unclaimed | onchain-x402 | 2026-03-23
 coc-shop.fawesome-hypercasual.workers.dev | unclaimed | onchain-x402 | 2026-03-23
 api.contextsignal.ai | unclaimed | onchain-x402 | 2026-03-23
 www.minifetch.com | unclaimed | onchain-x402 | 2026-03-23
 www.garrett-berg.com | unclaimed | onchain-x402 | 2026-03-23
-www.pawr.link | verified | onchain-x402 | 2026-03-23
+www.pawr.link | unclaimed | onchain-x402 | 2026-03-23
 www.plush.fun | unclaimed | onchain-x402 | 2026-03-23
 www.l402apps.com | unclaimed | onchain-l402 | 2026-03-23
 www.ganamos.earth | unclaimed | onchain-l402 | 2026-03-23
 api.search1api.com | unclaimed | onchain-mpp | 2026-03-23
-arcede.com | verified | submit | 2026-03-23
+arcede.com | unclaimed | submit | 2026-03-23
 ponzi402.com | unclaimed | onchain-x402 | 2026-03-23
 minimyths.xyz | unclaimed | onchain-x402 | 2026-03-23
 internetobserver.fun | unclaimed | onchain-x402 | 2026-03-23
@@ -2191,11 +2191,11 @@ claw402.win | unclaimed | onchain-x402 | 2026-03-23
 slotx402.fun | unclaimed | onchain-x402 | 2026-03-23
 800402.tech | unclaimed | onchain-x402 | 2026-03-23
 bingx402.com | unclaimed | onchain-x402 | 2026-03-23
-payperlink.xyz | verified | onchain-x402 | 2026-03-23
+payperlink.xyz | unclaimed | onchain-x402 | 2026-03-23
 avav.online | unclaimed | onchain-x402 | 2026-03-23
 x402punks.wtf | unclaimed | onchain-x402 | 2026-03-23
 x402nexus.xyz | unclaimed | onchain-x402 | 2026-03-23
-app.suedeai.xyz | verified | onchain-x402 | 2026-03-23
+app.suedeai.xyz | unclaimed | onchain-x402 | 2026-03-23
 x402launch.app | unclaimed | onchain-x402 | 2026-03-23
 x402life.com | unclaimed | onchain-x402 | 2026-03-23
 penny.tech | unclaimed | onchain-x402 | 2026-03-23
@@ -2233,7 +2233,7 @@ alphavantage.co | unclaimed | onchain-mpp | 2026-03-25
 api.thoughtproof.ai | unclaimed | onchain-x402 | 2026-03-25
 apollo.io | unclaimed | onchain-mpp | 2026-03-25
 brave.com | unclaimed | onchain-mpp | 2026-03-25
-builtwith.com | verified | onchain-mpp | 2026-03-25
+builtwith.com | unclaimed | onchain-mpp | 2026-03-25
 clado.ai | unclaimed | onchain-mpp | 2026-03-25
 coingecko.com | unclaimed | onchain-mpp | 2026-03-25
 deepgram.com | unclaimed | onchain-mpp | 2026-03-25
@@ -2258,7 +2258,7 @@ screenshotone.com | unclaimed | onchain-mpp | 2026-03-25
 sec.gov | unclaimed | onchain-mpp | 2026-03-25
 stability.ai | unclaimed | onchain-mpp | 2026-03-25
 sunoapi.org | unclaimed | onchain-mpp | 2026-03-25
-tavily.com | verified | onchain-mpp | 2026-03-25
+tavily.com | unclaimed | onchain-mpp | 2026-03-25
 wolframalpha.com | unclaimed | onchain-mpp | 2026-03-25
 x.ai | unclaimed | onchain-mpp | 2026-03-25
 x.com | unclaimed | onchain-mpp | 2026-03-25
@@ -2266,7 +2266,7 @@ api.agentsconsultants.com | unclaimed | onchain-x402 | 2026-03-26
 app.maiat.io | unclaimed | onchain-x402 | 2026-03-26
 pay.bnbot.ai | unclaimed | onchain-x402 | 2026-03-26
 pay.clawmoney.ai | unclaimed | onchain-x402 | 2026-03-26
-pragma.trading | verified | onchain-x402 | 2026-03-26
+pragma.trading | unclaimed | onchain-x402 | 2026-03-26
 roast.monapi.dev | unclaimed | onchain-x402 | 2026-03-26
 semagram.io | unclaimed | onchain-x402 | 2026-03-26
 surf.cascade.fyi | unclaimed | onchain-x402 | 2026-03-26
@@ -2274,12 +2274,12 @@ tokensafe-production.up.railway.app | unclaimed | onchain-x402 | 2026-03-26
 aeo.convrgent.ai | unclaimed | onchain-x402 | 2026-03-27
 api.web3identity.com | unclaimed | onchain-x402 | 2026-03-27
 deepbluebase.xyz | unclaimed | onchain-x402 | 2026-03-27
-headlessoracle.com | verified | onchain-x402 | 2026-03-27
+headlessoracle.com | unclaimed | onchain-x402 | 2026-03-27
 hyperdope.com | unclaimed | onchain-l402 | 2026-03-27
 q-api.quotient.social | unclaimed | onchain-x402 | 2026-03-27
 unhuman.shopping | unclaimed | onchain-l402 | 2026-03-27
 ovz5i27at6cjnfz2mhenkhsxqgwjh4rpkyju5ctr6xgju2hdklsfbpqd.onion | unclaimed | onchain-l402 | 2026-03-28
-x402.clashofcoins.com | verified | onchain-x402 | 2026-03-28
+x402.clashofcoins.com | unclaimed | onchain-x402 | 2026-03-28
 x402ai.vercel.app | unclaimed | onchain-x402 | 2026-03-28
 ca3b1476dc28f4.lhr.life | unclaimed | onchain-l402 | 2026-03-29
 d7c48175b848df.lhr.life | unclaimed | onchain-l402 | 2026-03-29
@@ -2331,7 +2331,7 @@ api-staging.imgzen.dev | unclaimed | onchain-x402 | 2026-04-04
 api.bitcoinbenji.com | unclaimed | onchain-l402 | 2026-04-04
 api.imgzen.dev | unclaimed | onchain-x402 | 2026-04-04
 image-gen-x402-api.token-unlocks-x402.workers.dev | unclaimed | onchain-x402 | 2026-04-04
-lightningprox.com | verified | onchain-l402 | 2026-04-04
+lightningprox.com | unclaimed | onchain-l402 | 2026-04-04
 mail.cusethejuice.com | unclaimed | onchain-x402 | 2026-04-04
 mpp.hyreagent.fun | unclaimed | onchain-x402 | 2026-04-04
 scan.convrgent.ai | unclaimed | onchain-x402 | 2026-04-04
@@ -2342,9 +2342,9 @@ api.aitrencher.xyz | unclaimed | onchain-x402 | 2026-04-05
 api.bitfence.ai | unclaimed | onchain-x402 | 2026-04-05
 api.signalfuse.co | unclaimed | onchain-x402 | 2026-04-05
 api.smartflowproai.com | unclaimed | onchain-x402 | 2026-04-05
-merx.exchange | verified | onchain-x402 | 2026-04-05
+merx.exchange | unclaimed | onchain-x402 | 2026-04-05
 orni-models-api.onrender.com | unclaimed | onchain-x402 | 2026-04-05
-pqs.onchainintel.net | verified | onchain-x402 | 2026-04-05
+pqs.onchainintel.net | unclaimed | onchain-x402 | 2026-04-05
 test.x402labs.sh | unclaimed | onchain-x402 | 2026-04-05
 agentic-reservations.vercel.app | unclaimed | onchain-x402 | 2026-04-06
 api.arsweep.fun | unclaimed | onchain-x402 | 2026-04-06
@@ -17839,7 +17839,7 @@ natural-date-parse.x402supply.com | unclaimed | onchain-x402 | 2026-10-31
 northline-webkit.northline-c86.workers.dev | unclaimed | onchain-x402 | 2026-10-31
 omni-x402-integrity.azzbackwardz01.chatgpt.site | unclaimed | onchain-x402 | 2026-10-31
 onlinewebdirectory.net | unclaimed | onchain-x402 | 2026-10-31
-port-402-production.up.railway.app | unclaimed | onchain-x402 | 2026-10-31
+port-402-production.up.railway.app | verified | onchain-x402 | 2026-10-31
 postcache.dev | unclaimed | onchain-x402 | 2026-10-31
 rasbery-pi-4-2gb.tail15a9c9.ts.net | unclaimed | onchain-x402 | 2026-10-31
 receipt.schemasure.com | unclaimed | onchain-x402 | 2026-10-31
@@ -18043,3 +18043,40 @@ x402-v2-mint-worldpop-population.vercel.app | unclaimed | onchain-x402 | 2026-10
 x402-v2-mint-worms-aphia-lookup.vercel.app | unclaimed | onchain-x402 | 2026-10-31
 x402-v2-mint-ygoprodeck-card.vercel.app | unclaimed | onchain-x402 | 2026-10-31
 x402-v2-mint-zip-code-lookup.vercel.app | unclaimed | onchain-x402 | 2026-10-31
+
+afraid-butterfly-5236.obtranzat.deno.net | unclaimed | onchain-x402 | 2026-11-01
+aniccaai.com | unclaimed | onchain-x402 | 2026-11-01
+api.aotrust.link | unclaimed | onchain-x402 | 2026-11-01
+api.exepal.com | unclaimed | onchain-x402 | 2026-11-01
+api.gloom.sh | unclaimed | onchain-x402 | 2026-11-01
+api.koinelix.com | unclaimed | onchain-x402 | 2026-11-01
+api.turniup.site | unclaimed | onchain-x402 | 2026-11-01
+arabic-x402-api-base.motaz-crypto.workers.dev | unclaimed | onchain-x402 | 2026-11-01
+ari-tools.bonto.run | unclaimed | onchain-x402 | 2026-11-01
+avocado-read-api.a-347.workers.dev | unclaimed | onchain-x402 | 2026-11-01
+botkora.com | unclaimed | onchain-x402 | 2026-11-01
+even-institute-regional-replied.trycloudflare.com | unclaimed | onchain-x402 | 2026-11-01
+fixledger-iota.vercel.app | unclaimed | onchain-x402 | 2026-11-01
+flinttech-x402.onrender.com | unclaimed | onchain-x402 | 2026-11-01
+ghost77-agent.onrender.com | unclaimed | onchain-x402 | 2026-11-01
+guard.facts402.com | unclaimed | onchain-x402 | 2026-11-01
+hyperfusion.x402.press | unclaimed | onchain-x402 | 2026-11-01
+lacuna.mergeinc.workers.dev | unclaimed | onchain-x402 | 2026-11-01
+minty-sprout.onrender.com | unclaimed | onchain-x402 | 2026-11-01
+phone-intel-mcp.fly.dev | unclaimed | onchain-x402 | 2026-11-01
+pjm-weather-production.up.railway.app | unclaimed | onchain-x402 | 2026-11-01
+pulse.facts402.com | unclaimed | onchain-x402 | 2026-11-01
+scanpay-edge.alextaghiashvili.workers.dev | unclaimed | onchain-x402 | 2026-11-01
+shield.aotrust.link | unclaimed | onchain-x402 | 2026-11-01
+signals.facts402.com | unclaimed | onchain-x402 | 2026-11-01
+toolmint-dep-migration.toolmint.workers.dev | unclaimed | onchain-x402 | 2026-11-01
+toolmint-federal-register-json.toolmint.workers.dev | unclaimed | onchain-x402 | 2026-11-01
+toolmint-mcp-skill-scanner.toolmint.workers.dev | unclaimed | onchain-x402 | 2026-11-01
+toolmint-nws-alerts.toolmint.workers.dev | unclaimed | onchain-x402 | 2026-11-01
+toolmint-openapi-normalize.toolmint.workers.dev | unclaimed | onchain-x402 | 2026-11-01
+toolmint-pkg-trust.toolmint.workers.dev | unclaimed | onchain-x402 | 2026-11-01
+tools.landingen24h.com | unclaimed | onchain-x402 | 2026-11-01
+truevaluerankings.com | unclaimed | onchain-x402 | 2026-11-01
+watch.facts402.com | unclaimed | onchain-x402 | 2026-11-01
+x402.james.bot | unclaimed | onchain-x402 | 2026-11-01
+x402check.dev | unclaimed | onchain-x402 | 2026-11-01
