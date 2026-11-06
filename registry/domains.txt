@@ -18296,3 +18296,4 @@ work-1-mbagwhmoyaqtbyvu.prod-runtime.all-hands.dev | unclaimed | onchain-x402 | 
 x402-gateway.forge-x402.workers.dev | unclaimed | onchain-x402 | 2026-11-05
 x402-settlement-auditor.onrender.com | unclaimed | onchain-x402 | 2026-11-05
 x402.gennius.one | unclaimed | onchain-x402 | 2026-11-05
+changefeed.dev | verified | self | 2026-11-05
