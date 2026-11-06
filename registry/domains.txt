@@ -18352,3 +18352,4 @@ vellum-trials.grok.me | unclaimed | onchain-x402 | 2026-11-06
 vellum.totemworks.workers.dev | unclaimed | onchain-x402 | 2026-11-06
 wxdta-37-255-229-96.run.pinggy-free.link | unclaimed | onchain-x402 | 2026-11-06
 x402-kit-demo-seller.onrender.com | unclaimed | onchain-x402 | 2026-11-06
+nightshift-x402.nightshift-labs.workers.dev | verified | self | 2026-11-06
