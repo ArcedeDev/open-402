@@ -19,9 +19,10 @@ provider-declared `x402` / `nano:mainnet` / `XNO` metadata is retained.
 
 ## What it does not show
 
-- It is provider-declared metadata only. The claim built from it is
-  `unsupported` with no verification method and no evidence, because the
-  independent verifier supports x402/Base/USDC only.
+- It is provider-declared metadata only. The claim built from it is `pending`
+  with no verification method and no evidence until the Nano activity scan
+  (`scripts/watchers/nano-verifier.ts`) has read the declared account; the scan
+  reports activity on that account, not settlement of any request.
 - It does not show that any payment was made, that the domain controls the
   declared account, or that any API request was settled.
 - It does not standardise Nano as an HTTP payment protocol.

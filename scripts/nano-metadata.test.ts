@@ -41,7 +41,7 @@ test("real provider manifest declaring nano:mainnet/XNO passes manifest validati
   });
 });
 
-test("provider-declared Nano metadata survives claim building as an unsupported claim", () => {
+test("provider-declared Nano metadata survives claim building as a pending claim with no evidence", () => {
   const manifest = load();
   const claims = buildManifestClaims(manifest, "2026-10-04", "2026-10-04T02:35:43.000Z");
   assert.equal(claims.length, 1);
@@ -55,11 +55,11 @@ test("provider-declared Nano metadata survives claim building as an unsupported 
     confidence: "authoritative",
     first_seen: "2026-10-04",
     last_seen: "2026-10-04T02:35:43.000Z",
-    verification_state: "unsupported",
+    verification_state: "pending",
     verification_method: null,
     evidence: null,
   });
-  assert.equal(isVerifierSupported(claims[0].protocol, claims[0].network, claims[0].asset), false);
+  assert.equal(isVerifierSupported(claims[0].protocol, claims[0].network, claims[0].asset), true);
 });
 
 test("provider-declared Nano metadata survives indexing without any verification evidence", async () => {
@@ -75,7 +75,8 @@ test("provider-declared Nano metadata survives indexing without any verification
   const records = seedAddressVerifications(entry.claims, new Map());
   const { claims, verification } = materializeEntryVerification(entry.claims, records, new Map());
   assert.equal(claims.length, 1);
-  assert.equal(claims[0].verification_state, "unsupported");
+  // Declared and waiting for the Nano activity scan: no state beyond pending, no evidence.
+  assert.equal(claims[0].verification_state, "pending");
   assert.equal(claims[0].verification_method, null);
   assert.equal(claims[0].evidence, null);
   assert.equal(verification.domain_state, "authoritative_unverified");
@@ -84,7 +85,7 @@ test("provider-declared Nano metadata survives indexing without any verification
   assert.equal(stats.domains_with_authoritative_claims, 1);
   assert.equal(stats.domains_with_verified_claims, 0);
   assert.equal(stats.verified_addresses, 0);
-  assert.equal(stats.unsupported_claims, 1);
+  assert.equal(stats.unsupported_claims, 0);
 });
 
 test("Nano manifest without a payout address fails validation and builds no claim", async () => {

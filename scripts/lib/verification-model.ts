@@ -10,7 +10,11 @@ export type VerificationState =
   | "unsupported"
   | "invalid"
   | "incomplete";
-export type VerificationMethod = "base_usdc_transfer_scan" | "watcher_observation" | null;
+export type VerificationMethod =
+  | "base_usdc_transfer_scan"
+  | "nano_account_receive_scan"
+  | "watcher_observation"
+  | null;
 export type DomainVerificationState =
   | "authoritative_verified"
   | "authoritative_unverified"
@@ -89,6 +93,8 @@ export interface EntryLike {
 const SUPPORTED_PROTOCOL = "x402";
 const SUPPORTED_NETWORK = "base";
 const SUPPORTED_ASSET = "USDC";
+const NANO_NETWORK = "nano:mainnet";
+const NANO_ASSET = "XNO";
 
 const BLOCKED_EVM_ADDRESSES = new Set([
   "0x0000000000000000000000000000000000000000",
@@ -124,10 +130,40 @@ export function isValidEvmAddress(address: string): boolean {
   return /^0x[a-fA-F0-9]{40}$/.test(address) && !BLOCKED_EVM_ADDRESSES.has(address.toLowerCase());
 }
 
-export function isVerifierSupported(protocol: string, network: string, asset: string): boolean {
+/**
+ * A Nano account is `nano_` (or the legacy `xrb_`) plus 60 base32 characters, the first 52 of
+ * which are the public key (so the first is 1 or 3) and the last 8 a checksum. This is the shape
+ * only: the node verifies the checksum when asked about the account ("Bad account number").
+ * The all-zero key (burn account) is refused.
+ */
+const NANO_ADDRESS_SHAPE = /^(?:nano|xrb)_[13][13456789abcdefghijkmnopqrstuwxyz]{59}$/;
+const BLOCKED_NANO_ADDRESSES = new Set(["nano_1111111111111111111111111111111111111111111111111111hifc8npp"]);
+
+export function isValidNanoAddress(address: string): boolean {
+  if (!NANO_ADDRESS_SHAPE.test(address)) return false;
+  return !BLOCKED_NANO_ADDRESSES.has(`nano_${address.slice(address.indexOf("_") + 1)}`);
+}
+
+export function isNanoClaim(protocol: string, network: string, asset: string): boolean {
   return normalizeProtocol(protocol) === SUPPORTED_PROTOCOL
+    && normalizeNetwork(network) === NANO_NETWORK
+    && normalizeAsset(asset) === NANO_ASSET;
+}
+
+export function isVerifierSupported(protocol: string, network: string, asset: string): boolean {
+  return (normalizeProtocol(protocol) === SUPPORTED_PROTOCOL
     && normalizeNetwork(network) === SUPPORTED_NETWORK
-    && normalizeAsset(asset) === SUPPORTED_ASSET;
+    && normalizeAsset(asset) === SUPPORTED_ASSET)
+    || isNanoClaim(protocol, network, asset);
+}
+
+/** Whether `address` has the shape this claim's verifier can look up. */
+export function isValidClaimAddress(
+  claim: Pick<Claim, "protocol" | "network" | "asset" | "address">
+): boolean {
+  return isNanoClaim(claim.protocol, claim.network, claim.asset)
+    ? isValidNanoAddress(claim.address)
+    : isValidEvmAddress(claim.address);
 }
 
 export function claimKey(claim: Pick<Claim, "protocol" | "network" | "asset" | "address" | "claim_source">): string {
@@ -173,7 +209,7 @@ function baseClaim(
   }
 
   if (isVerifierSupported(claim.protocol, claim.network, claim.asset)) {
-    claim.verification_state = isValidEvmAddress(claim.address) ? "pending" : "invalid";
+    claim.verification_state = isValidClaimAddress(claim) ? "pending" : "invalid";
     return claim;
   }
 
@@ -318,7 +354,9 @@ export function buildLegacyClaimsFromEntry(entry: {
 
   if (entry.onchain) {
     claim.verification_state = entry.onchain.verified ? "verified" : "unverified";
-    claim.verification_method = isVerifierSupported(protocol, network, asset) ? "base_usdc_transfer_scan" : null;
+    claim.verification_method = isNanoClaim(protocol, network, asset)
+      ? "nano_account_receive_scan"
+      : isVerifierSupported(protocol, network, asset) ? "base_usdc_transfer_scan" : null;
     claim.evidence = entry.onchain.verified ? {
       tx_count: entry.onchain.total_transactions,
       volume_usd: entry.onchain.total_volume_usdc,
