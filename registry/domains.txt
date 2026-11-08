@@ -18384,3 +18384,4 @@ tools.orchardshop.xyz | unclaimed | onchain-x402 | 2026-11-07
 ujcsj-37-255-229-96.free.pinggy.net | unclaimed | onchain-x402 | 2026-11-07
 vigilant-nourishment-production.up.railway.app | unclaimed | onchain-x402 | 2026-11-07
 x402-agent-api-production.up.railway.app | unclaimed | onchain-x402 | 2026-11-07
+agents.writerslogic.com | verified | self | 2026-11-07
