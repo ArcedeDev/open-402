@@ -1,7 +1,7 @@
 # Open 402 Directory — Registry of known domains
 # Format: domain | status | source | added_date
-# Total domains: 18340
-# Total endpoints: 15875
+# Total domains: 18380
+# Total endpoints: 15909
 contract-lens-nano.dev-romanv.chatgpt.site | unclaimed | self | 2026-09-20
 agentinternetruntime.com | verified | self | 2026-03-23
 lowpaymentfee.com | unclaimed | 402index | 2026-03-23
@@ -3428,7 +3428,7 @@ stable-travel-git-migrate-stabletravel-router-140-merit-systems.vercel.app | unc
 stableapify.dev | unclaimed | onchain-x402 | 2026-06-09
 stablebrowser.vercel.app | unclaimed | onchain-x402 | 2026-06-09
 stableprint.dev | unclaimed | onchain-x402 | 2026-06-09
-staging.agenticinsights.com | verified | onchain-x402 | 2026-06-09
+staging.agenticinsights.com | unclaimed | onchain-x402 | 2026-06-09
 stake.lonestaroracle.xyz | unclaimed | onchain-x402 | 2026-06-09
 stateedge.vercel.app | unclaimed | onchain-x402 | 2026-06-09
 stock-price.api.klymax402.com | unclaimed | onchain-x402 | 2026-06-09
@@ -3622,7 +3622,7 @@ xytara-mcp-executor.onrender.com | unclaimed | onchain-x402 | 2026-06-17
 agent-bazaar-five.vercel.app | unclaimed | onchain-x402 | 2026-06-18
 agentfeed.up.railway.app | unclaimed | onchain-x402 | 2026-06-18
 apexrunner.ai | unclaimed | onchain-x402 | 2026-06-18
-api.402.coffee | verified | onchain-x402 | 2026-06-18
+api.402.coffee | unclaimed | onchain-x402 | 2026-06-18
 api.omniboard.pro | unclaimed | onchain-x402 | 2026-06-18
 api.solvela.ai | unclaimed | onchain-x402 | 2026-06-18
 cryptojp.com | unclaimed | onchain-x402 | 2026-06-18
@@ -3672,7 +3672,7 @@ cccstudios.vercel.app | unclaimed | onchain-x402 | 2026-06-20
 cryptolens-rosy.vercel.app | unclaimed | onchain-x402 | 2026-06-20
 data-vault-zeta.vercel.app | unclaimed | onchain-x402 | 2026-06-20
 datavaultzeta.vercel.app | unclaimed | onchain-x402 | 2026-06-20
-hermesplant.com | verified | onchain-x402 | 2026-06-20
+hermesplant.com | unclaimed | onchain-x402 | 2026-06-20
 inkbox402.netlify.app | unclaimed | onchain-x402 | 2026-06-20
 inkboxx402.netlify.app | unclaimed | onchain-x402 | 2026-06-20
 inkinbox402.netlify.app | unclaimed | onchain-x402 | 2026-06-20
@@ -3700,7 +3700,7 @@ zetavault.vercel.app | unclaimed | onchain-x402 | 2026-06-20
 402inkbased.netlify.app | unclaimed | onchain-x402 | 2026-06-21
 402xaimomo.vercel.app | unclaimed | onchain-x402 | 2026-06-21
 69.67.172.228.sslip.io | unclaimed | onchain-x402 | 2026-06-21
-agent-paid-resource-control.onrender.com | verified | onchain-x402 | 2026-06-21
+agent-paid-resource-control.onrender.com | unclaimed | onchain-x402 | 2026-06-21
 agentink.netlify.app | unclaimed | onchain-x402 | 2026-06-21
 aiaxon402.vercel.app | unclaimed | onchain-x402 | 2026-06-21
 api-orbonomy.vercel.app | unclaimed | onchain-x402 | 2026-06-21
@@ -3717,7 +3717,7 @@ orbonomy-xyz.vercel.app | unclaimed | onchain-x402 | 2026-06-21
 orbonomy.vercel.app | unclaimed | onchain-x402 | 2026-06-21
 orbonomy.xyz | unclaimed | onchain-x402 | 2026-06-21
 scrape402.xyz | unclaimed | onchain-x402 | 2026-06-21
-statepulse-api.hahavoid0.workers.dev | verified | onchain-x402 | 2026-06-21
+statepulse-api.hahavoid0.workers.dev | unclaimed | onchain-x402 | 2026-06-21
 stay402.vercel.app | unclaimed | onchain-x402 | 2026-06-21
 veritas-theta-lilac.vercel.app | unclaimed | onchain-x402 | 2026-06-21
 veritas.orbonomy.xyz | unclaimed | onchain-x402 | 2026-06-21
@@ -3734,9 +3734,9 @@ zetdatavault.vercel.app | unclaimed | onchain-x402 | 2026-06-21
 411data.io | unclaimed | onchain-x402 | 2026-06-22
 agent402-production.up.railway.app | unclaimed | onchain-x402 | 2026-06-22
 agent402.tools | unclaimed | onchain-x402 | 2026-06-22
-agentlair.dev | verified | onchain-x402 | 2026-06-22
-agents.chain.link | verified | onchain-x402 | 2026-06-22
-agentstack-research-3bnlllaboa-ts.a.run.app | verified | onchain-x402 | 2026-06-22
+agentlair.dev | unclaimed | onchain-x402 | 2026-06-22
+agents.chain.link | unclaimed | onchain-x402 | 2026-06-22
+agentstack-research-3bnlllaboa-ts.a.run.app | unclaimed | onchain-x402 | 2026-06-22
 android.bip-rep.com | unclaimed | onchain-x402 | 2026-06-22
 api.defibase.us | unclaimed | onchain-x402 | 2026-06-22
 api.dyor.network | unclaimed | onchain-x402 | 2026-06-22
@@ -3758,13 +3758,13 @@ base-agent-preflight.bytoken2023.workers.dev | unclaimed | onchain-x402 | 2026-0
 base-bookvs-movie.vercel.app | unclaimed | onchain-x402 | 2026-06-22
 blastinkx402.netlify.app | unclaimed | onchain-x402 | 2026-06-22
 bolt.orbonomy.xyz | unclaimed | onchain-x402 | 2026-06-22
-brain.zugabot.ai | verified | onchain-x402 | 2026-06-22
+brain.zugabot.ai | unclaimed | onchain-x402 | 2026-06-22
 canon.orbonomy.xyz | unclaimed | onchain-x402 | 2026-06-22
 convert.bip-rep.com | unclaimed | onchain-x402 | 2026-06-22
 crawol.vercel.app | unclaimed | onchain-x402 | 2026-06-22
 crawoul.vercel.app | unclaimed | onchain-x402 | 2026-06-22
 cron.bip-rep.com | unclaimed | onchain-x402 | 2026-06-22
-decide.memoryapi.org | verified | onchain-x402 | 2026-06-22
+decide.memoryapi.org | unclaimed | onchain-x402 | 2026-06-22
 deepseek.x402.press | unclaimed | onchain-x402 | 2026-06-22
 dns-whois-lookup.underscoredone.com | unclaimed | onchain-x402 | 2026-06-22
 donotact.com | unclaimed | onchain-x402 | 2026-06-22
@@ -3790,7 +3790,7 @@ listing-roast-x402-service-production.up.railway.app | unclaimed | onchain-x402 
 locus.report | unclaimed | onchain-x402 | 2026-06-22
 marine.x402.press | unclaimed | onchain-x402 | 2026-06-22
 mortgage-amortization.underscoredone.com | unclaimed | onchain-x402 | 2026-06-22
-netintel.dev | verified | onchain-x402 | 2026-06-22
+netintel.dev | unclaimed | onchain-x402 | 2026-06-22
 nft-alpha-x402.fly.dev | unclaimed | onchain-x402 | 2026-06-22
 og.bip-rep.com | unclaimed | onchain-x402 | 2026-06-22
 oi.lonestaroracle.xyz | unclaimed | onchain-x402 | 2026-06-22
@@ -3817,7 +3817,7 @@ api.getanyapi.com | unclaimed | onchain-x402 | 2026-06-23
 cassandra.dropwatchhq.com | unclaimed | onchain-x402 | 2026-06-23
 chain-data-mcp.vercel.app | unclaimed | onchain-x402 | 2026-06-23
 chain-data-xi.vercel.app | unclaimed | onchain-x402 | 2026-06-23
-clinicalintelpulse.vercel.app | verified | onchain-x402 | 2026-06-23
+clinicalintelpulse.vercel.app | unclaimed | onchain-x402 | 2026-06-23
 contract-auditor-ivory.vercel.app | unclaimed | onchain-x402 | 2026-06-23
 contract-auditor-mcp.vercel.app | unclaimed | onchain-x402 | 2026-06-23
 coverage.dropwatchhq.com | unclaimed | onchain-x402 | 2026-06-23
@@ -3864,8 +3864,8 @@ x402-trading-hub.vercel.app | unclaimed | onchain-x402 | 2026-06-23
 168.231.82.195.sslip.io | unclaimed | onchain-x402 | 2026-06-24
 1nk30x402.netlify.app | unclaimed | onchain-x402 | 2026-06-24
 402stay.orbonomy.xyz | unclaimed | onchain-x402 | 2026-06-24
-address-intel.3ainewzealand.workers.dev | verified | onchain-x402 | 2026-06-24
-agents.daedalusdevelopmentgroup.com | verified | onchain-x402 | 2026-06-24
+address-intel.3ainewzealand.workers.dev | unclaimed | onchain-x402 | 2026-06-24
+agents.daedalusdevelopmentgroup.com | unclaimed | onchain-x402 | 2026-06-24
 agents.freederia.com | unclaimed | onchain-x402 | 2026-06-24
 alpha-scout.arianeuraltrader.com | unclaimed | onchain-x402 | 2026-06-24
 alphack.vercel.app | unclaimed | onchain-x402 | 2026-06-24
@@ -3883,19 +3883,19 @@ cr4vvol.vercel.app | unclaimed | onchain-x402 | 2026-06-24
 crypto-intel-mcp-production.up.railway.app | unclaimed | onchain-x402 | 2026-06-24
 cyber-intel-mcp-production.up.railway.app | unclaimed | onchain-x402 | 2026-06-24
 defi-oracle-two.vercel.app | unclaimed | onchain-x402 | 2026-06-24
-econsignalpulse.vercel.app | verified | onchain-x402 | 2026-06-24
+econsignalpulse.vercel.app | unclaimed | onchain-x402 | 2026-06-24
 email-verify-seven.vercel.app | unclaimed | onchain-x402 | 2026-06-24
 engedi.digi-life17.workers.dev | unclaimed | onchain-x402 | 2026-06-24
 feeler.man-o-to.net | unclaimed | onchain-x402 | 2026-06-24
-fieldpulse-tan.vercel.app | verified | onchain-x402 | 2026-06-24
+fieldpulse-tan.vercel.app | unclaimed | onchain-x402 | 2026-06-24
 financial-signals-mcp-production.up.railway.app | unclaimed | onchain-x402 | 2026-06-24
-footballpulse-six.vercel.app | verified | onchain-x402 | 2026-06-24
+footballpulse-six.vercel.app | unclaimed | onchain-x402 | 2026-06-24
 foundrynet-inference-production.up.railway.app | unclaimed | onchain-x402 | 2026-06-24
 fx402.alogos.xyz | unclaimed | onchain-x402 | 2026-06-24
-gamepulse-zeta.vercel.app | verified | onchain-x402 | 2026-06-24
-geopoliticalpulse.vercel.app | verified | onchain-x402 | 2026-06-24
+gamepulse-zeta.vercel.app | unclaimed | onchain-x402 | 2026-06-24
+geopoliticalpulse.vercel.app | unclaimed | onchain-x402 | 2026-06-24
 govspendpulse.vercel.app | unclaimed | onchain-x402 | 2026-06-24
-herbapulse.vercel.app | verified | onchain-x402 | 2026-06-24
+herbapulse.vercel.app | unclaimed | onchain-x402 | 2026-06-24
 inkonbox.netlify.app | unclaimed | onchain-x402 | 2026-06-24
 kidnapi.vercel.app | unclaimed | onchain-x402 | 2026-06-24
 lanskap.vercel.app | unclaimed | onchain-x402 | 2026-06-24
@@ -3908,7 +3908,7 @@ novav2.orbonomy.xyz | unclaimed | onchain-x402 | 2026-06-24
 numproof.com | unclaimed | onchain-x402 | 2026-06-24
 readx.sh | unclaimed | onchain-x402 | 2026-06-24
 reentrancy-oracle.vercel.app | unclaimed | onchain-x402 | 2026-06-24
-regwatch.hergertsynthora.com | verified | onchain-x402 | 2026-06-24
+regwatch.hergertsynthora.com | unclaimed | onchain-x402 | 2026-06-24
 roamv2.orbonomy.xyz | unclaimed | onchain-x402 | 2026-06-24
 rost3r-v0.orbonomy.xyz | unclaimed | onchain-x402 | 2026-06-24
 rost3r.orbonomy.xyz | unclaimed | onchain-x402 | 2026-06-24
@@ -3971,7 +3971,7 @@ macrolens-kohl-omega.vercel.app | unclaimed | onchain-x402 | 2026-06-25
 macrolenss.vercel.app | unclaimed | onchain-x402 | 2026-06-25
 macrows-lenss.vercel.app | unclaimed | onchain-x402 | 2026-06-25
 main.orbonomy.xyz | unclaimed | onchain-x402 | 2026-06-25
-midax402.onrender.com | verified | onchain-x402 | 2026-06-25
+midax402.onrender.com | unclaimed | onchain-x402 | 2026-06-25
 nemu-gamma.vercel.app | unclaimed | onchain-x402 | 2026-06-25
 nemuchan.vercel.app | unclaimed | onchain-x402 | 2026-06-25
 nemurispace.vercel.app | unclaimed | onchain-x402 | 2026-06-25
@@ -4014,13 +4014,13 @@ v2tolens.vercel.app | unclaimed | onchain-x402 | 2026-06-25
 vercanon.orbonomy.xyz | unclaimed | onchain-x402 | 2026-06-25
 x402-rapidapi-hub.vercel.app | unclaimed | onchain-x402 | 2026-06-25
 x402-social-hub-new.vercel.app | unclaimed | onchain-x402 | 2026-06-25
-x402-url-extractor-production.up.railway.app | verified | onchain-x402 | 2026-06-25
+x402-url-extractor-production.up.railway.app | unclaimed | onchain-x402 | 2026-06-25
 402alphacook.vercel.app | unclaimed | onchain-x402 | 2026-06-26
 402peddlr.vercel.app | unclaimed | onchain-x402 | 2026-06-26
 7olens.vercel.app | unclaimed | onchain-x402 | 2026-06-26
 agent-image-compress-production.up.railway.app | unclaimed | onchain-x402 | 2026-06-26
 aiaxaxon402.vercel.app | unclaimed | onchain-x402 | 2026-06-26
-api.intelica.dev | verified | onchain-x402 | 2026-06-26
+api.intelica.dev | unclaimed | onchain-x402 | 2026-06-26
 app-minichi.vercel.app | unclaimed | onchain-x402 | 2026-06-26
 app-minichwan.vercel.app | unclaimed | onchain-x402 | 2026-06-26
 bazaaaaaar.vercel.app | unclaimed | onchain-x402 | 2026-06-26
@@ -4079,7 +4079,7 @@ tools-hub-v7.vercel.app | unclaimed | onchain-x402 | 2026-06-26
 tools-hub-v8.vercel.app | unclaimed | onchain-x402 | 2026-06-26
 trading-hub-v7.vercel.app | unclaimed | onchain-x402 | 2026-06-26
 trading-hub-v8.vercel.app | unclaimed | onchain-x402 | 2026-06-26
-travelpulse-nu.vercel.app | verified | onchain-x402 | 2026-06-26
+travelpulse-nu.vercel.app | unclaimed | onchain-x402 | 2026-06-26
 twelv0x.vercel.app | unclaimed | onchain-x402 | 2026-06-26
 twelv1x402.vercel.app | unclaimed | onchain-x402 | 2026-06-26
 twelvex.vercel.app | unclaimed | onchain-x402 | 2026-06-26
@@ -18384,3 +18384,44 @@ tools.orchardshop.xyz | unclaimed | onchain-x402 | 2026-11-07
 ujcsj-37-255-229-96.free.pinggy.net | unclaimed | onchain-x402 | 2026-11-07
 vigilant-nourishment-production.up.railway.app | unclaimed | onchain-x402 | 2026-11-07
 x402-agent-api-production.up.railway.app | unclaimed | onchain-x402 | 2026-11-07
+
+agent-vending.ameeras-official.workers.dev | verified | onchain-x402 | 2026-11-08
+agentum.asimplek.cloud | unclaimed | onchain-x402 | 2026-11-08
+api-production-a421.up.railway.app | unclaimed | onchain-x402 | 2026-11-08
+api.minddreamai.xyz | unclaimed | onchain-x402 | 2026-11-08
+api.ssh.autos | unclaimed | onchain-x402 | 2026-11-08
+api.twitterapi.io | unclaimed | onchain-x402 | 2026-11-08
+care-opening-buses-spaces.trycloudflare.com | unclaimed | onchain-x402 | 2026-11-08
+cbqsr-37-255-229-96.run.pinggy-free.link | unclaimed | onchain-x402 | 2026-11-08
+cfynr-37-255-229-96.run.pinggy-free.link | unclaimed | onchain-x402 | 2026-11-08
+charter.mainnet.toonprotocol.dev | unclaimed | onchain-x402 | 2026-11-08
+deepsearch-production-4cff.up.railway.app | unclaimed | onchain-x402 | 2026-11-08
+deviation-lanka-customers-sol.trycloudflare.com | unclaimed | onchain-x402 | 2026-11-08
+embai-37-255-229-96.run.pinggy-free.link | unclaimed | onchain-x402 | 2026-11-08
+entreprenadkoll-production.up.railway.app | unclaimed | onchain-x402 | 2026-11-08
+feegate.org | unclaimed | onchain-x402 | 2026-11-08
+giozi-37-255-229-96.free.pinggy.net | unclaimed | onchain-x402 | 2026-11-08
+gxaxt-37-255-229-96.free.pinggy.net | unclaimed | onchain-x402 | 2026-11-08
+hexbox-fees.hexboxtools.workers.dev | unclaimed | onchain-l402 | 2026-11-08
+hexbox-read.hexboxtools.workers.dev | unclaimed | onchain-l402 | 2026-11-08
+hpjar-37-255-229-96.free.pinggy.net | unclaimed | onchain-x402 | 2026-11-08
+japan-data-api-x402.fly.dev | unclaimed | onchain-x402 | 2026-11-08
+jhjym-37-255-229-96.free.pinggy.net | unclaimed | onchain-x402 | 2026-11-08
+lnfoz-37-255-229-96.run.pinggy-free.link | unclaimed | onchain-x402 | 2026-11-08
+mara-x402-csv-api-production.up.railway.app | unclaimed | onchain-x402 | 2026-11-08
+mvntl-37-255-229-96.free.pinggy.net | unclaimed | onchain-x402 | 2026-11-08
+omni-agentpay-v1.loca.lt | unclaimed | onchain-x402 | 2026-11-08
+ordinance-holdings-beth-contrast.trycloudflare.com | unclaimed | onchain-x402 | 2026-11-08
+pdf-editor-production-7c4b.up.railway.app | unclaimed | onchain-x402 | 2026-11-08
+polymarket-oracle-production-3276.up.railway.app | unclaimed | onchain-x402 | 2026-11-08
+qefxz-37-255-229-96.free.pinggy.net | unclaimed | onchain-x402 | 2026-11-08
+rjnau-37-255-229-96.run.pinggy-free.link | unclaimed | onchain-x402 | 2026-11-08
+rugcheck.187-124-220-201.sslip.io | unclaimed | onchain-x402 | 2026-11-08
+settle.moneytools.dev | unclaimed | onchain-x402 | 2026-11-08
+taxdh-37-255-229-96.run.pinggy-free.link | unclaimed | onchain-x402 | 2026-11-08
+universal-data-api.jkpua1.workers.dev | unclaimed | onchain-x402 | 2026-11-08
+uselayer.sh | unclaimed | onchain-x402 | 2026-11-08
+wisdom-engine-production-5139.up.railway.app | unclaimed | onchain-x402 | 2026-11-08
+x402-winner-snapshot-s5n2hqva700c.vercel.app | unclaimed | onchain-x402 | 2026-11-08
+x402.fenixfoundry.com | unclaimed | onchain-x402 | 2026-11-08
+x402.omniaco.org | unclaimed | onchain-x402 | 2026-11-08
