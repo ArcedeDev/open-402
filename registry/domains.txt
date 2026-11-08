@@ -18425,3 +18425,4 @@ wisdom-engine-production-5139.up.railway.app | unclaimed | onchain-x402 | 2026-1
 x402-winner-snapshot-s5n2hqva700c.vercel.app | unclaimed | onchain-x402 | 2026-11-08
 x402.fenixfoundry.com | unclaimed | onchain-x402 | 2026-11-08
 x402.omniaco.org | unclaimed | onchain-x402 | 2026-11-08
+usdt.chikocorp.com | unclaimed | submit | 2026-11-08
