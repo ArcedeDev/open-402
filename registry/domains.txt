@@ -18546,3 +18546,4 @@ work-1-uasqwlsdyivaesfu.prod-runtime.all-hands.dev | unclaimed | onchain-x402 | 
 x402-services.dearfrank19.workers.dev | unclaimed | onchain-x402 | 2026-11-09
 x402.plutonus.tech | unclaimed | onchain-x402 | 2026-11-09
 x402search.app | unclaimed | onchain-x402 | 2026-11-09
+foil-ledger-api.lazylucariospokemart28.workers.dev | verified | self | 2026-11-09
