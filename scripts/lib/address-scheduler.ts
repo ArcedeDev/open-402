@@ -1,5 +1,5 @@
-import { addressKey, isValidEvmAddress, isVerifierSupported, type AddressVerificationRecord } from "./verification-model.ts";
-import type { verifyAddressesIncremental } from "../watchers/onchain-verifier.ts";
+import { addressKey, isNanoClaim, isValidClaimAddress, isVerifierSupported, type AddressVerificationRecord } from "./verification-model.ts";
+import type { IncrementalVerificationResult, verifyAddressesIncremental } from "../watchers/onchain-verifier.ts";
 
 export async function runAddressVerificationQueue(
   records: Map<string, AddressVerificationRecord>,
@@ -7,6 +7,11 @@ export async function runAddressVerificationQueue(
     limit: number;
     concurrency: number;
     verify: typeof verifyAddressesIncremental;
+    /**
+     * Verifier for x402 / nano:mainnet / XNO claims. Without it those addresses are not
+     * selected, so a caller that only passes `verify` behaves exactly as before.
+     */
+    verifyNano?: typeof verifyAddressesIncremental;
     now?: () => string;
   }
 ): Promise<{ eligible: number; attempted: number; completed: number; failed: number }> {
@@ -25,7 +30,9 @@ export async function runAddressVerificationQueue(
     return Number.isFinite(time) && time <= attemptedTime ? time : -Infinity;
   };
   const candidates = Array.from(records.values())
-    .filter((record) => isVerifierSupported(record.protocol, record.network, record.asset) && isValidEvmAddress(record.address))
+    .filter((record) => isVerifierSupported(record.protocol, record.network, record.asset)
+      && (!isNanoClaim(record.protocol, record.network, record.asset) || options.verifyNano !== undefined)
+      && isValidClaimAddress(record))
     .sort((a, b) => Number(b.last_scan_error === "budget_deferred") - Number(a.last_scan_error === "budget_deferred")
       || attemptTime(a) - attemptTime(b)
       || (a.last_scanned_block ?? -1) - (b.last_scanned_block ?? -1)
@@ -43,35 +50,48 @@ export async function runAddressVerificationQueue(
     summary.failed++;
   };
 
-  let results: Awaited<ReturnType<typeof verifyAddressesIncremental>>;
-  try {
-    results = await options.verify(queued.map((record) => ({
-      address: record.address,
-      lastScannedBlock: record.last_scanned_block,
-      priorTotals: {
-        totalTransactions: record.tx_count,
-        totalVolumeUsdc: record.volume_usd,
-        firstTxTimestamp: record.first_tx,
-        lastTxTimestamp: record.last_tx,
-        lastTxHash: record.last_tx_hash,
-        firstVerifiedAt: record.first_verified_at,
-        lastVerifiedAt: record.last_verified_at,
-      },
-    })), options.concurrency);
-  } catch {
-    for (const record of queued) fail(record, "verifier_failed");
-    return summary;
+  const toInput = (record: AddressVerificationRecord) => ({
+    address: record.address,
+    lastScannedBlock: record.last_scanned_block,
+    priorTotals: {
+      totalTransactions: record.tx_count,
+      totalVolumeUsdc: record.volume_usd,
+      firstTxTimestamp: record.first_tx,
+      lastTxTimestamp: record.last_tx,
+      lastTxHash: record.last_tx_hash,
+      firstVerifiedAt: record.first_verified_at,
+      lastVerifiedAt: record.last_verified_at,
+    },
+  });
+  // One verifier per network family. A group whose verifier throws or answers something invalid
+  // fails alone, so a Nano node outage cannot cost a Base address its scan, or the reverse.
+  const isNano = (record: AddressVerificationRecord) => isNanoClaim(record.protocol, record.network, record.asset);
+  const groups: Array<{ records: AddressVerificationRecord[]; verify: typeof verifyAddressesIncremental }> = [
+    { records: queued.filter((record) => !isNano(record)), verify: options.verify },
+    ...(options.verifyNano ? [{ records: queued.filter(isNano), verify: options.verifyNano }] : []),
+  ].filter((group) => group.records.length > 0);
+  const resultFor = new Map<AddressVerificationRecord, IncrementalVerificationResult | undefined>();
+  for (const group of groups) {
+    let groupResults: Awaited<ReturnType<typeof verifyAddressesIncremental>>;
+    try {
+      groupResults = await group.verify(group.records.map(toInput), options.concurrency);
+    } catch {
+      for (const record of group.records) fail(record, "verifier_failed");
+      continue;
+    }
+    const expectedAddresses = new Set(group.records.map((record) => record.address.toLowerCase()));
+    if (!(groupResults instanceof Map) || [...groupResults.keys()].some((key) => !expectedAddresses.has(key))) {
+      for (const record of group.records) fail(record, "invalid_result");
+      continue;
+    }
+    for (const record of group.records) resultFor.set(record, groupResults.get(record.address.toLowerCase()));
   }
-
-  const expectedAddresses = new Set(queued.map((record) => record.address.toLowerCase()));
-  if (!(results instanceof Map) || [...results.keys()].some((key) => !expectedAddresses.has(key))) {
-    for (const record of queued) fail(record, "invalid_result");
-    return summary;
-  }
+  if (!resultFor.size) return summary;
   const completedAt = now();
   const completedTime = Date.parse(completedAt);
   for (const record of queued) {
-    const result = results.get(record.address.toLowerCase());
+    if (!resultFor.has(record)) continue; // its group already failed
+    const result = resultFor.get(record);
     if (!result) { fail(record, "missing_result"); continue; }
     if (typeof result.address !== "string") { fail(record, "invalid_result"); continue; }
     if (result.address.toLowerCase() !== record.address.toLowerCase()) { fail(record, "result_mismatch"); continue; }
@@ -89,7 +109,7 @@ export async function runAddressVerificationQueue(
     records.set(addressKey(record), {
       ...record,
       verification_state: result.verificationState,
-      verification_method: "base_usdc_transfer_scan",
+      verification_method: isNano(record) ? "nano_account_receive_scan" : "base_usdc_transfer_scan",
       tx_count: result.totalTransactions,
       volume_usd: result.totalVolumeUsdc,
       first_tx: result.firstTxTimestamp ?? record.first_tx,

@@ -77,7 +77,7 @@ The registry is refreshed nightly by the [crawler workflow](.github/workflows/ni
 
 1. **Domain discovery** from x402scan.com and 402index.io watchers
 2. **Crawl** every domain for `/.well-known/agent.json` (50 concurrent in the nightly workflow)
-3. **On-chain verification** of payout addresses against Base USDC transfers
+3. **On-chain verification** of payout addresses: Base USDC transfers, and confirmed receive blocks on declared `nano:mainnet` / XNO accounts (activity only, see [Nano activity verification](MAINTENANCE.md#nano-activity-verification))
 4. **Ecosystem stats** from x402scan (transactions, volume, buyers, sellers)
 5. **Publish** updated `snapshot.json` and `domains.txt` together in one atomic Git commit
 

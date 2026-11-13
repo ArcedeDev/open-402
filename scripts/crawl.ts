@@ -814,10 +814,12 @@ export async function main(options: { dryRun: boolean; limit?: number } = { dryR
 
     const { runAddressVerificationQueue } = await import("./lib/address-scheduler.ts");
     const { verifyAddressesIncremental } = await import("./watchers/onchain-verifier.ts");
+    const { verifyNanoAddressesIncremental } = await import("./watchers/nano-verifier.ts");
     const scanQueue = await runAddressVerificationQueue(addressVerifications, {
       limit: MAX_ONCHAIN_ADDRESSES_PER_RUN || 5,
       concurrency: ONCHAIN_CONCURRENCY,
       verify: verifyAddressesIncremental,
+      verifyNano: verifyNanoAddressesIncremental,
     });
     log(
       `Address verification queue: ${scanQueue.attempted}/${scanQueue.eligible} supported unique addresses; `
