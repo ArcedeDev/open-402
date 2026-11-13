@@ -18783,3 +18783,7 @@ x402.babacapital.app | unclaimed | onchain-x402 | 2026-11-13
 x402.octopio.ai | unclaimed | onchain-x402 | 2026-11-13
 zero-payment-guard.worker.beacon.host | unclaimed | onchain-x402 | 2026-11-13
 ia.vonenzobaschello.com | verified | self | 2026-11-13
+api.aomi.dev | verified | self | 2026-10-23
+usdt.chikocorp.com | unclaimed | submit | 2026-11-08
+foil-ledger-api.lazylucariospokemart28.workers.dev | verified | self | 2026-11-09
+open-rails-data-agent.shablony-pro.workers.dev | unclaimed | submit | 2026-11-10
