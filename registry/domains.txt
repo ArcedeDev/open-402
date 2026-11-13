@@ -18782,3 +18782,4 @@ valuation-api-production-1c7c.up.railway.app | unclaimed | onchain-x402 | 2026-1
 x402.babacapital.app | unclaimed | onchain-x402 | 2026-11-13
 x402.octopio.ai | unclaimed | onchain-x402 | 2026-11-13
 zero-payment-guard.worker.beacon.host | unclaimed | onchain-x402 | 2026-11-13
+ia.vonenzobaschello.com | verified | self | 2026-11-13
