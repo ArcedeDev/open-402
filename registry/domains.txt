@@ -18841,3 +18841,4 @@ vndie-5-253-115-41.free.pinggy.net | unclaimed | onchain-x402 | 2026-11-14
 vqmby-37-255-229-96.run.pinggy-free.link | unclaimed | onchain-x402 | 2026-11-14
 wrakk-5-253-115-43.free.pinggy.net | unclaimed | onchain-x402 | 2026-11-14
 x402-utility-api.annushka1190.workers.dev | unclaimed | onchain-x402 | 2026-11-14
+jeturing.com | unclaimed | self | 2026-11-15
