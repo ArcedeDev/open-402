@@ -19035,3 +19035,4 @@ x402-wallet-balances.vercel.app | unclaimed | onchain-x402 | 2026-11-16
 x402-weblens-api-production.up.railway.app | unclaimed | onchain-x402 | 2026-11-16
 x402.nanotrans.io | unclaimed | onchain-x402 | 2026-11-16
 xjaui-37-255-229-96.free.pinggy.net | unclaimed | onchain-x402 | 2026-11-16
+jeturing.com | unclaimed | self | 2026-11-15
