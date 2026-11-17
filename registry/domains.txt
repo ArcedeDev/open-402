@@ -19351,3 +19351,4 @@ wicsl-37-255-229-96.run.pinggy-free.link | unclaimed | onchain-x402 | 2026-11-19
 work-1-hdldvoujehvrpfak.prod-runtime.all-hands.dev | unclaimed | onchain-x402 | 2026-11-19
 x402-ruo.ruo42-alert.workers.dev | unclaimed | onchain-x402 | 2026-11-19
 x402-trust-check.ben-mcalilly.workers.dev | unclaimed | onchain-x402 | 2026-11-19
+rentandrugshield.com | unclaimed | self | 2026-11-17
