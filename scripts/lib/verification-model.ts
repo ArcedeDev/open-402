@@ -1,4 +1,5 @@
 import type { PaymentEvent } from "../watchers/types.ts";
+import { hasValidNanoChecksum } from "./nano-address.ts";
 
 export type ClaimSource = "manifest" | "watcher";
 export type ClaimConfidence = "authoritative" | "observed";
@@ -132,8 +133,9 @@ export function isValidEvmAddress(address: string): boolean {
 
 /**
  * A Nano account is `nano_` (or the legacy `xrb_`) plus 60 base32 characters, the first 52 of
- * which are the public key (so the first is 1 or 3) and the last 8 a checksum. This is the shape
- * only: the node verifies the checksum when asked about the account ("Bad account number").
+ * which are the public key (so the first is 1 or 3) and the last 8 a checksum. The checksum is
+ * checked here (BLAKE2b of the key, `nano-address.ts`), so a mistyped payout account is marked
+ * invalid instead of spending a node call to learn "Bad account number".
  * The all-zero key (burn account) is refused.
  */
 const NANO_ADDRESS_SHAPE = /^(?:nano|xrb)_[13][13456789abcdefghijkmnopqrstuwxyz]{59}$/;
@@ -141,7 +143,8 @@ const BLOCKED_NANO_ADDRESSES = new Set(["nano_1111111111111111111111111111111111
 
 export function isValidNanoAddress(address: string): boolean {
   if (!NANO_ADDRESS_SHAPE.test(address)) return false;
-  return !BLOCKED_NANO_ADDRESSES.has(`nano_${address.slice(address.indexOf("_") + 1)}`);
+  if (BLOCKED_NANO_ADDRESSES.has(`nano_${address.slice(address.indexOf("_") + 1)}`)) return false;
+  return hasValidNanoChecksum(address);
 }
 
 export function isNanoClaim(protocol: string, network: string, asset: string): boolean {
