@@ -84,13 +84,14 @@ export function classifyPullRequest(files: PullRequestFile[], main: DomainEntry[
     if (!existing) return { kind: "review", reason: "the row it replaces is no longer on main" };
   }
   if (existing) {
+    // Already verified on main (landed by this job, or by the nightly crawl): nothing left to do.
+    if (existing.status === "verified" && proposed.status === "verified") return { kind: "landed", entry: existing };
     if (existing.status === "unclaimed" && proposed.status === "verified") {
       return { kind: "eligible", mode: "upgrade", row: { entry: { ...existing, status: "verified" }, prior: existing } };
     }
     if (removed.length === 1) return { kind: "review", reason: "it changes an existing listing other than upgrading it to verified" };
     // Landed by this job (or submitted twice), as against a different listing of the same domain.
-    // A verified listing proposed as verified is on main, whatever source main records for it.
-    return existing.status === proposed.status && (existing.source === proposed.source || existing.status === "verified")
+    return existing.status === proposed.status && existing.source === proposed.source
       ? { kind: "landed", entry: existing }
       : { kind: "duplicate", domain: existing.domain, existing };
   }

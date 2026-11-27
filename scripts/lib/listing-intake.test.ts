@@ -86,6 +86,8 @@ test("rows already on main are recognised as landed or duplicate", () => {
   // After an upgrade lands with main's source kept, a retry of that PR reads as landed, not duplicate.
   const upgraded = parseDomainsTxt(registryText.replace("beta.dev | unclaimed", "beta.dev | verified"));
   assert.equal(classifyPullRequest(file(add("beta.dev | verified | self | 2026-11-27")), upgraded, today).kind, "landed");
+  // So does the row-replacing form, including when the nightly crawl verified the domain first.
+  assert.equal(classifyPullRequest(file(`-beta.dev | unclaimed | onchain-x402 | 2026-03-21\n+beta.dev | verified | self | 2026-11-27`), upgraded, today).kind, "landed");
 });
 
 const gamma: IntakeRow = { entry: { domain: "gamma.dev", status: "unclaimed", source: "submit", added_date: "2026-11-27" }, prior: null };

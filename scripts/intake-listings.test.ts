@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { MAX_PROBES_PER_AUTHOR, RETRY_AFTER_MS, runIntake, type Evidence, type IntakeDeps, type IssueComment, type PullRequest } from "./intake-listings.ts";
+import { MAX_PROBES_PER_AUTHOR, MAX_RETRIES, RETRY_AFTER_MS, runIntake, type Evidence, type IntakeDeps, type IssueComment, type PullRequest } from "./intake-listings.ts";
 import { parseDomainsTxt } from "./lib/registry-utils.ts";
 import type { PullRequestFile } from "./lib/listing-intake.ts";
 
@@ -22,6 +22,7 @@ function pr(number: number, domain: string, author = number, extra: Partial<Pull
 
 function world(pulls: (PullRequest & { domain: string })[], options: {
   comments?: Record<number, IssueComment[]>;
+  truncated?: number[];
   evidence?: (domain: string) => Evidence;
   commit?: () => Promise<boolean>;
   crawlRunning?: boolean;
@@ -37,7 +38,7 @@ function world(pulls: (PullRequest & { domain: string })[], options: {
       const domain = pulls.find((p) => p.number === n)!.domain;
       return [{ filename: "registry/domains.txt", status: "modified", patch: `@@ -1 +1,2 @@\n alpha.dev | verified | self | 2026-03-20\n+${domain} | unclaimed | self | 2026-11-20` }] as PullRequestFile[];
     },
-    listComments: async (n) => options.comments?.[n] ?? [],
+    listComments: async (n) => ({ items: options.comments?.[n] ?? [], truncated: options.truncated?.includes(n) ?? false }),
     postComment: async (n, body) => { effects.push(`comment #${n} ${body.split("\n")[0]}`); },
     editComment: async (id, body) => { effects.push(`edit ${id} ${body.split("\n")[0]}`); },
     addLabel: async (n, label) => { effects.push(`label #${n} ${label}`); },
@@ -113,11 +114,11 @@ test("a temporary failure is retried after a day, editing the same comment inste
   const temporary = (): Evidence => ({ ok: false, transient: true, reason: "the host timed out" });
   const first = world([pr(1, "gamma.dev")], { evidence: temporary });
   await run(first.deps);
-  assert.deepEqual(first.effects, ["label #1 needs-review", "comment #1 <!-- open402-intake:review:sha1:retry -->"]);
+  assert.deepEqual(first.effects, ["label #1 needs-review", "comment #1 <!-- open402-intake:review:sha1:retry:1 -->"]);
 
   const recent = new Date(NOW - RETRY_AFTER_MS / 2).toISOString();
   const old = new Date(NOW - RETRY_AFTER_MS - 1).toISOString();
-  const comment = (at: string): IssueComment[] => [{ id: 7, body: "<!-- open402-intake:review:sha1:retry -->\nx", updated_at: at, user: BOT }];
+  const comment = (at: string): IssueComment[] => [{ id: 7, body: "<!-- open402-intake:review:sha1:retry:1 -->\nx", updated_at: at, user: BOT }];
   const labelled = { labels: [{ name: "needs-review" }] };
   const soon = world([pr(1, "gamma.dev", 1, labelled)], { evidence: temporary, comments: { 1: comment(recent) } });
   await run(soon.deps);
@@ -125,7 +126,7 @@ test("a temporary failure is retried after a day, editing the same comment inste
   const later = world([pr(1, "gamma.dev", 1, labelled)], { evidence: temporary, comments: { 1: comment(old) } });
   await run(later.deps);
   assert.deepEqual(later.probed, ["gamma.dev"]);
-  assert.deepEqual(later.effects, ["edit 7 <!-- open402-intake:review:sha1:retry -->"]);
+  assert.deepEqual(later.effects, ["edit 7 <!-- open402-intake:review:sha1:retry:2 -->"]);
   const healed = world([pr(1, "gamma.dev", 1, labelled)], { comments: { 1: comment(old) } });
   await run(healed.deps);
   assert.deepEqual(healed.committed, [["gamma.dev"]]);
@@ -152,7 +153,7 @@ test("two open PRs for one new domain land once; the other is re-checked later a
   const w = world([pr(1, "gamma.dev"), pr(2, "gamma.dev")]);
   await run(w.deps);
   assert.deepEqual(w.committed, [["gamma.dev"]]);
-  assert.ok(w.effects.includes("comment #2 <!-- open402-intake:review:sha2:retry -->"));
+  assert.ok(w.effects.includes("comment #2 <!-- open402-intake:review:sha2:retry:1 -->"));
 });
 
 test("drafts, bots, held PRs and branches of the repo itself are ignored", async () => {
@@ -166,4 +167,20 @@ test("drafts, bots, held PRs and branches of the repo itself are ignored", async
   await run(w.deps);
   assert.deepEqual(w.probed, []);
   assert.deepEqual(w.effects, []);
+});
+
+test("temporary failures stop being retried after the last allowed retry", async () => {
+  const old = new Date(NOW - RETRY_AFTER_MS - 1).toISOString();
+  const comments = { 1: [{ id: 7, body: `<!-- open402-intake:review:sha1:retry:${MAX_RETRIES} -->\nx`, updated_at: old, user: BOT }] };
+  const w = world([pr(1, "gamma.dev", 1, { labels: [{ name: "needs-review" }] })], { comments, evidence: () => ({ ok: false, transient: true, reason: "dns" }) });
+  await run(w.deps);
+  assert.deepEqual(w.effects, ["edit 7 <!-- open402-intake:review:sha1:final -->"]);
+});
+
+test("a PR with too many comments to read them all is left alone", async () => {
+  const w = world([pr(1, "gamma.dev")], { truncated: [1] });
+  const s = await run(w.deps);
+  assert.deepEqual(w.probed, []);
+  assert.deepEqual(w.effects, []);
+  assert.equal(s.deferred, 1);
 });

@@ -189,13 +189,14 @@ export async function crawlDomain(domain: string, options: CrawlOptions = {}): P
   return validateManifest(value, domain);
 }
 
-/** A JSON value that reads as an x402 payment requirement: an integer version and something to pay. */
+/** A JSON value that reads as an x402 payment requirement: an integer version and payment options, each naming a scheme and network. */
 function isPaymentRequirement(value: unknown): boolean {
   if (!value || typeof value !== "object" || Array.isArray(value)) return false;
   const { x402Version, accepts } = value as Record<string, unknown>;
   return Number.isSafeInteger(x402Version) && (x402Version as number) >= 1
     && Array.isArray(accepts) && accepts.length > 0
-    && accepts.every((option) => option !== null && typeof option === "object" && !Array.isArray(option));
+    && accepts.every((option) => option !== null && typeof option === "object" && !Array.isArray(option)
+      && typeof (option as Record<string, unknown>).scheme === "string" && typeof (option as Record<string, unknown>).network === "string");
 }
 
 /**

@@ -130,7 +130,7 @@ test("an x402 challenge is a 402 naming a version and a payment option, in the b
   assert.equal(isX402Challenge({ success: true, status: 402, body: v1 }), true);
   assert.equal(isX402Challenge({ success: true, status: 402, body: "{}", paymentRequired: v2Header }), true);
   for (const body of ["<html>Payment required</html>", "", "{}", JSON.stringify({ x402Version: 1 }), JSON.stringify({ x402Version: 1, accepts: [] }),
-    JSON.stringify({ x402Version: "1", accepts: [{}] }), JSON.stringify({ x402Version: 1, accepts: ["x"] }), JSON.stringify({ code: "DEPLOYMENT_DISABLED" })]) {
+    JSON.stringify({ x402Version: "1", accepts: [{}] }), JSON.stringify({ x402Version: 1, accepts: ["x"] }), JSON.stringify({ x402Version: 1, accepts: [{}] }), JSON.stringify({ x402Version: 1, accepts: [{ scheme: "exact" }] }), JSON.stringify({ code: "DEPLOYMENT_DISABLED" })]) {
     assert.equal(isX402Challenge({ success: true, status: 402, body }), false, body);
   }
   assert.equal(isX402Challenge({ success: true, status: 402, body: "", paymentRequired: "not base64 json" }), false);

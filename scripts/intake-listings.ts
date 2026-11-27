@@ -21,8 +21,9 @@
  *
  * Anything that cannot land gets a `needs-review` label and one comment per head commit, which is
  * edited rather than repeated. A failure that may be temporary (a timeout, a 5xx, a duplicate open
- * PR) is checked again after a day; any other failure waits for a push or a maintainer. Only
- * comments written by this job's own account count as its markers.
+ * PR) is checked again a day later, up to MAX_RETRIES times; any other failure waits for a push or
+ * a maintainer. Only comments written by this job's own account count as its markers, and a PR with
+ * too many comments to read them all is left alone.
  *
  * Fairness: PRs never checked come first, then the least recently checked. A run makes at most
  * MAX_PROBES_PER_RUN evidence checks, at most MAX_PROBES_PER_AUTHOR per author, within
@@ -39,7 +40,10 @@ export const MAX_PROBES_PER_RUN = 25;
 export const MAX_PROBES_PER_AUTHOR = 2;
 export const RUN_BUDGET_MS = 8 * 60_000;
 export const RETRY_AFTER_MS = 24 * 60 * 60_000;
+/** Temporary failures are retried this many times, a day apart, before waiting for a push. */
+export const MAX_RETRIES = 3;
 const MAX_PR_PAGES = 5;
+const MAX_COMMENT_PAGES = 3;
 const REVIEW_LABEL = "needs-review";
 const HOLD_LABEL = "hold";
 const BOT_LOGIN = "github-actions[bot]";
@@ -70,7 +74,8 @@ export interface IntakeDeps {
   registry: DomainEntry[];
   listPulls(): Promise<{ items: PullRequest[]; truncated: boolean }>;
   listFiles(pr: number): Promise<PullRequestFile[]>;
-  listComments(pr: number): Promise<IssueComment[]>;
+  /** Every comment on the PR; `truncated` when there were too many to read them all. */
+  listComments(pr: number): Promise<{ items: IssueComment[]; truncated: boolean }>;
   postComment(pr: number, body: string): Promise<void>;
   editComment(id: number, body: string): Promise<void>;
   addLabel(pr: number, label: string): Promise<void>;
@@ -94,11 +99,12 @@ export interface IntakeSummary {
 }
 
 const MARK = "open402-intake";
-const reviewMarker = (sha: string, retry: boolean) => `<!-- ${MARK}:review:${sha}:${retry ? "retry" : "final"} -->`;
+const reviewMarker = (sha: string, retries: number | null) => `<!-- ${MARK}:review:${sha}:${retries === null ? "final" : `retry:${retries}`} -->`;
 const closeMarker = (sha: string) => `<!-- ${MARK}:closed:${sha} -->`;
 const message = (error: unknown) => (error instanceof Error ? error.message : String(error));
 
-interface Review { reason: string; retry: boolean }
+/** `retries` is how many temporary failures came before this one, or null for a final failure. */
+interface Review { reason: string; retries: number | null }
 
 export async function runIntake(deps: IntakeDeps, options: { dryRun: boolean; maxListings: number }): Promise<IntakeSummary> {
   const { log } = deps;
@@ -116,7 +122,10 @@ export async function runIntake(deps: IntakeDeps, options: { dryRun: boolean; ma
   const mine = new Map<number, IssueComment[]>();
   for (const pr of pulls) {
     try {
-      mine.set(pr.number, (await deps.listComments(pr.number)).filter((c) => c.user?.login === BOT_LOGIN && c.user.type === "Bot"));
+      const { items, truncated } = await deps.listComments(pr.number);
+      // Too many comments to be sure of seeing this job's markers: leave it to a maintainer.
+      if (truncated) { log(`#${pr.number}: too many comments to read; skipped`); summary.deferred++; continue; }
+      mine.set(pr.number, items.filter((c) => c.user?.login === BOT_LOGIN && c.user.type === "Bot"));
     } catch (error) {
       summary.errors++;
       log(`#${pr.number}: could not read comments (${message(error)})`);
@@ -136,11 +145,12 @@ export async function runIntake(deps: IntakeDeps, options: { dryRun: boolean; ma
       const comments = mine.get(pr.number)!;
       const sha = pr.head.sha;
       const marked = (marker: string) => comments.find((c) => c.body?.includes(marker));
-      if (marked(reviewMarker(sha, false))) continue; // Told already; waits for a push or a maintainer.
-      const retry = marked(reviewMarker(sha, true));
+      if (marked(reviewMarker(sha, null))) continue; // Told already; waits for a push or a maintainer.
+      const retry = marked(`<!-- ${MARK}:review:${sha}:retry:`);
+      const retries = retry ? Number(/:retry:(\d+) -->/.exec(retry.body ?? "")?.[1] ?? MAX_RETRIES) : 0;
       if (retry && deps.now() - (Date.parse(retry.updated_at) || 0) < RETRY_AFTER_MS) continue;
       if (comments.some((c) => c.body?.includes(`<!-- ${MARK}:closed:`))) {
-        reviews.push({ pr, review: { reason: "it was reopened after the intake job closed it", retry: false } });
+        reviews.push({ pr, review: { reason: "it was reopened after the intake job closed it", retries: null } });
         continue;
       }
 
@@ -148,7 +158,7 @@ export async function runIntake(deps: IntakeDeps, options: { dryRun: boolean; ma
       if (decision.kind === "eligible") {
         const { entry } = decision.row;
         if (accepted.some(({ row }) => row.entry.domain === entry.domain)) {
-          reviews.push({ pr, review: { reason: "another open PR lists the same domain", retry: true } });
+          reviews.push({ pr, review: { reason: "another open PR lists the same domain", retries: retries < MAX_RETRIES ? retries + 1 : null } });
           continue;
         }
         const authorProbes = probesByAuthor.get(pr.user.id) ?? 0;
@@ -162,7 +172,7 @@ export async function runIntake(deps: IntakeDeps, options: { dryRun: boolean; ma
         probesByAuthor.set(pr.user.id, authorProbes + 1);
         const evidence = await deps.evidence(entry);
         if (!evidence.ok) {
-          reviews.push({ pr, review: { reason: evidence.reason, retry: evidence.transient } });
+          reviews.push({ pr, review: { reason: evidence.reason, retries: evidence.transient && retries < MAX_RETRIES ? retries + 1 : null } });
           continue;
         }
       }
@@ -178,7 +188,7 @@ export async function runIntake(deps: IntakeDeps, options: { dryRun: boolean; ma
           closures.push({ pr, body: `Thanks. \`${decision.domain}\` is already listed as \`${decision.existing.status}\`, so this PR is closed as a duplicate. To upgrade an unclaimed listing, submit it as \`verified\` once \`/.well-known/agent.json\` validates. To correct an existing listing, open an issue.` });
           break;
         case "review":
-          reviews.push({ pr, review: { reason: decision.reason, retry: false } });
+          reviews.push({ pr, review: { reason: decision.reason, retries: null } });
           break;
       }
     } catch (error) {
@@ -236,15 +246,15 @@ export async function runIntake(deps: IntakeDeps, options: { dryRun: boolean; ma
   }
 
   for (const { pr, review } of reviews) {
-    log(`#${pr.number}: needs review (${review.reason})${review.retry ? ", retried in a day" : ""}`);
+    log(`#${pr.number}: needs review (${review.reason})${review.retries !== null ? `, retry ${review.retries} of ${MAX_RETRIES} in a day` : ""}`);
     summary.review++;
     if (options.dryRun) continue;
     try {
       if (!pr.labels.some((label) => label.name === REVIEW_LABEL)) await deps.addLabel(pr.number, REVIEW_LABEL);
-      const next = review.retry
-        ? "This may be temporary, so it will be checked again automatically within a day."
+      const next = review.retries !== null
+        ? `This may be temporary, so it will be checked again automatically within a day (check ${review.retries} of ${MAX_RETRIES}).`
         : "Push a fix to run the checks again, or a maintainer will review it.";
-      const body = `${reviewMarker(pr.head.sha, review.retry)}\nThanks for the contribution. This PR cannot be landed automatically yet because ${review.reason}. ${next} One-row listing PRs that pass the checks in CONTRIBUTING.md are landed automatically.`;
+      const body = `${reviewMarker(pr.head.sha, review.retries)}\nThanks for the contribution. This PR cannot be landed automatically yet because ${review.reason}. ${next} One-row listing PRs that pass the checks in CONTRIBUTING.md are landed automatically.`;
       // One comment per head commit, edited on each retry so its time records the last check.
       const existing = mine.get(pr.number)?.find((c) => c.body?.includes(`<!-- ${MARK}:review:${pr.head.sha}:`));
       if (existing) await deps.editComment(existing.id, body);
@@ -302,7 +312,7 @@ function githubDeps(repo: string, token: string, registry: DomainEntry[]): Intak
     registry,
     listPulls: () => listAll<PullRequest>("/pulls?state=open&base=main&sort=created&direction=asc", MAX_PR_PAGES),
     listFiles: async (pr) => (await listAll<PullRequestFile>(`/pulls/${pr}/files`, 1)).items,
-    listComments: async (pr) => (await listAll<IssueComment>(`/issues/${pr}/comments`, 3)).items,
+    listComments: (pr) => listAll<IssueComment>(`/issues/${pr}/comments`, MAX_COMMENT_PAGES),
     postComment: async (pr, body) => { await gh(`/issues/${pr}/comments`, { method: "POST", body: JSON.stringify({ body }) }); },
     editComment: async (id, body) => { await gh(`/issues/comments/${id}`, { method: "PATCH", body: JSON.stringify({ body }) }); },
     addLabel: async (pr, label) => { await gh(`/issues/${pr}/labels`, { method: "POST", body: JSON.stringify({ labels: [label] }) }); },
