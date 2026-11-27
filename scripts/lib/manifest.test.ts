@@ -2,7 +2,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { EventEmitter } from "node:events";
 import { PassThrough } from "node:stream";
-import { crawlDomain, isPublicAddress, isPublicDomain, validateManifest } from "./manifest.ts";
+import { crawlDomain, isPublicAddress, isPublicDomain, probeX402Discovery, validateManifest } from "./manifest.ts";
 
 const domain = "api.vendor.io";
 const manifest = { version: "1.3", origin: domain, payout_address: "0x1111111111111111111111111111111111111111" };
@@ -119,4 +119,34 @@ test("DNS failures and empty answers become bounded failures", async () => {
   assert.equal((await crawlDomain(domain, empty.options)).error, "blocked_address");
   const failed = transport([{}]);
   assert.equal((await crawlDomain(domain, { ...failed.options, lookup: async () => { throw new Error("DNS failed"); } })).error, "request_failed");
+});
+
+test("x402 evidence: a 402 at the root, a discovery document with x402Version, or a 402 on a listed resource", async () => {
+  const atRoot = transport([{ status: 402 }]);
+  assert.deepEqual(await probeX402Discovery(domain, atRoot.options), { success: true });
+  assert.deepEqual(atRoot.calls, [`https://${domain}/`]);
+
+  const discovery = transport([{ status: 200, headers: { "content-type": "text/html" } }, { body: JSON.stringify({ x402Version: 2 }), headers: { "content-type": "" } }]);
+  assert.deepEqual(await probeX402Discovery(domain, discovery.options), { success: true });
+  assert.deepEqual(discovery.calls, [`https://${domain}/`, `https://${domain}/.well-known/x402`]);
+
+  const listed = JSON.stringify({ resources: [`https://other.io/paid`, `https://${domain}/.well-known/x`, `https://${domain}/api/a`, `https://${domain}/api/b`] });
+  const resource = transport([{ status: 404 }, { body: listed }, { status: 400 }, { status: 402 }]);
+  assert.deepEqual(await probeX402Discovery(domain, resource.options), { success: true });
+  assert.deepEqual(resource.calls.slice(2), [`https://${domain}/api/a`, `https://${domain}/api/b`]);
+
+  for (const body of [JSON.stringify({}), JSON.stringify({ x402Version: "2" }), JSON.stringify({ x402Version: 0 }), JSON.stringify([{ x402Version: 1 }]), "not json"]) {
+    const result = await probeX402Discovery(domain, transport([{ status: 404 }, { body }]).options);
+    assert.equal(result.success, false, body);
+  }
+  const noPaid = transport([{ status: 404 }, { body: JSON.stringify({ resources: [`https://${domain}/a`, `https://${domain}/b`, `https://${domain}/c`, `https://${domain}/d`] }) }, { status: 200 }, { status: 404 }, { status: 500 }]);
+  assert.deepEqual(await probeX402Discovery(domain, noPaid.options), { success: false, error: "no_x402_version" });
+  assert.equal(noPaid.calls.length, 5, "at most three listed resources are tried");
+  assert.deepEqual(await probeX402Discovery(domain, transport([{ status: 404 }, { status: 404 }]).options), { success: false, error: "HTTP 404" });
+  assert.deepEqual(await probeX402Discovery(domain, transport([{}], ["10.0.0.1"]).options), { success: false, error: "blocked_address" });
+  assert.deepEqual(await probeX402Discovery("localhost", transport([{}]).options), { success: false, error: "blocked" });
+
+  const large = JSON.stringify({ x402Version: 1, pad: "x".repeat(200_000) });
+  assert.deepEqual(await probeX402Discovery(domain, transport([{ status: 404 }, { body: large }]).options), { success: true });
+  assert.deepEqual(await probeX402Discovery(domain, { ...transport([{ status: 404 }, { body: large }]).options, maxBytes: 100_000 }), { success: false, error: "too_large" });
 });

@@ -51,6 +51,8 @@ When in doubt, use `submit`.
 
 **One domain per PR.** This keeps the review process fast and the git history clean.
 
+**Automatic intake.** Every three hours a job lands one-row listing PRs without waiting for a maintainer. A PR qualifies when its only change is one row in `registry/domains.txt` (or, to upgrade an `unclaimed` listing to `verified`, that domain's row replaced), the source is `self` or `submit`, and the live check passes: a `verified` row needs a valid `agent.json`; an `unclaimed` row needs a valid `agent.json`, an HTTP 402 challenge at the domain's root, a `/.well-known/x402` document with `x402Version`, or a 402 challenge on one of the first three same-host resources that document lists. The row lands on `main` with you credited as a co-author, and the PR is closed with a note. A PR for a domain already listed is closed as a duplicate. Anything else gets a `needs-review` label for a maintainer.
+
 ### 2. Report a problem
 
 - **Dead domain** — The API no longer exists or returns errors. [Open an issue](../../issues/new?template=report-domain.yml).
