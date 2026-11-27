@@ -89,7 +89,8 @@ export function classifyPullRequest(files: PullRequestFile[], main: DomainEntry[
     }
     if (removed.length === 1) return { kind: "review", reason: "it changes an existing listing other than upgrading it to verified" };
     // Landed by this job (or submitted twice), as against a different listing of the same domain.
-    return existing.status === proposed.status && existing.source === proposed.source
+    // A verified listing proposed as verified is on main, whatever source main records for it.
+    return existing.status === proposed.status && (existing.source === proposed.source || existing.status === "verified")
       ? { kind: "landed", entry: existing }
       : { kind: "duplicate", domain: existing.domain, existing };
   }

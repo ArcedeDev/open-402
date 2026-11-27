@@ -51,7 +51,12 @@ When in doubt, use `submit`.
 
 **One domain per PR.** This keeps the review process fast and the git history clean.
 
-**Automatic intake.** Every three hours a job lands one-row listing PRs without waiting for a maintainer. A PR qualifies when its only change is one row in `registry/domains.txt` (or, to upgrade an `unclaimed` listing to `verified`, that domain's row replaced), the source is `self` or `submit`, and the live check passes: a `verified` row needs a valid `agent.json`; an `unclaimed` row needs a valid `agent.json`, an HTTP 402 challenge at the domain's root, a `/.well-known/x402` document with `x402Version`, or a 402 challenge on one of the first three same-host resources that document lists. The row lands on `main` with you credited as a co-author, and the PR is closed with a note. A PR for a domain already listed is closed as a duplicate. Anything else gets a `needs-review` label for a maintainer.
+**Automatic intake.** Every three hours a job lands one-row listing PRs without waiting for a maintainer. A PR qualifies when its only change is one row in `registry/domains.txt` (or, to upgrade an `unclaimed` listing to `verified`, that domain's row replaced), the source is `self` or `submit`, and the live check on the domain itself passes:
+
+- a `verified` row needs a valid `/.well-known/agent.json`;
+- an `unclaimed` row needs a valid `agent.json`, or an x402 challenge from the domain: an HTTP 402 whose JSON body or `PAYMENT-REQUIRED` header names an `x402Version` and at least one payment option in `accepts`, at the root or on one of the first three same-host resources your `/.well-known/x402` document lists. A resource that answers GET with 405 is asked once more with an empty JSON POST. A bare 402 page, or a discovery document on its own, is not enough.
+
+The row is dated by when you opened the PR. An upgrade keeps the listing's original source and date. The row lands on `main` with you credited as a co-author, and the PR is closed with a note. A PR for a domain already listed is closed as a duplicate. Anything else gets a `needs-review` label and one comment explaining why: a failure that may be temporary (a timeout, a server error) is checked again automatically within a day, and any other failure is checked again when you push a fix.
 
 ### 2. Report a problem
 

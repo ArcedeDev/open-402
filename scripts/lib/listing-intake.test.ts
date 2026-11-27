@@ -83,6 +83,9 @@ test("rows already on main are recognised as landed or duplicate", () => {
   assert.equal(classifyPullRequest(file(add("alpha.dev | verified | self | 2026-03-20")), main, today).kind, "landed");
   assert.equal(classifyPullRequest(file(add("alpha.dev | unclaimed | submit | 2026-11-27")), main, today).kind, "duplicate");
   assert.equal(classifyPullRequest(file(add("beta.dev | unclaimed | self | 2026-11-27")), main, today).kind, "duplicate");
+  // After an upgrade lands with main's source kept, a retry of that PR reads as landed, not duplicate.
+  const upgraded = parseDomainsTxt(registryText.replace("beta.dev | unclaimed", "beta.dev | verified"));
+  assert.equal(classifyPullRequest(file(add("beta.dev | verified | self | 2026-11-27")), upgraded, today).kind, "landed");
 });
 
 const gamma: IntakeRow = { entry: { domain: "gamma.dev", status: "unclaimed", source: "submit", added_date: "2026-11-27" }, prior: null };

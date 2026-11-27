@@ -18,10 +18,13 @@ permissions:
   contents: read
   pull-requests: write
   issues: write
+  # To see whether the nightly crawl is running, since the crawl refuses a registry that changed under it.
+  actions: read
 
 concurrency:
-  # Its own group, so a manual run never cancels a queued nightly crawl. Both commit through
-  # githubCommitFilesAtomically, which re-reads main and retries, so neither overwrites the other.
+  # Its own group, so a manual run never cancels a queued nightly crawl. The intake commits nothing
+  # while a crawl run is queued or running, and both commit through githubCommitFilesAtomically,
+  # which re-reads main, so neither overwrites the other.
   group: listing-intake
   cancel-in-progress: false
 

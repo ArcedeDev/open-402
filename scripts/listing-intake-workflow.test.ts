@@ -10,6 +10,6 @@ test("listing intake workflow never runs contributor code", async () => {
   assert.doesNotMatch(lines, /github\.event\.pull_request|head_ref|head\.sha|refs\/pull/, "no PR ref is checked out or used");
   assert.match(lines, /ref: main\n\s+persist-credentials: false/);
   assert.match(lines, /group: listing-intake\n\s+cancel-in-progress: false/);
-  assert.match(lines, /^permissions:\n  contents: read\n  pull-requests: write\n  issues: write\n/m);
+  assert.match(lines, /^permissions:\n  contents: read\n  pull-requests: write\n  issues: write\n  actions: read\n(?!  )/m);
   assert.equal((lines.match(/secrets\./g) ?? []).length, 1, "only the publisher secret, in one step");
 });
