@@ -20142,7 +20142,7 @@ x402-task-router.loudtzu.workers.dev | unclaimed | onchain-x402 | 2026-11-27
 x402-token-cards.loudtzu.workers.dev | unclaimed | onchain-x402 | 2026-11-27
 x402-verdict.redhunterriki28.workers.dev | unclaimed | onchain-x402 | 2026-11-27
 x402.automatonrd.com | unclaimed | onchain-x402 | 2026-11-27
-x402.sifting.io | unclaimed | onchain-x402 | 2026-11-27
+x402.sifting.io | verified | self | 2026-11-27
 yield-radar.8qk1thp1.workers.dev | unclaimed | onchain-x402 | 2026-11-27
 youyou-text-tools.netlify.app | unclaimed | onchain-x402 | 2026-11-27
 zerodiscovery.duckdns.org | unclaimed | onchain-x402 | 2026-11-27
