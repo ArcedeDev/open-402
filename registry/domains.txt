@@ -20147,3 +20147,7 @@ yield-radar.8qk1thp1.workers.dev | unclaimed | onchain-x402 | 2026-11-27
 youyou-text-tools.netlify.app | unclaimed | onchain-x402 | 2026-11-27
 zerodiscovery.duckdns.org | unclaimed | onchain-x402 | 2026-11-27
 commons.newsatoshi.org | unclaimed | self | 2026-11-27
+rentandrugshield.com | unclaimed | self | 2026-11-17
+protocols.changefeed.dev | verified | self | 2026-11-17
+www.omenz.org | unclaimed | self | 2026-11-18
+solguard-ops.market.near.ai | unclaimed | self | 2026-11-18
