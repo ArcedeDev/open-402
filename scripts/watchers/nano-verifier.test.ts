@@ -163,6 +163,8 @@ test("an unopened account is unverified at height 0; a bad checksum is invalid",
   const bad = node([], 0, { account: ADDRESS });
   const invalid = (await verify(bad.fetchStub, [{ address: wrongChecksum, lastScannedBlock: null }])).get(wrongChecksum.toLowerCase())!;
   assert.equal(invalid.verificationState, "invalid");
+  // The checksum is checked locally, so a mistyped account costs no node call.
+  assert.equal(bad.calls.length, 0);
 
   // Shape errors never reach the node.
   const silent = node([]);
