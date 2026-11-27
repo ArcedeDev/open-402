@@ -1,0 +1,56 @@
+name: Listing intake
+
+# Lands one-row listing PRs from contributors once they pass the registry and live checks, and
+# labels everything else `needs-review`. It runs main's own code on a schedule and reads PRs only
+# through the API: contributor code is never checked out or run (see scripts/intake-listings.ts).
+
+on:
+  schedule:
+    - cron: '41 */3 * * *'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Print decisions without committing, commenting or closing'
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+  # To see whether the nightly crawl is running, since the crawl refuses a registry that changed under it.
+  actions: read
+
+concurrency:
+  # Its own group, so a manual run never cancels a queued nightly crawl. The intake commits nothing
+  # while a crawl run is queued or running, and both commit through githubCommitFilesAtomically,
+  # which re-reads main, so neither overwrites the other.
+  group: listing-intake
+  cancel-in-progress: false
+
+jobs:
+  intake:
+    if: github.repository == 'ArcedeDev/open-402' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          ref: main
+          persist-credentials: false
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
+        with:
+          node-version: '24'
+          check-latest: true
+      - run: npm ci --ignore-scripts
+      - run: npm test
+      - run: npm run check:registry
+      - name: Land eligible listings
+        env:
+          GITHUB_TOKEN: ${{ secrets.DIRECTORY_GITHUB_TOKEN }}
+          PR_TOKEN: ${{ github.token }}
+          GITHUB_REPO: ArcedeDev/open-402
+          MAX_LISTINGS_PER_RUN: '10'
+          DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run }}
+        run: |
+          if [ "$DRY_RUN" = "true" ]; then node scripts/intake-listings.ts --dry-run; else node scripts/intake-listings.ts; fi

@@ -2,16 +2,18 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { EventEmitter } from "node:events";
 import { PassThrough } from "node:stream";
-import { crawlDomain, isPublicAddress, isPublicDomain, validateManifest } from "./manifest.ts";
+import { crawlDomain, isPublicAddress, isPublicDomain, isX402Challenge, probeX402Discovery, validateManifest } from "./manifest.ts";
 
 const domain = "api.vendor.io";
 const manifest = { version: "1.3", origin: domain, payout_address: "0x1111111111111111111111111111111111111111" };
 
 function transport(responses: { body?: string; status?: number; headers?: Record<string, string>; stall?: boolean; abort?: boolean }[], addresses = ["8.8.8.8"]) {
   const calls: string[] = [];
+  const methods: string[] = [];
   const sockets: string[] = [];
   const request = (url, options, receive) => {
     calls.push(url.href);
+    methods.push(options.method ?? "GET");
     const req = new EventEmitter() as EventEmitter & { end: () => void };
     let response: PassThrough | undefined;
     const abort = () => {
@@ -35,7 +37,7 @@ function transport(responses: { body?: string; status?: number; headers?: Record
     return req;
   };
   const lookup = async () => addresses.map((address) => ({ address, family: address.includes(":") ? 6 : 4 }));
-  return { calls, sockets, options: { request, lookup } };
+  return { calls, methods, sockets, options: { request, lookup } };
 }
 
 test("official validator accepts supported versions and custom payment protocols", () => {
@@ -119,4 +121,65 @@ test("DNS failures and empty answers become bounded failures", async () => {
   assert.equal((await crawlDomain(domain, empty.options)).error, "blocked_address");
   const failed = transport([{}]);
   assert.equal((await crawlDomain(domain, { ...failed.options, lookup: async () => { throw new Error("DNS failed"); } })).error, "request_failed");
+});
+
+const v1 = JSON.stringify({ x402Version: 1, error: "payment required", accepts: [{ scheme: "exact", network: "base", payTo: "0x1" }] });
+const v2Header = Buffer.from(JSON.stringify({ x402Version: 2, accepts: [{ scheme: "exact", network: "eip155:8453" }] })).toString("base64");
+
+test("an x402 challenge is a 402 naming a version and a payment option, in the body or the PAYMENT-REQUIRED header", () => {
+  assert.equal(isX402Challenge({ success: true, status: 402, body: v1 }), true);
+  assert.equal(isX402Challenge({ success: true, status: 402, body: "{}", paymentRequired: v2Header }), true);
+  for (const body of ["<html>Payment required</html>", "", "{}", JSON.stringify({ x402Version: 1 }), JSON.stringify({ x402Version: 1, accepts: [] }),
+    JSON.stringify({ x402Version: "1", accepts: [{}] }), JSON.stringify({ x402Version: 1, accepts: ["x"] }), JSON.stringify({ x402Version: 1, accepts: [{}] }), JSON.stringify({ x402Version: 1, accepts: [{ scheme: "exact" }] }), JSON.stringify({ code: "DEPLOYMENT_DISABLED" })]) {
+    assert.equal(isX402Challenge({ success: true, status: 402, body }), false, body);
+  }
+  assert.equal(isX402Challenge({ success: true, status: 402, body: "", paymentRequired: "not base64 json" }), false);
+  assert.equal(isX402Challenge({ success: true, status: 200, body: v1 }), false);
+  assert.equal(isX402Challenge({ success: false, error: "HTTP 402" }), false);
+});
+
+test("x402 evidence: an x402 challenge at the root or on a listed resource of the same host", async () => {
+  const atRoot = transport([{ status: 402, body: v1, headers: { "content-type": "text/plain" } }]);
+  assert.deepEqual(await probeX402Discovery(domain, atRoot.options), { success: true });
+  assert.deepEqual(atRoot.calls, [`https://${domain}/`]);
+  const header = transport([{ status: 402, body: "", headers: { "payment-required": v2Header } }]);
+  assert.deepEqual(await probeX402Discovery(domain, header.options), { success: true });
+
+  const listed = JSON.stringify({ x402Version: 2, resources: [`https://other.io/paid`, `https://${domain}/.well-known/x`, `https://${domain}/api/a`, `https://${domain}/api/b`] });
+  const resource = transport([{ status: 404 }, { body: listed }, { status: 400 }, { status: 402, body: v1 }]);
+  assert.deepEqual(await probeX402Discovery(domain, resource.options), { success: true });
+  assert.deepEqual(resource.calls.slice(2), [`https://${domain}/api/a`, `https://${domain}/api/b`]);
+
+  // A POST-only resource is asked once more with an empty JSON body.
+  const post = transport([{ status: 404 }, { body: listed }, { status: 405 }, { status: 402, body: "", headers: { "payment-required": v2Header } }]);
+  assert.deepEqual(await probeX402Discovery(domain, post.options), { success: true });
+  assert.deepEqual(post.methods, ["GET", "GET", "GET", "POST"]);
+});
+
+test("x402 evidence is refused for bare 402s, documents alone, other hosts and blocked targets", async () => {
+  // A host's own 402 page (a disabled deployment, a closed store) is not x402.
+  const bare = transport([{ status: 402, body: JSON.stringify({ error: { code: "DEPLOYMENT_DISABLED" } }) }, { status: 404 }]);
+  assert.equal((await probeX402Discovery(domain, bare.options)).success, false);
+  // A static discovery document with no resource that answers with a challenge is not enough.
+  assert.deepEqual(await probeX402Discovery(domain, transport([{ status: 404 }, { body: JSON.stringify({ x402Version: 2 }) }]).options), { success: false, error: "no_listed_resource" });
+  const many = JSON.stringify({ resources: [`https://${domain}/a`, `https://${domain}/b`, `https://${domain}/c`, `https://${domain}/d`] });
+  const noPaid = transport([{ status: 404 }, { body: many }, { status: 402, body: "<html>pay</html>" }, { status: 404 }, { status: 404 }]);
+  assert.deepEqual(await probeX402Discovery(domain, noPaid.options), { success: false, error: "no_x402_challenge", transient: false });
+  assert.equal(noPaid.calls.length, 5, "at most three listed resources are tried");
+  const slow = transport([{ status: 404 }, { body: many }, { status: 503 }, { status: 404 }, { status: 404 }]);
+  assert.deepEqual(await probeX402Discovery(domain, slow.options), { success: false, error: "no_x402_challenge", transient: true });
+  assert.deepEqual(await probeX402Discovery(domain, transport([{ status: 404 }, { status: 404 }]).options), { success: false, error: "HTTP 404", transient: false });
+  assert.deepEqual(await probeX402Discovery(domain, transport([{ status: 404 }, { status: 502 }]).options), { success: false, error: "HTTP 502", transient: true });
+  // Evidence must come from the listed host: a redirect elsewhere does not count, www. aside.
+  const away = transport([{ status: 302, headers: { location: "https://payments.other.io/" } }, { status: 404 }]);
+  assert.equal((await probeX402Discovery(domain, away.options)).success, false);
+  assert.deepEqual(away.calls, [`https://${domain}/`, `https://${domain}/.well-known/x402`]);
+  const www = transport([{ status: 301, headers: { location: `https://www.${domain}/` } }, { status: 402, body: v1 }]);
+  assert.deepEqual(await probeX402Discovery(domain, www.options), { success: true });
+  assert.deepEqual(await probeX402Discovery(domain, transport([{}], ["10.0.0.1"]).options), { success: false, error: "blocked_address", transient: false });
+  assert.deepEqual(await probeX402Discovery("localhost", transport([{}]).options), { success: false, error: "blocked", transient: false });
+
+  const large = JSON.stringify({ pad: "x".repeat(200_000), resources: [`https://${domain}/a`] });
+  assert.deepEqual(await probeX402Discovery(domain, transport([{ status: 404 }, { body: large }, { status: 402, body: v1 }]).options), { success: true });
+  assert.deepEqual(await probeX402Discovery(domain, { ...transport([{ status: 404 }, { body: large }]).options, maxBytes: 100_000 }), { success: false, error: "too_large", transient: false });
 });

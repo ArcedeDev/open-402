@@ -6,7 +6,7 @@ Use Node 24.14.0 or later. Install the lockfile with `npm ci --ignore-scripts`, 
 
 `node scripts/crawl.ts --dry-run --limit 90` checks a uniform sample of the local registry. Omit `--limit` for a full read-only manifest crawl. Dry runs never publish, discover additional domains, verify payment activity, or call the sync webhook. Partial runs are refused unless dry-run mode is explicit.
 
-`node scripts/check-registry.ts --base <40-character-commit-sha> --live` validates changed rows and checks the manifests of newly verified listings. Unclaimed services still need manual evidence of a real public API. Manifest verification is not a security, payment, or service-quality endorsement.
+`node scripts/check-registry.ts --base <40-character-commit-sha> --live` validates changed rows and checks the manifests of newly verified listings. Unclaimed services need evidence of a live x402 service; `.github/workflows/listing-intake.yml` checks it automatically for one-row contributor PRs (rules in CONTRIBUTING.md, code in `scripts/intake-listings.ts` and `scripts/lib/listing-intake.ts`) and labels every other PR `needs-review`. The job runs main's code on a schedule, never checks out contributor code, commits through the same atomic, re-reading publisher as the nightly crawl, and commits nothing while a crawl run is queued or running. Its markers are its own comments, one per head commit, so it never repeats itself; a PR it closed that is reopened comes to you. Add the `hold` label to keep it away from a PR; run it by hand with `gh workflow run listing-intake.yml --repo ArcedeDev/open-402 -f dry_run=true` to see its decisions without writing. Manifest verification is not a security, payment, or service-quality endorsement.
 
 ## Publication
 

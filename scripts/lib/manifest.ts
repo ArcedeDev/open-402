@@ -49,13 +49,36 @@ export function validateManifest(value: unknown, domain: string): CrawlResult {
 
 export interface CrawlOptions {
   timeoutMs?: number;
+  /** Accept a 200 body whatever its content type (the caller parses it). Default false. */
+  anyContentType?: boolean;
+  /** Follow a redirect only to the same host or its `www.` twin. Default false. */
+  sameHostRedirect?: boolean;
+  /** Read a 402 response (any content type) instead of failing with "HTTP 402". */
+  accept402?: boolean;
+  /** Send an empty JSON object as a POST, as an x402 client's unpaid first request does. */
+  emptyPost?: boolean;
   maxBytes?: number;
   request?: typeof request;
   lookup?: typeof lookup;
 }
 
-export async function crawlDomain(domain: string, options: CrawlOptions = {}): Promise<CrawlResult> {
-  if (!isPublicDomain(domain)) return { success: false, error: "blocked" };
+export interface PublicFetchResult {
+  success: boolean;
+  /** 200, or 402 when `accept402` is set. */
+  status?: number;
+  body?: string;
+  /** The `PAYMENT-REQUIRED` header of a 402 response, when `accept402` is set. */
+  paymentRequired?: string;
+  error?: string;
+}
+
+/**
+ * GET one JSON document from a public HTTPS origin, with the crawler's guards: public names and
+ * addresses only (checked on the socket's own lookup), port 443, one redirect, a byte cap and a
+ * timeout. Only a 200 JSON response yields a body.
+ */
+export async function fetchPublicJson(domain: string, path: string, options: CrawlOptions = {}): Promise<PublicFetchResult> {
+  if (!isPublicDomain(domain) || !path.startsWith("/")) return { success: false, error: "blocked" };
   const timeoutMs = options.timeoutMs ?? 8_000;
   const maxBytes = options.maxBytes ?? 100_000;
   const send = options.request ?? request;
@@ -63,7 +86,7 @@ export async function crawlDomain(domain: string, options: CrawlOptions = {}): P
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), timeoutMs);
 
-  async function read(url: URL): Promise<{ location?: string; body?: string }> {
+  async function read(url: URL): Promise<{ location?: string; body?: string; status?: number; paymentRequired?: string }> {
     if (url.protocol !== "https:" || url.username || url.password || (url.port && url.port !== "443") || !isPublicDomain(url.hostname)) {
       throw new Error("blocked");
     }
@@ -71,7 +94,11 @@ export async function crawlDomain(domain: string, options: CrawlOptions = {}): P
       const req = send(url, {
         agent: false,
         signal: controller.signal,
-        headers: { Accept: "application/json", "Accept-Encoding": "identity", "User-Agent": "Open402DirectoryCrawler/1.0" },
+        method: options.emptyPost ? "POST" : "GET",
+        headers: {
+          Accept: "application/json", "Accept-Encoding": "identity", "User-Agent": "Open402DirectoryCrawler/1.0",
+          ...(options.emptyPost ? { "Content-Type": "application/json", "Content-Length": "2" } : {}),
+        },
         // Validate the addresses used by this socket, not a separate DNS preflight.
         lookup(host, lookupOptions, callback) {
           resolveHost(host, { all: true, verbatim: true }).then((addresses) => {
@@ -93,7 +120,8 @@ export async function crawlDomain(domain: string, options: CrawlOptions = {}): P
           else reject(new Error("redirect_no_location"));
           return;
         }
-        if (status !== 200 || !String(res.headers["content-type"] ?? "").toLowerCase().includes("json")) {
+        const challenge = status === 402 && options.accept402 === true;
+        if (!challenge && (status !== 200 || (!options.anyContentType && !String(res.headers["content-type"] ?? "").toLowerCase().includes("json")))) {
           res.destroy();
           reject(new Error(status !== 200 ? `HTTP ${status}` : "not_json"));
           return;
@@ -113,23 +141,35 @@ export async function crawlDomain(domain: string, options: CrawlOptions = {}): P
           }
           chunks.push(chunk);
         });
-        res.on("end", () => resolve({ body: Buffer.concat(chunks).toString("utf8") }));
+        const header = res.headers["payment-required"];
+        res.on("end", () => resolve({
+          body: Buffer.concat(chunks).toString("utf8"),
+          status,
+          ...(challenge && typeof header === "string" ? { paymentRequired: header } : {}),
+        }));
         res.on("aborted", () => reject(new Error("body_aborted")));
       });
       req.on("error", reject);
-      req.end();
+      req.end(options.emptyPost ? "{}" : undefined);
     });
   }
 
   try {
-    const url = new URL(`https://${domain}/.well-known/agent.json`);
+    const url = new URL(`https://${domain}${path}`);
     let response = await read(url);
-    if (response.location) response = await read(new URL(response.location, url));
+    if (response.location) {
+      const next = new URL(response.location, url);
+      const bare = (host: string) => host.replace(/^www\./, "");
+      if (options.sameHostRedirect && bare(next.hostname) !== bare(url.hostname)) return { success: false, error: "cross_host_redirect" };
+      response = await read(next);
+    }
     if (response.location) return { success: false, error: "too_many_redirects" };
-    let value: unknown;
-    try { value = JSON.parse(response.body ?? ""); }
-    catch { return { success: false, error: "invalid_json" }; }
-    return validateManifest(value, domain);
+    return {
+      success: true,
+      status: response.status ?? 200,
+      body: response.body ?? "",
+      ...(response.paymentRequired !== undefined ? { paymentRequired: response.paymentRequired } : {}),
+    };
   } catch (error) {
     const message = error instanceof Error ? error.message : "request_failed";
     const known = /^(blocked|blocked_address|too_large|body_aborted|redirect_no_location|not_json|unsupported_encoding|HTTP \d+)$/;
@@ -137,4 +177,80 @@ export async function crawlDomain(domain: string, options: CrawlOptions = {}): P
   } finally {
     clearTimeout(timeout);
   }
+}
+
+export async function crawlDomain(domain: string, options: CrawlOptions = {}): Promise<CrawlResult> {
+  if (!isPublicDomain(domain)) return { success: false, error: "blocked" };
+  const response = await fetchPublicJson(domain, "/.well-known/agent.json", options);
+  if (!response.success) return { success: false, error: response.error };
+  let value: unknown;
+  try { value = JSON.parse(response.body ?? ""); }
+  catch { return { success: false, error: "invalid_json" }; }
+  return validateManifest(value, domain);
+}
+
+/** A JSON value that reads as an x402 payment requirement: an integer version and payment options, each naming a scheme and network. */
+function isPaymentRequirement(value: unknown): boolean {
+  if (!value || typeof value !== "object" || Array.isArray(value)) return false;
+  const { x402Version, accepts } = value as Record<string, unknown>;
+  return Number.isSafeInteger(x402Version) && (x402Version as number) >= 1
+    && Array.isArray(accepts) && accepts.length > 0
+    && accepts.every((option) => option !== null && typeof option === "object" && !Array.isArray(option)
+      && typeof (option as Record<string, unknown>).scheme === "string" && typeof (option as Record<string, unknown>).network === "string");
+}
+
+/**
+ * True for a 402 that carries an x402 challenge: a `PAYMENT-REQUIRED` header holding base64 JSON
+ * (x402 v2), or a JSON body (x402 v1), naming a version and at least one payment option. A bare
+ * 402, such as a host's "deployment disabled" or "payment required" page, does not count.
+ */
+export function isX402Challenge(response: PublicFetchResult): boolean {
+  if (!response.success || response.status !== 402) return false;
+  if (response.paymentRequired) {
+    try {
+      if (isPaymentRequirement(JSON.parse(Buffer.from(response.paymentRequired, "base64").toString("utf8")))) return true;
+    } catch { /* not base64 JSON */ }
+  }
+  try { return isPaymentRequirement(JSON.parse(response.body ?? "")); }
+  catch { return false; }
+}
+
+/**
+ * Evidence that an unclaimed listing is a live x402 service: its root, or one of the first three
+ * resources its `/.well-known/x402` discovery document lists on the same host, answers with an
+ * x402 challenge (see isX402Challenge). A discovery document alone is not enough. Every request
+ * goes through the guarded fetch above, a redirect to another host does not count, a resource that
+ * refuses GET with 405 is asked once more with an empty JSON POST, and at most eight requests are made.
+ */
+/** Errors that say nothing about the service itself: worth another try later. */
+export function isTransientFetchError(error: string | undefined): boolean {
+  return error === "timeout" || error === "request_failed" || error === "body_aborted" || /^HTTP (429|5\d\d)$/.test(error ?? "");
+}
+
+export async function probeX402Discovery(domain: string, overrides: CrawlOptions = {}): Promise<{ success: boolean; error?: string; transient?: boolean }> {
+  // Evidence must come from the listed host itself, not from wherever it redirects.
+  const options: CrawlOptions = { sameHostRedirect: true, accept402: true, ...overrides };
+  if (isX402Challenge(await fetchPublicJson(domain, "/", options))) return { success: true };
+  // Discovery files list every resource, so they run larger than manifests.
+  const response = await fetchPublicJson(domain, "/.well-known/x402", { maxBytes: 1_000_000, anyContentType: true, ...options, accept402: false });
+  if (!response.success) return { success: false, error: response.error, transient: isTransientFetchError(response.error) };
+
+  const paths = new Set<string>();
+  for (const match of (response.body ?? "").matchAll(/https:\/\/[^\s"'<>\\]+/g)) {
+    try {
+      const url = new URL(match[0]);
+      if (url.hostname === domain && url.pathname !== "/" && !url.pathname.startsWith("/.well-known/")) paths.add(url.pathname);
+    } catch { /* not a URL */ }
+    if (paths.size === 3) break;
+  }
+  if (!paths.size) return { success: false, error: "no_listed_resource" };
+  let transient = false;
+  for (const path of paths) {
+    let answer = await fetchPublicJson(domain, path, options);
+    // Many paid endpoints take POST only; ask the way an x402 client's unpaid first request does.
+    if (answer.error === "HTTP 405") answer = await fetchPublicJson(domain, path, { ...options, emptyPost: true });
+    if (isX402Challenge(answer)) return { success: true };
+    transient ||= isTransientFetchError(answer.error);
+  }
+  return { success: false, error: "no_x402_challenge", transient };
 }
