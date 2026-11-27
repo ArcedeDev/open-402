@@ -20146,3 +20146,4 @@ x402.sifting.io | unclaimed | onchain-x402 | 2026-11-27
 yield-radar.8qk1thp1.workers.dev | unclaimed | onchain-x402 | 2026-11-27
 youyou-text-tools.netlify.app | unclaimed | onchain-x402 | 2026-11-27
 zerodiscovery.duckdns.org | unclaimed | onchain-x402 | 2026-11-27
+commons.newsatoshi.org | unclaimed | self | 2026-11-27
