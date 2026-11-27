@@ -181,6 +181,6 @@ test("a PR with too many comments to read them all is left alone", async () => {
   const w = world([pr(1, "gamma.dev")], { truncated: [1] });
   const s = await run(w.deps);
   assert.deepEqual(w.probed, []);
-  assert.deepEqual(w.effects, []);
+  assert.deepEqual(w.effects, ["label #1 needs-review"]);
   assert.equal(s.deferred, 1);
 });

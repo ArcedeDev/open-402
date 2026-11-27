@@ -124,7 +124,12 @@ export async function runIntake(deps: IntakeDeps, options: { dryRun: boolean; ma
     try {
       const { items, truncated } = await deps.listComments(pr.number);
       // Too many comments to be sure of seeing this job's markers: leave it to a maintainer.
-      if (truncated) { log(`#${pr.number}: too many comments to read; skipped`); summary.deferred++; continue; }
+      if (truncated) {
+        log(`#${pr.number}: too many comments to read; left to a maintainer`);
+        summary.deferred++;
+        if (!options.dryRun && !pr.labels.some((label) => label.name === REVIEW_LABEL)) await deps.addLabel(pr.number, REVIEW_LABEL);
+        continue;
+      }
       mine.set(pr.number, items.filter((c) => c.user?.login === BOT_LOGIN && c.user.type === "Bot"));
     } catch (error) {
       summary.errors++;
